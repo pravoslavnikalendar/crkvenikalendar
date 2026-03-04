@@ -7,15 +7,15 @@
 <meta name="description" content="Православни црквени календар за 2026, молитвеник и свето писмо. Традиционални православни ресурси на српском језику.">
 <title>Православни Календар 2026 - Црквени Календар | Молитвеник | Свето Писмо| Псалтир</title>
 
-<!-- Prikaz preko celog ekrana (bez browser trake) -->
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 
-    <!-- Boja statusne trake i tema -->
+ 
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#EED69F">
 
-    <!-- Naziv i ikonica -->
+
     <meta name="apple-mobile-web-app-title" content="Каледар 2026">
     <link rel="apple-touch-icon" href="ikona.png">
 
@@ -24,7 +24,7 @@ body {
 margin: 0;
 backgroung-color: #EED69F;
 background-image: url("papir.jpg");
-background-size: contain;
+ background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 display: flex;
@@ -41,44 +41,41 @@ font-family: "Times New Roman", serif;
         }
 
         .dugme {
-            display: block;
-            background: rgba(244, 225, 166, 0.92);
-            padding: 18px;
-            margin: 15px 0;
-            text-decoration: none;
-            color: #4A3728;
-            font-size: 22px;
-            border-radius: 10px;
-            border: 1px solid #4A3728;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-            transition: 0.3s;
-        }
+display: block;
+background: rgba(242, 230, 201, 0.88); /* #F2E6C9 sa providnošću */
+padding: 18px;
+margin: 15px 0;
+text-decoration: none;
+color: #4A3728;
+font-size: 22px;
+border-radius: 10px;
+border: 1px solid #8b6f47;
+box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+transition: all 0.3s ease;
+}
 
-        .dugme:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-        }
+ .dugme:hover {
+transform: scale(1.04);
+box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
 
        .krst {
-            font-size: 40px;
+font-size: 40px;
 text-align: center;
-            margin-bottom: 10px;
-margin: -5px auto -20px auto;  /* Centriranje i razmak */
-            background: linear-gradient(45deg, #080808);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+margin: -5px auto -20px auto;
+color: #000000;
+}
         .potpis {
             font-size: 14px;
             margin-top: 20px;
             color: #4A3728;
             font-style: italic;
         }
-/* MOBILNI: Da ne budu sitna slova */
-@media (max-width: 430px) {
+/* MOBILNI:  */
+@media (max-width: 600px) {
     .container { padding: 20px; width: 100%; }
     .dan, .zaglavlje-kolone {
-        grid-template-columns: 20px 20px 20px 1fr !important;
+        grid-template-columns: 20px 20px 20px 1fr;
     }
 .svetitelj { font-size: 18px; }
 .sadrzaj { font-size: 21px; }
@@ -106,14 +103,13 @@ margin: -5px auto -20px auto;  /* Centriranje i razmak */
 </head>
 <body>
 
-
-
 <div class="container">
-    <!-- Ovde ubacujemo tvoj prelepi logo da se vidi odmah -->
-    <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 90px; 
-height: 90px; display: block; 
+   
+    <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
+height: 80px; display: block; 
 margin: 0 auto 5px auto; 
 border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+
  
     <div class="krst">☦</div>   
     <a href="januar-2026.html" class="dugme">Православни календар</a>
