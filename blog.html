@@ -3,29 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блог - Љубав Православље</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>БЛОГ</title>
+
     <style>
-        body {
-            margin: 0;
-            /* Твоја магична "srećna" boja peska, sive i purpurne */
-            backgroung: #EED69F linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
-            background-image: url("papir.jpg");
-            background-size: cover;
-            background-attachment: fixed;
-            font-family: "Times New Roman", serif;
-            color: #4A3728;
-            text-align: center;
-            min-height: 100vh;
+       
+.home-dugme {
+            position: fixed; top: 15px; left: 15px;
+            background: rgba(242, 230, 201, 0.9);
+            padding: 10px 15px; border-radius: 8px;
+            border: 1px solid #8b6f47; text-decoration: none; color: #4A3728;
+            font-size: 20px; z-index: 100;
         }
 
-        .container {
-            width: 95%;
-            max-width: 800px; /* Malo šire da blog bolje stane */
-            margin: auto;
-            padding-top: 60px;
-        }
-
-        /* "PROZOR" ZA TVOJ BLOG IZ 2015 */
+   /* "PROZOR" ZA TVOJ BLOG IZ 2015 */
         .blog-okvir {
             width: 100%;
             height: 75vh; /* Zauzima veći deo ekrana telefona */
@@ -52,10 +44,42 @@
 
         h1 { margin-bottom: 10px; font-size: 28px; }
         p { font-style: italic; margin-bottom: 20px; }
-    </style>
+
+/* Ovo važi za sve uređaje */
+.vrh-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 10px;
+    color: #8b6f47;
+    font-weight: bold;
+    margin-top: 20px;
+}
+/* Ovo se aktivira SAMO na telefonima */
+@media (max-width: 480px) {
+    .vrh-link {
+        font-size: 32px; /* Još veća strelica za palac */
+        padding: 20px;   /* Veći prostor za klik */
+        display: block;  /* Da bude na sredini ekrana */
+    }
+}
+
+  </style>
 </head>
 <body>
-
 <a href="index.html" class="home-dugme">🏠</a>
+ <div class="container">
+ <h1>Љубав Православље</h1>
+ <p><i></i></p> 
+       
+        <!-- Ово је прозор који учитава твој блог -->
+        <iframe src="https://ljubavpravoslavlje.blogspot.com" 
+                style="width:100%; height:80vh; border:1px solid #8b6f47; border-radius:10px;">
+        </iframe>
+        
+ 
+       
+    </div>
+</body>
 
-<div class="container">
+</html>
