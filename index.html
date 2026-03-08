@@ -11,6 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="background: rgba(242, 230, 201, 0.88);">
+
 <meta name="apple-mobile-web-app-title" content="Православље Календар">
 
 <link rel="apple-touch-icon" href="ikona.png">
@@ -68,6 +69,26 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 0 10px 20px rgba(0,0,0,0.35);
 background: rgba(242, 230, 201, 0.95);
 }
+.blog-precica {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Stavljamo ga u onaj tvoj slobodan prostor desno */
+    background: rgba(139, 111, 71, 0.2);
+    padding: 10px 15px;
+    border-radius: 50px;
+    border: 1px solid #8b6f47;
+    text-decoration: none;
+    color: #4A3728;
+    font-style: italic;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.blog-precica:hover {
+    background: rgba(242, 230, 201, 0.9);
+    transform: scale(1.1);
+}
+   
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
@@ -131,6 +152,13 @@ margin: 0;
 padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
  }
 
+/* Na mobilnom neka se vrati u sredinu ili ispod logoa */
+@media (max-width: 480px) {
+    .blog-precica {
+        position: static;
+        display: inline-block;
+        margin-top: 10px;
+    }
 }
 
  </style>
@@ -185,7 +213,7 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <a href="sveto-pismo.html" class="dugme">СВЕТО ПИСМО</a>
 <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
 <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
-<a href="blog.html" class="dugme">Мој Блог</a>
+<a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
 </div>
 
 <script>
