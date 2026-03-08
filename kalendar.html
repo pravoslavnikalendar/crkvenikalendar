@@ -72,6 +72,10 @@
     <br>
     <a href="index.html" style="text-decoration:none; font-size: 26px; 
         color:#8b6f47; padding: 15px 30px; font-weight:bold;">⬅ Назад на почетну</a>
+<br><br>
+<button onclick="prikaziVaskrs()" style="background: #8b0000; color: white; padding: 15px 25px; 
+border-radius: 10px; border: none; font-size: 20px; font-weight: bold; cursor: pointer; 
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</button>
 </div>
 
 <script>
@@ -120,6 +124,39 @@
 
     // Pokrećemo crtanje sa ispravnim podacima
     generisiKalendar(m, g);
+// ПАМЕТНА ФУНКЦИЈА ЗА ВАСКРС (Православни)
+function izracunajVaskrs(godina) {
+    const a = godina % 19;
+    const b = godina % 4;
+    const c = godina % 7;
+    const d = (19 * a + 15) % 30;
+    const e = (2 * b + 4 * c + 6 * d + 6) % 7;
+    const f = d + e;
+    
+    // Васкрс по старом календару (Јулијанском)
+    let dan, mesec;
+    if (f <= 9) {
+        dan = 22 + f;
+        mesec = "Март";
+    } else {
+        dan = f - 9;
+        mesec = "Април";
+    }
+    
+    // Додајемо 13 дана за нови календар
+    let vaskrsNovi = new Date(godina, (mesec === "Март" ? 2 : 3), dan);
+    vaskrsNovi.setDate(vaskrsNovi.getDate() + 13);
+    
+    const opcije = { day: 'numeric', month: 'long' };
+    return vaskrsNovi.toLocaleDateString('sr-RS', opcije);
+}
+
+// Функција која приказује Васкрс кад кликнеш на дугме
+function prikaziVaskrs() {
+    const g = new URLSearchParams(window.location.search).get('godina') || 2026;
+    const datum = izracunajVaskrs(parseInt(g));
+    alert("Православни Васкрс " + g + ". године пада: " + datum);
+}
 </script>
 
 </body>
