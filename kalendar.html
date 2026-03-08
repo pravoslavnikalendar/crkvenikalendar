@@ -69,14 +69,21 @@
 <div class="container">
     <h2 id="naslovMeseca">Учитавам...</h2>
     <div id="kalendarTabela"></div>
+<div id="dodatakPrikaz" style="display:none; margin: 20px auto; padding: 15px; 
+background: rgba(242, 230, 201, 0.9); border: 1px solid #8b6f47; 
+border-radius: 10px; font-style: italic; width: 80%; max-width: 400px; 
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+</div> 
     <br>
-    <a href="index.html" style="text-decoration:none; font-size: 26px; 
-        color:#8b6f47; padding: 15px 30px; font-weight:bold;">⬅ Назад на почетну</a>
-<br><br>
-<button onclick="prikaziVaskrs()" style="background: #8b0000; color: white; padding: 15px 25px; 
+ <button onclick="prikaziVaskrs()" style="background: #8b0000; color: white; padding: 15px 25px; 
 border-radius: 10px; border: none; font-size: 20px; font-weight: bold; cursor: pointer; 
-box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</button>
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</button>   
+
+<br><br>
+<a href="index.html" style="text-decoration:none; font-size: 26px;
+ color:#8b6f47; padding: 15px 30px; font-weight:bold;">⬅ Назад на почетну</a>
 </div>
+
 
 <script>
     // POPRAVLJENA MAGIJA: Sada čita i mesec i godinu iz linka
@@ -153,12 +160,23 @@ function izracunajVaskrs(godina) {
 
 // Функција која приказује Васкрс кад кликнеш на дугме
 function prikaziVaskrs() {
-    const g = new URLSearchParams(window.location.search).get('godina') || 2026;
-    const datum = izracunajVaskrs(parseInt(g));
-    alert("Православни Васкрс " + g + ". године пада: " + datum);
+    const params = new URLSearchParams(window.location.search);
+    const g = parseInt(params.get('godina')) || 2026;
+    const datum = izracunajVaskrs(g);
+    
+    // Ово исписује одговор на онај твој папир:
+    const prikaz = document.getElementById('dodatakPrikaz');
+    prikaz.style.display = "block";
+    prikaz.innerHTML = "<b>Васкрс " + g + ". године пада:</b><br><span style='color:#8b0000; font-size:24px;'>" + datum + "</span>";
 }
 </script>
 
 </body>
 </html>
+
+
+
+</body>
+</html>
+
 
