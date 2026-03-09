@@ -98,7 +98,7 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</butto
     let g = (izabranaGodina !== null) ? parseInt(izabranaGodina) : danas.getFullYear();
 
     function generisiKalendar(mesec, godina) {
-        const imena = ["јануар", "фебруар", "март", "април", "мај", "јун", "јул", "август", "септембар", "октобар", "новембар", "децембар"];
+        const imena = ["Jануар", "Fебруар", "Mарт", "Aприл", "Mај", "Jун", "Jул", "Aвгуст", "Септембар", "Октобар", "Новембар", "Децембар"];
         document.getElementById('naslovMeseca').innerText = `${imena[mesec]} ${godina}.`;
 
         let prviDan = new Date(godina, mesec, 1).getDay();
@@ -179,6 +179,7 @@ function prikaziVaskrs() {
 
 </body>
 </html>
+
 
 
 
