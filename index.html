@@ -69,7 +69,7 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 0 10px 20px rgba(0,0,0,0.35);
 background: rgba(242, 230, 201, 0.95);
 }
-.blog-pecat {
+.pouke-pecat {
     position: absolute; /* Ово га вади из реда */
     top: 50px;           /* Висина - подеси како ти одговара */
     left: 450px;         /* Ово га гура ДЕСНО од твог главног контејнера */
@@ -85,11 +85,11 @@ background: rgba(242, 230, 201, 0.95);
     z-index: 9999;
 }
 
-.blog-pecat:hover {
+.pouke-pecat:hover {
     background: rgba(242, 230, 201, 0.9);
     transform: scale(1.1);
 }
-.pouke-pecat {
+.blog-pecat {
     position: fixed;
     top: 50px;         /* Исто као за Ризницу, само на левој страни */
     left: 30px;        /* Твој слободан простор лево на лаптопу */
@@ -191,7 +191,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
     /* МОБИЛНИ: Да не побегне са екрана телефона */
 /* На телефону нека буде у центру испод Ризнице */
 @media (max-width: 480px) {
-    .pouke-pecat {
+    .blog-pecat {
         position: static;   
         display: block;
         margin: 10px auto;
