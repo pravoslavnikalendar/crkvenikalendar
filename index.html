@@ -228,16 +228,13 @@ async function prikaziSve() {
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     document.getElementById('datum').innerText = d.toLocaleDateString('sr-RS', opcije);
 
-    // 2. Тражење светитеља
-    const dan = d.getDate();
-    const mesec = d.getMonth() + 1;
-    const kljuc = `${dan}-${mesec}`;
+   // 1. Узимамо данашњи датум
+const d = new Date();
+const dan = d.getDate();
+const mesec = d.getMonth() + 1;
+const kljuc = `${dan}-${mesec}`;
 
-    try {
-        const res = await fetch('svetitelji.json');
-        const svetitelji = await res.json();
-        
-       // 2. Тражимо у твојој ризници (svetitelji.json)
+// 2. Тражимо у твојој ризници (svetitelji.json)
 fetch('svetitelji.json')
     .then(res => res.json())
     .then(data => {
@@ -255,6 +252,7 @@ fetch('svetitelji.json')
     .catch(err => {
         document.getElementById('svetitelj').innerHTML = "<b>Данас:</b><br>Свети првомученик Стефан";
     });
+    
 // 3. Функција за календар (Мост)
 function osveziKalendar() {
     // Провери да ли твоји <select> менији имају id="mesecBirac" и id="godinaBirac"
