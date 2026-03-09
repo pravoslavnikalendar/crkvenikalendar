@@ -107,15 +107,33 @@ background: rgba(242, 230, 201, 0.95);
     transition: 0.3s;
 }
 
-/* На телефону нека буде у центру испод Ризнице */
+.stiker-dugme {
+    position: fixed;
+    bottom: 30px;      /* Стаклићемо га у доњи угао да не смета тексту */
+    right: 30px;       /* Твоја слободна десна страна на лаптопу */
+    width: 80px;       /* Величина твог стикера */
+    height: auto;
+    cursor: pointer;
+    z-index: 10001;    /* Да буде изнад папира */
+    transition: 0.4s;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); /* Сенка да "искочи" */
+}
+
+.stiker-dugme:hover {
+    transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
+}
+
 @media (max-width: 480px) {
-    .pouke-pecat {
-        position: static;   
+    .stiker-dugme {
+        position: static;
         display: block;
-        margin: 10px auto;
-        width: fit-content;
+        margin: 20px auto;
+        width: 100px;
     }
-}   
+}
+</style>
+
+
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
@@ -182,7 +200,17 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 /* Na mobilnom neka se vrati u sredinu ili ispod logoa */
 @media (max-width: 480px) {
     /* МОБИЛНИ: Да не побегне са екрана телефона */
+/* На телефону нека буде у центру испод Ризнице */
 @media (max-width: 480px) {
+    .pouke-pecat {
+        position: static;   
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+    }
+   
+    
+    @media (max-width: 480px) {
     .blog-pecat {
         position: static;   /* На телефону се враћа у средину */
         display: block;
