@@ -123,17 +123,6 @@ background: rgba(242, 230, 201, 0.95);
     transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
 }
 
-@media (max-width: 480px) {
-    .stiker-dugme {
-        position: static;
-        display: block;
-        margin: 20px auto;
-        width: 100px;
-    }
-}
-</style>
-
-
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
@@ -209,7 +198,14 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         width: fit-content;
     }
    
-    
+@media (max-width: 480px) {
+    .stiker-dugme {
+        position: static;
+        display: block;
+        margin: 20px auto;
+        width: 100px;
+    }
+   
     @media (max-width: 480px) {
     .blog-pecat {
         position: static;   /* На телефону се враћа у средину */
