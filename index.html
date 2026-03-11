@@ -297,7 +297,7 @@ fetch('svetitelji.json')
     })
     .catch(err => {
         // Ако фајл нестане, ово је "план Б" за Среду 11. март:
-        document.getElementById('svetitelj').innerHTML = "<b>Данас славимо:</b><br>";
+        document.getElementById('svetitelj').innerHTML = "<b>:</b><br>";
     });
         if (svetitelji[kljuc]) {
             document.getElementById('svetitelj').innerHTML = "<b>:</b><br>" + svetitelji[kljuc];
