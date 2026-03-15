@@ -20,7 +20,7 @@
         .container { padding-top: 60px; width: 90%; max-width: 500px; margin: auto; }
         .stiker-vrh { width: 180px; margin-bottom: 25px; filter: drop-shadow(2px 5px 10px rgba(0,0,0,0.4)); }
         
-        .jevandjelje-box {
+        .glava-box {
             background: rgba(242, 230, 201, 0.85);
             padding: 30px;
             border-radius: 20px;
@@ -33,7 +33,7 @@
             position: relative;
         }
 
-        .matej-dugme {
+        .home-dugme {
            position: fixed; top: 15px; left: 15px;
             background: rgba(242, 230, 201, 0.9);
             padding: 10px 15px; border-radius: 8px;
@@ -41,15 +41,40 @@
             font-size: 20px; z-index: 100;
         }
 
- .jevandjelje-naslov {
+ .glava-naslov {
             text-align: center;
-            color: #B22222; /* Crvena boja za naslove molitvi */
+            color: #dd1616; /* Crvena boja za naslove molitvi */
             font-variant: small-caps;
             font-size: 22px;
             padding-top: 22px;
         }
 
+.dugme {
+display: block;
+background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
+padding: 15px 20px;
+width: 85%;           /* Ширина за мобилни (да буде комотно) */
+max-width: 400px;  
+margin: 5px auto;
+text-decoration: none;
+color: #4A3728;
+font-size: 20px;
+border-radius: 10px;
+border: 1px solid #8b6f47;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
 
+.dugme:hover {
+transform: translateY(-2px) scale(1.05);
+box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
+inset 0 -3px 6px rgba(0,0,0,0.2),
+0 10px 20px rgba(0,0,0,0.35);
+background: rgba(242, 230, 201, 0.95);
+}
 
 .nazad-dugme {
     font-size: 26px; /* Veća strelica na dnu */
@@ -81,84 +106,50 @@
 </head>
 <body>
 
-<a href="matej.html" class="matej-dugme">🏠</a>
-
-
 <div class="container">
     <!-- Твој стикер: Бог на облаку (за највећи благослов) -->
-    <img src="snaga.png" class="stiker-vrh" alt="">
-    <div class="jevandjelje-box">
-        <h1 class="jevandjelje-naslov" style="color: #B22222; letter-spacing: 3px;">НОВИ ЗАВЕТ</h1>
+    <img src="stiker-bog.png" class="stiker-vrh" style="width: 150px; margin: 0 auto 30px auto; display: block;">
+
+    <div class="gkava-box">
+        <h1 class="glava-naslov" style="color: #B22222; letter-spacing: 3px;">НОВИ ЗАВЕТ</h1>
     </div>
 
     <!-- Твоја лебдећа дугмића за навигацију кроз Јеванђеља -->
-    
+    <a href="matej.html" class="dugme">Свето Јеванђеље по Матеју &rarr;</a>
+
+ <!-- Твоја војска глава - једна по једна -->
+<a href="matej-1.html" class="dugme">ГЛАВА 1 &rarr;</a>
+<a href="matej-2.html" class="dugme">ГЛАВА 2 &rarr;</a>
+<a href="matej-3.html" class="dugme">ГЛАВА 3 &rarr;</a>
+<a href="matej-4.html" class="dugme">ГЛАВА 4 &rarr;</a>
+<a href="matej-5.html" class="dugme">ГЛАВА 5 &rarr;</a>
+<a href="matej-6.html" class="dugme">ГЛАВА 6 &rarr;</a>    
+<a href="matej-7.html" class="dugme">ГЛАВА 7 &rarr;</a>
+<a href="matej-8.html" class="dugme">ГЛАВА 8 &rarr;</a>
+<a href="matej-9.html" class="dugme">ГЛАВА 9 &rarr;</a>
+<a href="matej-10.html" class="dugme">ГЛАВА 1 &rarr;</a>
+<a href="matej-11.html" class="dugme">ГЛАВА 11 &rarr;</a>
+<a href="matej-12.html" class="dugme">ГЛАВА 12 &rarr;</a>
+<a href="matej-13.html" class="dugme">ГЛАВА 13 &rarr;</a>
+<a href="matej-14.html" class="dugme">ГЛАВА 14 &rarr;</a>
+<a href="matej-15.html" class="dugme">ГЛАВА 15 &rarr;</a>    
+<a href="matej-16.html" class="dugme">ГЛАВА 16 &rarr;</a>
+<a href="matej-17.html" class="dugme">ГЛАВА 17 &rarr;</a>
+<a href="matej-18.html" class="dugme">ГЛАВА 18 &rarr;</a>
+<a href="matej-19.html" class="dugme">ГЛАВА 19 &rarr;</a>
+<a href="matej-20.html" class="dugme">ГЛАВА 20 &rarr;</a>
+<a href="matej-21.html" class="dugme">ГЛАВА 21 &rarr;</a>
+<a href="matej-22.html" class="dugme">ГЛАВА 22 &rarr;</a>
+<a href="matej-23.html" class="dugme">ГЛАВА 23 &rarr;</a>    
+<a href="matej-24.html" class="dugme">ГЛАВА 24 &rarr;</a>
+<a href="matej-25.html" class="dugme">ГЛАВА 25 &rarr;</a>
+<a href="matej-26.html" class="dugme">ГЛАВА 26 &rarr;</a>
+<a href="matej-27.html" class="dugme">ГЛАВА 27 &rarr;</a>
+<a href="matej-28.html" class="dugme">ГЛАВА 28 &rarr;</a>
 
 
 
 
-<div class="jevandjelje-box"> 
-<h2 class="jevandjelje-naslov">МАТЕЈ 1</h2>
-
-<div class="jevandjelje-box"> 
-<h2 class="jevandjelje-naslov">Родослов Исуса Христа
-и његово рођење</h2>
-<p> 1. Племе Исуса Христа, сина Давида Авраамова сина.
-2. Авраам роди Исака. А Исак роди Јакова. А Јаков 
-роди Јуду и браћу његову.
-3. А Јуда роди Фареса и Зару с Тамаром. А Фарес роди 
-Есрома. А Есром роди Арама.
-4. А Арам роди Аминадава. А Аминадав роди Наасона.
-А Наасон роди Салмона.
-5. А Салмон роди Вооза с Рахавом. А Вооз роди Овида
- с Рутом. А Овид роди Јесеја.
-6. А Јесеј роди Давида цара. А Давид цар роди 
-Соломуна с Уријницом.
-7. А Соломун роди Ровоама. А Ровоам роди Авију.
- А Авија роди Асу.
-8. А Аса роди Јосафата. А Јосафат роди Јорама. 
-А Јорам роди Озију.
-9. А Озија роди Јоатама. А Јоатам роди Ахаза. 
-А Ахаз роди Езекију.
-10. А Езекија роди Манасију. а Манасија роди Амона.
- А Амон роди Јосију.
-11. А Јосија роди Јехонију и браћу његову, у сеоби 
-Вавилонској.
-12. А по сеоби Вавилонској, Јехонија роди Салатиила.
- А Салатиило роди Зоровавеља.
-13. А Зоровавељ роди Авиуда. А Авиуд роди Елиакима. 
-А Елиаким роди Азора.
-14. А Азор роди Садока. А Садок роди Ахима. 
-А Ахим роди Елиуда.
-15. А Елиуд роди Елеазара. а Елеазар роди Матана. 
-А Матан роди Јакова.
-16. А Јаков роди Јосифа, мужа Марије, која роди 
-Исуса прозванога Христа.
-17. Свега дакле кољена од Аврама до Давида, 
-кољена четрнаест, а од Давида до сеобе 
-Вавилонске, кољена четрнаест, а од сеобе Вавилонске
- до Христа, кољена четрнаест.
-18. А рођење Исуса Христа било је овако: кад је 
-Марија, мати његова, била испрошена 
-за Јосифа, а још док се нијесу били састали, 
-нађе се да је она трудна од Духа светога.
-19. А Јосиф муж њезин, будући побожан, не хотећи
- је јавно срамотити, намисли је тајно пустити.
-20. Но кад он тако помисли, а то му се јави у сну
- анђео Господњи говорећи: Јосифе, сине Давидов! 
-Не бој се узети Марије жене своје; јер оно што је 
-у њој зачело од Духа је светога.
-21. Па ће родити сина, и надјени му име Исус; јер 
-ће он избавити свој народ од гријеха њиховијех.
-22. А ово је све било да се изврши што је Господ 
-казао преко пророка који говори:
-23. Ето, дјевојка ће затрудњети, и родиће сина, и 
-надјенуће му име Емануило, које ће рећи: с нама Бог.
-24. Кад се Јосих пробуди од сна, учини како му је 
-заповједио анђео Господњи, и узме жену своју.
-25. И не знадијаше за њу док не роди сина својега 
-првенца, и надједе му име Исус.</p>
-</div>
 </div>
 
 <br><br>
