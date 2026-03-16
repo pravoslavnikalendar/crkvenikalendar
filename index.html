@@ -294,22 +294,7 @@ async function prikaziSve() {
     const mesec = d.getMonth() + 1;
     const kljuc = `${dan}-${mesec}`;
 
-   // 2. Аутоматски вучемо свеца из твоје ризнице (svetitelji.json)
-fetch('svetitelji.json')
-    .then(res => res.json())
-    .then(ризница => {
-        let име = ризинца[кључ] || "Црквени календар";
-        document.getElementById('svetitelj').innerHTML = "<b></b><br>" + име;
-    })
-    .catch(err => {
-        // Ако фајл нестане, ово је "план Б" за Среду 11. март:
-        document.getElementById('svetitelj').innerHTML = "<b></b><br>";
-    });
-        if (svetitelji[kljuc]) {
-            document.getElementById('svetitelj').innerHTML = "<b>:</b><br>" + svetitelji[kljuc];
-        } else {
-            // Ако га нема у фајлу, пишемо данашњег свеца за 8. март
-            document.getElementById('svetitelj').innerHTML = "<b></b><br>";
+
         }
     
 } // Ова заграда је фалила!
@@ -345,7 +330,7 @@ prikaziSve();
 
 
     
-    
+ <script>   
     <div class="danas" id="output_danas"><div class="dat">
 <section class="block-of-text">понедељак 16. март (3.мар)<hr>Свети мученици Евтропије, Клеоник и Василиск<br><b>пост</b></section></div>
 <table class="danas"></table></div><textarea name="template_danas" 
@@ -367,6 +352,10 @@ id="template_danas" style="display:none;">'+'<TABLE class="danas">
 {if k.s == 2}'+'${k.di} </FONT>${k.d}. ${k.m} ${k.st}</b><hr>'+'<FONT COLOR="#c40000"><b>${k.pr}</b></FONT><br><b>${k.p}</b>'+'{/if}
 {/if}{/for}'+'</section></textarea>';var outputAll=document.getElementById("output");outputAll.innerHTML=html;
 var outputE1=document.getElementById("output_danas");outputE1.innerHTML=TrimPath.processDOMTemplate("template_danas",data)}get_today();</script></div></a>
+</script>
+
+
+
 </body>
 </html>
 
