@@ -326,7 +326,29 @@ function get_today(){
 get_today();
 </script>
 
-    
+ <script>   
+    <div class="danas" id="output_danas"><div class="dat">
+<section class="block-of-text">понедељак 16. март (3.мар)<hr>Свети мученици Евтропије, Клеоник и Василиск<br><b>пост</b></section></div>
+<table class="danas"></table></div><textarea name="template_danas" 
+id="template_danas" style="display:none;">&lt;TABLE class="danas"&gt;&lt;div 
+class="dat"&gt;&lt;section class="block-of-text"&gt;{for k in kalendar}
+{if k.me == (themonth) &amp;&amp; k.d == (theday)}{var day_id = k.id}
+{if k.s == 0}${k.di}&lt;/font&gt; ${k.d}. ${k.m} ${k.st}&lt;hr&gt;$
+{k.pr}&lt;br&gt;&lt;b&gt;${k.p}&lt;/b&gt;{/if}{if k.s == 1}${k.di} &lt;/font&gt;${k.d}. ${k.m} ${k.st}&lt;hr&gt;&lt;b&gt;${k.pr}&lt;br&gt;${k.p}&lt;/b&gt;{/if}
+{if k.s == 2}${k.di} &lt;/FONT&gt;${k.d}. ${k.m} ${k.st}&lt;/b&gt;&lt;hr&gt;&lt;
+FONT COLOR="#c40000"&gt;&lt;b&gt;${k.pr}&lt;/b&gt;&lt;/FONT&gt;&lt;br&gt;&lt;b&gt;${k.p}&lt;/b&gt;{/if}{/if}
+{/for}&lt;/section&gt;</textarea></div><script language="javascript">var thedate=new Date();
+var themonth=thedate.getMonth()+1;var theday=thedate.getDate();
+function get_today(){var html='<div class="danas" id="output_danas"></div>'+'<textarea name="template_danas" 
+id="template_danas" style="display:none;">'+'<TABLE class="danas">
+<div class="dat"><section class="block-of-text">'+'{for k in kalendar}'+'
+{if k.me == (themonth) && k.d == (theday)}'+'{var day_id = k.id}'+'
+{if k.s == 0}'+'${k.di}</font> ${k.d}. ${k.m} ${k.st}<hr>'+'${k.pr}<br><b>${k.p}</b>'+'{/if}{if k.s == 1}'+'${k.di} 
+</font>${k.d}. ${k.m} ${k.st}<hr>'+'<b>${k.pr}<br>${k.p}</b>'+'{/if}
+{if k.s == 2}'+'${k.di} </FONT>${k.d}. ${k.m} ${k.st}</b><hr>'+'<FONT COLOR="#c40000"><b>${k.pr}</b></FONT><br><b>${k.p}</b>'+'{/if}
+{/if}{/for}'+'</section></textarea>';var outputAll=document.getElementById("output");outputAll.innerHTML=html;
+var outputE1=document.getElementById("output_danas");outputE1.innerHTML=TrimPath.processDOMTemplate("template_danas",data)}get_today();</script></div></a>
+</script>   
 
 
 
