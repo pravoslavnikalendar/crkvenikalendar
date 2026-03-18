@@ -22,7 +22,7 @@
 
 body {
 margin: 0;
-background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);	
+background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
 background-image: url("papir.jpg");
 background-size: cover; /* popunjava ceo ekran */
 background-repeat: no-repeat;
@@ -148,30 +148,7 @@ color: #4A3728;
 font-style: italic;
 }
 
- table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(242, 230, 201, 0.7);
-            border: 1px solid #8b6f47;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-        }
 
-  th, td {
-            padding: 12px 5px;
-            border: 1px solid rgba(139, 111, 71, 0.3);
-            font-size: 18px;
-        }
-
-        th { background: rgba(139, 111, 71, 0.2); }
-        .nedelja { color: #8b0000; font-weight: bold; }
-        
-        .danasnji { 
-            background: rgba(139, 111, 71, 0.4); 
-            border: 2px solid #8b0000 !important;
-            font-weight: bold;
-        }
 
 
 
@@ -273,6 +250,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
 <a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
 
+
+
 <div class="container">
     <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; 
     display: block; margin: 0 auto 5px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
@@ -298,7 +277,20 @@ function osveziKalendar() {
         window.location.href = "kalendar.html?mesec=" + m + "&godina=" + g;
     }
 }
-</script>      
+</script>       
+   
+<script>
+// 🚀 Овај код „види” твоју кућицу испод лога
+const danasnjiDan = new Date();
+const format = { weekday: 'long', day: 'numeric', month: 'long' };
+const исписанДатум = danasnjiDan.toLocaleDateString('sr-RS', format);
+
+// КЉУЧ: Шаљемо датум у "output_danas" и стављамо га у твој .block-of-text
+const meta = document.getElementById('output_danas');
+if (meta) {
+    meta.innerHTML = '<section class="block-of-text">' + исписанДатум + '</section>';
+}
+</script>
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -313,22 +305,11 @@ function osveziKalendar() {
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/107224917" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-   
- <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107224917', 'ym');
 
-    ym(107224917, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/107224917" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
+     
 
- <div class='column-right-outer'>
+
+<div class='column-right-outer'>
 <div class='column-right-inner'>
 <aside>
 <div class='sidebar section' id='sidebar-right-1'><div class='widget Translate' data-version='1' id='Translate1'>
@@ -342,29 +323,17 @@ function osveziKalendar() {
         layout: google.translate.TranslateElement.InlineLayout.VERTICAL
       }, 'google_translate_element');
     }
-    
-   </script>
+
+
+  
+  </script>
 <script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
 <div class='clear'></div>
 <!-- ОВДЕ ЈЕ МАГИЈА: Додао сам https: и сад ће ГитХуб да га пусти! -->
 
-<script>
-// 🚀 Овај код „види” твоју кућицу испод лога
-const danasnjiDan = new Date();
-const format = { weekday: 'long', day: 'numeric', month: 'long' };
-const исписанДатум = danasnjiDan.toLocaleDateString('sr-RS', format);
-
-// КЉУЧ: Шаљемо датум у "output_danas" и стављамо га у твој .block-of-text
-const meta = document.getElementById('output_danas');
-if (meta) {
-    meta.innerHTML = '<section class="block-of-text">' + исписанДатум + '</section>';
-}
-</script> 
-   
- <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав-Православље</p>
+  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
 </div>
 
- 
 
 
 
