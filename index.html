@@ -70,7 +70,58 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 background: rgba(242, 230, 201, 0.95);
 }
 
+.audio-molitve-pecat {
+    position: absolute; /* Ово га вади из реда */
+    top: 50px;           /* Висина - подеси како ти одговара */
+    left: 270px;         /* Ово га гура ДЕСНО од твог главног контејнера */
+    background: rgba(242, 230, 201, 0.4); 
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 2px solid #2E1B08; /* Твоја тамнобраон */
+    text-decoration: none;
+    font-weight: bold;
+    color: #2E1B08;           /* Твоја тамнобраон за слова */
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.audio-molitve-pecat:hover {
+    background: rgba(242, 230, 201, 0.9);
+    transform: scale(1.1);
+}
+.blog-pecat {
+    position: absolute;
+    top: 50px;         /* Исто као за Ризницу, само на левој страни */
+    left: 20px;        /* Твој слободан простор лево на лаптопу */
+    background: rgba(242, 230, 201, 0.6); 
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 2px solid #2E1B08; 
+    text-decoration: none;
+    color: #2E1B08;           
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 99999;           
+    box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
 
+.stiker-dugme {
+    position: fixed;
+    bottom: 30px;      /* Стаклићемо га у доњи угао да не смета тексту */
+    right: 30px;       /* Твоја слободна десна страна на лаптопу */
+    width: 80px;       /* Величина твог стикера */
+    height: auto;
+    cursor: pointer;
+    z-index: 10001;    /* Да буде изнад папира */
+    transition: 0.4s;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); /* Сенка да "искочи" */
+}
+
+.stiker-dugme:hover {
+    transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
+}
 
 
 
@@ -96,17 +147,11 @@ color: #4A3728;
 font-style: italic;
 }
 
-.block-of-text {
-margin-bottom: 12px;
-text-align: center;
-color: #4A3728;
-margin: 12px auto; /* Да добију ваздуха са свих страна */
-display: block;
 
 
 
-  margin: 5px auto 20px auto !important; /* 5px одозго да буде близу менија */  
-}
+
+
 
 /* MOBILNI:  */
 
