@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="црквени календар, православни календар, молитвеник, свето писмо, православље">
-<meta name="description" content="Нови Завет Псалтир Молитвеник Духовне поуке Аудио Псалтир Аудио молитве Православни црквени календар за 2026. Традиционални православни ресурси на српском језику.">
-<title>Православни Календар 2026 - Црквени Календар | Молитвеник | Свето Писмо| Псалтир| Нови завет| Блог| Аудио молитве| Духовне поуке| Аудио псалтир| Православна музика</title>
+<meta name="description" content="Православни црквени календар за 2026, молитвеник и свето писмо. Традиционални православни ресурси на српском језику.">
+<title>Православни Календар 2026 - Црквени Календар | Молитвеник | Свето Писмо| Псалтир</title>
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -70,7 +70,6 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 0 10px 20px rgba(0,0,0,0.35);
 background: rgba(242, 230, 201, 0.95);
 }
-
 .audio-molitve-pecat {
     position: absolute; /* Ово га вади из реда */
     top: 100px;           /* Висина - подеси како ти одговара */
@@ -150,10 +149,6 @@ font-style: italic;
 
 
 
-
-
-
-
 /* MOBILNI:  */
 
 @media (max-width: 430px) {
@@ -179,24 +174,38 @@ max-width: 100%;
 padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
 }
-
+@media (max-width: 480px) {
+     .meseci {
+        width: 45%; /* Povećavamo sa 30% na 45% da budu komotni */
+        font-size: 16px; /* Krupnija slova da se lakše čita */
+        padding: 10px 5px;
+        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
+    }
+    .gornja-traka {
+        justify-content: center; /* Centriramo ih na sredini ekrana */
+        gap: 10px; /* Razmak između menija */
+        padding: 10px;
+    }
 .dan {
 padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
  }
 
+/* Na mobilnom neka se vrati u sredinu ili ispod logoa */
+@media (max-width: 480px) {
+    .blog-precica {
+        position: absolute;
+        display: inline-block;
+        margin-top: 10px;
+    }
 }
 
  </style>
-    
-
 
 </head>
 
 <body>
 
-
-
-	<div class="gornja-traka">
+<div class="gornja-traka">
     <!-- 1. Бирање године -->
     <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
         <option value="2025">2025</option>
@@ -224,8 +233,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         <option value="11">Децембар</option>
     </select>
 </div>
-<div>
-    
+
 <!-- ТВОЈИ ПЕЧАТИ КОЈИ ЛЕБДЕ -->
 
 <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
@@ -234,10 +242,10 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 
 
 <div class="container">
-    <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 5px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-</div> <!-- ОВАЈ ЗАТВАРА ЛОГО -->
-
-
+<img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
+height: 80px; display: block; 
+margin: 0 auto 5px auto; 
+border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <div content="container">
 <div id="svetitelj"></div>
 <!-- Datum automatski -->
@@ -250,7 +258,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 <a href="sveto-pismo.html" class="dugme">СВЕТО ПИСМО</a>
 <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
 <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
-<a href="blog.html" class="dugme">БЛОГ</a>
+<a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
 </div>
 
 <script>
