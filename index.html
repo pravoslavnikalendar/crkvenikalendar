@@ -335,6 +335,39 @@ async function prikaziSve() {
     }
 }
 prikaziSve();
+
+async function prikaziSve() {
+    const d = new Date();
+    const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    
+    // 1. Novi kalendar (Glavni datum)
+    const noviDatum = d.toLocaleDateString('sr-RS', opcije);
+
+    // 2. Matematika za STARI kalendar (-13 dana)
+    const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
+    const stariD = new Date(julijanskiMS);
+    const stariDatum = stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', { month: 'long' });
+    
+    // 3. Godina od postanja sveta (Anno Mundi)
+    const AM = stariD.getFullYear() + 5508;
+
+    // ISPIS NA PAPIRU
+    document.getElementById('datum').innerHTML = 
+        noviDatum + "<br><small>(по старом: " + stariDatum + " | Лето Господње " + AM + ".)</small>";
+
+    // 4. Traženje svetitelja u tvom JSON fajlu
+    try {
+        const res = await fetch('svetitelji.json?v=' + Date.now());
+        const svetitelji = await res.json();
+        const kljuc = `${d.getDate()}-${d.getMonth() + 1}`;
+        
+        if (svetitelji[kljuc]) {
+            document.getElementById('svetitelj').innerHTML = "<b style='color:#5f0606;'>Данас славимо:</b><br>" + svetitelji[kljuc];
+        }
+    } catch (e) { console.log("Nema JSON-a"); }
+}
+prikaziSve();
+	
 </script>
 	
 	
