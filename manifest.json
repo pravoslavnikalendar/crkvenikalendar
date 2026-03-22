@@ -1,15 +1,17 @@
+json
 {
-  "name": "Љубав Православље",
-  "short_name": "Православље",
+  "name": "Pravoslavlje Kalendar Pravoslavni kalendar",
+  "short_name": "Ljubav Pravoslavlje",
+  "description": "Православни црквени календар, духовне поуке, псалтир, молитвеник и свето писмо.",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color: "#f2e6c1",
-  "theme_color": "#8b6f47",
   "icons": [
-    {
+   {
       "src": "ikona.png",
-      "sizes": "192x192",
+      "sizes": "80x80",
       "type": "image/png"
     }
   ]
 }
+
+
