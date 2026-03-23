@@ -49,7 +49,12 @@
     </div>
 </div>
 
+</script>
+Evo ga! Izmenio sam tvoj kod tako da sada "vidi" i slike (ikone) i pouke (žitija), ali samo ako ih upišeš u svetitelji.json. Ako ih ne upišeš, boks će biti čist, bez onog dosadnog undefined.
+Samo zameni svoju skriptu u praznici.html ovom:
+html
 <script>
+    // Ova magija "čita" tvoj .json fajl
     fetch('svetitelji.json')
     .then(response => response.json())
     .then(data => {
@@ -57,24 +62,23 @@
         
         for (let datum in data) {
             let p = data[datum];
+            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
             let klasa = (p.boja === "red") ? "crveno" : "obicno";
             
             kontejner.innerHTML += `
                 <div class="pouka-box">
                     <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
                     
-                    <!-- OVO JE ZA SLIKU: Prikazaće je samo ako je upišeš u JSON -->
-                    ${p.slika ? `<br><img src="${p.slika}" style="width: 130px; margin-top: 15px; border-radius: 10px; display: block; margin-left: auto; margin-right: auto;">` : ""}
+                    <!-- DODATO ZA SLIKU: Prikazuje je samo ako postoji u JSON-u -->
+                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 8px; display: block;">` : ""}
                     
-                    <!-- OVO JE ZA ŽITIJE (POUKU): Ako je nema, biće prazno, nema više undefined -->
-                    <p style="margin-top: 15px; font-style: italic; font-size: 18px;">${p.pouka || ""}</p>
+                    <!-- POPRAVLJENO ZA POUKU: Ako je nema u JSON-u, biće prazno (neće pisati undefined) -->
+                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka || ""}</p>
                 </div>
             `;
         }
     })
-    // OVO JE "OSIGURAČ": Ako zaboraviš zarez u JSON-u, ovo ti u "Konzoli" (F12) napiše šta ne valja
-    .catch(err => console.log("Greška u JSON fajlu: ", err));
+    .catch(err => console.log("Greška pri učitavanju: ", err));
 </script>
-
 </body>
 </html>
