@@ -2,7 +2,7 @@
 
 Dobrodošli! Ovo je zvanična stranica projekta za mobilne uređaje i web.
 
-### 🔗 [KLIKNITE OVDE DA OTVORITE KALENDAR](https://pravoslavljekalendar.github.io)
+### 🔗 [KLIKNITE OVDE DA OTVORITE KALENDAR](https://pravoslavljekalendar.github.io/pravoslavnikalendar/)
 
 ---
 ### O projektu:
