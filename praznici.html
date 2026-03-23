@@ -52,31 +52,34 @@
 </script>
 
 <script>
- 
-    fetch('svetitelji.json')
-    .then(response => response.json())
-    .then(data => {
-        let kontejner = document.getElementById('lista-praznika');
+fetch('svetitelji.json')
+  .then(response => response.json())
+  .then(data => {
+    let danas = new Date();
+    let d = String(danas.getDate()).padStart(2, '0');
+    let m = String(danas.getMonth() + 1).padStart(2, '0');
+    let kljuc = m + "-" + d; // Traži npr. "03-23"
+
+    let info = data[kljuc];
+    if (info) {
+        let polje = document.getElementById("svetitelj-tekst");
+        polje.innerText = info.praznik;
         
-        for (let datum in data) {
-            let p = data[datum];
-       
-            let klasa = (p.boja === "red") ? "crveno" : "obicno";
-            
-            kontejner.innerHTML += `
-                <div class="pouka-box">
-                    <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
-                    
-                    <!-- DODATO ZA SLIKU: Prikazuje je samo ako postoji u JSON-u -->
-                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 8px; display: block;">` : ""}
-                    
-                    <!-- POPRAVLJENO ZA POUKU: Ako je nema u JSON-u, biće prazno (neće pisati undefined) -->
-                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka || ""}</p>
-                </div>
-            `;
+      
+        polje.className = (info.boja === "red") ? "crveno" : "";
+        
+ 
+        document.getElementById("danasnja-pouka").innerText = info.pouka || "";
+        
+        let slikaPolje = document.getElementById("danasnja-slika");
+        if (info.slika) {
+            slikaPolje.src = info.slika;
+            slikaPolje.style.display = "block";
+        } else {
+            slikaPolje.style.display = "none";
         }
-    })
-    .catch(err => console.log("Greška pri učitavanju: ", err));
+    }
+  });
 </script>
 </body>
 </html>
