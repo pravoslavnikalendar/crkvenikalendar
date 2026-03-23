@@ -270,6 +270,7 @@ Prepodobni Simeon Dajbabski
 Често се догађа да рат тела потиче од туге.Када човек није у стању
 да надвлада свој бол, демон га наводи да тражи утеху у том смеру.
 Међутим осетљиви људи осећају након тога још већу узнемиреност.
+ <button onclick="podeliPouku(this)" class="share-dugme">☦️ Подели благослов</button>   
 </div>
 <div class="pouka-box">
 Деца се увек морају трудити да показују поштовање према својим редитељима.
@@ -373,6 +374,27 @@ Prepodobni Simeon Dajbabski
 <br>
     <a href="index.html" style="text-decoration:none; color:#8b6f47; font-weight:bold; font-size: 22px;">⬅ Назад на почетак</a>
 </div>
+<script>
+function podeliPouku(dugme) {
+    // 1. Uzima tekst iz kutije u kojoj je dugme kliknuto
+    let tekstPouke = dugme.parentElement.innerText.replace("☦️ Подели благослов", "").trim();
+    
+    // 2. TVOJ LINK (mora biti pod navodnicima)
+    let mojLink = "https://pravoslavljekalendar.github.io/pravoslavnikalendar/";
+    
+    // 3. Spaja tekst pouke i tvoj link sa dva Entera razmaka (\n\n)
+    let konacnaPoruka = encodeURIComponent(tekstPouke + "\n\nПрочитај више на:\n" + mojLink);
+    
+    // 4. Otvara Viber i šalje sve zajedno
+    window.location.href = "viber://forward?text=" + konacnaPoruka;
+}
+</script>
+
+
+
+
+
+
 
 </body>
 </html>
