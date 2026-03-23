@@ -148,6 +148,14 @@ background: rgba(242,230,201,0.88);
 color:#4A3728;
 }
 
+.crveno {
+    color: #dd1616;
+    font-weight: bold;
+    font-size: 19px;
+}
+.znacajni-praznici
+	
+	
 .potpis {
 font-size: 14px;
 margin-top: 20px;
@@ -321,7 +329,7 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <!-- Datum automatski -->
 <div id="datum"></div>
 
- 
+ <a href="praznici.html" class="dugme"> 📅 Празници 2026.</a>
 <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
 <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
 <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
@@ -428,7 +436,27 @@ function osveziKalendar() {
     navigator.serviceWorker.register('./sw.js');
   }
 </script>  
-
+<script>
+    // Ova magija "čita" tvoj .json fajl
+    fetch('svetitelji.json')
+    .then(response => response.json())
+    .then(data => {
+        let kontejner = document.getElementById('lista-praznika');
+        
+        for (let datum in data) {
+            let p = data[datum];
+            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
+            let klasa = (p.boja === "red") ? "crveno" : "obicno";
+            
+            kontejner.innerHTML += `
+                <div class="pouka-box">
+                    <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
+                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka}</p>
+                </div>
+            `;
+        }
+    });
+</script>
 
 <div class='column-right-outer'>
 <div class='column-right-inner'>
@@ -1397,7 +1425,7 @@ margin: 0;
 
 
 	
-</body></html>
+
 
 
 	   
