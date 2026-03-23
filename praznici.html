@@ -66,17 +66,11 @@
             kontejner.innerHTML += `
                 <div class="pouka-box">
                     <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
-                    
-                    <!-- DODATO ZA SLIKU: Prikazuje je samo ako postoji u JSON-u -->
-                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 8px; display: block;">` : ""}
-                    
-                    <!-- POPRAVLJENO ZA POUKU: Ako je nema u JSON-u, biće prazno (neće pisati undefined) -->
-                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka || ""}</p>
+                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka}</p>
                 </div>
             `;
         }
-    })
-    .catch(err => console.log("Greška pri učitavanju: ", err));
+    });
 </script>
 </body>
 </html>
