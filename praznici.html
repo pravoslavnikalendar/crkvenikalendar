@@ -50,11 +50,9 @@
 </div>
 
 </script>
-Evo ga! Izmenio sam tvoj kod tako da sada "vidi" i slike (ikone) i pouke (žitija), ali samo ako ih upišeš u svetitelji.json. Ako ih ne upišeš, boks će biti čist, bez onog dosadnog undefined.
-Samo zameni svoju skriptu u praznici.html ovom:
-html
+
 <script>
-    // Ova magija "čita" tvoj .json fajl
+ 
     fetch('svetitelji.json')
     .then(response => response.json())
     .then(data => {
@@ -62,7 +60,7 @@ html
         
         for (let datum in data) {
             let p = data[datum];
-            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
+       
             let klasa = (p.boja === "red") ? "crveno" : "obicno";
             
             kontejner.innerHTML += `
