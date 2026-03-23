@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <title>Значајни празници 2026</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
+            background-image: url("papir.png");
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: "Times New Roman", serif;
+            text-align: center;
+            color: #4A3728;
+        }
+        .container { padding-top: 60px; width: 90%; max-width: 500px; margin: auto; }
+        
+        .pouka-box {
+            background: rgba(242, 230, 201, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #8b6f47;
+            margin-bottom: 20px;
+            text-align: left;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .crveno { color: #dd1616; font-weight: bold; font-size: 22px; }
+        .obicno { color: #4A3728; font-weight: bold; font-size: 20px; }
+
+        .home-dugme {
+            position: fixed; top: 15px; left: 15px;
+            background: rgba(242, 230, 201, 0.9);
+            padding: 10px 15px; border-radius: 8px;
+            border: 1px solid #2E1B08; text-decoration: none; color: #2E1B08;
+            font-size: 20px; z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<a href="index.html" class="home-dugme">🏠</a>
+
+<div class="container">
+    <h1 style="letter-spacing: 2px;">☦️ ПРАЗНИЦИ 2026.</h1>
+    <div id="lista-praznika">
+        <!-- Ovde skripta sama ubacuje podatke -->
+    </div>
+</div>
+
+<script>
+    // Ova magija "čita" tvoj .json fajl
+    fetch('svetitelji.json')
+    .then(response => response.json())
+    .then(data => {
+        let kontejner = document.getElementById('lista-praznika');
+        
+        for (let datum in data) {
+            let p = data[datum];
+            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
+            let klasa = (p.boja === "red") ? "crveno" : "obicno";
+            
+            kontejner.innerHTML += `
+                <div class="pouka-box">
+                    <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
+                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka}</p>
+                </div>
+            `;
+        }
+    });
+</script>
+
+</body>
+</html>
