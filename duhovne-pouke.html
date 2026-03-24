@@ -375,18 +375,14 @@ Prepodobni Simeon Dajbabski
     <a href="index.html" style="text-decoration:none; color:#8b6f47; font-weight:bold; font-size: 22px;">⬅ Назад на почетак</a>
 </div>
 <script>
-function podeliPouku(dugme) {
-    // 1. Uzima tekst iz kutije u kojoj je dugme kliknuto
-    let tekstPouke = dugme.parentElement.innerText.replace("☦️ Подели благослов", "").trim();
+function podeliPouku(element) {
+    // Uzimamo tekst iz kutije u kojoj je dugme, ali bez teksta samog dugmeta
+    let tekst = element.parentElement.innerText.replace("☦️ Подели благослов", "").trim();
+    let link = "https://pravoslavljekalendar.github.io/pravoslavnikalendar/";
     
-    // 2. TVOJ LINK (mora biti pod navodnicima)
-    let mojLink = "https://pravoslavljekalendar.github.io/pravoslavnikalendar/";
-    
-    // 3. Spaja tekst pouke i tvoj link sa dva Entera razmaka (\n\n)
-    let konacnaPoruka = encodeURIComponent(tekstPouke + "\n\nПрочитај више на:\n" + mojLink);
-    
-    // 4. Otvara Viber i šalje sve zajedno
-    window.location.href = "viber://forward?text=" + konacnaPoruka;
+    // Pakujemo sve za Viber
+    let poruka = encodeURIComponent(tekst + "\n\nПрочитај више на: " + link);
+    window.location.href = "viber://forward?text=" + poruka;
 }
 </script>
 
