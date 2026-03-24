@@ -47,7 +47,7 @@
     <div id="lista-praznika">
         <!-- Ovde skripta sama ubacuje podatke -->
     </div>
-
+</div>
 
 </script>
 
@@ -56,20 +56,21 @@ fetch('svetitelji.json')
   .then(response => response.json())
   .then(data => {
     let kontejner = document.getElementById('lista-praznika');
-    // Ređamo praznike hronološki
+    
+    // Prolazimo kroz tvoj JSON i ređamo sve što si upisala
     for (let datum in data) {
-      if (data[datum].boja === "red") {
         let p = data[datum];
+        // Ako je u JSON-u boja "red", dodajemo klasu crveno
+        let klasaZaBoju = (p.boja === "red") ? "crveno" : "";
+        
         kontejner.innerHTML += `
-          <div class="pouka-box" style="border-left: 5px solid #dd1616; text-align: left;">
-            <b style="color: #dd1616; font-size: 22px;">${datum}</b> - 
-            <span style="color: #2E1B08; font-weight: bold;">${p.praznik}</span>
-            <p style="margin-top: 10px; font-size: 18px;"><i>${p.pouka}</i></p>
+          <div class="pouka-box" style="text-align: left; border-left: 4px solid #8b6f47;">
+            <span class="${klasaZaBoju}" style="font-size: 22px;">${datum}</span> - 
+            <b class="${klasaZaBoju}">${p.praznik}</b>
+            <p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>
           </div>
         `;
-      }
     }
   });
-</script>
 </body>
 </html>
