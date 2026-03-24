@@ -448,32 +448,31 @@ function osveziKalendar() {
   }
 </script>  
 
-	<script>
-    // Ova magija "čita" tvoj .json fajl
+<script>
     fetch('svetitelji.json')
     .then(response => response.json())
     .then(data => {
         let kontejner = document.getElementById('lista-praznika');
-        
-        for (let datum in data) {
-            let p = data[datum];
-            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
-            let klasa = (p.boja === "red") ? "crveno" : "obicno";
+        kontejner.innerHTML = ""; // Briše poruku o učitavanju
+
+        for (let kljuc in data) {
+            let p = data[kljuc];
+            let klasa = (p.boja === "red") ? "crveno" : "";
             
             kontejner.innerHTML += `
-                <div class="pouka-box">
-                    <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
-                    
-                    <!-- DODATO ZA SLIKU: Prikazuje je samo ako postoji u JSON-u -->
-                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 8px; display: block;">` : ""}
-                    
-                    <!-- POPRAVLJENO ZA POUKU: Ako je nema u JSON-u, biće prazno (neće pisati undefined) -->
-                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka || ""}</p>
+                <div class="pouka-box" style="text-align: left;">
+                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
+                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
+                    ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
+                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 5px;">` : ""}
                 </div>
             `;
         }
     })
-    .catch(err => console.log("Greška pri učitavanju: ", err));
+    .catch(err => {
+        console.error("Greska:", err);
+        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
+    });
 </script>
 
 
