@@ -42,15 +42,25 @@
     overflow-y: auto;  /* Dodaje mali klizač ako je tekst predugačak */
     padding-right: 5px;
 }
-        
-      * Posebno za mobilni da bude još preglednije */
+
 @media (max-width: 600px) {
     .pouka-box {
-        padding: 15px;
-        margin: 10px auto;
+        width: 92%;           /* Širi boks da skoro dodiruje ivice ekrana */
+        margin: 20px auto;    /* Veći razmak između dva praznika */
+        padding: 25px 15px;   /* Više unutrašnjeg prostora (da tekst ne guši ivice) */
+        border-width: 3px;    /* Malo deblja ivica da se bolje vidi na papiru */
+        min-height: 150px;    /* Osigurava da boks uvek ima lepu visinu */
     }
+
+    .pouka-box img {
+        width: 140px !important; /* Povećavamo i ikonu pošto je boks sada veći */
+        margin-bottom: 15px;
+    }
+
+        
+
     .pouka-box span, .pouka-box b {
-        font-size: 22px; /* Malo prilagođeno za mali ekran */
+        font-size: 24px; /* Malo prilagođeno za mali ekran */
     }
 }  
     </style>
