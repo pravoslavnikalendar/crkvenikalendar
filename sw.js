@@ -1,4 +1,4 @@
-javascript
+
 const cacheName = 'pravoslavlje-v1';
 const assets = [
   './',
