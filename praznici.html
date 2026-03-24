@@ -58,26 +58,31 @@
 </script>
 
 <script>
-fetch('svetitelji.json')
-  .then(response => response.json())
-  .then(data => {
-    let kontejner = document.getElementById('lista-praznika');
+    fetch('svetitelji.json')
+    .then(response => response.json())
+    .then(data => {
+        let kontejner = document.getElementById('lista-praznika');
+        kontejner.innerHTML = ""; // Briše poruku o učitavanju
+
+        for (let kljuc in data) {
+            let p = data[kljuc];
+            let klasa = (p.boja === "red") ? "crveno" : "";
+            
+            kontejner.innerHTML += `
+                <div class="pouka-box" style="text-align: left;">
+                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
+                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
+                    ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
+                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 5px;">` : ""}
+                </div>
+            `;
+        }
+    })
+    .catch(err => {
+        console.error("Greska:", err);
+        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
+    });
+</script>
     
-    // Prolazimo kroz tvoj JSON i ređamo sve što si upisala
-    for (let datum in data) {
-        let p = data[datum];
-        // Ako je u JSON-u boja "red", dodajemo klasu crveno
-        let klasaZaBoju = (p.boja === "red") ? "crveno" : "";
-        
-        kontejner.innerHTML += `
-          <div class="pouka-box" style="text-align: left; border-left: 4px solid #8b6f47;">
-            <span class="${klasaZaBoju}" style="font-size: 22px;">${datum}</span> - 
-            <b class="${klasaZaBoju}">${p.praznik}</b>
-            <p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>
-          </div>
-        `;
-    }
-  });
- </script>   
 </body>
 </html>
