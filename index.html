@@ -215,15 +215,23 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         display: none !important;
     }
 
-.znacajni-praznici-dugme {
-width: 75% !important; 
-	padding: 15px 15px;
-        margin: 15px auto !important;
+@media (max-width: 600px) {
+    /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
+    .praznici-dugme {
+        width: 90% !important;   /* Ista širina kao tvoja ostala dugmad */
+        margin: 5px auto !important; /* Minimalni razmak GORE i DOLE (podiglo se!) */
+        padding: 10px !important;    /* Tanji boks, da ne bude "debeo" */
+        font-size: 17px !important;  /* Da tekst stane u jedan red */
         display: block !important;
-        border: 2px solid #dd1616 !important;
-        font-size: 18px !important;
         box-sizing: border-box !important;
     }
+    
+    /* Ako tvoja ostala dugmad imaju prevelik razmak iznad sebe, smanji im marginu */
+    .dugme {
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+}
 	
 @media (max-width: 430px)  
 .container { padding: 20px; width: 100%; }
