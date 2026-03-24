@@ -37,6 +37,12 @@
             font-size: 20px; z-index: 1000;
         }
 
+.pouka-box p {
+    max-height: 150px; /* Ograničava visinu teksta */
+    overflow-y: auto;  /* Dodaje mali klizač ako je tekst predugačak */
+    padding-right: 5px;
+}
+        
       * Posebno za mobilni da bude još preglednije */
 @media (max-width: 600px) {
     .pouka-box {
