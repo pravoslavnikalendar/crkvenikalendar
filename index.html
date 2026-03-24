@@ -403,6 +403,8 @@ async function prikaziSve() {
     } catch (e) { console.log("Nema JSON-a"); }
 }
 prikaziSve();
+
+
 	
 </script>
 	
@@ -445,26 +447,20 @@ function osveziKalendar() {
     navigator.serviceWorker.register('./sw.js');
   }
 </script>  
-<script>
-fetch('svetitelji.json')
-  .then(response => response.json())
-  .then(data => {
-    let kontejner = document.getElementById('lista-praznika');
+let info = data[kljuc];
+if (info) {
+    let polje = document.getElementById("svetitelj-tekst");
+    polje.innerText = info.praznik;
     
-    // Prolazimo kroz tvoj JSON i tražimo samo crvena slova
-    for (let datum in data) {
-      if (data[datum].boja === "red") {
-        let p = data[datum];
-        kontejner.innerHTML += `
-          <div class="pouka-box" style="border-left: 5px solid #dd1616;">
-            <b style="color: #dd1616;">${datum}</b> - ${p.praznik} <br>
-            <i style="font-size: 16px;">${p.pouka}</i>
-          </div>
-        `;
-      }
+    // Provera za boju
+    polje.className = (info.boja === "red") ? "crveno" : "";
+    
+    // Provera za pouku - ako je nema, piše prazno "" umesto undefined
+    let poukaPolje = document.getElementById("pouka-danas");
+    if (poukaPolje) {
+        poukaPolje.innerText = info.pouka || ""; 
     }
-  });
-</script>
+}
 <div class='column-right-outer'>
 <div class='column-right-inner'>
 <aside>
