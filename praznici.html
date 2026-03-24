@@ -16,6 +16,14 @@
         }
         .container { padding-top: 60px; width: 90%; max-width: 500px; margin: auto; }
 
+/* 1. OVO JE KOMANDA KOJA "OTKLJUČAVA" VELIČINU SLOVA NA TELEFONU */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+        
 #lista-praznika .pouka-box {
     width: 92% !important; 
     margin: 20px auto !important;
@@ -70,13 +78,15 @@ media (max-width: 600px) {
         width: 100% !important; 
         padding: 20px 10px !important;
     }
+   /* 2. TVOJ MEDIA DEO GDE SI STAVILA 40px ILI 60px */
+@media (max-width: 600px) {
     .pouka-box span, .pouka-box b {
-        font-size: 60px !important; /* KRUPNA SLOVA ZA SVETITELJE */
+        font-size: 35px !important; /* Probaj prvo 35px, to je već ogromno */
     }
     .pouka-box p {
-        font-size: 30px !important; /* KRUPNA SLOVA ZA ŽITIJA */
+        font-size: 22px !important;
     }
-} 
+}
     </style>
 </head>
 <body>
