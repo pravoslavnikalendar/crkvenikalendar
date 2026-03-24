@@ -1,4 +1,4 @@
-
+vaskrsni-ponedeljak.jpg
 {
   "01-07": { "praznik": "Рождество Христово – Божић", "boja": "red", "slika": "bozic.jpg" },
   "01-08": { "praznik": "Сабор Пресвете Богородице", "boja": "red", "slika": "sabor.jpg" },
@@ -13,7 +13,7 @@
   "04-07": { "praznik": "Благовести", "boja": "red", "slika": "blagovesti.jpg" },
   "04-10": { "praznik": "Велики петак", "boja": "red", "slika": "veliki-petak.jpg" },
   "04-12": { "praznik": "В а с к р с – Васкрсење Господа Исуса Христа", "boja": "red", "slika": "vaskrs.jpg" },
-  "04-13": { "praznik": "Васкрсни понедељак", "boja": "red" },
+  "04-13": { "praznik": "Васкрсни понедељак", "boja": "red", "slika": "vaskrsni-ponedeljak.jpg" },
   "04-14": { "praznik": "Васкрсни уторак", "boja": "red" },
   "05-06": { "praznik": "Свети великомученик Георгије – Ђурђевдан", "boja": "red" },
   "05-12": { "praznik": "Свети Василије Острошки Чудотворац", "boja": "red" },
