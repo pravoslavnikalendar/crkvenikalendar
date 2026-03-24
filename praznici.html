@@ -78,6 +78,8 @@ media (max-width: 600px) {
         width: 100% !important; 
         padding: 20px 10px !important;
     }
+
+    
    /* 2. TVOJ MEDIA DEO GDE SI STAVILA 40px ILI 60px */
 @media (max-width: 600px) {
     .pouka-box span, .pouka-box b {
@@ -143,6 +145,13 @@ media (max-width: 600px) {
         document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
     });
 </script>
+
     
+    kontejner.innerHTML += `
+    <div class="veliki-praznik" style="width: 95vw !important; margin: 20px auto !important; padding: 20px !important; box-sizing: border-box !important;">
+        <span class="${klasa}" style="font-size: 35px !important; display: block;">${datum} - ${p.praznik}</span>
+        <p style="font-size: 22px !important; margin-top: 15px;">${p.pouka || ""}</p>
+    </div>
+`;   
 </body>
 </html>
