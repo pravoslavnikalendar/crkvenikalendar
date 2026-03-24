@@ -446,25 +446,24 @@ function osveziKalendar() {
   }
 </script>  
 <script>
-    // Ova magija "čita" tvoj .json fajl
-    fetch('svetitelji.json')
-    .then(response => response.json())
-    .then(data => {
-        let kontejner = document.getElementById('lista-praznika');
-        
-        for (let datum in data) {
-            let p = data[datum];
-            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
-            let klasa = (p.boja === "red") ? "crveno" : "obicno";
-            
-            kontejner.innerHTML += `
-                <div class="pouka-box">
-                    <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
-                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka}</p>
-                </div>
-            `;
-        }
-    });
+fetch('svetitelji.json')
+  .then(response => response.json())
+  .then(data => {
+    let kontejner = document.getElementById('lista-praznika');
+    
+    // Prolazimo kroz tvoj JSON i tražimo samo crvena slova
+    for (let datum in data) {
+      if (data[datum].boja === "red") {
+        let p = data[datum];
+        kontejner.innerHTML += `
+          <div class="pouka-box" style="border-left: 5px solid #dd1616;">
+            <b style="color: #dd1616;">${datum}</b> - ${p.praznik} <br>
+            <i style="font-size: 16px;">${p.pouka}</i>
+          </div>
+        `;
+      }
+    }
+  });
 </script>
 <div class='column-right-outer'>
 <div class='column-right-inner'>
