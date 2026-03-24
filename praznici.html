@@ -52,25 +52,23 @@
 </script>
 
 <script>
-    // Ova magija "čita" tvoj .json fajl
-    fetch('svetitelji.json')
-    .then(response => response.json())
-    .then(data => {
-        let kontejner = document.getElementById('lista-praznika');
-        
-        for (let datum in data) {
-            let p = data[datum];
-            // Ako si u JSON stavila "boja": "red", koristi klasu 'crveno', inače 'obicno'
-            let klasa = (p.boja === "red") ? "crveno" : "obicno";
-            
-            kontejner.innerHTML += `
-                <div class="pouka-box">
-                    <span class="${klasa}">${datum}</span> - <span class="${klasa}">${p.praznik}</span>
-                    <p style="margin-top: 10px; font-style: italic; font-size: 18px;">${p.pouka}</p>
-                </div>
-            `;
-        }
-    });
+fetch('svetitelji.json')
+  .then(response => response.json())
+  .then(data => {
+    let danas = new Date();
+    let mesec = String(danas.getMonth() + 1).padStart(2, '0');
+    let dan = String(danas.getDate()).padStart(2, '0');
+    let kljuc = dan + "-" + mesec;
+
+    if (data[kljuc]) {
+      let info = data[kljuc];
+      let boja = (info.tip === "crveno") ? "red" : "#4A3728";
+      
+      // Ovde kažeš gde da ispiše tekst na ekranu
+      document.getElementById("danasnji-svetitelj").innerHTML = 
+        `<span style="color: ${boja}; font-weight: bold;">${info.praznik}</span>`;
+    }
+  });
 </script>
 </body>
 </html>
