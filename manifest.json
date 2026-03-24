@@ -9,6 +9,8 @@
    {
       "src": "ikona.png",
       "sizes": "80x80",
+     "background_color": "#F2E6C9",
+     "theme_color": "#8b6f47"
       "type": "image/png"
     }
   ]
