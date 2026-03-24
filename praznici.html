@@ -44,7 +44,23 @@ html {
     color: #4A3728 !important; /* TVOJA BRAON BOJA */
     text-decoration: none !important;
 }
+#danas-kutija {
+    background: rgba(255, 255, 255, 0.2); /* Prozirno bela kao magla */
+    backdrop-filter: blur(10px);         /* Zamućuje papir ispod - pravi efekat stakla */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Tanki prozirni "stakleni" rub */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Blaga senka za dubinu */
+    margin: 20px auto;
+    width: 90%;
+    max-width: 400px;
+}
 
+#danasnja-slika {
+    border-radius: 50%; /* Pravi savršen krug od slike */
+    border: 3px solid rgba(128, 128, 128, 0.3); /* Prozirno sivi okvir oko ikone */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
         
         .pouka-box {
             background: rgba(242, 230, 201, 0.85);
@@ -106,7 +122,13 @@ media (max-width: 600px) {
     </div>
 </div>
     
-
+<p style="margin-top: 10px; font-style: italic; font-size: 19px;">
+    ${p.pouka ? `
+        <span class="skraceni-tekst">${p.pouka.substring(0, 100)}...</span>
+        <span class="ceo-tekst" style="display: none;">${p.pouka}</span>
+        <button onclick="prikaziVise(this)" style="background: none; border: none; color: #8b6f47; font-weight: bold; cursor: pointer; font-size: 17px; padding: 0;"> Прочитај више</button>
+    ` : ""}
+</p>
 
 
     <div id="danas-kutija">
@@ -117,6 +139,24 @@ media (max-width: 600px) {
 
 </script>
 
+<script>
+function prikaziVise(dugme) {
+    let boks = dugme.parentElement;
+    let skraceno = boks.querySelector('.skraceni-tekst');
+    let celo = boks.querySelector('.ceo-tekst');
+    
+    if (celo.style.display === "none") {
+        celo.style.display = "inline";
+        skraceno.style.display = "none";
+        dugme.innerText = " Скрати";
+    } else {
+        celo.style.display = "none";
+        skraceno.style.display = "inline";
+        dugme.innerText = " Прочитај више";
+    }
+}
+</script>
+    
 <script>
     fetch('svetitelji.json')
     .then(response => response.json())
