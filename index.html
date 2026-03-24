@@ -447,21 +447,39 @@ function osveziKalendar() {
     navigator.serviceWorker.register('./sw.js');
   }
 </script>  
-let info = data[kljuc];
-if (info) {
-    let polje = document.getElementById("svetitelj-tekst");
-    polje.innerText = info.praznik;
-    
-    // Provera za boju
-    polje.className = (info.boja === "red") ? "crveno" : "";
-    
-    // Provera za pouku - ako je nema, piše prazno "" umesto undefined
-    let poukaPolje = document.getElementById("pouka-danas");
-    if (poukaPolje) {
-        poukaPolje.innerText = info.pouka || ""; 
+
+	<script>
+fetch('svetitelji.json')
+  .then(response => response.json())
+  .then(data => {
+    let danas = new Date();
+    let d = String(danas.getDate()).padStart(2, '0');
+    let m = String(danas.getMonth() + 1).padStart(2, '0');
+    let kljuc = m + "-" + d; // Traži npr. "03-23"
+
+    let info = data[kljuc];
+    if (info) {
+        let polje = document.getElementById("svetitelj-tekst");
+        polje.innerText = info.praznik;
+        
+        // Boja: ako je red, stavi tvoju klasu .crveno, inače ništa
+        polje.className = (info.boja === "red") ? "crveno" : "";
+        
+        // REŠENJE ZA UNDEFINED: Ako nema pouke ili slike, stavi prazno ""
+        document.getElementById("danasnja-pouka").innerText = info.pouka || "";
+        
+        let slikaPolje = document.getElementById("danasnja-slika");
+        if (info.slika) {
+            slikaPolje.src = info.slika;
+            slikaPolje.style.display = "block";
+        } else {
+            slikaPolje.style.display = "none";
+        }
     }
-}
+  });
 </script>
+
+
 	
 <div class='column-right-outer'>
 <div class='column-right-inner'>
