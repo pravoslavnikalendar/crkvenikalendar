@@ -1,5 +1,5 @@
 
-const cacheName = 'pravoslavlje-v1';
+const cacheName = 'pravoslavlje-v2';
 const assets = [
   './',
   './index.html',
