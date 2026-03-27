@@ -184,51 +184,19 @@ color: #4A3728;
 font-style: italic;
 }
 
-.column-right-tekst-kompjuter-box {
-    position: absolute; /* Ovo je ključ! Otkačinje box od ostalog koda */
-        right: 20px;       /* Gura ga skroz desno uz ivicu */
-        top: 150px;        /* Spušta ga malo ispod tvog logotipa i datuma */
-        width: 35%;
-    width: 40%;
-    margin: 20px;
-    background: rgba(242, 230, 201, 0.85); /* Твоја боја пергамента */
-    padding: 30px;
-    border-radius: 20px;
-    border: 2px solid #8b6f47; /* Златни оквир */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    color: #3e2723; /* Тамно браон текст */
-    text-align: justify;
-}
-
- .tekst-column-right-kompjuter-box {
-       /* Spušta ga malo ispod tvog logotipa i datuma */
-        width: 35%;           
-         background: rgba(242, 230, 201, 0.85);
-            padding: 30px;
-            border-radius: 20px;
-            border: 2px solid #8b6f47;
-            margin-bottom: 25px;
-            font-size: 22px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            line-height: 1.5;
-            position: relative;
-        }
-
-.naslov-column-right-tekst-kompjuter-box {
-      color: #8b0000;      /* Твоја бордо боја */
-    text-align: center;  /* Ово га центрира УНУТАР кутије */
-    display: block;      /* Осигурава да заузме свој ред */
-    width: 100%;         /* Ширина целе кутије */
-    font-variant: small-caps;
-    border-top: 1px solid #8b6f47;
-    padding-top: 15px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-
-/* Dodaj ovo u glavni style na Indexu */
-
+  /* 4. DESNA STRANA (COLUMN-RIGHT) - Sada ide kulturno ISPOD dugmića */
+    .column-right, 
+    .column-right-tekst-kompjuter-box, 
+    .tekst-column-right-kompjuter-box {
+        position: relative !important;
+        width: 92% !important;
+        right: auto !important;
+        top: auto !important;
+        margin: 20px auto !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        float: none !important;
+    }
 	
 .donji- papir {
 margin: 0;
@@ -384,9 +352,6 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         position: relative !important;
         z-index: 100; /* Stavlja ga "iznad" svega da se uvek vidi */
     }
-}
-
-
 
 	
 /* Na mobilnom neka se vrati u sredinu ili ispod logoa */
