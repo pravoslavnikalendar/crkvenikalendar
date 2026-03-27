@@ -48,21 +48,16 @@ margin: 0;
 }
 
 
-.column-right {  
-	position: absolute; /* Ovo je ključ! Otkačinje box od ostalog koda */
-        right: 20px;       /* Gura ga skroz desno uz ivicu */
-        top: 150px;        /* Spušta ga malo ispod tvog logotipa i datuma */
-        width: 35%;
-    width: 40%;
-    margin: 20px;
-    background: rgba(242, 230, 201, 0.85); /* Твоја боја пергамента */
-    padding: 30px;
-    border-radius: 20px;
-    border: 2px solid #8b6f47; /* Златни оквир */
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    color: #3e2723; /* Тамно браон текст */
-    text-align: justify;
-}
+ /* 2. UKROTILI SMO DESNU STRANU - sada ide ISPOD dugmića, ne preko njih */
+    .column-right {
+        position: relative !important; /* Vraća ga u red, ne lebdi više */
+        width: 90% !important;         /* Širi se skoro preko celog ekrana */
+        margin: 20px auto !important;  /* Centrira se na sredinu */
+        right: auto !important;        /* Briše ono "skroz desno" sa laptopa */
+        top: auto !important;          /* Briše fiksnu visinu */
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
 	
 /* Datum gore */
 #datum {
