@@ -39,6 +39,7 @@ padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
 margin: 0;
 }
+
 .donji-papir {
 width: 90%;
 max-width: 430px;
@@ -46,9 +47,7 @@ padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
 margin: 0;
 }
-
-
-
+	
 /* Datum gore */
 #datum {
 font-size: 20px;
@@ -99,14 +98,30 @@ background: rgba(242, 230, 201, 0.95);
     box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
     transition: 0.3s;
 }
+.audio-molitve-pecat {
+    position: absolute; /* Ово га вади из реда */
+    top: 100px;           /* Висина - подеси како ти одговара */
+    left: 20px;         /* Ово га гура ДЕСНО од твог главног контејнера */
+    background: rgba(242, 230, 201, 0.4); 
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 2px solid #2E1B08; /* Твоја тамнобраон */
+    text-decoration: none;
+    font-weight: bold;
+    color: #2E1B08;           /* Твоја тамнобраон за слова */
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
 .audio-molitve-pecat:hover {
     background: rgba(242, 230, 201, 0.9);
     transform: scale(1.1);
 }
 .blog-pecat {
     position: absolute;
-    top: 40px;         /* Исто као за Ризницу, само на левој страни */
-    left: 10px;        /* Твој слободан простор лево на лаптопу */
+    top: 50px;         /* Исто као за Ризницу, само на левој страни */
+    left: 20px;        /* Твој слободан простор лево на лаптопу */
     background: rgba(242, 230, 201, 0.6); 
     padding: 10px 20px;
     border-radius: 15px;
@@ -135,6 +150,7 @@ background: rgba(242, 230, 201, 0.95);
 .stiker-dugme:hover {
     transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
 }
+
 
 .column-right {
     position: absolute; /* Vraćamo na staro za laptop */
@@ -165,19 +181,7 @@ background: rgba(242, 230, 201, 0.95);
     text-align: justify;
 }
 	
-.gornja-traka {
-display:flex;
-justify-content:flex-end;
-margin-bottom:10px;
-}
-.meseci{
-padding:10px;
-font-size:20px;
-border-radius:8px;
-border:1px solid #8b6f47;
-background: rgba(242,230,201,0.88);
-color:#4A3728;
-}
+
 .pismo-prekidacpadding:10px;
 font-size:20px;
 text-align: left;
@@ -220,7 +224,7 @@ font-style: italic;
 
 
 	
-.donji- papir {
+.donji- papir body {
 margin: 0;
  background: transparent !important;
 
@@ -261,35 +265,13 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 
   
 
-    /* 3. DESNA STRANA (COLUMN-RIGHT): Ne brišemo, ali je šaljemo na dno */
-    .column-right, 
-    .column-right-tekst-kompjuter-box, 
-    .tekst-column-right-kompjuter-box,
-    .column-right-outer, aside {
-        position: relative !important;
-        display: block !important;
-        width: 90% !important;
-        right: auto !important;
-        top: auto !important;
-        margin: 20px auto !important;
-        float: none !important;
-        padding: 15px !important;
-        z-index: 10 !important;
-    }
+ 
 
 	/* MOBILNI:  */
 @media (max-width: 768px) {
   .column-right-tekst-kompjuter-box {
     display: none !important;
   }
-    /* 4. PECATI (Audio, Blog): Spuštamo ih da ne lebde preko Isusa */
-    .audio-molitve-pecat, .blog-pecat, .blog-precica {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        display: inline-block !important;
-        margin: 10px 5px !important;
-    }
 
 
 .pismo-prekidac {
@@ -313,11 +295,22 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
  }
 	
-    /* 6. FONTOVI KALENDARA: Da ne budu preširoki */
-    .svetitelj, .praznik, .obicno { font-size: 18px !important; }
-    .sadrzaj, .opis { font-size: 20px !important; }
-}  
-}
+     
+   /* 3. DESNA STRANA (COLUMN-RIGHT): Ne brišemo, ali je šaljemo na dno */
+    .column-right, 
+    .column-right-tekst-kompjuter-box, 
+    .tekst-column-right-kompjuter-box,
+    .column-right-outer, aside {
+        position: relative !important;
+        display: block !important;
+        width: 90% !important;
+        right: auto !important;
+        top: auto !important;
+        margin: 20px auto !important;
+        float: none !important;
+        padding: 15px !important;
+        z-index: 10 !important;
+    }
 
  </style>
 
