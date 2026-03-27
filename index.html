@@ -178,15 +178,13 @@ border:1px solid #8b6f47;
 background: rgba(242,230,201,0.88);
 color:#4A3728;
 }
-.pismo-prekidac {
-    /* Brišemo margin: auto da ne ide u sredinu! */
-    margin: 0 !important; 
-    font-family: "Times New Roman", serif;
-    font-size: 20px !important;
-    color: #4A3728;
-	
-    font-weight: bold;
-    text-align: left !important;
+.pismo-prekidacpadding:10px;
+font-size:30px;
+padding:10px;
+border-radius:8px;
+border:1px solid #8b6f47;
+background: rgba(242,230,201,0.88);
+color:#4A3728;
 }
 
 
@@ -286,23 +284,13 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         margin: 10px 5px !important;
     }
 
-    /* 5. PISMO (Lat/Ćir): Na sredini, krupno i jasno */
-    .pismo-prekidac {
-        display: block !important;
-        margin: 0px auto !important;
-        text-align: center !important;
-        font-size: 22px !important;
-        clear: both !important;
-    }
 
 .pismo-prekidac {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    margin: 20px auto !important;
-    text-align: center !important;
-    z-index: 9999 !important;
-}
+    width: 30%; /* Povećavamo sa 30% na 45% da budu komotni */
+        font-size: 20px; /* Krupnija slova da se lakše čita */
+        padding: 10px 5px;
+        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
+    }
  .meseci {
         width: 30%; /* Povećavamo sa 30% na 45% da budu komotni */
         font-size: 16px; /* Krupnija slova da se lakše čita */
@@ -322,14 +310,6 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
     .svetitelj, .praznik, .obicno { font-size: 18px !important; }
     .sadrzaj, .opis { font-size: 20px !important; }
 }  
-
-
-
-		.pismo-prekidac {
-        display: block !important;
-        margin: 15px auto !important;
-        font-size: 22px !important;
-    }
 }
 
  </style>
