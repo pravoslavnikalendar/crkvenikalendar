@@ -595,29 +595,7 @@ function osveziKalendar() {
   }
 </script>  
 
-<script>
-function preslovi(pismo) {
-    const mapa = {
-        'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Ђ':'Đ','Е':'E','Ж':'Ž','З':'Z','И':'I','Ј':'J','К':'K','Л':'L','Љ':'Lj','М':'M','Н':'N','Њ':'Nj','О':'O','П':'P','Р':'R','С':'S','Т':'T','Ћ':'Ć','У':'U','Ф':'F','Х':'H','Ц':'C','Ч':'Č','Џ':'Dž','Ш':'Š',
-        'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','е':'e','ж':'ž','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','у':'u','ф':'f','х':'h','ц':'c','ч':'č','џ':'dž','ш':'š'
-    };
 
-    // Ovde dodajemo i .pouka-box da bi preslovio i one tvoje svece unutra
-    let tekstovi = document.querySelectorAll('h1, h2, h3, p, span, b, a, .pouka-box');
-    tekstovi.forEach(el => {
-        let sadrzaj = el.innerHTML;
-        if (pismo === 'lat') {
-            for (let kljuc in mapa) {
-                sadrzaj = sadrzaj.split(kljuc).join(mapa[kljuc]);
-            }
-        } else {
-            location.reload(); // Osvežava na ćirilicu
-        }
-        el.innerHTML = sadrzaj;
-    });
-}
-</script>
-	
 
 <script>
     fetch('svetitelji.json')
@@ -727,7 +705,31 @@ font-weight: 700; ">Задушнице 2026 годинa</th>
 </div>
 
 	
+<script>
+function preslovi(pismo) {
+    if (pismo === 'cir') {
+        location.reload(); // Najbrži način da se vratiš na tvoju originalnu ćirilicu
+        return;
+    }
 
+    const mapa = {
+        'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Ђ':'Đ','Е':'E','Ж':'Ž','З':'Z','И':'I','Ј':'J','К':'K','Л':'L','Љ':'Lj','М':'M','Н':'N','Њ':'Nj','О':'O','П':'P','Р':'R','С':'S','Т':'T','Ћ':'Ć','У':'U','Ф':'F','Х':'H','Ц':'C','Ч':'Č','Џ':'Dž','Ш':'Š',
+        'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','е':'e','ж':'ž','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','у':'u','ф':'f','х':'h','ц':'c','ч':'č','џ':'dž','ш':'š'
+    };
+
+    // Tražimo samo tekstualne elemente da ne kvarimo HTML strukturu (ikone i slike)
+    let elementi = document.querySelectorAll('h1, h2, h3, p, span, b, .pouka-box');
+    
+    elementi.forEach(el => {
+        // Preslovljavamo samo tekst, ne i HTML tagove (da ne pokvarimo slike)
+        let nadeveniTekst = el.innerText; 
+        for (let kljuc in mapa) {
+            nadeveniTekst = nadeveniTekst.split(kljuc).join(mapa[kljuc]);
+        }
+        el.innerText = nadeveniTekst;
+    });
+}
+</script>
 	
 
 </body>
