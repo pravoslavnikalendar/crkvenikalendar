@@ -380,12 +380,70 @@ margin: 0;
 padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
  }
 
+@media (max-width: 600px) {
+    /* Sklanjamo desnu kolonu da ne ide preko dugmića */
+    .column-right-outer, .column-right-inner, aside {
+        display: block !important;
+        width: 100% !important;
+        position: static !important;
+        margin-top: 20px !important;
+    }
+
+    /* Tvoj prebacivač pisma stavljamo na sigurno mesto */
+    .pismo-prekidac {
+        display: block !important;
+        clear: both !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        width: 100% !important;
+        position: relative !important;
+        z-index: 100; /* Stavlja ga "iznad" svega da se uvek vidi */
+    }
+}
+Будите опрезни када користите кôд.
+
+2. Zašto ti "nestaju slova" kad dodaš novi DIV?
+To se dešava jer negde u HTML-u imaš nezatvoren tag (verovatno ti fali jedan </div> na kraju tabele zadušnica). Kad dodaš novi div, on upadne u onaj prethodni i postane "nevidljiv" ili ode iza pozadine papira.
+Šta sada da uradiš:
+U praznici.html, proveri da li posle tabele imaš tačno dva </div> pre nego što počne skripta.
+Dugme Ћир | Lat izmesti iz te desne kolone i stavi ga odmah ispod tvog naslova ili ispod zadnjeg dugmeta, ali izvan bilo kakvih "kolona".
+Gde tačno da staviš dugme u HTML-u da se uvek vidi:
+Pronađi kraj tvojih dugmića na naslovnoj i ubaci ga tu:
+html
+<!-- KRAJ DUGMICA -->
+<div class="pismo-prekidac">
+    <span onclick="preslovi('cir')">Ћир</span> | 
+    <span onclick="preslovi('lat')">Lat</span>
+</div>
+<!-- OVDE TEK POČINJU ONE KOLONE ZA LAPTOP -->
+Будите опрезни када користите кôд.
+
+	
 /* Na mobilnom neka se vrati u sredinu ili ispod logoa */
 @media (max-width: 480px) {
     .blog-precica {
         position: absolute;
         display: inline-block;
         margin-top: 10px;
+    }
+@media (max-width: 600px) {
+    /* Sklanjamo desnu kolonu da ne ide preko dugmića */
+    .column-right-outer, .column-right-inner, aside {
+        display: block !important;
+        width: 100% !important;
+        position: static !important;
+        margin-top: 20px !important;
+    }
+
+    /* Tvoj prebacivač pisma stavljamo na sigurno mesto */
+    .pismo-prekidac {
+        display: block !important;
+        clear: both !important;
+        margin: 20px auto !important;
+        text-align: center !important;
+        width: 100% !important;
+        position: relative !important;
+        z-index: 100; /* Stavlja ga "iznad" svega da se uvek vidi */
     }
 }
 
