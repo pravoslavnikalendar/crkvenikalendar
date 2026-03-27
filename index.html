@@ -166,11 +166,14 @@ background: rgba(242, 230, 201, 0.95);
 }
 	
 .gornja-traka {
-display:flex;
-justify-content:flex-end;
-margin-bottom:10px;
+    display: flex !important;
+    justify-content: space-between !important; /* RAZDVaja: Pismo LEVO - Meseci DESNO */
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px 15px !important;
+    margin-bottom: 10px !important;
+    box-sizing: border-box !important;
 }
-
 .meseci{
 padding:10px;
 font-size:35px;
@@ -180,20 +183,17 @@ background: rgba(242,230,201,0.88);
 color:#4A3728;
 }
 .pismo-prekidac {
-    text-align: left;
-    margin: 10px auto;
+    /* Brišemo margin: auto da ne ide u sredinu! */
+    margin: 0 !important; 
     font-family: "Times New Roman", serif;
-    font-size: 20px; /* Da bude čitljivo */
-    color: #4A3728;  /* Tvoja prelepa braon boja */
+    font-size: 20px !important;
+    color: #4A3728;
+	
     font-weight: bold;
+    text-align: left !important;
 }
 
-.pismo-prekidac span {
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
+
 
 .pismo-prekidac span:hover {
     background: rgba(139, 111, 71, 0.2); /* Blagi sjaj kad se pređe mišem */
