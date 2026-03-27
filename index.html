@@ -48,17 +48,7 @@ margin: 0;
 }
 
 
- /* 2. UKROTILI SMO DESNU STRANU - sada ide ISPOD dugmića, ne preko njih */
-    .column-right {
-        position: relative !important; /* Vraća ga u red, ne lebdi više */
-        width: 90% !important;         /* Širi se skoro preko celog ekrana */
-        margin: 20px auto !important;  /* Centrira se na sredinu */
-        right: auto !important;        /* Briše ono "skroz desno" sa laptopa */
-        top: auto !important;          /* Briše fiksnu visinu */
-        padding: 20px !important;
-        box-sizing: border-box;
-    }
-	
+
 /* Datum gore */
 #datum {
 font-size: 20px;
@@ -90,6 +80,9 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 0 10px 20px rgba(0,0,0,0.35);
 background: rgba(242, 230, 201, 0.95);
 }
+
+
+	
 .audio-molitve-pecat {
     position: absolute; /* Ово га вади из реда */
     top: 100px;           /* Висина - подеси како ти одговара */
@@ -143,9 +136,21 @@ background: rgba(242, 230, 201, 0.95);
     transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
 }
 
+.column-right {
+    position: absolute; /* Vraćamo na staro za laptop */
+    right: 20px;
+    top: 150px;
+    width: 40%;
+    background: rgba(242, 230, 201, 0.85);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #8b6f47;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    color: #3e2723;
+    text-align: justify;
+}
 
-
-.gornja-traka{
+.gornja-traka {
 display:flex;
 justify-content:flex-end;
 margin-bottom:10px;
@@ -184,19 +189,7 @@ color: #4A3728;
 font-style: italic;
 }
 
-  /* 4. DESNA STRANA (COLUMN-RIGHT) - Sada ide kulturno ISPOD dugmića */
-    .column-right, 
-    .column-right-tekst-kompjuter-box, 
-    .tekst-column-right-kompjuter-box {
-        position: relative !important;
-        width: 92% !important;
-        right: auto !important;
-        top: auto !important;
-        margin: 20px auto !important;
-        padding: 20px !important;
-        box-sizing: border-box !important;
-        float: none !important;
-    }
+
 	
 .donji- papir {
 margin: 0;
@@ -252,7 +245,21 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         display: none !important;
     }
 
+  /* 4. DESNA STRANA (COLUMN-RIGHT) - Sada ide kulturno ISPOD dugmića */
+    .column-right, 
+    .column-right-tekst-kompjuter-box, 
+    .tekst-column-right-kompjuter-box {
+        position: relative !important;
+        width: 92% !important;
+        right: auto !important;
+        top: auto !important;
+        margin: 20px auto !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        float: none !important;
+    }
 
+	
 @media (max-width: 600px) {
     /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
     .praznici-dugme {
