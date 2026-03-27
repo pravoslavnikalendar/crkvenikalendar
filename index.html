@@ -171,16 +171,6 @@ justify-content:flex-end;
 margin-bottom:10px;
 }
 
-.meseci{
-padding:10px;
-font-size:16px;
-border-radius:8px;
-border:1px solid #8b6f47;
-background: rgba(242,230,201,0.88);
-color:#4A3728;
-}
-
-
 .crveno {
     color: #dd1616;
     font-weight: bold;
@@ -248,160 +238,73 @@ border-radius: 10px;
 overflow: hidden;
 box-shadow: 0 4px 15px rgba(0,0,0,0.7);"> 
 
-/* MOBILNI:  */
-@media (max-width: 768px) {
-  .desna-strana-tekst-kompjuter-box {
-    display: none !important;
-  }
+* --- BRISANJE MILION STVARI I VELIKO SPREMANJE --- */
 
-/* TVOJ ŠTIT - Ovo sakriva celu kutiju na mobilnom */
-@media (max-width: 768px) {
-    .column-right-tekst-kompjuter-box {
-        display: none !important;
+@media (max-width: 600px) {
+    /* 1. ČUVAMO PAPIR: Zaključavamo širinu da ne šeta levo-desno */
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-  /* 4. DESNA STRANA (COLUMN-RIGHT) - Sada ide kulturno ISPOD dugmića */
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 5px !important;
+        margin: 0 auto !important;
+    }
+
+    /* 2. DUGMADI: Svi u istoj širini da ne gura ivice papira */
+    .dugme, .praznici-dugme {
+        width: 88% !important;
+        margin: 10px auto !important;
+        display: block !important;
+        box-sizing: border-box !important;
+        font-size: 18px !important;
+        padding: 12px !important;
+    }
+
+    /* 3. DESNA STRANA (COLUMN-RIGHT): Ne brišemo, ali je šaljemo na dno */
     .column-right, 
     .column-right-tekst-kompjuter-box, 
-    .tekst-column-right-kompjuter-box {
+    .tekst-column-right-kompjuter-box,
+    .column-right-outer, aside {
         position: relative !important;
-        width: 92% !important;
+        display: block !important;
+        width: 90% !important;
         right: auto !important;
         top: auto !important;
         margin: 20px auto !important;
-        padding: 20px !important;
-        box-sizing: border-box !important;
         float: none !important;
+        padding: 15px !important;
+        z-index: 10 !important;
     }
 
-	
-@media (max-width: 600px) {
-    /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
-    .praznici-dugme {
-        width: 90% !important;   /* Ista širina kao tvoja ostala dugmad */
-        margin: -5px auto !important; /* Minimalni razmak GORE i DOLE (podiglo se!) */
-       border: 1px solid #dd1616 !important;
-        color: #dd1616 !important;
-		padding: 10px !important;    /* Tanji boks, da ne bude "debeo" */
-        font-size: 17px !important;  /* Da tekst stane u jedan red */
-        display: block !important;
-		display: inline-block !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Ako tvoja ostala dugmad imaju prevelik razmak iznad sebe, smanji im marginu */
-    .dugme {
-        margin-top: 5px !important;
-        margin-bottom: 5px !important;
+    /* 4. PECATI (Audio, Blog): Spuštamo ih da ne lebde preko Isusa */
+    .audio-molitve-pecat, .blog-pecat, .blog-precica {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        display: inline-block !important;
+        margin: 10px 5px !important;
     }
 
-
-	
-@media (max-width: 430px)  
-.container { padding: 20px; width: 100%; }
-.dan, .zaglavlje-kolone, h2 {
-grid-template-columns: 20px 20px 20px 1fr;
-}
-@media (max-width: 480px) {
-    .gornji-papir {
-        /* ZABRANA: Na mobilnom slika mora biti jedna i mora imati ivice! */
-        background-repeat: no-repeat !important;
-        background-size: 100% 100% !important; 
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        text-align: center;
-    }
-
-.svetitelj { font-size: 18px; }
-.sadrzaj { font-size: 21px; }
-.praznik { font-size: 18px; }
-.opis { font-size: 20px; }
-.obicno { font-size: 18px; }
-
-
-/* Maksimalno smanjujemo prored da nema rupa */
-.sadrzaj, .svetitelji, .praznik, .opis, .obicno {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1.1; 
-}	
-	
-	
-	@media (prefers-color-scheme: dark) {
-   body {
-padding: 0; /* Brišemo razmak oko celog tela */
-}
-    
-.container {
- width: 100%; /* Širi se na ceo ekran telefona */
-max-width: 100%;
-padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-margin: 0;
-}
-@media (max-width: 480px) {
-     .meseci {
-        width: 45%; /* Povećavamo sa 30% na 45% da budu komotni */
-        font-size: 16px; /* Krupnija slova da se lakše čita */
-        padding: 10px 5px;
-        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
-    }
-    .gornja-traka {
-        justify-content: center; /* Centriramo ih na sredini ekrana */
-        gap: 10px; /* Razmak između menija */
-        padding: 10px;
-    }
-.dan {
-padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
- }
-
-@media (max-width: 600px) {
-    /* Sklanjamo desnu kolonu da ne ide preko dugmića */
-    .column-right-outer, .column-right-inner, aside {
-        display: block !important;
-        width: 100% !important;
-        position: static !important;
-        margin-top: 20px !important;
-    }
-
-    /* Tvoj prebacivač pisma stavljamo na sigurno mesto */
+    /* 5. PISMO (Lat/Ćir): Na sredini, krupno i jasno */
     .pismo-prekidac {
         display: block !important;
-        clear: both !important;
         margin: 20px auto !important;
         text-align: center !important;
-        width: 100% !important;
-        position: relative !important;
-        z-index: 100; /* Stavlja ga "iznad" svega da se uvek vidi */
-    }
-
-	
-/* Na mobilnom neka se vrati u sredinu ili ispod logoa */
-@media (max-width: 480px) {
-    .blog-precica {
-        position: absolute;
-        display: inline-block;
-        margin-top: 10px;
-    }
-@media (max-width: 600px) {
-    /* Sklanjamo desnu kolonu da ne ide preko dugmića */
-    .column-right-outer, .column-right-inner, aside {
-        display: block !important;
-        width: 100% !important;
-        position: static !important;
-        margin-top: 20px !important;
-    }
-
-    /* Tvoj prebacivač pisma stavljamo na sigurno mesto */
-    .pismo-prekidac {
-        display: block !important;
+        font-size: 22px !important;
         clear: both !important;
-        margin: 20px auto !important;
-        text-align: center !important;
-        width: 100% !important;
-        position: relative !important;
-        z-index: 100; /* Stavlja ga "iznad" svega da se uvek vidi */
     }
+
+    /* 6. FONTOVI KALENDARA: Da ne budu preširoki */
+    .svetitelj, .praznik, .obicno { font-size: 18px !important; }
+    .sadrzaj, .opis { font-size: 20px !important; }
+}
+
 }
 
  </style>
