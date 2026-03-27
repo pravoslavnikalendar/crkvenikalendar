@@ -171,6 +171,15 @@ justify-content:flex-end;
 margin-bottom:10px;
 }
 
+.meseci{
+padding:10px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #8b6f47;
+background: rgba(242,230,201,0.88);
+color:#4A3728;
+}
+	
 .crveno {
     color: #dd1616;
     font-weight: bold;
@@ -256,15 +265,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         margin: 0 auto !important;
     }
 
-    /* 2. DUGMADI: Svi u istoj širini da ne gura ivice papira */
-    .dugme, .praznici-dugme {
-        width: 88% !important;
-        margin: 10px auto !important;
-        display: block !important;
-        box-sizing: border-box !important;
-        font-size: 18px !important;
-        padding: 12px !important;
-    }
+  
 
     /* 3. DESNA STRANA (COLUMN-RIGHT): Ne brišemo, ali je šaljemo na dno */
     .column-right, 
@@ -308,6 +309,20 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
     text-align: center !important;
     z-index: 9999 !important;
 }
+ .meseci {
+        width: 45%; /* Povećavamo sa 30% na 45% da budu komotni */
+        font-size: 16px; /* Krupnija slova da se lakše čita */
+        padding: 10px 5px;
+        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
+    }
+    .gornja-traka {
+        justify-content: center; /* Centriramo ih na sredini ekrana */
+        gap: 10px; /* Razmak između menija */
+        padding: 10px;
+    }
+.dan {
+padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
+ }
 	
     /* 6. FONTOVI KALENDARA: Da ne budu preširoki */
     .svetitelj, .praznik, .obicno { font-size: 18px !important; }
