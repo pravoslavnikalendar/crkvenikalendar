@@ -71,8 +71,6 @@ inset 0 -2px 4px rgba(0,0,0,0.15),
 transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
-
-	
 .dugme:hover {
 transform: translateY(-2px) scale(1.05);
 box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
@@ -81,9 +79,9 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 background: rgba(242, 230, 201, 0.95);
 }
 .audio-molitve-pecat {
-    position: absolute; 
-    top: 100px;           
-    left: 20px;         
+    position: absolute; /* Ово га вади из реда */
+    top: 100px;           /* Висина - подеси како ти одговара */
+    left: 20px;         /* Ово га гура ДЕСНО од твог главног контејнера */
     background: rgba(242, 230, 201, 0.4); 
     padding: 10px 20px;
     border-radius: 15px;
@@ -102,8 +100,8 @@ background: rgba(242, 230, 201, 0.95);
 }
 .blog-pecat {
     position: absolute;
-    top: 50px;         
-    left: 20px;       
+    top: 50px;         /* Исто као за Ризницу, само на левој страни */
+    left: 20px;        /* Твој слободан простор лево на лаптопу */
     background: rgba(242, 230, 201, 0.6); 
     padding: 10px 20px;
     border-radius: 15px;
@@ -150,20 +148,73 @@ background: rgba(242,230,201,0.88);
 color:#4A3728;
 }
 
+
 .crveno {
     color: #dd1616;
     font-weight: bold;
     font-size: 19px;
 }
 
-	
-	
+.h2 {
+font-size: 14px;
+margin-top: 20px;
+text-align: left;
+color: #4A3728;
+font-style: italic;
+}
+
+
+
 .potpis {
 font-size: 14px;
 margin-top: 20px;
 color: #4A3728;
 font-style: italic;
 }
+
+.desna-strana-tekst-kompjuter-box {
+    position: absolute; /* Ovo je ključ! Otkačinje box od ostalog koda */
+        right: 20px;       /* Gura ga skroz desno uz ivicu */
+        top: 150px;        /* Spušta ga malo ispod tvog logotipa i datuma */
+        width: 35%;
+    width: 40%;
+    margin: 20px;
+    background: rgba(242, 230, 201, 0.85); /* Твоја боја пергамента */
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #8b6f47; /* Златни оквир */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    color: #3e2723; /* Тамно браон текст */
+    text-align: justify;
+}
+
+ .tekst-desna-strana-kompjuter-box {
+       /* Spušta ga malo ispod tvog logotipa i datuma */
+        width: 35%;           
+         background: rgba(242, 230, 201, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #8b6f47;
+            margin-bottom: 25px;
+            font-size: 22px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            line-height: 1.5;
+            position: relative;
+        }
+
+.naslov-desna-strana-tekst-kompjuter-box {
+      color: #8b0000;      /* Твоја бордо боја */
+    text-align: center;  /* Ово га центрира УНУТАР кутије */
+    display: block;      /* Осигурава да заузме свој ред */
+    width: 100%;         /* Ширина целе кутије */
+    font-variant: small-caps;
+    border-top: 1px solid #8b6f47;
+    padding-top: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+
 /* Dodaj ovo u glavni style na Indexu */
 
 	.donji- papir 
@@ -204,23 +255,19 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
   .tekst-kompjuter {
     display: none !important;
   }
-@media (max-width: 768px) {
-  .tekst-kompjuter {
-    display: none !important;
-  }
+
 
 /* TVOJ ŠTIT - Ovo sakriva celu kutiju na mobilnom */
 @media (max-width: 768px) {
     .molitva-box {
         display: none !important;
     }
-
 @media (max-width: 600px) {
     /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
     .praznici-dugme {
         width: 90% !important;   /* Ista širina kao tvoja ostala dugmad */
-        margin: 5px auto !important; /* Minimalni razmak GORE i DOLE (podiglo se!) */
-       border: 2px solid #dd1616 !important;
+        margin: -5px auto !important; /* Minimalni razmak GORE i DOLE (podiglo se!) */
+       border: 1px solid #dd1616 !important;
         color: #dd1616 !important;
 		padding: 10px !important;    /* Tanji boks, da ne bude "debeo" */
         font-size: 17px !important;  /* Da tekst stane u jedan red */
@@ -234,11 +281,12 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         margin-top: 5px !important;
         margin-bottom: 5px !important;
     }
-}
+
+
 	
 @media (max-width: 430px)  
 .container { padding: 20px; width: 100%; }
-.dan, .zaglavlje-kolone {
+.dan, .zaglavlje-kolone, h2 {
 grid-template-columns: 20px 20px 20px 1fr;
 }
 @media (max-width: 480px) {
@@ -338,8 +386,9 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 
 <div class="">
    <!-- Ovde ide sve što želiš da se vidi SAMO na kompjuteru -->
-  
+   <p>  <!--  tekst --> </p>
 </div>
+
 <div class="gornji-papir">
 <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
 height: 80px; display: block; 
@@ -350,22 +399,47 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <!-- Datum automatski -->
 <div id="datum"></div>
 
-<!-- 1. OVO OSTAVI (ovo je ono lepše dugme za mobilni) -->
-<div style="text-align: center; margin: 20px auto;">
-    <a href="praznici.html" class="dugme" style="display: inline-block; width: 85%; max-width: 380px; border: 2px solid #dd1616; color: #dd1616; font-weight: bold;">
-        📅 Значајни празници у 2026.
-    </a>
+
+
+
+   
+   <div class="desna-strana-tekst-kompjuter-box ">
+ <h3 class="naslov-tekst-kompjuter">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ</h3>
+Када се нешто догоди и ђаво види да то узнемирује човека, његова вештина се састоји у томе да увећа мноштво помисли које су тобоже оправдане, да би на тај начин завео убогог цовека у олују и удавио .Како каже изрека, лисица воли пометњу.Када пак олуја прође, човек види да је био у опасности да се удави у чашици воде.
+Ђаво је посредсвом очајања повукао небројено мноштво људи у паклене дубине.
+Немојте се бавити ничим другим осим самим собом.постаните глупи да би сте постали оштроумни, постаните неуки да би вам Господ открио своју сопствену премудрост.
+Без Божије помоћи не можемо да учинимо ништа .Према томе, потребно нам је много смирења да би душе нашле мир.
+Чедо моје, бори се са љубављу, трпљењем и смирењем да уз Божију помоћ онеспособиш замке ђаволске.
+Немој се жалостити због рата који водиш.Не плаши се, него буди храбар.Демони немају власт да ти нашкоде.То је од руке Божије, и кроз то ће ти отворити душевне очи, и бићеш постављен на прави пут.Исцељење страсти захтева изузетно горке лекове.
+Смири се, чедо моје .То је једини лек који ће те спасти.
+Још више љуби Бога, јер ти је Он послао лек за твоју болест, односно, трпљење и храброст.Стога се побрини да тај лек узмеш.
+Било да је будан или да спава, грешник непрестално мисли о злу.
+Бори се и бди над својим помислима.Чврсто се дрЖи наде, јер то показује да је твоја куЋа саграЂена на чврстој стени, а стена је нас Христос.
+Клеветање је велико зло.Као што мало кормило управља брод куд год хоће, исто тако и језик води човека, или према злу или према добру.
+Праведне душе кроз добре олује не само да се спасавају него се у усавршавају.
+Напор сваке борбе пролази, али победа остаје.Уколико током искушења не окусиш пакао "На кашицицу" нећеш видети ни благодат Божију.
+Зло захтева да се ишцупа из корена а тај корен је гордост и егоизам, упорност самовоља, гнев итд.Све се ово може излечити једним јединим леком: пребацивањем бремена погрешака и искушења на самог себе.Увек кажи: "То је моја грешка" Ја сам узрок.Патим због својих страсти.Узрок многих зала није нико други него ја сам, троструки несретник.
+(Старац Јефрем Филотејски-аризонском.
+</div>
 </div>
 
 
-	
+
+
+
 
 <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
 <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
 <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
 <a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
 <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
-
+<!-- 1. OVO OSTAVI (ovo je ono lepše dugme za mobilni) -->
+<div style="text-align: center; margin: 20px auto;">
+    <a href="praznici.html" class="dugme" style="display: inline-block; width: 85%; padding: 18px;
+margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">
+        📅 Значајни празници у 2026.
+    </a>
+</div> 
 
 </div>
 
@@ -424,8 +498,6 @@ async function prikaziSve() {
     } catch (e) { console.log("Nema JSON-a"); }
 }
 prikaziSve();
-
-
 	
 </script>
 	
@@ -469,6 +541,7 @@ function osveziKalendar() {
   }
 </script>  
 
+
 <script>
     fetch('svetitelji.json')
     .then(response => response.json())
@@ -497,7 +570,6 @@ function osveziKalendar() {
 </script>
 
 
-	
 <div class='column-right-outer'>
 <div class='column-right-inner'>
 <aside>
@@ -581,10 +653,7 @@ font-weight: 700; ">Задушнице 2026 годинa</th>
 
 <style>
 
-h2 {
-text-align: center;
-margin-bottom: 20px;
-}
+
 
 /* ZAGLAVLJE KOLONA */
 
@@ -812,640 +881,6 @@ margin: 0;
     
     <!-- OVDE TREBA DA BUDE TVOJ KALENDAR (tabela ili divovi) -->
 
-
-
-<div class="navigacija">
-<a href=""></a>
-<a href="index.html" class="</a>    
-<a href="april-2026.html"></a>
-</div>
-
-
-<div class="zaglavlje-kolone">
-</div>
-
-
-
-
-<div class="nedelja-naslov">
-Недеља прва поста – Чиста – Православља. Глас 5. Јев. вас. 5. (Лк 24, 12-35). На Литургиjи, ап. зач. 329. (Јев 11, 24-26, 32-40; 12, 1-2). Јев. Јн зач. 5. (1, 43-51).
-</div>
-
-<div class="dan">
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv crveno">Н</div>
-<div class="kol novi-datum crveno">1.</div>
-<div class="kol stari-datum crveno">16.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети мученици Памфил, 
-Порфирије и других десет мученика
-</div>
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">2.</div>
-<div class="kol stari-datum">17.</div>
-
-<div class="tekst-kontejner">
-<div class="sadrzaj">
-<div class="praznik">Свети великомученик Теодор Тирон</div>
-<div class="svetitelji">
-</div>
-</div>
-<div class="opis">
-Ко зида добро самим тим руши зло. Ко се пак окрене да руши зло,
-брзо заборави зидати добро и претвори се у злочинца. 
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">У</div>
-<div class="kol novi-datum">3.</div>
-<div class="kol stari-datum">18.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Лав Римски; свети Флавијан Цариградски
-</div>
-</div>
-<div class="opis">
-Најбољи бизнис је отварање фабрике која производи 
-позитивне мисли. 
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">4.</div>
-<div class="kol stari-datum">19.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети апостоли Архип, Филимон и Апфија
-</div>
-</div>
-<div class="opis">
-Не намећи своје мишљење никоме па макар ти
-био и у праву. Јер, што више притискаш, то више одскаче.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">Ч</div>
-<div class="kol novi-datum">5.</div>
-<div class="kol stari-datum">20.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Лав Катански
-</div>
-</div>
-<div class="opis">
-Кад би ти понудили златан пехар са најбољим вином у свету и рекли:
-Пиј, но знај да је на дну шкорпија-да ли би пио?
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">6.</div>
-<div class="kol stari-datum">21.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Преподобни Тимотеј; Свети Евстатије
-</div>
-</div>
-<div class="opis">
-Изгубити стид значи, на крају крајева, признати себе савршеним.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">7.</div>
-<div class="kol stari-datum">22.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети мученици у Евгенији
-</div>
-</div>
-<div class="opis">
-Чувај се више зависти пријатеља него непријатеља
-јер непријатељ ти завиди јавно, а пријатељ тајно.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="nedelja-naslov">
-Недеља друга поста – Пачиста. Глас 6. Јев. вас. 6. (Лк 24, 36-53). На Лит. ап. зач. 304. (Јев 1, 10-2, 3) и 318. и (7, 26-8, 2). Јев. Мк зач. 7. (2, 1-12) и Јн. зач. 36. (10, 9-16).
-</div>
-
-<div class="dan">
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv crveno">Н</div>
-<div class="kol novi-datum crveno">8.</div>
-<div class="kol stari-datum crveno">23.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети свештеномученик Поликарп Смирнски
-</div>
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">9.</div>
-<div class="kol stari-datum">24.</div>
-
-<div class="tekst-kontejner">
-<div class="sadrzaj">
-<div class="praznik">Прво и друго обретење главе светог Јована Крститеља</div>
-<div class="svetitelji">
-</div>
-</div>
-<div class="opis">
-Прва сласт човекова је млеко, а последња-мисао.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">У</div>
-<div class="kol novi-datum">10.</div>
-<div class="kol stari-datum">25.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Тарасије Цариградски
-</div>
-</div>
-<div class="opis">
-Све бриге ваше као трње су што сејете по путу своме. Оне не производе кишу,
-но чине сушу још сушнијом. Не додају живота, но гомилају немоћи.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">11.</div>
-<div class="kol stari-datum">26.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Порфирије епископ Гаски
-</div>
-</div>
-<div class="opis">
-Бескорисне слуге, обратите бриге у молитве као што
-се лед обраћа у текућу воду.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">Ч</div>
-<div class="kol novi-datum">12.</div>
-<div class="kol stari-datum crveno">27.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Преподобни Прокопије Декаполит; Преподобни Талалеј; 
-Свети Теодор Комоговински
-</div>
-</div>
-<div class="opis">
-Тражио сам Снагу.И Бог ми је дао Потешкоће које су ме оснажиле.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">13.</div>
-<div class="kol stari-datum">28.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Преподобни Василије Исповедник; Преподобни Јован Касијан; 
-Свештеномученик Протерије; Свештеномученик Нестор
-</div>
-</div>
-<div class="opis">
-Није богат онај који поседује иметак и чува га, него онај који га дели.
-Жртва, а не поседовање нас усрећује.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">14.</div>
-<div class="kol stari-datum">1.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-<div class="obicno">МАРТ – Света преподобномученица Евдокија</div>
-</div>
-</div>
-<div class="opis">
-Ко купује орахе, не цени по љусци него по језгру.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="nedelja-naslov">
-Недеља трећа поста – Крстопоклона. Глас 7. Јев. вас. 7 (Jн 20, 1-10). На Лит. ап. зач. 311. (Јев 4, 14-5, 6). Јев. Мк зач. 37. (8, 34-38; 9, 1).
-</div>
-
-<div class="dan">
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv crveno">Н</div>
-<div class="kol novi-datum crveno">15.</div>
-<div class="kol stari-datum crveno">2.</div>
-
-<div class="tekst-kontejner">
-<div class="sadrzaj">
-<div class="svetitelji">
-Свети свештеномученик Теодот Киринејски
-</div>
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">16.</div>
-<div class="kol stari-datum">3.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети мученици Евтропије, Клеоник и Василиск
-</div>
-</div>
-<div class="opis">
-Ђаво нас учи да изврћемо речи да не бисмо, када нас питају,
-себе окривили, већ да бисмо, учинивши грех, слагали и оправдали себе.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-
-<div class="dan">
-<div class="kol dan-naziv">У</div>
-<div class="kol novi-datum">17.</div>
-<div class="kol stari-datum">4.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Преподобни Герасим Јордански
-</div>
-</div>
-<div class="opis">
-Добро је да помажемо речима оне који питају, али је много боље да их
-помогнемо молитвом и врлином. Јер, онај ко себе помоћу њих приноси Богу,
-помаже и себи и своме ближњем.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">18.</div>
-<div class="kol stari-datum">4.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети мученик Конон; Преподобни Марко
-</div>
-</div>
-<div class="opis">
-Срећа је дар Божији, а несрећа допуштење Божије.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">Ч</div>
-<div class="kol novi-datum">19.</div>
-<div class="kol stari-datum">6.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Света 42 мученика Аморејска
-</div>
-</div>
-<div class="opis">
-Никада се не бој онога чега се Бог не боји.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">20.</div>
-<div class="kol stari-datum">7.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Светих седам свештеномученика Херсонских
-</div>
-</div>
-<div class="opis">
-Две храбрости су потребне покајнику-једном храброшћу да заплаче
-над старим путем и другом се обрадује новом.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">21.</div>
-<div class="kol stari-datum">8.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Теофилакт Исповедник
-</div>
-</div>
-<div class="opis">
-Децо, мудрије је сејати со но грех. Из првог семена неће нићи ништа,
-из другог нићи ће језици, који ће вас оптужити.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="nedelja-naslov">
-Недеља четврта поста – Средопосна. Глас 8. Јев. вас. 8. (Јн 20, 11-18). На Лит. ап. зач. 314. (Јев 6. 13-20) и 331. (Јев 12, 1-10). Јев. Мк зач. 40. (9, 17-31) и Мт зач. 80. (20, 1-16).
-</div>
-
-<div class="dan">
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv crveno">Н</div>
-<div class="kol novi-datum crveno">22.</div>
-<div class="kol stari-datum crveno">9.</div>
-
-<div class="tekst-kontejner">
-<div class="sadrzaj">
-<div class="praznik">Светих 40 мученика Севастијских – Младенци</div>
-<div class="svetitelji">
-</div>
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">23.</div>
-<div class="kol stari-datum">10.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети мученик Кодрат Коринтски
-</div>
-</div>
-<div class="opis">
-Не прљај онога који се почео прати, него му помози да се опере.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">У</div>
-<div class="kol novi-datum">24.</div>
-<div class="kol stari-datum">11.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Софроније Јерусалимски
-</div>
-</div>
-<div class="opis">
-Нека твоје пријатељство не буде из потребе да се избегне усамљеност, 
-већ из унутрашњег богатства.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">25.</div>
-<div class="kol stari-datum">12.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Преподобни Симеон Нови Богослов;
-Свети Григорије Двојеслов
-<div class="praznik">(Прво бденије)</div>
-</div> 
-</div>
-<span class="post">уље</span>
-<div class="opis">
-Истина је слична медицини; горка и лековита.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-
-<div class="dan">
-<div class="kol dan-naziv">Ч</div>
-<div class="kol novi-datum">26.</div>
-<div class="kol stari-datum">13.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Пренос моштију светог Никифора Цариградског
-</div>
-</div>
-<div class="opis">
-Што год ткаш, везуј концем за небо.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">27.</div>
-<div class="kol stari-datum">14.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Преподобни Бенедикт Нурсијски
-<div class="praznik">(Друго бденије)</div>
-</div> 
-</div>
-
-<div class="opis">
-Високо цени сваки свој уздисај, јер се он неће вратити.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">С</div>
-<div class="kol novi-datum">28.</div>
-<div class="kol stari-datum">15.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети мученик Агапије и други с њим
-</div>
-</div>
-<div class="opis">
-Ко зида добро самим тим руши зло. Ко се пак окрене да руши зло,
-брзо заборави зидати добро и претвори се у злочинца.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-
-<div class="nedelja-naslov">
-Недеља пета поста – Глувна. Глас 1. Јев. вас. 9. (Јн 20, 19-31). На Лит. ап. зач. 321. (Јев 9, 11-14) и зач. 208. (Гал 3, 23-29). Јев. Мк зач. 47. (10, 32-45) и Лк зач. 33. (7, 36-50).
-</div>
-
-<div class="dan">
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">Н</div>
-<div class="kol novi-datum">29.</div>
-<div class="kol stari-datum">16.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети апостол Аристовул; Свети мученик Савин 
-</div>
-</div>
-<div class="opis">
-Живи у миру не само са својим пријатељима, већ и са својим непријатељима;<br>
-али само са својим личним непријатељима, не и са непријатељима Божијим.
-</div>
-</div>
-<div class="post-ispod">⚱️ уље</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">П</div>
-<div class="kol novi-datum">30.</div>
-<div class="kol stari-datum">17.</div>
-
-<div class="tekst-kontejner">
-<div class="sadrzaj">
-<div class="praznik">Свети Алексије, Човек Божији</div>
-<div class="svetitelji">
-</div>
-</div>
-<div class="opis">
-Вера је једини благословени темељ живота личног и живота друштвеног и уређења државног.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="dan">
-<div class="kol dan-naziv">У</div>
-<div class="kol novi-datum">31.</div>
-<div class="kol stari-datum">18.</div>
-
-<div class="tekst-kontejner">
-<div class="svetitelji">
-<div class="sadrzaj">
-Свети Кирил Јерусалимски
-</div>
-</div>
-<div class="opis">
-Слобода која искључује сваку могућност да погазимо добро – јесте савршена и Божанска.
-</div>
-</div>
-<div class="post-ispod">💧 вода</div>
-</div>
-
-<div class="container">
-<div class="navigacija">
-<a href="februar-2026.html"></a>
-<a href="index.html" class="dugme-pocetna"></a>    
-<a href="april-2026.html"></a>
-</div>
-</div>
-</div>
 
 <br><br>
 
