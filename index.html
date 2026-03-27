@@ -529,6 +529,35 @@ function osveziKalendar() {
   }
 </script>  
 
+
+<!-- OVDE POČINJE MAGIJA ZA PRESLOVLJAVANJE -->
+<script>
+function preslovi(pismo) {
+    if (pismo === 'cir') {
+        location.reload(); 
+        return;
+    }
+
+    const mapa = {
+        'А':'A','Б':'B','В':'V','Г':'G','Д':'D','Ђ':'Đ','Е':'E','Ж':'Ž','З':'Z','И':'I','Ј':'J','К':'K','Л':'L','Љ':'Lj','М':'M','Н':'N','Њ':'Nj','О':'O','П':'P','Р':'R','С':'S','Т':'T','Ћ':'Ć','У':'U','Ф':'F','Х':'H','Ц':'C','Ч':'Č','Џ':'Dž','Ш':'Š',
+        'а':'a','б':'b','в':'v','г':'g','д':'d','ђ':'đ','е':'e','ж':'ž','з':'z','и':'i','ј':'j','к':'k','л':'l','љ':'lj','м':'m','н':'n','њ':'nj','о':'o','п':'p','р':'r','с':'s','т':'t','ћ':'ć','у':'u','ф':'f','х':'h','ц':'c','ч':'č','џ':'dž','ш':'š'
+    };
+
+    // Ova lista obuhvata sve tvoje krupne tekstove od 35px i tabelu
+    let tekstovi = document.querySelectorAll('h1, h2, h3, p, span, b, td, th, .pouka-box');
+    
+    tekstovi.forEach(el => {
+        let sadrzaj = el.innerHTML;
+        for (let kljuc in mapa) {
+            sadrzaj = sadrzaj.split(kljuc).join(mapa[kljuc]);
+        }
+        el.innerHTML = sadrzaj;
+    });
+}
+</script>
+
+
+	
 <script>
     fetch('svetitelji.json')
     .then(response => response.json())
