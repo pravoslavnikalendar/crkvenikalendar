@@ -143,10 +143,13 @@ background: rgba(242, 230, 201, 0.95);
 
 
 
-.gornja-traka{
-display:flex;
-justify-content:flex-end;
-margin-bottom:10px;
+.gornja-traka {
+    display: flex;
+    /* OVO IH RAZDVAJA: Pismo ide LEVO, meniji DESNO */
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 10px; /* Malo razmaka od ivica papira */
 }
 
 .meseci{
@@ -157,7 +160,16 @@ border:1px solid #8b6f47;
 background: rgba(242,230,201,0.88);
 color:#4A3728;
 }
-.kalendar-2026 {
+/* Stil za pismo da bude otmeno levo */
+.pismo-prekidac {
+    font-family: "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4A3728;
+}
+	
+	
+	.kalendar-2026 {
 padding:10px;
 font-size:16px;
 border-radius:8px;
@@ -302,14 +314,7 @@ max-width: 100%;
 padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
 }
-.pismo-prekidac {
-    text-align: left;
-    margin-bottom:10px;
-    font-family: "Times New Roman", serif;
-    font-size: 16px; /* Da bude čitljivo */
-    color: #4A3728;  /* Tvoja prelepa braon boja */
-    padding: 5px 10px;
-}
+
 .header.mobile .menu-open-mobile	
    
 	
@@ -337,11 +342,12 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 
 <body>
 
-<div class="pismo-prekidac" style="text-align: center; margin: 10px 0; font-weight: bold; color: #4A3728;">
-    <span onclick="preslovi('cir')" style="cursor:pointer; padding: 5px;">Ћир</span> | 
-    <span onclick="preslovi('lat')" style="cursor:pointer; padding: 5px;">Lat</span>
-</div>
-
+<div class="gornja-traka">
+    <!-- PRVO (ide LEVO) -->
+    <div class="pismo-prekidac">
+        <span onclick="preslovi('cir')" style="cursor:pointer;">Ћир</span> | 
+        <span onclick="preslovi('lat')" style="cursor:pointer;">Lat</span>
+ </div>
 	
 <div class="gornja-traka">
     <!-- 1. Бирање године -->
