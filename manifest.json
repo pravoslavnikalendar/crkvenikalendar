@@ -5,7 +5,9 @@
   "description": "Православни црквени календар, духовне поуке, псалтир, молитвеник и свето писмо.",
   "start_url": "index.html",
   "display": "standalone",
-  "icons":
+  "icons": "src": "ikona.png",
+      "sizes": "80x80",
+      "type": "image/png"
     }
   ]
 }
