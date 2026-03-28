@@ -248,18 +248,16 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         margin: 40px auto !important;
     }
 
-@media (max-width: 600px) {
-    /* OVO JE "EKSER" KOJI PRIZEMLJUJE PRIČU NA TELEFONU */
+/* --- MOBILNI: Ovde boks NESTAJE sa lica zemlje --- */
+@media screen and (max-width: 768px) {
     .right-column-computer-box {
-        position: relative !important; /* Gubi krila, pada na papir */
-        width: 92% !important;         /* Širi se preko papira */
-        right: auto !important;        /* Briše koordinatu desno */
-        top: auto !important;          /* Briše koordinatu gore */
-        margin: 40px auto !important;  /* Pravi razmak ISPOD dugmića */
-        display: block !important;     /* Mora biti vidljiv */
-        float: none !important;
-        clear: both !important;
+        display: none !important;      /* Gasi boks skroz */
+        visibility: hidden !important; /* Čini ga nevidljivim */
+        height: 0 !important;          /* Briše mu visinu */
+        margin: 0 !important;          /* Briše mu prostor */
+        padding: 0 !important;         /* Briše mu unutrašnjost */
     }
+}
 
 
 /* TVOJ ŠTIT - Ovo sakriva celu kutiju na mobilnom */
