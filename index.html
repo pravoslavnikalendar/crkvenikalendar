@@ -217,7 +217,7 @@ font-style: italic;
 
  h1 { 
     margin-top: 20px; 
-    font-size: 32px; 
+    font-size: 26px; 
     color: #4A3728; 
     margin-bottom: 20px;
 }
@@ -261,11 +261,15 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 
 
 /* TVOJ ŠTIT - Ovo sakriva celu kutiju na mobilnom */
-@media (max-width: 768px) {
-    .meseci {
-        display: none !important;
+@media (max-width: 480px) {
+     .meseci {
+        width: 35%; /* Povećavamo sa 30% na 45% da budu komotni */
+        font-size: 16px; /* Krupnija slova da se lakše čita */
+        padding: 10px 5px;
+        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
     }
-
+    
+	
 @media (max-width: 600px) {
       /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
     .praznici-dugme {
