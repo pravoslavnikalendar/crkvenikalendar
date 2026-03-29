@@ -143,33 +143,19 @@ background: rgba(242, 230, 201, 0.95);
     transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
 }
 
-.gornja-traka {
-    display: flex !important;
-    justify-content: space-between !important; /* Razdvaja Navigator levo - Vaskrs desno */
-    align-items: center !important;
-    width: 100% !important;
-    padding: 2px 10px !important;  /* Skoro 0px od vrha */
-    margin: 0 !important;          /* Briše sve praznine iznad */
-    box-sizing: border-box;
-    background: transparent;
+.gornja-traka{
+display:flex;
+justify-content:flex-end;
+margin-bottom:10px;
 }
 
-/* SMANJUJEMO ŠIRINU da bi sve stalo u jedan red na telefonu */
-.nav-kalendar, .meseci {
-    font-size: 13px !important;    /* Diskretna slova */
-    padding: 4px !important;
-    height: 30px !important;       /* Svi su iste visine, pod konac */
-    border-radius: 6px;
-    border: 1px solid #8b6f47;
-    background: rgba(242, 230, 201, 0.88);
-    color: #4A3728;
-    margin: 0 !important;
-}
-
-#mesecBirac {
-    max-width: 100px !important; /* Skraćuje biranje meseca */
-    font-size: 13px !important;
-    padding: 4px !important;
+.meseci{
+padding:10px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #8b6f47;
+background: rgba(242,230,201,0.88);
+color:#4A3728;
 }
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
@@ -252,13 +238,39 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
     text-align: center;  /* Ово га центрира УНУТАР кутије */
    font-size: 22px; 
 }
-
+@media (max-width: 430px) {
+.container { padding: 20px; width: 100%; }
+.pouke-box, .header-desktop-box {
+grid-template-columns: 20px 20px 20px 1fr;
+}
 /* MOBILNI: Ovde koristimo "Mobile" kočnicu */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 430px) {
     .header-desktop-box {
         display: none !important; /* POTPUNO NESTAJE na telefonu */
     }
-
+@media (prefers-color-scheme: dark) {
+   body {
+padding: 0; /* Brišemo razmak oko celog tela */
+}
+    
+.container {
+ width: 100%; /* Širi se na ceo ekran telefona */
+max-width: 100%;
+padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
+margin: 0;
+}
+@media (max-width: 480px) {
+     .meseci {
+        width: 45%; /* Povećavamo sa 30% na 45% da budu komotni */
+        font-size: 16px; /* Krupnija slova da se lakše čita */
+        padding: 10px 5px;
+        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
+    }
+    .gornja-traka {
+        justify-content: center; /* Centriramo ih na sredini ekrana */
+        gap: 10px; /* Razmak između menija */
+        padding: 10px;
+    }
 
    /* ČUVAMO VAGON: Tvoj pouka-box ostaje na dnu telefona */
     .pouka-box {
@@ -267,14 +279,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         width: 40% !important;
         margin: 40px auto !important;
     }
-
-
-
-@media (max-width: 480px) {
-    .nav-kalendar { max-width: 90px !important; }
-    .meseci { max-width: 70px !important; }
-}
-    
+ 
 	
 @media (max-width: 600px) {
       /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
