@@ -142,7 +142,19 @@ background: rgba(242, 230, 201, 0.95);
 .stiker-dugme:hover {
     transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
 }
-
+.nav-kalendar {
+    background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
+    color: #4A3728 !important;                      /* Tvoja braon boja slova */
+    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
+    padding: 4px 10px !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 16px !important;
+    border-radius: 8px;    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    top: 20px;           
+    left: 20px;
+}
+	
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
@@ -159,16 +171,7 @@ color:#4A3728;
 }
 /* TVOJ NOVI NAVIGATOR (LEVO) */
 
-.nav-kalendar {
-    background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
-    color: #4A3728 !important;                      /* Tvoja braon boja slova */
-    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
-    padding: 4px 10px !important;
-    font-family: "Times New Roman", serif !important;
-    font-size: 16px !important;
-    border-radius: 8px;    
-    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-}	
+	
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
     font-family: "Times New Roman", serif;
@@ -271,23 +274,28 @@ max-width: 100%;
 padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
 }
-@media (max-width: 480px) {
+
+.nav-kalendar {
+    background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
+    color: #4A3728 !important;                      /* Tvoja braon boja slova */
+    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
+    padding: 4px 10px !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 16px !important;
+    border-radius: 8px;    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    top: 20px;           
+    left: 20px;
+}	
+	
+	@media (max-width: 480px) {
      .meseci {
         width: 30%; /* Povećavamo sa 30% na 45% da budu komotni */
         font-size: 16px; /* Krupnija slova da se lakše čita */
         padding: 10px -5px;
         min-width: 120px; /* Ne damo im da se skupe ispod ove granice */
     }
-    .gornja-traka {
-        right: 15px; /* Centriramo ih na sredini ekrana */
-        gap: 5px; /* Razmak između menija */
-        padding: 10px;
-    }
-.nav-kalendar {
-        left: 15px; /* Centriramo ih na sredini ekrana */
-        gap: 5px; /* Razmak između menija */
-        padding: 10px;
-    }
+
 	
    /* ČUVAMO VAGON: Tvoj pouka-box ostaje na dnu telefona */
     .pouka-box {
