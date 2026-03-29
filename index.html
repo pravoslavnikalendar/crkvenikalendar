@@ -275,14 +275,21 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 
 
 
-/* TVOJ ŠTIT - Ovo sakriva celu kutiju na mobilnom */
 @media (max-width: 480px) {
-     .meseci {
-        width: 35%; /* Povećavamo sa 30% na 45% da budu komotni */
-        font-size: 16px; /* Krupnija slova da se lakše čita */
-        padding: 10px 5px;
-        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
+    .nav-kalendar {
+        font-size: 13px !important;
+        width: 45% !important;
     }
+    .meseci {
+        font-size: 13px !important;
+        width: auto !important; /* Pustimo ih da budu mali koliko treba */
+        min-width: 60px !important;
+    }
+    .gornja-traka {
+        padding: 5px !important; /* Da ne "udaraju" u ivice telefona */
+    }
+}
+
     
 	
 @media (max-width: 600px) {
