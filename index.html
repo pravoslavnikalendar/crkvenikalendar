@@ -146,11 +146,11 @@ background: rgba(242, 230, 201, 0.95);
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
-margin-bottom:10px;
+margin-bottom:-10px;
 }
 
 .meseci{
-padding:10px;
+padding:-25px;
 font-size:16px;
 border-radius:8px;
 border:1px solid #8b6f47;
@@ -541,7 +541,7 @@ function preslovi(pismo) {
             let p = data[kljuc];
             let klasa = (p.boja === "red") ? "crveno" : "";
             
-            kontejner.innerHTML += `
+            container.innerHTML += `
                 <div class="pouka-box" style="text-align: left;">
                     <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
                     <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
