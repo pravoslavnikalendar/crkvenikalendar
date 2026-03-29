@@ -35,7 +35,7 @@ font-family: "Times New Roman", serif;
 .container {
 width: 90%;
 max-width: 430px;
-padding: 15px; /* Smanjen padding da stane na manje ekrane */
+padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
 margin: 0;
 }
@@ -92,7 +92,7 @@ background: rgba(242, 230, 201, 0.95);
 }
 .audio-molitve-pecat {
     position: absolute; 
-    top: 670px;           
+    top: 700px;           
     right: 65px;         
     background: rgba(242, 230, 201, 0.4); 
     padding: 8px 16px;
@@ -112,7 +112,7 @@ background: rgba(242, 230, 201, 0.95);
 }
 .blog-pecat {
     position: absolute;
-    top: 670px;         
+    top: 700px;         
     left: 45px;       
     background: rgba(242, 230, 201, 0.6); 
     padding: 8px 10px;
@@ -146,11 +146,11 @@ background: rgba(242, 230, 201, 0.95);
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
-margin-bottom:-10px;
+margin-bottom:10px;
 }
 
 .meseci{
-padding:-25px;
+padding:10px;
 font-size:16px;
 border-radius:8px;
 border:1px solid #8b6f47;
@@ -261,13 +261,13 @@ margin: 0;
 }
 @media (max-width: 480px) {
      .meseci {
-        width: 25%; /* Povećavamo sa 30% na 45% da budu komotni */
+        width: 30%; /* Povećavamo sa 30% na 45% da budu komotni */
         font-size: 16px; /* Krupnija slova da se lakše čita */
-        padding: 8px -5px;
-        min-width: 100px; /* Ne damo im da se skupe ispod ove granice */
+        padding: 10px -5px;
+        min-width: 140px; /* Ne damo im da se skupe ispod ove granice */
     }
     .gornja-traka {
-        right: 20px;  /* Centriramo ih na sredini ekrana */
+        justify-content: center; /* Centriramo ih na sredini ekrana */
         gap: 5px; /* Razmak između menija */
         padding: 10px;
     }
@@ -301,6 +301,10 @@ margin: 0;
         margin-bottom: 5px !important;
     }
 
+
+
+
+
 @media (prefers-color-scheme: dark) {
    body {
 padding: 0; /* Brišemo razmak oko celog tela */
@@ -311,7 +315,26 @@ padding: 0; /* Brišemo razmak oko celog tela */
 max-width: 100%;
 padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
+}
 
+	
+   
+	
+	.gornja-traka {
+        justify-content: right; /* Centriramo ih na sredini ekrana */
+        gap: 1px; /* Razmak između menija */
+        padding: 10px;
+    }
+.dan {
+padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
+ }
+
+/* Na mobilnom neka se vrati u sredinu ili ispod logoa */
+@media (max-width: 480px) {
+    .blog-precica {
+        position: absolute;
+        display: inline-block;
+        margin-top: 10px;
     }
 }
 
@@ -342,7 +365,7 @@ margin: 0;
 
     <!-- 2. Бирање месеца (Паметни мени који иде на Кalendar.html) -->
     <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
-        <option value="">Месец</option>
+        <option value="">Изабери месец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
         <option value="2">Март</option>
@@ -541,7 +564,7 @@ function preslovi(pismo) {
             let p = data[kljuc];
             let klasa = (p.boja === "red") ? "crveno" : "";
             
-            container.innerHTML += `
+            kontejner.innerHTML += `
                 <div class="pouka-box" style="text-align: left;">
                     <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
                     <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
@@ -557,6 +580,8 @@ function preslovi(pismo) {
     });
 </script>
 
+
+	
 <div class='column-right-outer'>
 <div class='column-right-inner'>
 <aside>
@@ -636,7 +661,7 @@ font-weight: 700; ">Задушнице 2026 годинa</th>
 
 <div class="<div class="pouka-box ">
  <h2 class="pouka-naslov">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ</h2>
-<div class="<div class="pouka-box ">
+
 Када се нешто догоди и ђаво види да то узнемирује човека, његова вештина се састоји у томе да увећа мноштво помисли које су тобоже оправдане, 
 да би на тај начин завео убогог цовека у олују и удавио .Како каже изрека, лисица воли пометњу.Када пак олуја прође, човек види да је био у 
 опасности да се удави у чашици воде. Ђаво је посредством очајања повукао небројено мноштво људи у паклене дубине.
@@ -657,7 +682,6 @@ font-weight: 700; ">Задушнице 2026 годинa</th>
 
 </body>
 </html>
-
 
 
 
