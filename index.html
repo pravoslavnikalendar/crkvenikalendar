@@ -154,12 +154,21 @@ padding:10px;
 font-size:16px;
 border-radius:8px;
 border:1px solid #8b6f47;
-background: rgba(242,230,201,0.88);
+background: rgba(242, 230, 201, 0.9);
 color:#4A3728;
 }
 /* TVOJ NOVI NAVIGATOR (LEVO) */
 
-	
+.nav-kalendar {
+    background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
+    color: #4A3728 !important;                      /* Tvoja braon boja slova */
+    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
+    padding: 4px 10px !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 16px !important;
+    border-radius: 8px;    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+}	
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
     font-family: "Times New Roman", serif;
@@ -274,7 +283,12 @@ margin: 0;
         gap: 5px; /* Razmak između menija */
         padding: 10px;
     }
-
+.nav-kalendar {
+        left: 15px; /* Centriramo ih na sredini ekrana */
+        gap: 5px; /* Razmak između menija */
+        padding: 10px;
+    }
+	
    /* ČUVAMO VAGON: Tvoj pouka-box ostaje na dnu telefona */
     .pouka-box {
         display: block !important;
