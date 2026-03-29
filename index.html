@@ -92,10 +92,10 @@ background: rgba(242, 230, 201, 0.95);
 }
 .audio-molitve-pecat {
     position: absolute; 
-    top: 100px;           
-    left: 10px;         
+    top: 0px;           
+    right: 90px;         
     background: rgba(242, 230, 201, 0.4); 
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 15px;
     border: 2px solid #2E1B08; /* Твоја тамнобраон */
     text-decoration: none;
@@ -113,9 +113,9 @@ background: rgba(242, 230, 201, 0.95);
 .blog-pecat {
     position: absolute;
     top: 50px;         
-    left: 20px;       
+    left: 5px;       
     background: rgba(242, 230, 201, 0.6); 
-    padding: 10px 20px;
+    padding: 8px 10px;
     border-radius: 15px;
     border: 2px solid #2E1B08; 
     text-decoration: none;
@@ -158,16 +158,18 @@ background: rgba(242, 230, 201, 0.95);
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
-margin-bottom:10px;
+margin-bottom:0px;
 }
 
 .meseci{
-padding:10px;
-font-size:16px;
-border-radius:8px;
+padding: 8px -5px;
+font-size:13px;
+border-radius:6px;
 border:1px solid #8b6f47;
 background: rgba(242,230,201,0.88);
 color:#4A3728;
+margin-bottom:0px;           
+right: 10px; 
 }
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
@@ -222,6 +224,30 @@ border-radius: 10px;
 overflow: hidden;
 box-shadow: 0 4px 15px rgba(0,0,0,0.7);"> 
  }
+/* LAPTOP: Ovde boks živi i leti desno */
+.header-desktop-box {
+    display: block; /* Vidljiv je */
+    position: absolute;
+    right: 20px;
+    top: 180px;
+    width: 30%;
+    background: rgba(242, 230, 201, 0.85);
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid #8b6f47;
+    text-align: justify;
+}
+.header-desktop-naslov {
+    color: #8b0000;      /* Твоја бордо боја */
+    text-align: center;  /* Ово га центрира УНУТАР кутије */
+   font-size: 22px; 
+}
+
+/* MOBILNI: Ovde koristimo "Mobile" kočnicu */
+@media screen and (max-width: 768px) {
+    .header-desktop-box {
+        display: none !important; /* POTPUNO NESTAJE na telefonu */
+    }
 
 
    /* ČUVAMO VAGON: Tvoj pouka-box ostaje na dnu telefona */
@@ -265,18 +291,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
         margin-bottom: 5px !important;
     }
 
-	
 
-@media (max-width: 480px) {
-    .gornji-papir {
-        /* ZABRANA: Na mobilnom slika mora biti jedna i mora imati ivice! */
-        background-repeat: no-repeat !important;
-        background-size: 100% 100% !important; 
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        text-align: center;
-    }
 
 .svetitelj { font-size: 18px; }
 .sadrzaj { font-size: 21px; }
@@ -288,7 +303,16 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
    body {
 padding: 0; /* Brišemo razmak oko celog tela */
 }
-   
+@media (max-width: 480px) {
+    .gornji-papir {
+        /* ZABRANA: Na mobilnom slika mora biti jedna i mora imati ivice! */
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important; 
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        text-align: center;
+    }   
 .container {
  width: 100%; /* Širi se na ceo ekran telefona */
 max-width: 100%;
@@ -300,7 +324,7 @@ margin: 0;
    
 	
 	.gornja-traka {
-        justify-content: center; /* Centriramo ih na sredini ekrana */
+        justify-content: right; /* Centriramo ih na sredini ekrana */
         gap: 1px; /* Razmak između menija */
         padding: 10px;
     }
