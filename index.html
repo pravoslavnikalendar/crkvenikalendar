@@ -267,6 +267,12 @@ grid-template-columns: 20px 20px 20px 1fr;
     .header-desktop-box {
         display: none !important; /* POTPUNO NESTAJE na telefonu */
     }
+
+@media screen and (max-width: 768px) {
+    .header-mobile-box {
+        display: block !important; /* Siguran "prekidač" za svaki telefon */
+    }
+	
 @media (prefers-color-scheme: dark) {
    body {
 padding: 0; /* Brišemo razmak oko celog tela */
