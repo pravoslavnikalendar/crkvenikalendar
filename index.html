@@ -193,11 +193,6 @@ font-style: italic;
 }
 
 
-.pouka-box-container { 
-	padding-top: 60px; 
-width: 30%; 
-	margin: 0; }
-
 
 .pouka-box {
             background: rgba(242, 230, 201, 0.85);
@@ -205,11 +200,12 @@ width: 30%;
             border-radius: 20px;
             border: 2px solid #8b6f47;
             margin-bottom: 25px;
-            font-size: 22px;
+            font-size: 21px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             line-height: 1.5;
             position: relative;
 	        text-align: justify;
+	        margin: 0;
         }
 
 .pouka-naslov {
@@ -220,8 +216,6 @@ width: 30%;
 
 /* Dodaj ovo u glavni style na Indexu */
 .pouka-box-container {
-  width:30%;
-	
 padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: justify;
 margin: 0;
@@ -243,13 +237,12 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
     position: absolute;
     right: 20px;
     top: 180px;
-    width: 45%;
-	font-size: 21px;
+    width: 30%;
     background: rgba(242, 230, 201, 0.85);
     padding: 25px;
-	font-size: 20px;
     border-radius: 20px;
     border: 2px solid #8b6f47;
+	font-size: 20px;
     text-align: justify;
 }
 .header-desktop-naslov {
@@ -257,11 +250,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
     text-align: center;  /* Ово га центрира УНУТАР кутије */
    font-size: 22px; 
 }
-@media (max-width: 430px) {
-.container { padding: 20px; width: 100%; }
-.pouke-box, .header-desktop-box {
-grid-template-columns: 20px 20px 20px 1fr;
-}
+
 /* MOBILNI: Ovde koristimo "Mobile" kočnicu */
 @media screen and (max-width: 430px) {
     .header-desktop-box {
