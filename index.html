@@ -227,15 +227,21 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
-  display: block; /* Vidljiv je */
-    position: absolute;
-    width: 80%;
-    background: rgba(242, 230, 201, 0.85);
-    padding: 25px;
-    border-radius: 10px;
-    border: 2px solid #8b6f47;
-	font-size: 20px;
-    text-align: justify;
+display: block; /* Vidljiv je */
+margin: 15px 0;
+color: #4A3728;
+ border: 2px solid #8b6f47;
+font-size: 20px;
+text-align: justify;
+background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
+padding: 18px;
+border-radius: 10px;
+border: 1px solid #8b6f47;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .naslov-header-mobile {	
