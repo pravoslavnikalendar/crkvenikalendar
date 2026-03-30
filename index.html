@@ -262,16 +262,19 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 .pouke-box, .header-desktop-box {
 grid-template-columns: 20px 20px 20px 1fr;
 }
-/* MOBILNI: Ovde koristimo "Mobile" kočnicu */
+/* Prva kočnica: Briše laptop box sa telefona */
 @media screen and (max-width: 430px) {
     .header-desktop-box {
-        display: none !important; /* POTPUNO NESTAJE na telefonu */
+        display: none !important;
     }
+} /* <--- OVA ZAGRADA MORA DA BUDE TU */
 
+/* Druga kočnica: Pali mobilnu pouku na svim telefonima */
 @media screen and (max-width: 768px) {
     .header-mobile-box {
-        display: block !important; /* Siguran "prekidač" za svaki telefon */
+        display: block !important;
     }
+}
 	
 @media (prefers-color-scheme: dark) {
    body {
