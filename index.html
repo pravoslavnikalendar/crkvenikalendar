@@ -201,16 +201,24 @@ font-style: italic;
 }
 
 	
-.zadusnice-2026-godina container {
-margin: 20px 0 20px 30px; 
- width: 98%;
-max-width: 600px;
-background: transparent !important;  
-border: 1px solid #8b6f47;
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 4px 15px rgba(0,0,0,0.7);"> 
- }
+.zadusnice-tabela {
+    margin: 20px auto !important; /* AUTO je magnet za centar (levo i desno) */
+    width: 95% !important;
+    max-width: 400px !important;   /* Da na laptopu bude otmena, a ne preširoka */
+    background: transparent !important;
+    border: 1px solid #8b6f47;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Malo nežnija senka za papir */
+    display: block;
+}
+
+/* Da i sama tabela unutar ovog boksa bude centrirana */
+.zadusnice-tabela table {
+    width: 100%;
+    margin: 0 auto !important;
+    border-collapse: collapse;
+}
 	
 /* LAPTOP: Ovde boks živi i leti desno */
 .header-desktop-box {
