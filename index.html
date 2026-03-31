@@ -275,7 +275,13 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
    font-size: 21px; 	
 }
 	
-	
+.column-left {
+    width: 25% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; /* OVO IH LEPI ZA LEVU IVICU */
+    padding-left: 20px; /* Mali razmak da ne udaraju u ivicu ekrana */
+}	
 
 
 /* 2. PALI MENI SAMO NA KLIK (Magični Target) */
@@ -403,6 +409,41 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     .column-left { display: none !important; }
 }
 
+/* LAPTOP: Tri jasna stuba (Levo - Centar - Desno) */
+.glavni-vagon {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    margin: 20px 0;
+}
+
+/* LEVA SOBA (Pečati, Translate, Hamburger) */
+.column-left {
+    width: 28% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; /* LEPI SVE ZA LEVU IVICU */
+    padding-left: 20px;
+}
+
+/* SREDNJA SOBA (Logo i 6 Dugmića) */
+.column-center {
+    width: 40% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* MAGNET ZA CENTAR */
+}
+
+/* DESNA SOBA (Tvoja velika Priča) */
+.column-right {
+    width: 28% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important; /* LEPI PRIČU ZA DESNU IVICU */
+    padding-right: 20px;
+}
+	
 
 /* MOBILNI: Ovde koristimo "desktop" kočnicu */
 @media screen and (max-width: 430px) {
@@ -639,9 +680,11 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
     <div class="glavni-vagon">
 
         <!-- LEVA SOBA (Translate i Pečati) -->
-        <div class="column-left">
+        	<div class="column-left">	
+		  <div class="hamburger-zona">	
             <div id="google_translate_element"></div>
 			<div class="column-left">
+			<div class="column-left">	
     <!-- 1. Kalendar (već je tu) -->
     <div class="gornja-traka">...</div>
 
