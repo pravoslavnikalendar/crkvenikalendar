@@ -275,13 +275,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
    font-size: 21px; 	
 }
 	
-.column-left {
-    width: 25% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important; /* OVO IH LEPI ZA LEVU IVICU */
-    padding-left: 20px; /* Mali razmak da ne udaraju u ivicu ekrana */
-}	
+
 
 
 /* 2. PALI MENI SAMO NA KLIK (Magični Target) */
@@ -299,26 +293,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     font-family: "Times New Roman", serif;
 }
 
-.zatvori-meni {
-    float: right;
-    font-size: 24px;
-    text-decoration: none;
-    color: #8b0000; /* Bordo za zatvaranje */
-    font-weight: bold;
-    padding: 10px;
-}
-	
-	
 
-
-    .line {
-        width: 35px;
-        height: 3px;
-        background-color: #8b6f47; /* Tvoja braon-zlatna */
-        margin: 6px auto;
-        border-radius: 2px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    }
 
  /* SKRIVENI MENI - Tvoj bež prozor (Laptop/Desktop) */
 #header_right {
@@ -353,15 +328,23 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 }
 }
 
-	
-    .zatvori-meni {
-        float: right;
-        font-size: 20px;
-        text-decoration: none;
-        color: #8b0000;
-        font-weight: bold;
+.zatvori-meni {
+    float: right;
+    font-size: 24px;
+    text-decoration: none;
+    color: #8b0000; /* Bordo za zatvaranje */
+    font-weight: bold;
+    padding: 10px;
+}
+  .line {
+        width: 35px;
+        height: 3px;
+        background-color: #8b6f47; /* Tvoja braon-zlatna */
+        margin: 6px auto;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
-
+	
     .lista-molitvi {
         list-style: none;
         padding: 0;
@@ -380,35 +363,6 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
         display: block;
         padding: 10px 0;
     }
-}	
-
-
-	@media (max-width: 768px) {
-    .hamburger-zona {
-       position: absolute;
-    top: 30px;         
-    left: 20px;
-    }
-
-	
-/* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
-@media screen and (max-width: 768px) {
-    .center {
-        flex-direction: column; /* Na mobilnom idu u kolonu, jedan ispod drugog */
-        align-items: center;
-    }
-    .column-left, .column-right {
-        width: 25% !important;
-        text-align: justify !important;
-    }
-    /* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
-    .column-right { display: none !important; }
-}
-
-/* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
-    .column-left { display: none !important; }
-}
-
 /* LAPTOP: Tri jasna stuba (Levo - Centar - Desno) */
 .glavni-vagon {
     display: flex !important;
@@ -444,6 +398,35 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     padding-right: 20px;
 }
 	
+	
+
+
+	@media (max-width: 768px) {
+    .hamburger-zona {
+       position: absolute;
+    top: 30px;         
+    left: 20px;
+    }
+
+	
+/* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
+@media screen and (max-width: 768px) {
+    .center {
+        flex-direction: column; /* Na mobilnom idu u kolonu, jedan ispod drugog */
+        align-items: center;
+    }
+    .column-left, .column-right {
+        width: 25% !important;
+        text-align: justify !important;
+    }
+    /* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
+    .column-right { display: none !important; }
+}
+
+/* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
+    .column-left { display: none !important; }
+}
+
 
 /* MOBILNI: Ovde koristimo "desktop" kočnicu */
 @media screen and (max-width: 430px) {
@@ -706,7 +689,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
             <!-- OVDE UBACI TABELU ZADUŠNICE -->
             <div class="zadusnice-tabela">
                 <!-- Tvoj kod za tabelu ide ovde -->
-				 <div class="naslov-header-desktop">Задушнице 2026 година</div>
+				 <div class="column-center">Задушнице 2026 година</div>
             </div>
 
             <!-- PRIČA ZA MOBILNI -->
