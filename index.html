@@ -332,39 +332,36 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     display: none !important;
 }
 
+/* LAPTOP: Krila su raširena (30% - 35% - 30%) */
 .glavni-vagon {
-    display: flex;
-    flex-wrap: wrap; /* Dozvoljava da na mobilnom "padnu" jedno ispod drugog */
-    justify-content: space-between;
-    width: 100%;
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
 }
 
 .column-left {
-    width: 50%; /* Na laptopu zauzima levu polovinu */
-    text-align: left;
+    width: 30% !important;
+    display: block !important; /* Vidi se na laptopu levo */
 }
 
 .column-right {
-    width: 45%; /* Na laptopu zauzima desnu polovinu */
+    width: 30% !important;
+    display: block !important; /* Vidi se na laptopu desno */
 }
 
-/* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
+/* MOBILNI: Ovde nastupa tvoja "kočnica" */
 @media screen and (max-width: 768px) {
-    .glavni-vagon {
-        flex-direction: column; /* Na mobilnom idu u kolonu, jedan ispod drugog */
-        align-items: center;
+    /* Brišemo levu kolonu sa telefona jer nam ne treba */
+    .column-left { 
+        display: none !important; 
     }
-    .column-left, .column-right {
-        width: 100% !important;
-        text-align: center !important;
+  /* Brišemo i desnu ako tamo imaš laptop verziju priče */
+    .column-right { 
+        display: none !important; 
     }
-    /* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
-    .column-right { display: none !important; }
-}
+  
 
-/* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
-    .column-left { display: none !important; }
-}
+ 
 
 
 /* MOBILNI: Ovde koristimo "desktop" kočnicu */
