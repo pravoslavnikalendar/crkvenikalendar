@@ -240,15 +240,28 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 
 
 
+
+
+
+/* OVO KAŽE LAPTOPU: Ne gledaj donju priču! */
+.header-mobile-box {
+    display: none !important;
+}
+
+
+
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
  display: block; /* Vidljiv je */
-    position: absolute;	
+    position: relative;	
             padding: 30px;
             border-radius: 20px;
             border: 1px solid #8b6f47;
             font-size: 20px;
+	position: relative !important; /* OVO JE KLJUČ: Da stoji ISPOD svega, ne PREKO svega */
+        width: 90% !important;
+        margin: 30px auto !important; /* Razmak od potpisa i centar */
             line-height: 1.5;
             position: center;
             line-height: 1.5;
@@ -265,16 +278,12 @@ transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 text-align: center;  /* Ово га центрира УНУТАР кутије */
    font-size: 21px; 	
 }
-
-
-/* OVO KAŽE LAPTOPU: Ne gledaj donju priču! */
-.header-mobile-box {
-    display: none !important;
-}
-
-}
-
-@media (max-width: 768px) {
+	
+	
+	
+	
+	
+	@media (max-width: 768px) {
     .hamburger-zona {
        position: absolute;
     top: 30px;         
@@ -376,12 +385,7 @@ grid-template-columns: 20px 20px 20px 1fr;
     }
 } /* <--- OVA ZAGRADA MORA DA BUDE TU */
 
-/* Druga kočnica: Pali mobilnu pouku na svim telefonima */
-@media screen and (max-width: 768px) {
-    .header-mobile-box {
-        display: block !important;
-    }
-}
+
 	
 @media (prefers-color-scheme: dark) {
    body {
