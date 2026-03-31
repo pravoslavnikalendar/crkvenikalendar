@@ -658,7 +658,9 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
             <div class="gornja-traka">
                  <select class="nav-kalendar" onchange="location.href=this.value;">
                     <option value="">📅Календар 2026</option>
-                    <option value="januar-2026.html">Јануар</option>
+					 <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
+					  <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
+                
                  </select>
             </div>
 
@@ -688,6 +690,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 
             <!-- OVDE UBACI TABELU ZADUŠNICE -->
             <div class="zadusnice-tabela">
+				    <option value="Задушнице 2026 година</option>
                 <!-- Tvoj kod za tabelu ide ovde -->
 				 <div class="column-center">Задушнице 2026 година</div>
             </div>
