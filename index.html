@@ -19,28 +19,51 @@
 
 
 <style>
-
 body {
 margin: 0;
 background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
-background-image: url("papir.png");
-background-size: cover; /* popunjava ceo ekran */
+background-image: url("papir.jpg");
+background-size: cover;
 background-repeat: repeat-y;
 background-position: center;
+display: flex;
+justify-content: center;
+align-items: center;
 min-height: 100vh;
 font-family: "Times New Roman", serif;
-    flex-direction: column; /* Da idu jedan ISPOD drugog, ne jedan PORED drugog */
-    align-items: center;    /* Kuca sve u horizontalni centar */
-    justify-content: flex-start; /* Drži ih na vrhu, ne baca ih na sredinu visine */
-	
 }
+        .container {
+            width: 90%;
+            max-width: 430px;
+            padding: 20px; /* Smanjen padding da stane na manje ekrane */
+            text-align: center;
+        }
+
+.dugme {
+display: block;
+background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
+padding: 18px;
+margin: 15px 0;
+text-decoration: none;
+color: #4A3728;
+font-size: 22px;
+border-radius: 10px;
+border: 1px solid #8b6f47;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+
 	
-.container {
-width: 90%;
-max-width: 430px;
-padding: 20px; /* Smanjen padding da stane na manje ekrane */
-text-align: center;
-margin: 0;
+.dugme:hover {
+transform: translateY(-2px) scale(1.05);
+box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
+inset 0 -3px 6px rgba(0,0,0,0.2),
+0 10px 20px rgba(0,0,0,0.35);
+background: rgba(242, 230, 201, 0.95);
 }
 	
 .gornji-papir {
@@ -67,34 +90,6 @@ font-weight: bold;
 margin-bottom: 15px;
 }
 
-.dugme {
-display: block; 
-background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
-padding: 18px;
-margin: 15px 0;
-text-decoration: none;
-color: #4A3728;
-font-size: 22px;
-border-radius: 10px;
-border: 1px solid #8b6f47;
-/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
-box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
-inset 0 -2px 4px rgba(0,0,0,0.15),
-0 6px 12px rgba(0,0,0,0.25);
-transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
- width: 90%;            /* Na mobilnom popunjava skoro sve */
-    max-width: 320px;  
-}
-
-
-	
-.dugme:hover {
-transform: translateY(-2px) scale(1.05);
-box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
-inset 0 -3px 6px rgba(0,0,0,0.2),
-0 10px 20px rgba(0,0,0,0.35);
-background: rgba(242, 230, 201, 0.95);
-}
 .audio-molitve-pecat {
     position: absolute; 
     top: 673px;           
@@ -190,7 +185,7 @@ color:#4A3728;
 @media (max-width: 768px) {
     .hamburger-zona {
        position: absolute;
-    top: 50px;         
+    top: 30px;         
     left: 20px;
     }
 
@@ -329,18 +324,6 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     display: none !important;
 }
 
-.center {
-     text-align: center;
-}
-
-.column-left {
-
-    text-align: left;
-}
-
-.column-right {
-  text-align: left;
-}
 }
 
 /* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
@@ -350,8 +333,8 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
         align-items: center;
     }
     .column-left, .column-right {
-        width: 40% !important;
-        text-align: center !important;
+        width: 25% !important;
+        text-align: justify !important;
     }
     /* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
     .column-right { display: none !important; }
@@ -593,7 +576,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         <div class="potpis"></div>
     </div>
 
-    <div class="column-r">
+    <div class="column-right">
         <!-- OVDE IDE TVOJA PRICA (header-desktop-box) -->
         <div class="header-desktop">
 <div class="naslov">
@@ -602,7 +585,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 
 </div>
 <!-- OVDE IDE DONJI PAPIR KOJI ZATVARA SVITAK -->
-
+<div class="column-right">
 	<div class="header-desktop-box">
 <div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ
 </div>
