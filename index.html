@@ -563,160 +563,79 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 </div>
 
    
- <div class="container">
-   
-   <!-- SREDINA (Ovde su tvoji dugmići) -->
-    <div class="column-center">
-         <!-- Tvoj Logo i 6 Dugmića -->
+<!-- GLAVNI KONTEJNER (Sve na jednom placu) -->
+<div class="container">
 
-   <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" 
-     style="width: 80px; height: 80px; 
-            display: block; 
-            margin: 0 auto 20px auto !important; /* AUTO ga kuca u centar, 20px ga odvaja od dugmeta */
-            border-radius: 50%; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
- 
+    <!-- GORNJI PAPIR (Logo, Datum, Hamburger) -->
+    <div class="gornji-papir">
+        <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 15px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+        <div id="svetitelj"></div>
+        <div id="datum"></div>
 
-<a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
-<a href="psaltir.html" class="dugme">ПСАЛТИР</a>
-<a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
-<a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
-<a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
- <a href="praznici.html" class="dugme" style="display: inline-block; width: 85%; padding: 18px;
-margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">
-        📅 Значајни празници у 2026.
-    </a>
-<a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
-<a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
-  
-
-
-<p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
-</div>
-
-</div> 
-
-<!-- ТВОЈИ ПЕЧАТИ КОЈИ ЛЕБДЕ -->
-
-
-
-<!-- OVDE SE ZAVRŠAVAJU TVOJA DUGMAD -->
-
-<div class="glavni-vagon">
-    
-    <!-- LEVA STRANA (Sve tvoje što beži na laptopu) -->
-    <div class="column-l">
-
+        <!-- HAMBURGER DUGME -->
+        <div class="hamburger-zona">
+            <a href="#header_right" class="menu-open-mobile">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </a>
+        </div>
     </div>
 
-    <!-- DESNA STRANA (Tvoja priča - samo za laptop) -->
-    <div class="column-r">
-        <!-- Ovde staviš onaj tvoj header-desktop-box sa pričom -->
+    <!-- SKRIVENI HAMBURGER MENI (Iskočni prozor) -->
+    <div class="header_right mobile" id="header_right">
+        <div class="meni-sadrzaj">
+            <a href="#" class="zatvori-meni">✕ Затвори</a>
+            <h3 style="color: #8b0000; margin-top: 20px;">ДУХОВНА РИЗНИЦА</h3>
+            <nav>
+                <ul class="lista-molitvi">
+                    <li><a href="molitvenik.html">☦ Молитвеник</a></li>
+                    <li><a href="psaltir.html">📖 Псалтир</a></li>
+                    <li><a href="zitija.html">✨ Житија Светих</a></li>
+                    <li><a href="pouke.html">📜 Духовне поуке</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
-</div>
+    <!-- GLAVNI VAGON (Sobe za Laptop: Levo - Centar - Desno) -->
+    <div class="glavni-vagon">
 
-<div class="glavni-vagon">
-    
-    <div class="column-left">
-       
+        <!-- LEVA SOBA (Translate i Pečati) -->
+        <div class="column-left">
+            <div id="google_translate_element"></div>
+            <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
+            <a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
+        </div>
 
-        <!-- 4. TRANSLATE (Tvoj Google Translate div) -->
-        <div id="google_translate_element"></div>
+        <!-- SREDNJA SOBA (Tvojih 6 Dugmića) -->
+        <div class="column-center">
+            <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
+            <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
+            <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
+            <a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
+            <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
+            <a href="praznici.html" class="dugme" style="border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">📅 Значајни празници у 2026.</a>
+            
+            <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
 
-        <!-- 5. POTPIS (Tvoj tekst na dnu) -->
-        <div class="potpis"></div>
-    </div>
+            <!-- PRIČA ZA MOBILNI (Vidi se samo na telefonu) -->
+            <div class="header-mobile-box">
+                <div class="naslov-header-mobile">ПОУКЕ СТАРЦА ЈЕФРЕМА</div>
+                Када се нешто догоди и ђаво види да то узнемирује човека...
+            </div>
+        </div>
 
-    <div class="column-right">
-        <!-- OVDE IDE TVOJA PRICA (header-desktop-box) -->
-        <div class="header-desktop">
-<div class="naslov">
-</div>
-    </div>
+        <!-- DESNA SOBA (Priča za Laptop) -->
+        <div class="column-right">
+            <div class="header-desktop-box">
+                <div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ</div>
+                Када се нешто догоди и ђаво види да то узнемирује човека...
+            </div>
+        </div>
 
-</div>
-<!-- OVDE IDE DONJI PAPIR KOJI ZATVARA SVITAK -->
-<div class="column-right">
-	<div class="header-desktop-box">
-<div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ
-</div>
-Када се нешто догоди и ђаво види да то узнемирује човека, његова вештина се састоји у томе да увећа мноштво помисли које су тобоже оправдане, 
-да би на тај начин завео убогог цовека у олују и удавио .Како каже изрека, лисица воли пометњу.Када пак олуја прође, човек види да је био у 
-опасности да се удави у чашици воде. Ђаво је посредством очајања повукао небројено мноштво људи у паклене дубине.
-Немојте се бавити ничим другим осим самим собом. Постаните глупи да би сте постали оштроумни, постаните неуки да би вам Господ открио своју 
-сопствену премудрост. Без Божије помоћи не можемо да учинимо ништа. Према томе, потребно нам је много смирења да би душе нашле мир.
-Чедо моје, бори се са љубављу, трпљењем и смирењем да уз Божију помоћ онеспособиш замке ђаволске. Немој се жалостити због рата који водиш. 
-Не плаши се, него буди храбар. Демони немају власт да ти нашкоде. То је од руке Божије, и кроз то ће ти отворити душевне очи, и бићеш постављен на 
-прави пут. Исцељење страсти захтева изузетно горке лекове. Смири се, чедо моје. То је једини лек који ће те спасти. Још више љуби Бога, јер ти је Он послао лек за твоју болест, односно, трпљење и храброст. 
-Стога се побрини да тај лек узмеш. Било да је будан или да спава, грешник непрестално мисли о злу. Бори се и бди над својим помислима. 
-Чврсто се држи наде, јер то показује да је твоја куЋа саграЂена на чврстој стени, а стена је нас Христос. Клеветање је велико зло. Као што мало 
-кормило управља брод куд год хоће, исто тако и језик води човека, или према злу или према добру. Праведне душе кроз добре олује не само да се 
-спасавају него се у усавршавају. Напор сваке борбе пролази, али победа остаје. Уколико током искушења не окусиш пакао "На кашичицу" нећеш видети ни
-благодат Божију. Зло захтева да се ишчупа из корена а тај корен је гордост и егоизам, упорност самовоља, гнев итд. Све се ово може излечити једним 
-јединим леком: пребацивањем бремена погрешака и искушења на самог себе. Увек кажи: "То је моја грешка" Ја сам узрок. Патим због својих страсти. 
-Узрок многих зала није нико други него ја сам, троструки несретник.
-</div>
-</div>
-
-
-
-
-<div class="gornji-papir">
-<img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
-height: 80px; display: block; 
-margin: 0 auto 5px auto; 
-border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-<div content="container">
-<div id="svetitelj"></div>
-<!-- Datum automatski -->
-<div id="datum"></div>
-
-
-
-  
-	
-<!-- HAMBURGER DUGME - Centrirano između datuma i dugmića -->
-<div class="hamburger-zona">
-    <a href="#header_right" class="menu-open-mobile">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </a>
-</div>
-<!-- SKRIVENI VAGON (Ovo se otvori kad klikneš na linije) -->
-<div class="header_right mobile" id="header_right">
-    <div class="meni-sadrzaj">
-        <a href="#" class="zatvori-meni">✕ Затвори</a>
-        <h3 style="color: #8b0000; margin-top: 20px;">ДУХОВНА РИЗНИЦА</h3>
-        <nav>
-            <ul class="lista-molitvi">
-                <li><a href="molitvenik.html">☦ Молитвеник</a></li>
-                <li><a href="psaltir.html">📖 Псалтир</a></li>
-                <li><a href="zitija.html">✨ Житија Светих</a></li>
-                <li><a href="pouke.html">📜 Духовне поуке</a></li>
-                <!-- Ovde dodaj svih 20+ molitvi koje ne staju u dugmiće -->
-            </ul>
-        </nav>
-    </div>
-</div>
-
-
-</div>
-<a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
-<a href="psaltir.html" class="dugme">ПСАЛТИР</a>
-<a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
-<a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
-<a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
-    <a href="praznici.html" class="dugme" style="display: inline-block; width: 85%; padding: 18px;
-margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">
-        📅 Значајни празници у 2026.
-    </a>
-</div> 
-
- 
-
-
+    </div> <!-- Kraj vagona -->
+</div> <!-- Kraj kontejnera -->
 	
 <script>
 async function prikaziSve() {
