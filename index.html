@@ -200,24 +200,29 @@ color: #4A3728;
 font-style: italic;
 }
 
-	
 .zadusnice-tabela {
-    margin: 20px auto !important; /* AUTO je magnet za centar (levo i desno) */
     width: 95% !important;
-    max-width: 400px !important;   /* Da na laptopu bude otmena, a ne preširoka */
-    background: transparent !important;
-    border: 1px solid #8b6f47;
+    max-width: 420px !important; /* Povećali smo malo da reči STANU */
+    margin: 30px auto !important;
+    background: transparent !important; /* TVOJA PROZIRNOST */
+    border: 1px solid rgba(139, 111, 71, 0.4);
     border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Malo nežnija senka za papir */
+    padding: 5px;
     display: block;
 }
 
-/* Da i sama tabela unutar ovog boksa bude centrirana */
 .zadusnice-tabela table {
-    width: 100%;
-    margin: 0 auto !important;
+    width: 100% !important;
     border-collapse: collapse;
+    table-layout: auto !important; /* OVO dozvoljava rečima da se ne seku */
+}
+
+.zadusnice-tabela td {
+    padding: 12px 5px !important; /* Dajemo prostora tekstu */
+    color: #4A3728 !important;    /* Tvoja stara braon boja, NE BORDO */
+    font-size: 17px;               /* Taman veličina */
+    border-bottom: 1px solid rgba(139, 111, 71, 0.2);
+    white-space: nowrap;           /* Zabranjuje sečenje reči na pola */
 }
 	
 /* LAPTOP: Ovde boks živi i leti desno */
