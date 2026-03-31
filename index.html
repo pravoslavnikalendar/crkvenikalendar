@@ -239,10 +239,6 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 
 
 
-
-
-
-
 /* OVO KAŽE LAPTOPU: Ne gledaj donju priču! */
 .header-mobile-box {
     display: none !important;
@@ -280,15 +276,51 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 }
 	
 	
+/* 1. SAKRIJ MENI ODMAH (Da ne stoji iznad dugmića) */
+#header_right {
+    display: none; /* Ovo ga briše sa ekrana dok se ne klikne */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(242, 230, 201, 0.98); /* Tvoj bež papir */
+    z-index: 99999;
+    padding: 40px 20px;
+    overflow-y: auto;
+	 z-index: 10000;
+    overflow-y: auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+
+/* 2. PALI MENI SAMO NA KLIK (Magični Target) */
+#header_right:target {
+    display: block !important;
+}
+
+/* 3. STIL ZA TEKST U MENIJU (Da ne bude "plavo i nedovršeno") */
+.meni-sadrzaj a {
+    text-decoration: none;
+    color: #8b0000; /* Tvoja bordo boja */
+    font-size: 22px;
+    display: block;
+    margin: 15px 0;
+    font-family: "Times New Roman", serif;
+}
+
+.zatvori-meni {
+    float: right;
+    font-size: 24px;
+    text-decoration: none;
+    color: #8b0000; /* Bordo za zatvaranje */
+    font-weight: bold;
+    padding: 10px;
+}
 	
 	
-	
-	@media (max-width: 768px) {
-    .hamburger-zona {
-       position: absolute;
-    top: 30px;         
-    left: 20px;
-    }
+
 
     .line {
         width: 35px;
@@ -346,7 +378,12 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 }	
 
 
-
+	@media (max-width: 768px) {
+    .hamburger-zona {
+       position: absolute;
+    top: 30px;         
+    left: 20px;
+    }
 
 	
 /* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
