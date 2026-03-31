@@ -169,7 +169,7 @@ border-radius:8px;
 border:1px solid #8b6f47;
 background: rgba(242, 230, 201, 0.9);
 color:#4A3728;
-padding-right: 22px !important;
+	right:19px;
 }
 
 
@@ -182,7 +182,66 @@ padding-right: 22px !important;
     color: #4A3728;
 }
 	
-	
+@media (max-width: 768px) {
+    .hamburger-zona {
+        text-align: center;
+        margin: 15px 0; /* Razmak od datuma iznad i dugmića ispod */
+    }
+
+    .line {
+        width: 35px;
+        height: 3px;
+        background-color: #8b6f47; /* Tvoja braon-zlatna */
+        margin: 6px auto;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    /* SKRIVENI MENI - Beli/Bež prozor preko celog ekrana */
+    #header_right {
+        display: none; 
+        position: fixed;
+        top:20;
+        left:20;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
+        z-index: 10000;
+        overflow-y: auto;
+        padding: 40px 20px;
+    }
+
+    #header_right:target {
+        display: block !important; /* Otvara se na klik */
+    }
+
+    .zatvori-meni {
+        float: right;
+        font-size: 20px;
+        text-decoration: none;
+        color: #8b0000;
+        font-weight: bold;
+    }
+
+    .lista-molitvi {
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+    .lista-molitvi li {
+        margin: 15px 0;
+        border-bottom: 1px solid rgba(139, 111, 71, 0.2);
+    }
+
+    .lista-molitvi a {
+        text-decoration: none;
+        color: #4A3728;
+        font-size: 22px;
+        display: block;
+        padding: 10px 0;
+    }
+}	
 
 	
 .potpis {
@@ -211,12 +270,16 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
     right: 20px;
     top: 180px;
     width: 30%;
-    background: rgba(242, 230, 201, 0.85);
     padding: 25px;
     border-radius: 20px;
-    border: 2px solid #8b6f47;
-	font-size: 20px;
+    border: 1px solid #8b6f47;
+    font-size: 20px;
     text-align: justify;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .naslov-header-desktop {	
@@ -225,32 +288,76 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
    font-size: 21px; 	
 }	
 
+/* LAPTOP REŽIM: Sakrivamo ceo meni, on ne sme da se vidi na velikom ekranu */
+#header_right, .hamburger-zona {
+    display: none !important;
+}
+
+
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
-  background: rgba(242, 230, 201, 0.85);
+background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
  display: block; /* Vidljiv je */
     position: absolute;	
             padding: 30px;
             border-radius: 20px;
-            border: 2px solid #8b6f47;
-            font-size: 22px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            border: 1px solid #8b6f47;
+            font-size: 20px;
             line-height: 1.5;
             position: center;
-            font-size: 22px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             line-height: 1.5;
             text-align: justify;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
+
     .naslov-header-mobile {	
  color: #8b0000;      /* Твоја бордо боја */
 text-align: center;  /* Ово га центрира УНУТАР кутије */
    font-size: 21px; 	
 }
+
+
 /* OVO KAŽE LAPTOPU: Ne gledaj donju priču! */
 .header-mobile-box {
     display: none !important;
 }
+
+.glavni-vagon {
+    display: flex;
+    flex-wrap: wrap; /* Dozvoljava da na mobilnom "padnu" jedno ispod drugog */
+    justify-content: space-between;
+    width: 100%;
+}
+
+.column-left {
+    width: 50%; /* Na laptopu zauzima levu polovinu */
+    text-align: left;
+}
+
+.column-right {
+    width: 45%; /* Na laptopu zauzima desnu polovinu */
+}
+
+/* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
+@media screen and (max-width: 768px) {
+    .glavni-vagon {
+        flex-direction: column; /* Na mobilnom idu u kolonu, jedan ispod drugog */
+        align-items: center;
+    }
+    .column-left, .column-right {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    /* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
+    .column-right { display: none !important; }
+}
+
+
+
 
 /* MOBILNI: Ovde koristimo "desktop" kočnicu */
 @media screen and (max-width: 430px) {
@@ -279,6 +386,25 @@ grid-template-columns: 20px 20px 20px 1fr;
 @media (prefers-color-scheme: dark) {
    body {
 padding: 0; /* Brišemo razmak oko celog tela */
+}
+
+@media screen and (max-width: 768px) {
+    /* TELEFON: Ovde se pojavljuju tri crtice */
+    .hamburger-zona {
+        display: block !important; 
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
+    #header_right {
+        display: none; /* Inicijalno nevidljiv */
+    }
+
+    /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
+    #header_right:target {
+        display: block !important;
+    }
 }
     
 .container {
@@ -436,6 +562,60 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
 <a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
 
+<!-- OVDE SE ZAVRŠAVAJU TVOJA DUGMAD -->
+
+<div class="glavni-vagon">
+    
+    <!-- LEVA STRANA (Sve tvoje što beži na laptopu) -->
+    <div class="column-left">
+        <!-- Ovde iskopiraj ceo onaj kod za Audio molitve -->
+        <!-- Ovde iskopiraj ceo onaj kod za Blog pecat -->
+      <div id="google_translate_element"></div>
+        <!-- Ovde iskopiraj ceo onaj kod za Zadušnice i Potpis -->
+    </div>
+
+    <!-- DESNA STRANA (Tvoja priča - samo za laptop) -->
+    <div class="column-right">
+        <!-- Ovde staviš onaj tvoj header-desktop-box sa pričom -->
+    </div>
+
+</div>
+
+<div class="glavni-vagon">
+    
+    <div class="column-left">
+        <!-- 1. AUDIO PECAT (Onaj tvoj krug/slika sa linkom) -->
+        <div class="audio-p">
+             <a href="audio.html"><img src="audio-ikonica.png" alt="Audio"></a>
+        </div>
+
+        <!-- 2. BLOG PECAT (Tvoja Duhovna Riznica blog slika) -->
+        <div class="blog">
+             <a href="blog-link"><img src="blog-ikonica.png" alt="Blog"></a>
+        </div>
+
+        <!-- 3. ZADUŠNICE (Tvoja mala tabela ili boks) -->
+        <div class="zadus">
+             <!-- Tvoj kod za zadusnice ovde -->
+        </div>
+
+        <!-- 4. TRANSLATE (Tvoj Google Translate div) -->
+        <div id="google_translate_element"></div>
+
+        <!-- 5. POTPIS (Tvoj tekst na dnu) -->
+        <div class="potpis"></div>
+    </div>
+
+    <div class="column-r">
+        <!-- OVDE IDE TVOJA PRICA (header-desktop-box) -->
+        <div class="header-desktop">
+<div class="naslov">
+</div>
+    </div>
+
+</div>
+<!-- OVDE IDE DONJI PAPIR KOJI ZATVARA SVITAK -->
+
 	<div class="header-desktop-box">
 <div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ
 </div>
@@ -474,7 +654,30 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 
   
 	
-
+<!-- HAMBURGER DUGME - Centrirano između datuma i dugmića -->
+<div class="hamburger-zona">
+    <a href="#header_right" class="menu-open-mobile">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </a>
+</div>
+<!-- SKRIVENI VAGON (Ovo se otvori kad klikneš na linije) -->
+<div class="header_right mobile" id="header_right">
+    <div class="meni-sadrzaj">
+        <a href="#" class="zatvori-meni">✕ Затвори</a>
+        <h3 style="color: #8b0000; margin-top: 20px;">ДУХОВНА РИЗНИЦА</h3>
+        <nav>
+            <ul class="lista-molitvi">
+                <li><a href="molitvenik.html">☦ Молитвеник</a></li>
+                <li><a href="psaltir.html">📖 Псалтир</a></li>
+                <li><a href="zitija.html">✨ Житија Светих</a></li>
+                <li><a href="pouke.html">📜 Духовне поуке</a></li>
+                <!-- Ovde dodaj svih 20+ molitvi koje ne staju u dugmiće -->
+            </ul>
+        </nav>
+    </div>
+</div>
 <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
 <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
 <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
