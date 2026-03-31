@@ -641,26 +641,16 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 </div>
 
    
-<!-- GLAVNI KONTEJNER (Sve na jednom placu) -->
 <div class="container">
 
-    <!-- GORNJI PAPIR (Logo, Datum, Hamburger) -->
+    <!-- GORNJI DEO (Samo jednom Logo i Datum) -->
     <div class="gornji-papir">
-        <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 15px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+        <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 15px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
         <div id="svetitelj"></div>
         <div id="datum"></div>
-
-        <!-- HAMBURGER DUGME -->
-        <div class="hamburger-zona">
-            <a href="#header_right" class="menu-open-mobile">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </a>
-        </div>
     </div>
 
-    <!-- SKRIVENI HAMBURGER MENI (Iskočni prozor) -->
+    <!-- SKRIVENI MENI (Vidi se samo kad klikneš na crtice) -->
     <div class="header_right mobile" id="header_right">
         <div class="meni-sadrzaj">
             <a href="#" class="zatvori-meni">✕ Затвори</a>
@@ -676,53 +666,60 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         </div>
     </div>
 
-    <!-- GLAVNI VAGON (Sobe za Laptop: Levo - Centar - Desno) -->
+    <!-- GLAVNI VAGON (Levo - Sredina - Desno) -->
     <div class="glavni-vagon">
 
-        <!-- LEVA SOBA (Translate i Pečati) -->
-        	<div class="column-left">	
-		  <div class="hamburger-zona">	
-            <div id="google_translate_element"></div>
-			<div class="column-left">
-			<div class="column-left">	
-    <!-- 1. Kalendar (već je tu) -->
-    <div class="gornja-traka">...</div>
+        <!-- LEVA SOBA (Hamburger, Kalendar i Translate) -->
+        <div class="column-left">
+            <!-- 1. Kalendar -->
+            <div class="gornja-traka">
+                 <select class="nav-kalendar" onchange="location.href=this.value;">
+                    <option value="">☦️ Календар 2026</option>
+                    <option value="januar-2026.html">Јануар</option>
+                 </select>
+            </div>
 
-    <!-- 2. UBACI HAMBURGER OVDE (ispod kalendara) -->
-    <div class="hamburger-zona">
-        <a href="#header_right">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </a>
-    </div>
+            <!-- 2. Hamburger (Tri crtice) -->
+            <div class="hamburger-zona">
+                <a href="#header_right">
+                    <div class="line"></div><div class="line"></div><div class="line"></div>
+                </a>
+            </div>
+
+            <!-- 3. Prevod i Pečati -->
+            <div id="google_translate_element"></div>
             <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
             <a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
         </div>
 
-        <!-- SREDNJA SOBA (Tvojih 6 Dugmića) -->
+        <!-- SREDNJA SOBA (Tvojih 6 Dugmića i Zadušnice) -->
         <div class="column-center">
             <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
             <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
             <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
             <a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
             <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
-            <a href="praznici.html" class="dugme" style="border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">📅 Значајни празници у 2026.</a>
+            <a href="praznici.html" class="dugme" style="border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">📅 Значајни празници 2026.</a>
             
             <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
 
-            <!-- PRIČA ZA MOBILNI (Vidi se samo na telefonu) -->
+            <!-- OVDE UBACI TABELU ZADUŠNICE -->
+            <div class="zadusnice-tabela">
+                <!-- Tvoj kod za tabelu ide ovde -->
+            </div>
+
+            <!-- PRIČA ZA MOBILNI -->
             <div class="header-mobile-box">
                 <div class="naslov-header-mobile">ПОУКЕ СТАРЦА ЈЕФРЕМА</div>
-                Када се нешто догоди и ђаво види да то узнемирује човека...
+                Када се нешто догоди...
             </div>
         </div>
 
         <!-- DESNA SOBA (Priča za Laptop) -->
         <div class="column-right">
             <div class="header-desktop-box">
-                <div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ</div>
-                Када се нешто догоди и ђаво види да то узнемирује човека...
+                <div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА</div>
+                Када се нешто догоди...
             </div>
         </div>
 
