@@ -155,7 +155,7 @@ margin-bottom: 15px;
     font-size: 16px !important;
     border-radius: 8px;    
     box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-    top: 10px;           
+    top: 5px;           
     left: 15px;
 }
 	
@@ -163,6 +163,8 @@ margin-bottom: 15px;
 display:flex;
 justify-content:flex-end;
 margin-bottom:10px;
+top: 5px;           
+    right: 20px;	
 }
 
 .meseci{
@@ -172,7 +174,8 @@ border-radius:8px;
 border:1px solid #8b6f47;
 background: rgba(242, 230, 201, 0.9);
 color:#4A3728;
-	right:19px;
+top: 5px;           
+right:15px;
 }
 
 
@@ -478,11 +481,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
 }
 
 	
-/* MOBILNI: Ovde koristimo "desktop" kočnicu */
-@media screen and (max-width: 430px) {
-    .hamburger-zona {
-        display: none !important; /* POTPUNO NESTAJE na desktopu */
-    }
+
 	
 .container {
  width: 100%; /* Širi se na ceo ekran telefona */
@@ -500,7 +499,7 @@ margin: 0;
     font-size: 16px !important;
     border-radius: 8px;    
     box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-    top: 10px;           
+    top: 7px;           
     left: 17px;
 }	
 	
@@ -509,7 +508,8 @@ margin: 0;
         width: 24%; /* Povećavamo sa 30% na 45% da budu komotni */
         font-size: 15x; /* Krupnija slova da se lakše čita */
         padding: 10px -1px;
-		 right: 19px;
+		 right: 17px;
+		 top: 7px; 
     }
 
 	
@@ -634,7 +634,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 
 
     <!-- GORNJI DEO (Samo jednom Logo i Datum) -->
-    <div class="gornji-papir">
+  
 	<div class="column-center">	
         <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 15px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
         <div id="svetitelj"></div>
@@ -683,9 +683,10 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
          
 		<div class="column-center">
             <!-- 3. Prevod i Pečati -->
-            <div id="google_translate_element"></div>
+           
             <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
             <a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
+			
         </div>
 
         <!-- SREDNJA SOBA (Tvojih 6 Dugmića i Zadušnice) -->
@@ -696,7 +697,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
             <a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
             <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
             <a href="praznici.html" class="dugme" style="border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">📅 Значајни празници 2026.</a>
-            
+             <div id="google_translate_element"></div>
             <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
 
 
