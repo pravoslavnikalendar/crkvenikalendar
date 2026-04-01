@@ -666,13 +666,14 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         <!-- LEVA SOBA (Hamburger, Kalendar i Translate) -->
         <div class="column-left">
             <!-- 1. Kalendar -->
-            <div class="gornja-traka">
+          
                  <select class="nav-kalendar" onchange="location.href=this.value;">
                     <option value="">📅Календар 2026</option>
+					<div class="gornja-traka">
 					 <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
 					
                 
-                 </select>
+           
             </div>
 
             <!-- 2. Hamburger (Tri crtice) -->
@@ -681,7 +682,8 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
                     <div class="line"></div><div class="line"></div><div class="line"></div>
                 </a>
             </div>
-
+         
+		<div class="column-center">
             <!-- 3. Prevod i Pečati -->
             <div id="google_translate_element"></div>
             <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
@@ -699,37 +701,6 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
             
             <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
 
-        <!-- ZADUŠNICE U CENTRU -->
-<div class="zadusnice-tabela" style="width: 100%; max-width: 400px; margin: 20px auto; text-align: center;">
-    
-    <table style="width: 100%; border-collapse: collapse; background: rgba(242, 230, 201, 0.5); border: 1px solid #8b6f47; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-        <thead>
-            <tr>
-                <th colspan="2" style="padding: 10px; background: rgba(139, 111, 71, 0.1); color: #8b0000; font-weight: bold;">
-                    Задушнице 2026 година
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">14. фебруар</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">Зимске (Месопусне)</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">30. мај</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">Летње (Духовске)</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">3. октобар</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">Јесење (Михољске)</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">7. новембар</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4); color: #4A3728;">Митровске</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
 			<div class="zadusnice-tabela" style="width: 100%; max-width: 400px; margin: 20px auto; text-align: center;">	
 <table style="#FDFBF0" border="0" cellpadding="2" cellspacing="1"
