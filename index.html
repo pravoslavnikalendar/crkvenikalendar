@@ -372,7 +372,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
         padding: 10px 0;
     }
 /* LAPTOP: Tri jasna stuba (Levo - Centar - Desno) */
-.glavni-vagon {
+.glavni-vagon-desktop {
     display: flex !important;
     justify-content: space-between !important;
     align-items: flex-start !important;
@@ -381,7 +381,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 }
 
 /* LEVA SOBA (Pečati, Translate, Hamburger) */
-.column-left {
+.column-left-desktop {
     width: 28% !important;
     display: flex !important;
     flex-direction: column !important;
@@ -390,7 +390,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 }
 
 /* SREDNJA SOBA (Logo i 6 Dugmića) */
-.column-center {
+.column-center-desktop {
     width: 40% !important;
     display: flex !important;
     flex-direction: column !important;
@@ -398,7 +398,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 }
 
 /* DESNA SOBA (Tvoja velika Priča) */
-.column-right {
+.column-right-desktop {
     width: 28% !important;
     display: flex !important;
     flex-direction: column !important;
@@ -406,7 +406,21 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     padding-right: 20px;
 }
 	
-	
+.container {
+ width: 100%; /* Širi se na ceo ekran telefona */
+max-width: 100%;
+padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
+margin: 0;
+}
+
+/* DESNA SOBA (Tvoja velika Priča) */
+.column-right-mobile {
+    width: 28% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important; /* LEPI PRIČU ZA DESNU IVICU */
+    padding-right: 20px;
+}	
 
 
 	@media (max-width: 768px) {
@@ -416,7 +430,34 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     left: 20px;
     }
 
-	
+
+
+/* LEVA SOBA (Pečati, Translate, Hamburger) */
+.column-left-mobile {
+    width: 28% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important; /* LEPI SVE ZA LEVU IVICU */
+    padding-left: 20px;
+}
+
+/* SREDNJA SOBA (Logo i 6 Dugmića) */
+.column-center-mobile {
+    width: 40% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; /* MAGNET ZA CENTAR */
+}		
+
+/* LAPTOP: Tri jasna stuba (Levo - Centar - Desno) */
+.glavni-vagon--mobile {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    margin: 20px 0;
+}
+		
 /* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
 @media screen and (max-width: 768px) {
     .center {
@@ -483,12 +524,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
 	
 
 	
-.container {
- width: 100%; /* Širi se na ceo ekran telefona */
-max-width: 100%;
-padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-margin: 0;
-}
+
 
 .nav-kalendar {
     background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
