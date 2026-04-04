@@ -463,7 +463,46 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
 
     <p style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Псалам 117 - Манастир Ковиљ</p>
 </div>
-	
+<div class="moj-plejer" style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif;">☦ Духовна Ризница</h3>
+    
+    <audio id="audioKontrola" controls style="width: 100%;">
+        <!-- Prva pesma koja se učitava -->
+        <source id="audioIzvor" src="audio/pesma1.mp3" type="audio/mpeg">
+    </audio>
+
+    <p id="naslovPesme" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Учитавање...</p>
+</div>
+
+<script>
+    // OVDE UPIŠI TAČNA IMENA FAJLOVA IZ TVOG AUDIO FOLDERA
+    var lista = [
+        { naslov: "PSALAM 117 - MANASTIR KOVILJ", fajl: "psalam117-manastir-kovilj.mp3" },
+        { naslov: "PSALAM 117 - MANASTIR KOVILJ", fajl: "audio/psalam117-manastir-kovilj.mp3" },
+        { naslov: "Христос Анести", fajl: "audio/pesma1.mp3" }
+    ];
+
+    var trenutna = 0;
+    var plejer = document.getElementById('audioKontrola');
+    var naslov = document.getElementById('naslovPesme');
+    var izvor = document.getElementById('audioIzvor');
+
+    // Postavi prvu pesmu odmah
+    naslov.innerText = "🎶 " + lista[0].naslov;
+    izvor.src = lista[0].fajl;
+
+    // MAGIJA: Kad završi, pusti sledeću
+    plejer.onended = function() {
+        trenutna++;
+        if (trenutna >= lista.length) trenutna = 0; // Vrati na početak
+        
+        izvor.src = lista[trenutna].fajl;
+        naslov.innerText = "🎶 " + lista[trenutna].naslov;
+        
+        plejer.load();
+        plejer.play();
+    };
+</script>	
 <script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
 async function prikaziSve() {
     const d = new Date();
