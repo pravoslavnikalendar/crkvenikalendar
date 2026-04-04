@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sr"><head><script src="https://mc.yandex.com/metrika/tag_phono.js" type="text/javascript" charset="utf-8" async=""></script>
 <meta charset="UTF-8">
@@ -113,13 +114,6 @@ color:#4A3728;
 top: 3px;           
 left:30px;
 }
-
-.potpis {
-font-size: 14px;
-margin-top: 20px;
-color: #4A3728;
-font-style: italic;
-}	
 
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
@@ -359,20 +353,28 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     </select>
 </div>			
 
-
-   <!-- 2. Hamburger (Tri crtice) -->
-            <div class="hamburger-zona">
-                <a href="#header_right">
-                    <div class="line" top:="" 30px;="" left:="" 15px"=""></div><div class="line"></div><div class="line"></div>
-                </a>
-            </div>
+  <!-- SKRIVENI MENI (Vidi se samo kad klikneš na crtice) -->
+    <div class="header_right mobile" id="header_right">
+        <div class="meni-sadrzaj">
+            <a href="#" class="zatvori-meni">✕ Затвори</a>
+            <h3 style="color: #8b0000; margin-top: 30px;">ДУХОВНА РИЗНИЦА</h3>
+            <nav>
+                <ul class="lista-molitvi">
+                    <li><a href="molitvenik.html">☦ Молитвеник</a></li>
+                    <li><a href="psaltir.html">📖 Псалтир</a></li>
+                    <li><a href="zitija.html">✨ Житија Светих</a></li>
+                    <li><a href="pouke.html">📜 Духовне поуке</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+  
        
  
 
 
 
 <div class="gornji-papir">
-
 
 <img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
 height: 80px; display: block; 
@@ -384,6 +386,12 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <!-- Datum automatski -->
 <div id="datum">субота, 4. април 2026.<br><small>(по старом: 22. март | Лето Господње 7534.)</small></div>
 <div> 
+ <!-- 2. Hamburger (Tri crtice) -->
+            <div class="hamburger-zona">
+                <a href="#header_right">
+                    <div class="line" top:="" 20px;="" left:="" 15px"=""></div><div class="line"></div><div class="line"></div>
+                </a>
+            </div>
 
 <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
 <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
@@ -652,8 +660,7 @@ font-weight: 700; ">Задушнице 2026 годинa</span></th>
 
 
 
-</aside></div></div></div></div></body></html>
-
+</body></html>
 
 
 
