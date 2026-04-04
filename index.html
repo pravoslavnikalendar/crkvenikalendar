@@ -431,30 +431,7 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
 	
 	
 	
-	<script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
-async function prikaziSve() {
-    const d = new Date();
-    // 1. Враћамо суботу на екран
-    const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-    document.getElementById('datum').innerText = d.toLocaleDateString('sr-RS', opcije);
-
-    // 2. Тражимо свеца у твом фајлу
-    try {
-        const res = await fetch('svetitelji.json');
-        const svetitelji = await res.json();
-        const kljuc = `${d.getDate()}-${d.getMonth() + 1}`;
-        
-        if (svetitelji[kljuc]) {
-            document.getElementById('svetitelj').innerHTML = "<b>Данас славимо:</b><br>" + svetitelji[kljuc];
-        } else {
-            document.getElementById('svetitelj').innerText = "";
-        }
-    } catch (e) {
-        document.getElementById('svetitelj').innerText = "";
-    }
-}
-prikaziSve();
-
+<script>	
 async function prikaziSve() {
     const d = new Date();
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
