@@ -407,6 +407,39 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
     </div>
 
 
+<div style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif; margin-bottom: 10px;">☦ Духовне Песме</h3>
+    
+    <!-- PLEJER -->
+    <audio id="mojAudio" controls autoplay style="width: 100%;">
+        <source id="izvor" src="https://od.lk" type="audio/mpeg">
+    </audio>
+
+    <!-- NASLOV PESME -->
+    <p id="tekstPesme" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Христос Анести</p>
+</div>
+
+<script>
+    var lista = [
+        {t: "Христос Анести", s: "https://od.lk"},
+        {t: "Благословен јеси Господе", s: "https://od.lk"},
+        {t: "Христос Воскресе", s: "https://od.lk"}
+    ];
+    var i = 0;
+    var a = document.getElementById('mojAudio');
+
+    // MAGIJA: Čim jedna završi, pušta sledeću
+    a.onended = function() {
+        i++;
+        if (i >= lista.length) i = 0;
+        document.getElementById('izvor').src = lista[i].s;
+        document.getElementById('tekstPesme').innerText = "🎶 " + lista[i].t;
+        a.load();
+        a.play();
+    };
+</script>
+
+	
 <script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
 async function prikaziSve() {
     const d = new Date();
