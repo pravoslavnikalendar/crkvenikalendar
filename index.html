@@ -410,18 +410,34 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
             <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
-<div style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif; margin-bottom: 10px;">☦ Духовна Музика</h3>
+
+
+<!-- TVOJ CRNI PLEJER KOJI SAM REĐA PESME -->
+<div style="width: 300px; margin: 20px auto; text-align: center; background: rgba(30, 30, 30, 0.9); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
     
-    <audio id="riznicaRadio" controls style="width: 100%;">
+    <h3 style="color: #f2e6c9; font-family: 'Times New Roman', serif; margin-bottom: 10px;">☦ Духовна Музика</h3>
+    
+    <audio id="mojRadioMuzika" controls style="width: 100%; filter: invert(90%);">
+        <!-- Prva pesma sa tvog bloga (Пресвета Богородице) -->
         <source id="audioIzvor" src="https://google.com" type="audio/mpeg">
     </audio>
 
-    <p id="naslovTrenutne" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Пресвета Богородице Спаси Нас</p>
+    <p id="naslovMuzike" style="font-style: italic; margin-top: 10px; color: #f2e6c9; font-weight: bold;">🎶 Пресвета Богородице Спаси Нас</p>
 </div>
 
-
-<script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
 async function prikaziSve() {
     const d = new Date();
     // 1. Враћамо суботу на екран
@@ -669,7 +685,28 @@ font-weight: 700; ">Задушнице 2026 годинa</span></th>
 </div>
 </div>
 
+<script>
+    // OVDE UPIŠI IMENA SVIH PESAMA KOJE IMAŠ NA GITHUB-U
+    var listaPesama = [
+        {n: "ТЕЛО ХРИСТОВО.mp3</strong></p> ", f: "audio/pesma1.mp3"},
+        {n: "" height="//drive.google.com/f", f: "audio/pesma2.mp3"},
+        {n: "Псалам 117</strong></p> ", f: "audio/pesma3.mp3"}
+    ];
+    
+    var redniBroj = 0;
 
+    function sledeca() {
+        redniBroj++;
+        if (redniBroj >= listaPesama.length) redniBroj = 0; // Vraća na prvu
+        
+        var p = document.getElementById('mojRadio');
+        document.getElementById('audioIzvor').src = listaPesama[redniBroj].f;
+        document.getElementById('naslov').innerText = "🎶 " + listaPesama[redniBroj].n;
+        
+        p.load();
+        p.play();
+    }
+</script>
 
 </body></html>
 
