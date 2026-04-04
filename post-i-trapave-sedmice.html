@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ПСАЛТИР</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url("papir.jpg");
+            background-size: cover;
+            background-attachment: fixed; /* Pozadina se ne pomera dok skroluješ tekst */
+            font-family: "Times New Roman", serif;
+            color: #4A3728;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+max-width: 430px;
+padding: 20px; /* Smanjen padding da stane na manje ekrane */
+text-align: center;
+margin: 0;
+        }
+        
+      
+
+     
+
+       /* STIL ZA TEKST PSALAMA */
+.tekst-sekcija {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 22px; /* Malo krupnija slova za lakše čitanje */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Blaga podloga */
+    border-radius: 10px;
+    border-bottom: 3px solid #8b6f47; /* Deblja linija na dnu katizme */
+    margin-bottom: 50px;
+ text-align: justify;
+}
+
+        .katizma-naslov {
+            text-align: center;
+            color: #8b0000; /* Crvena boja za naslove katizmi */
+            font-variant: small-caps;
+            border-top: 1px solid #8b6f47;
+            padding-top: 20px;
+        }
+
+        .home-dugme {
+            position: fixed; top: 15px; left: 15px;
+            background: rgba(242, 230, 201, 0.9);
+            padding: 10px 15px; border-radius: 8px;
+            border: 1px solid #8b6f47; text-decoration: none; color: #4A3728;
+            font-size: 20px; z-index: 100;
+        }
+
+.nazad-dugme {
+    font-size: 26px; /* Veća strelica na dnu */
+    padding: 15px 30px;
+}
+
+ h1 { 
+    margin-top: 20px; 
+    font-size: 30px; 
+    color: #4A3728; 
+    margin-bottom: 20px;
+}
+b { color: #8b0000; } /* Crveni brojevi psalama */
+        /* Da se lepše skroluje kad klikneš na link */
+        html { scroll-behavior: smooth; }
+
+/* Ovo važi za sve uređaje */
+.vrh-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 10px;
+    color: #8b6f47;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Ovo se aktivira SAMO na telefonima */
+@media (max-width: 480px) {
+    .vrh-link {
+        font-size: 32px; /* Još veća strelica za palac */
+        padding: 20px;   /* Veći prostor za klik */
+        display: block;  /* Da bude na sredini ekrana */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="home-dugme">🏠</a>
+   
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Велики пост</h2>
+од 23.фебруара до 11.априла 2026.
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Петровски пост</h2>
+од 08. јуна до 11.јула 2026.
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Госпојински пост</h2>
+од 14. августа до 27.августа 2026.
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Божићни пост</h2>
+од 28. новембра до 06.јануара 2027.
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Једнодневни</h2>
+Сваке среде и петка, осим трапавих седмица
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Крстовдан, уочи Богојављења</h2>
+18. јануар
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Усековање главе св. Јована Крститеља</h2>
+11. септембра
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Воздвижење Часног Крста-Крстовдан</h2>
+27. септембра
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Трапаве седмице</h2>
+од Божића 07. јануара до 17. јануара
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Иза недеље о митару и фарисеју</h2>
+од 02. фебруара до 08. фебруара
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Сиропусна седмица</h2>
+од 16. фебруара до 22. фебруара (разрешено на рибу, 
+сир и јаја; месо се у току ове седмице не једе)
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Светла седмица</h2>
+од 13. априла до 19. априла
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Духовска седмица</h2>
+од 01. јуна до 07. јуна
+</div>
+
+<div class="tekst-sekcija">
+    <h2 class="katizma-naslov">Божић и Богојављење</h2>
+На Божић и Бгојављење Господње се не пости, 
+без обзира на то да ли овај празник пада у среду или петак.
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
