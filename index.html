@@ -409,59 +409,34 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
             <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
-<div style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif; margin-bottom: 10px;"> Духовне Песме</h3>
-
-
- <!-- Insert to your webpage where you want to display the audio player -->
-    <div id="amazingaudioplayer-1" style="display:block;position:relative;width:300px;height:auto;margin:0px auto 0px;">
-        <ul class="amazingaudioplayer-audios" style="display:none;">
-            <li data-artist="Дивна љубојевић" data-title="Христос Анести" data-album="" data-info="" data-image="audios/IsusHrist.jpg" data-duration="0">
-                <div class="amazingaudioplayer-source" data-src="https://od.lk/s/MzdfMTEzNzg5ODhf/Divna%20Ljubojevic%20-%20%20Hristos%20Anesti%20.mp3" data-type="audio/mpeg" />
-            </li>
-            <li data-artist="Дивна љубојевић" data-title="Благословен јеси Господе" data-album="" data-info="" data-image="audios/krst1.jpg" data-duration="0">
-                <div class="amazingaudioplayer-source" data-src="https://od.lk/s/MzdfMTEzNzg5MzJf/Divna%20Ljubojevic%20-%20Blagosloven%20jesi%20Gospode.mp3" data-type="audio/mpeg" />
-            </li>
- <li data-artist="Дивна Љубојевић" data-title="Христос Воскресе" data-album="" data-info="" data-image="audios/IsusHrist.jpg" data-duration="0">
-                <div class="amazingaudioplayer-source" data-src="https://od.lk/s/MzdfMTEzNzkyOTVf/Divna%20Ljubojevi%C4%87%20-%20Hristos%20Voskrese.mp3" data-type="audio/mpeg" />
-            </li>
-        </ul>
-    </div>
-    <!-- End of body section HTML codes -->
-
-</div>
-</body>
-</html></div>
-	
-    <!-- PLEJER -->
-    <audio id="mojAudio" controls autoplay style="width: 100%;">
-        <source id="izvor" src="https://od.lk" type="audio/mpeg">
+<div class="moj-plejer" style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47;">
+    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif;">☦ Духовне Песме</h3>
+    
+    <audio id="riznicaAudio" controls style="width: 100%;">
+        <source id="audioIzvor" src="https://od.lk" type="audio/mpeg">
     </audio>
 
-    <!-- NASLOV PESME -->
-    <p id="tekstPesme" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Христос Анести</p>
+    <p id="imePesme" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Христос Анести</p>
 </div>
 
 <script>
-    var pesme = [
+    var listaPesama = [
         {naslov: "Христос Анести", link: "https://od.lk"},
         {naslov: "Благословен јеси Господе", link: "https://od.lk"},
         {naslov: "Христос Воскресе", link: "https://od.lk"}
     ];
-    var i = 0;
-    var a = document.getElementById('mojAudio');
+    var br = 0;
+    var aud = document.getElementById('riznicaAudio');
 
-    // MAGIJA: Čim jedna završi, pušta sledeću
-    a.onended = function() {
-        i++;
-        if (i >= lista.length) i = 0;
-        document.getElementById('izvor').src = lista[i].s;
-        document.getElementById('tekstPesme').innerText = "🎶 " + lista[i].t;
-        a.load();
-        a.play();
+    aud.onended = function() {
+        br++;
+        if (br >= listaPesama.length) br = 0;
+        document.getElementById('audioIzvor').src = listaPesama[br].link;
+        document.getElementById('imePesme').innerText = "🎶 " + listaPesama[br].naslov;
+        aud.load();
+        aud.play();
     };
 </script>
-
 	
 <script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
 async function prikaziSve() {
