@@ -409,32 +409,40 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
             <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
-<div class="moj-plejer" style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47;">
-    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif;">☦ Духовне Песме</h3>
+<div style="width: 300px; margin: 20px auto; text-align: center; background: rgba(242, 230, 201, 0.7); padding: 15px; border-radius: 15px; border: 1px solid #8b6f47; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+    <h3 style="color: #8b0000; font-family: 'Times New Roman', serif; margin-bottom: 10px;">☦ Духовна Музика</h3>
     
-    <audio id="riznicaAudio" controls style="width: 100%;">
-        <source id="audioIzvor" src="https://od.lk" type="audio/mpeg">
+    <audio id="riznicaRadio" controls style="width: 100%;">
+        <source id="audioIzvor" src="https://google.com" type="audio/mpeg">
     </audio>
 
-    <p id="imePesme" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Христос Анести</p>
+    <p id="naslovTrenutne" style="font-style: italic; margin-top: 10px; color: #4A3728; font-weight: bold;">🎶 Пресвета Богородице Спаси Нас</p>
 </div>
 
 <script>
-    var pesme = [
-        {naslov: "Христос Анести", link: "https://od.lk"},
-        {naslov: "Благословен јеси Господе", link: "https://od.lk"},
-        {naslov: "Христос Воскресе", link: "https://od.lk"}
+    // TVOJA LISTA PESAMA SA GOOGLE DRIVE-A
+    var mojiSnimci = [
+        {naslov: "Пресвета Богородице Спаси Нас", id: "127bSaYz8fA9XSLJVWi5l8xTaOgbqwHYl"},
+        {naslov: "Душо моја свет се нагло мења", id: "1MpuIH1wNvBOJKgYnTb7JN9p96_xZYQBi"},
+        {naslov: "Господи помилуй, Господи прости", id: "1MTwPYMeqwaErs3rdgP67OnmZ6wrZppHN"},
+        {naslov: "Устани, Боже, устани", id: "1jyM7jHNp9ODHeqZDLsuizQHll7SUaQ7q"},
+        {naslov: "Белый Ангел", id: "1YxjM31MunbTNxjLYBHrzKvDD3Y7-onKD"}
     ];
-    var br = 0;
-    var aud = document.getElementById('riznicaAudio');
+    
+    var indexPesme = 0;
+    var plejer = document.getElementById('riznicaRadio');
 
-    aud.onended = function() {
-        br++;
-        if (br >= listaPesama.length) br = 0;
-        document.getElementById('audioIzvor').src = listaPesama[br].link;
-        document.getElementById('imePesme').innerText = "🎶 " + listaPesama[br].naslov;
-        aud.load();
-        aud.play();
+    // MAGIJA: Čim završi jedna, kreće sledeća automatski
+    plejer.onended = function() {
+        indexPesme++;
+        if (indexPesme >= mojiSnimci.length) indexPesme = 0; // Vraća na vrh
+        
+        var noviLink = "https://google.com" + mojiSnimci[indexPesme].id;
+        document.getElementById('audioIzvor').src = noviLink;
+        document.getElementById('naslovTrenutne').innerText = "🎶 " + mojiSnimci[indexPesme].naslov;
+        
+        plejer.load();
+        plejer.play();
     };
 </script>
 	
