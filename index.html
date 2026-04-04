@@ -68,7 +68,7 @@ background: rgba(242, 230, 201, 0.95);
 }
 	
 .gornji-papir {
-width: 95%;
+width: 90%;
 max-width: 430px;
 padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
@@ -77,7 +77,7 @@ margin: 0;
 
 	
 .donji-papir {
-width: 95%;
+width: 90%;
 max-width: 430px;
 padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
@@ -91,60 +91,6 @@ font-weight: bold;
 margin-bottom: 15px;
 }
 
-.audio-molitve-pecat {
-    position: absolute; 
-    top: 730px;           
-    right: 50px;         
-    background: rgba(242, 230, 201, 0.4); 
-    padding: 8px 16px;
-    border-radius: 15px;
-    border: 2px solid #2E1B08; /* Твоја тамнобраон */
-    text-decoration: none;
-    font-weight: bold;
-    color: #2E1B08;           /* Твоја тамнобраон за слова */
-    font-size: 14px;
-    z-index: 9999;
-    box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-	
-.audio-molitve-pecat:hover {
-    background: rgba(242, 230, 201, 0.9);
-    transform: scale(1.1);
-}
-	
-.blog-pecat {
-    position: absolute;
-    top: 730px;         
-    left: 45px;       
-    background: rgba(242, 230, 201, 0.6); 
-    padding: 8px 10px;
-    border-radius: 15px;
-    border: 2px solid #2E1B08; 
-    text-decoration: none;
-    color: #2E1B08;           
-    font-weight: bold;
-    font-size: 14px;
-    z-index: 99999;           
-    box-shadow: -2px 4px 10px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-.stiker-dugme {
-    position: fixed;
-    bottom: 30px;      /* Стаклићемо га у доњи угао да не смета тексту */
-    right: 30px;       /* Твоја слободна десна страна на лаптопу */
-    width: 80px;       /* Величина твог стикера */
-    height: auto;
-    cursor: pointer;
-    z-index: 10001;    /* Да буде изнад папира */
-    transition: 0.4s;
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); /* Сенка да "искочи" */
-}
-
-.stiker-dugme:hover {
-    transform: scale(1.2) rotate(5deg); /* Да мало заплеше кад га дотакнеш */
-}
 .nav-kalendar {
     position: absolute;
 	background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
@@ -155,16 +101,17 @@ margin-bottom: 15px;
     font-size: 16px !important;
     border-radius: 8px;    
     box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-    top: 5px;           
+    top: 10px;           
     left: 15px;
 }
 	
+
 .gornja-traka{
 display:flex;
 justify-content:flex-end;
 margin-bottom:10px;
-top: 5px;           
-    right: 20px;	
+top: 3px;           
+    	
 }
 
 .meseci{
@@ -174,12 +121,10 @@ border-radius:8px;
 border:1px solid #8b6f47;
 background: rgba(242, 230, 201, 0.9);
 color:#4A3728;
-top: 5px;           
-right:15px;
+top: 3px;           
+left:30px;
 }
 
-
-	
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
     font-family: "Times New Roman", serif;
@@ -187,84 +132,30 @@ right:15px;
     font-weight: bold;
     color: #4A3728;
 }
-	
 
-	
-.potpis {
-font-size: 14px;
-margin-top: 20px;
-color: #4A3728;
-font-style: italic;
-}
-
-.zadusnice-tabela {
-    display: block !important;
-    position: relative !important; /* VRAĆA JE NA PAPIR, da ne lebdi */
-    width: fit-content !important; /* Zauzima samo onoliko mesta koliko joj treba */
-    margin: 30px auto !important;   /* MAGNET: "auto" je kuca u centar monitora */
-    background: transparent !important;
-    border: 1px solid rgba(139, 111, 71, 0.3);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.zadusnice-tabela table {
-    margin: 0 auto !important; /* Centira samu tabelu unutar njenog boksa */
-    border-collapse: collapse;
-}
-
-.zadusnice-tabela td {
-    padding: 10px 15px !important;
-    white-space: nowrap !important; /* ZABRANJUJE sečenje reči (Zims..., Mitr...) */
-    color: #4A3728 !important;
-    text-align: left;
-}
-	
-/* LAPTOP: Ovde boks živi i leti desno */
-.header-desktop-box {
-    display: block; /* Vidljiv je */
-    position: absolute;
-    right: 20px;
-    top: 180px;
-    width: 25%;
-    padding: 25px;
-    border-radius: 20px;
-    border: 1px solid #8b6f47;
-    font-size: 20px;
-    text-align: justify;
-/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
-box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
-inset 0 -2px 4px rgba(0,0,0,0.15),
-0 6px 12px rgba(0,0,0,0.25);
-transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
-
-.naslov-header-desktop {	
- color: #8b0000;      /* Твоја бордо боја */
-text-align: center;  /* Ово га центрира УНУТАР кутије */
-   font-size: 21px; 	
-}	
-
-
-
-/* OVO KAŽE LAPTOPU: Ne gledaj donju priču! */
-.header-mobile-box {
-    display: none !important;
-}
-
-
+.zadusnice-2026-godina container {
+margin: 20px 0 20px 30px; 
+ width: 98%;
+max-width: 600px;
+background: transparent !important;  
+border: 1px solid #8b6f47;
+border-radius: 10px;
+position: center;
+overflow: hidden;
+box-shadow: 0 4px 15px rgba(0,0,0,0.7);"> 
+ }
 
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
  display: block; /* Vidljiv je */
-    position: relative;	
+    position: center;	
             padding: 30px;
             border-radius: 20px;
             border: 1px solid #8b6f47;
             font-size: 20px;
 	position: relative !important; /* OVO JE KLJUČ: Da stoji ISPOD svega, ne PREKO svega */
-        width: 90% !important;
+        width: 85% !important;
         margin: 30px auto !important; /* Razmak od potpisa i centar */
             line-height: 1.5;
             position: center;
@@ -282,14 +173,43 @@ transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 text-align: center;  /* Ово га центрира УНУТАР кутије */
    font-size: 21px; 	
 }
-	
 
 
+@media (max-width: 600px) {
+    /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
+    .praznici-dugme {
+        width: 80%;   /* Ista širina kao tvoja ostala dugmad */
+        margin: -8px auto !important; /* Minimalni razmak GORE i DOLE (podiglo se!) */
+       border: 1px solid #dd1616 !important;
+        color: #dd1616 !important;
+		padding: 2px;    /* Tanji boks, da ne bude "debeo" */
+        font-size: 17px !important;  /* Da tekst stane u jedan red */
+        display: block !important;
+		display: inline-block !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ako tvoja ostala dugmad imaju prevelik razmak iznad sebe, smanji im marginu */
+    .dugme {
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
 
-/* 2. PALI MENI SAMO NA KLIK (Magični Target) */
-#header_right:target {
-    display: block !important;
+
+	@media (max-width: 480px) {
+     .meseci {
+        width: 24%; /* Povećavamo sa 30% na 45% da budu komotni */
+        font-size: 15x; /* Krupnija slova da se lakše čita */
+        padding: 10px -1px;
+		 right: 17px;
+		 top: 3px; 
+    }
+
+/* OVO KAŽE LAPTOPU: Ne gledaj donju priču! */
+.header-mobile-box {
+    display: none !important;
 }
+
 
 /* 3. STIL ZA TEKST U MENIJU (Da ne bude "plavo i nedovršeno") */
 .meni-sadrzaj a {
@@ -300,8 +220,6 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     margin: 15px 0;
     font-family: "Times New Roman", serif;
 }
-
-
 
  /* SKRIVENI MENI - Tvoj bež prozor (Laptop/Desktop) */
 #header_right {
@@ -371,127 +289,7 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
         display: block;
         padding: 10px 0;
     }
-/* LAPTOP: Tri jasna stuba (Levo - Centar - Desno) */
-.glavni-vagon-desktop {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    width: 100% !important;
-    margin: 20px 0;
-}
 
-/* LEVA SOBA (Pečati, Translate, Hamburger) */
-.column-left-desktop {
-    width: 28% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important; /* LEPI SVE ZA LEVU IVICU */
-    padding-left: 20px;
-}
-
-/* SREDNJA SOBA (Logo i 6 Dugmića) */
-.column-center-desktop {
-    width: 40% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important; /* MAGNET ZA CENTAR */
-}
-
-/* DESNA SOBA (Tvoja velika Priča) */
-.column-right-desktop {
-    width: 28% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important; /* LEPI PRIČU ZA DESNU IVICU */
-    padding-right: 20px;
-}
-	
-.container {
- width: 100%; /* Širi se na ceo ekran telefona */
-max-width: 100%;
-padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-margin: 0;
-}
-
-/* DESNA SOBA (Tvoja velika Priča) */
-.column-right-mobile {
-    width: 28% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important; /* LEPI PRIČU ZA DESNU IVICU */
-    padding-right: 20px;
-}	
-
-
-	@media (max-width: 768px) {
-    .hamburger-zona {
-       position: absolute;
-    top: 30px;         
-    left: 20px;
-    }
-
-
-
-
-/* SREDNJA SOBA (Logo i 6 Dugmića) */
-.column-center-mobile {
-    width: 40% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important; /* MAGNET ZA CENTAR */
-}		
-
-/* LAPTOP: Tri jasna stuba (Levo - Centar - Desno) */
-.glavni-vagon--mobile {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
-    width: 100% !important;
-    margin: 20px 0;
-}
-		
-/* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
-@media screen and (max-width: 768px) {
-    .center {
-        flex-direction: column; /* Na mobilnom idu u kolonu, jedan ispod drugog */
-        align-items: center;
-    }
-    .column-left, .column-right {
-        width: 25% !important;
-        text-align: justify !important;
-    }
-    /* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
-    .column-right { display: none !important; }
-}
-
-/* Ako na mobilnom ne želiš ovu desnu priču, sakrij je: */
-    .column-left { display: none !important; }
-}
-
-
-/* MOBILNI: Ovde koristimo "desktop" kočnicu */
-@media screen and (max-width: 430px) {
-    .header-desktop-box {
-        display: none !important; /* POTPUNO NESTAJE na desktopu */
-    }	
-@media (max-width: 430px) {
-.container { padding: 20px; width: 100%; }
-.header-mobile-box, .header-desktop-box {
-grid-template-columns: 20px 20px 20px 1fr;
-}
-/* Prva kočnica: Briše laptop box sa telefona */
-@media screen and (max-width: 430px) {
-    .header-desktop-box {
-        display: none !important;
-    }
-} /* <--- OVA ZAGRADA MORA DA BUDE TU */
-
-
-	
-@media (prefers-color-scheme: dark) {
-   body {
-padding: 0; /* Brišemo razmak oko celog tela */
-}
 
 @media screen and (max-width: 768px) {
     /* TELEFON: Ovde se pojavljuju tri crtice */
@@ -502,99 +300,11 @@ padding: 0; /* Brišemo razmak oko celog tela */
         margin: 15px 0;
     }
 
-    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
-    #header_right {
-        display: none; /* Inicijalno nevidljiv */
-    }
+ 
 
     /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
     #header_right:target {
         display: block !important;
-    }
-}
-
-	
-
-	
-
-
-.nav-kalendar {
-    background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
-    color: #4A3728 !important;                      /* Tvoja braon boja slova */
-    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
-    padding: 3px 10px !important;
-    font-family: "Times New Roman", serif !important;
-    font-size: 16px !important;
-    border-radius: 8px;    
-    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-    top: 7px;           
-    left: 17px;
-}	
-	
-	@media (max-width: 480px) {
-     .meseci {
-        width: 24%; /* Povećavamo sa 30% na 45% da budu komotni */
-        font-size: 15x; /* Krupnija slova da se lakše čita */
-        padding: 10px -1px;
-		 right: 17px;
-		 top: 3px; 
-    }
-
-	
-
-
- 
-	
-@media (max-width: 600px) {
-    /* Ovo sređuje tvoje novo crveno dugme na naslovnoj */
-    .praznici-dugme {
-        width: 85% !important;   /* Ista širina kao tvoja ostala dugmad */
-        margin: -8px auto !important; /* Minimalni razmak GORE i DOLE (podiglo se!) */
-       border: 1px solid #dd1616 !important;
-        color: #dd1616 !important;
-		padding: 10px !important;    /* Tanji boks, da ne bude "debeo" */
-        font-size: 17px !important;  /* Da tekst stane u jedan red */
-        display: block !important;
-		display: inline-block !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Ako tvoja ostala dugmad imaju prevelik razmak iznad sebe, smanji im marginu */
-    .dugme {
-        margin-top: 5px !important;
-        margin-bottom: 5px !important;
-    }
-
-
-
-
-
-@media (prefers-color-scheme: dark) {
-   body {
-padding: 0; /* Brišemo razmak oko celog tela */
-}
-   
-.container {
- width: 100%; /* Širi se na ceo ekran telefona */
-max-width: 100%;
-padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-margin: 0;
-}
-	.gornja-traka {
-      top: 2px; /* Centriramo ih na sredini ekrana */
-        gap: 1px; /* Razmak između menija */
-        padding: 3px;
-    }
-.dan {
-padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
- }
-
-/* Na mobilnom neka se vrati u sredinu ili ispod logoa */
-@media (max-width: 480px) {
-    .blog-precica {
-        position: absolute;
-        display: inline-block;
-        margin-top: 10px;
     }
 }
 
@@ -603,11 +313,9 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
 </head>
 
 <body>
-
 <div class="container">
-<div class="gornji-papir">	
-    
-<div class="column-center">		
+<div class="gornja-traka">	
+
  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
        <select class="nav-kalendar" onchange="location.href=this.value;">
             <option value="">📅Календар 2026</option>
@@ -626,15 +334,11 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         </select>
     </div> 
 
-
-
-
-	
 <div class="gornja-traka">
     <!-- 1. Бирање године -->
     <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
         <option value="2025">2025</option>
-        <option value="2026" selected>2026</option>
+        <option value="2026" selected="">2026</option>
         <option value="2027">2027</option>
         <option value="2028">2028</option>
         <option value="2029">2029</option>
@@ -642,7 +346,7 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
     </select>
 
     <!-- 2. Бирање месеца (Паметни мени који иде на Кalendar.html) -->
-    <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
+    <select id="mesecBirac" class="meseci" top:="" 3px;="" left:="" 30px;="" onchange="osveziKalendar()">
         <option value="">Mесец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
@@ -657,156 +361,46 @@ padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
         <option value="10">Новембар</option>
         <option value="11">Децембар</option>
     </select>
-</div>
-
-     <!-- SKRIVENI MENI (Vidi se samo kad klikneš na crtice) -->
-    <div class="header_right mobile" id="header_right">
-        <div class="meni-sadrzaj">
-            <a href="#" class="zatvori-meni">✕ Затвори</a>
-            <h3 style="color: #8b0000; margin-top: 30px;">ДУХОВНА РИЗНИЦА</h3>
-            <nav>
-                <ul class="lista-molitvi">
-                    <li><a href="molitvenik.html">☦ Молитвеник</a></li>
-                    <li><a href="psaltir.html">📖 Псалтир</a></li>
-                    <li><a href="zitija.html">✨ Житија Светих</a></li>
-                    <li><a href="pouke.html">📜 Духовне поуке</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+</div>			
 
 
-    <!-- GORNJI DEO (Samo jednom Logo i Datum) -->
-	
-    <div class="column-right">	
-        <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 15px auto; 
-			border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-        <div id="svetitelj"></div>
-        <div id="datum"></div>
-   
-</div>
-  
+ 
+ 
 
-    <!-- GLAVNI VAGON (Levo - Sredina - Desno) -->
-  
 
-        <!-- LEVA SOBA (Hamburger, Kalendar i Translate) -->
-        <div class="column-left">
-            <!-- 1. Kalendar -->
-          
-                 <select class="nav-kalendar" onchange="location.href=this.value;">
-                    <option value="">📅Календар 2026</option>
-					
-					 <div class="column-center">
-					<div class="gornja-traka">
-					 <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
-                
-           
-            </div>
 
-            <!-- 2. Hamburger (Tri crtice) -->
-            <div class="hamburger-zona">
-                <a href="#header_right">
-                    <div class="line"></div><div class="line"></div><div class="line"></div>
-                </a>
-            </div>
-       
+<div class="gornji-papir">
 
-<div class="glavni-vagon-desktop">
-<div class="glavni-vagon-mobile">   
-        <!-- SREDNJA SOBA (Tvojih 6 Dugmića i Zadušnice) -->
-        <div class="column-center">
-            <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
-            <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
-            <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
-            <a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
-            <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
-            <a href="praznici.html" class="dugme" style="border: 1px solid #dd1616; color: #dd1616; 
-			font-weight: bold;">📅 Значајни празници 2026.</a>
-			    </div>
-			<div class="column-center">
-            <!-- 3. Prevod i Pečati -->
-           
-            <a href="blog.html" class="blog-pecat">📖 Духовна ризница</a>
-            <a href="audio-molitve.html" class="audio-molitve-pecat">🕊️ Аудио молитве</a>
-			
-        </div>
-             
-	<div class="column-center">	
-	<div id="google_translate_element"></div>
+
+<img src="ikona.png" alt="Ljubav Pravoslavlje Logo" style="width: 80px; 
+height: 80px; display: block; 
+margin: 0 auto 5px auto; 
+border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+
+<div content="container">
+<div id="svetitelj"></div>
+<!-- Datum automatski -->
+<div id="datum">субота, 4. април 2026.<br><small>(по старом: 22. март | Лето Господње 7534.)</small></div>
+<div> 
+
+<a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
+<a href="psaltir.html" class="dugme">ПСАЛТИР</a>
+<a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
+<a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
+<a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
+ <a href="praznici.html" class="dugme" style="display: inline-block; width: 85%; padding: 18px;
+margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; font-weight: bold;">
+        📅 Значајни празници у 2026.
+    </a>
+</div> 
+
+
+<div id="google_translate_element"></div>
             <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
     </div>
- 
-	
-<div class="column-center-mobile">							 
- 
-			<div class="zadusnice-tabela" style="width: 100%; max-width: 400px; margin: 20px auto; text-align: center;">	
- </div>
-				<table style="#FDFBF0" border="0" cellpadding="2" cellspacing="1"
-border: 1px solid #8b6f47;
-background: transparent !important;	
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 4px 15px rgba(0,0,0,0.7);">                                                              <p></p>
- 
-
-<thead>			
-<th colspan="2" style="padding: 5px 10px 5px 5px; margin: 0px; 
-max-width: 100%; 
-text-align: center;
-style="padding: 0px; margin: 0px; text-decoration-line: none; 
-color: rgb(78, 77, 77); 
-max-width: 100%;"><span style="padding: 0px; margin: 0px; 
-font-weight: 700; ">Задушнице 2026 годинa</th>
 
 
-</tr>
-
-     
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">14. фебруар</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Зимске (Месопусне)</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">30. мај</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Летње (Духовске)</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">3. октобар</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Јесење (Михољске)</td>
-            </tr>
-            <tr>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">7. новембар</td>
-                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Митровске</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-</div>
-
-
-		 <div class="column-center">
-            <!-- PRIČA ZA MOBILNI -->
-            <div class="header-mobile-box">
-                <div class="naslov-header-mobile">ПОУКЕ СТАРЦА ЈЕФРЕМА</div>
-             Када се нешто догоди и ђаво види да то узнемирује човека, његова вештина се састоји у томе да увећа мноштво помисли које су тобоже оправдане, 
-да би на тај начин завео убогог цовека у олују и удавио .Како каже изрека, лисица воли пометњу.Када пак олуја прође, човек види да је био у 
-            </div>
-        </div>
-
-        <!-- DESNA SOBA (Priča za Laptop) -->
-        <div class="column-right">
-            <div class="header-desktop-box">
-                <div class="naslov-header-desktop">ПОУКЕ СТАРЦА ЈЕФРЕМА</div>
-                Када се нешто догоди...
-            </div>
-        </div>
-
-    </div> <!-- Kraj vagona -->
-</div> <!-- Kraj kontejnera -->
-	
-<script>
+<script async="" src="https://mc.yandex.ru/metrika/tag.js?id=107224917"></script><script>
 async function prikaziSve() {
     const d = new Date();
     // 1. Враћамо суботу на екран
@@ -964,12 +558,12 @@ function preslovi(pismo) {
 
 
 	
-<div class='column-right-outer'>
-<div class='column-right-inner'>
+<div class="column-right-outer">
+<div class="column-right-inner">
 <aside>
-<div class='sidebar section' id='sidebar-right-1'><div class='widget Translate' data-version='1' id='Translate1'>
-<h2 class='title'></h2>
-<div id='google_translate_element'></div>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget Translate" data-version="1" id="Translate1">
+<h2 class="title"></h2>
+<div id="google_translate_element"></div>
 <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -982,14 +576,57 @@ function preslovi(pismo) {
 
   
   </script>
-<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
-<div class='clear'></div>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div class="clear"></div>
 <!-- ОВДЕ ЈЕ МАГИЈА: Додао сам https: и сад ће ГитХуб да га пусти! -->
+<div id="google_translate_element">Translate</div>
+  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
+</div>
 
-
-	
 	<br>
- <div class="column-center">
+	
+
+ <div style="margin: 20px 0 20px 
+30px;  width: 98%;
+ max-width: 600px;">
+<p></p><table style="#FDFBF0" border="0" cellpadding="2" cellspacing="1" border:="" 1px="" solid="" #8b6f47;="" background:="" transparent="" !important;="" border-radius:="" 10px;="" overflow:="" hidden;="" box-shadow:="" 0="" 4px="" 15px="" rgba(0,0,0,0.7);"="">                                                              
+ 
+
+<thead>			
+<tr><th colspan="2" style="padding: 5px 10px 5px 5px; margin: 0px; 
+max-width: 100%; 
+text-align: center;
+position: center;
+style=" padding:="" 0px;="" margin:="" text-decoration-line:="" none;="" color:="" rgb(78,="" 77,="" 77);="" max-width:="" 100%;"=""><span style="padding: 0px; margin: 0px; 
+font-weight: 700; ">Задушнице 2026 годинa</span></th>
+
+
+</tr>	
+
+
+     
+            <tr>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">14. фебруар</td>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Зимске (Месопусне)</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">30. мај</td>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Летње (Духовске)</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">3. октобар</td>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Јесење (Михољске)</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">7. новембар</td>
+                <td style="padding: 12px; border: 1px solid rgba(139, 111, 71, 0.4);">Митровске</td>
+            </tr>
+        
+    </thead></table>
+</div>
+
+	<br>
+
 	<div class="header-mobile-box">
 <div class="naslov-header-mobile">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ
 </div>
@@ -1012,8 +649,8 @@ function preslovi(pismo) {
 </div>
 
 
-</body>
-</html>
+
+</aside></div></div></div></div></body></html>
 
 
 
