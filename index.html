@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="sr">
-<head>
+<html lang="sr"><head><script src="https://mc.yandex.com/metrika/tag_phono.js" type="text/javascript" charset="utf-8" async=""></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="црквени календар, православни календар, молитвеник, свето писмо, православље">
@@ -12,11 +11,6 @@
 <meta name="author" content="ljubavpravoslavlje.blogspot.com">
 <link rel="canonical" href="https://ljubavpravoslavlje.blogspot.com">
 <link rel="apple-touch-icon" href="ikona.png">
-
-
-
-
-
 
 <style>
 body {
@@ -32,6 +26,9 @@ align-items: center;
 min-height: 100vh;
 font-family: "Times New Roman", serif;
 }
+
+
+
 .dugme {
 display: block;
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
@@ -58,6 +55,7 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 0 10px 20px rgba(0,0,0,0.35);
 background: rgba(242, 230, 201, 0.95);
 }
+	
 .gornji-papir {
 width: 90%;
 max-width: 430px;
@@ -136,14 +134,6 @@ overflow: hidden;
 box-shadow: 0 4px 15px rgba(0,0,0,0.7);"> 
  }
 
-.container {
- width: 100%; /* Širi se na ceo ekran telefona */
-max-width: 100%;
-padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-margin: 0;
-}
-
-	
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
@@ -299,6 +289,63 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
         margin: 15px 0;
     }
 
+    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
+    #header_right {
+        display: none; /* Inicijalno nevidljiv */
+    }
+
+    /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
+    #header_right:target {
+        display: block !important;
+    }
+}
+
+.zatvori-meni {
+    float: right;
+    font-size: 24px;
+    text-decoration: none;
+    color: #8b0000; /* Bordo za zatvaranje */
+    font-weight: bold;
+    padding: 10px;
+}
+  .line {
+        width: 35px;
+        height: 3px;
+        background-color: #8b6f47; /* Tvoja braon-zlatna */
+        margin: 6px auto;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+	
+    .lista-molitvi {
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+    .lista-molitvi li {
+        margin: 15px 0;
+        border-bottom: 1px solid rgba(139, 111, 71, 0.2);
+    }
+
+    .lista-molitvi a {
+        text-decoration: none;
+        color: #4A3728;
+        font-size: 22px;
+        display: block;
+        padding: 10px 0;
+    }
+
+
+@media screen and (max-width: 768px) {
+    /* TELEFON: Ovde se pojavljuju tri crtice */
+    .hamburger-zona {
+        display: block !important; 
+        top: 30px;         
+        left: 20px;
+        margin: 15px 0;
+    }
+
  
 
     /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
@@ -362,7 +409,13 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
     </select>
 </div>			
 
-
+ <!-- 2. Hamburger (Tri crtice) -->
+            <div class="hamburger-zona">
+                <a href="#header_right">
+                    <div class="line" top:="" 20px;="" left:="" 15px;=""></div><div class="line"></div><div class="line"></div>
+                </a>
+            </div>
+       
  
  
 
@@ -395,7 +448,7 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
 
 
 <div id="google_translate_element"></div>
-            <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
+            <p class="potpis">ПРАВОСЛАВНИ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
 
@@ -578,8 +631,8 @@ function preslovi(pismo) {
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <div class="clear"></div>
 <!-- ОВДЕ ЈЕ МАГИЈА: Додао сам https: и сад ће ГитХуб да га пусти! -->
-<div id="google_translate_element"></div>
-  <p class="potpis"></p>
+<div id="google_translate_element">Translate</div>
+  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
 </div>
 
 	<br>
@@ -650,7 +703,6 @@ font-weight: 700; ">Задушнице 2026 годинa</span></th>
 
 
 </aside></div></div></div></div></body></html>
-
 
 
 
