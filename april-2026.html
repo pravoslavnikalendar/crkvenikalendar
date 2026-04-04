@@ -236,11 +236,18 @@ background-color: rgba(139, 111, 71, 0.03); /* Skoro nevidljiva senka */
         margin: 0;
     }
 
-    .dan {
-        padding: 8px 2px; /* Još malo širimo prostor za tekst unutar dana */
+ .dan {
+        padding: 8px 2px; 
     }
-}
-
+    
+    /* DODAJEMO GA OVDE - UNUTAR MOBILNE SEKCIJE */
+    .danasnji-dan {
+        background: rgba(139, 111, 71, 0.2) !important; 
+        border: 2px solid #8b6f47 !important;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+} /* Ova poslednja zagrada zatvara celu @media priču */
 
 </style>
 
@@ -865,7 +872,39 @@ background-color: rgba(139, 111, 71, 0.03); /* Skoro nevidljiva senka */
 <a href="maj-2026.html">мај →</a>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var danasnjiDatum = new Date();
+    var trenutniMesec = danasnjiDatum.getMonth(); // 3 je April
+    var trenutniDan = danasnjiDatum.getDate(); 
 
+    // Proveravamo da li smo uopšte u Aprilu (mesec broj 3)
+    if (trenutniMesec === 3) { 
+        var daniUListi = document.querySelectorAll(".dan");
+
+        daniUListi.forEach(function(danBlok) {
+            var brojKolona = danBlok.querySelector(".novi-datum");
+            if (brojKolona) {
+                var brojTekst = brojKolona.innerText.replace(".", "").trim();
+                
+                // Ako se broj u HTML-u poklapa sa današnjim datumom
+                if (parseInt(brojTekst) === trenutniDan) {
+                    danBlok.classList.add("danasnji-dan");
+                    // Automatski skroluje do današnjeg dana da ga odmah vidiš
+                    danBlok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    }
+});
+</script>
+
+
+</body>
+</html>
+
+
+    
 </body>
 
 </html>
