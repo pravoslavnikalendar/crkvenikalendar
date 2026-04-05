@@ -561,6 +561,42 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
+const audio = document.getElementById('mojPlejer');
+const naslov = document.getElementById('naslovPesme');
+
+// LISTA TVOJIH PESAMA SA GITHUB-A
+const pesme = [
+    { fajl: "psalam-117.mp3", naslov: "Псалам-117" },
+    { fajl: "pesma2.mp3", naslov: "Песма друга" },
+    { fajl: "pesma3.mp3", naslov: "Песма трећа" }
+];
+
+let trenutnaIndex = 0;
+
+// Funkcija za učitavanje pesme
+function ucitajPesmu(index) {
+    audio.src = pesme[index].fajl;
+    naslov.innerText = "Слушате: " + pesme[index].naslov;
+}
+
+// Čim se jedna završi, pusti sledeću
+audio.onended = function() {
+    trenutnaIndex++;
+    if (trenutnaIndex < pesme.length) {
+        ucitajPesmu(trenutnaIndex);
+        audio.play();
+    } else {
+        trenutnaIndex = 0; // Vrati na prvu kad se sve završe
+        ucitajPesmu(trenutnaIndex);
+    }
+};
+
+// Pokreni prvu pesmu pri učitavanju (bez automatskog puštanja zbog pravila browsera)
+ucitajPesmu(trenutnaIndex);
+
+
+
+	
 <div class="audio-box" style="text-align:center; background:rgba(242,230,201,0.9); padding:15px; border-radius:15px; border:1px solid #8b6f47;">
     <h3 style="color:#8b0000;">Духовна лира</h3>
     <div id="status-pesme" style="margin-bottom:10px; font-weight:bold; color:#4A3728;">Притисните Плеј</div>
