@@ -352,7 +352,8 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 <div class="gornja-traka">	
 
  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
-    <select class="nav-kalendar" onchange="location.href=this.value;">
+  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
+       <select class="nav-kalendar" onchange="location.href=this.value;">
             <option value="">📅Календар 2026</option>
             <option value="januar-2026.html">Јануар</option>
             <option value="februar-2026.html">Фебруар</option>
@@ -371,7 +372,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 
 <div class="gornja-traka">
     <!-- 1. Бирање године -->
-     <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
+    <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
         <option value="2025">2025</option>
         <option value="2026" selected="">2026</option>
         <option value="2027">2027</option>
@@ -380,9 +381,9 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         <option value="2030">2030</option>
     </select>
 
-  <!-- 2. Biranje meseca -->
-      <select id="mesecBirac" class="meseci" top:="" 3px;="" left:="" 20px;="" onchange="osveziKalendar()">
-        <option value="">Месец</option>
+    <!-- 2. Бирање месеца (Паметни мени који иде на Кalendar.html) -->
+    <select id="mesecBirac" class="meseci" top:="" 3px;="" left:="" 30px;="" onchange="osveziKalendar()">
+        <option value="">Mесец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
         <option value="2">Март</option>
@@ -396,7 +397,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         <option value="10">Новембар</option>
         <option value="11">Децембар</option>
     </select>
-</div>
+</div>			
 
   <!-- SKRIVENI MENI (Vidi se samo kad klikneš na crtice) -->
     <div class="header_right mobile" id="header_right">
