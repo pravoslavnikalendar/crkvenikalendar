@@ -97,23 +97,23 @@ margin-bottom: 15px;
 }
 	
 
-.gornja-traka{
-display:flex;
-justify-content:flex-end;
-margin-bottom:10px;
-top: 3px;           
-    	
+.gornja-traka {
+    display: flex;
+    justify-content: center; /* Vraća menije u centar ekrana */
+    gap: 10px;               /* Pravi mali razmak između dva menija */
+    margin: 10px auto;
+    width: 100%;
 }
 
-.meseci{
- padding: 5px 9px;
-font-size:15px;
-border-radius:8px;
-border:1px solid #8b6f47;
-background: rgba(242, 230, 201, 0.9);
-color:#4A3728;
-top: 3px;           
-left:30px;
+.meseci {
+    padding: 8px 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #8b6f47;
+    background: rgba(242, 230, 201, 0.9);
+    color: #4A3728;
+    /* Izbacili smo top i left jer oni kvare poziciju na mobilnom */
+    cursor: pointer;
 }
 
 /* Stil za pismo da bude otmeno levo */
@@ -378,9 +378,9 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         <option value="2030">2030</option>
     </select>
 
-    <!-- 2. Бирање месеца (Паметни мени који иде на Кalendar.html) -->
-    <select id="mesecBirac" class="meseci" top:="" 3px;="" left:="" 30px;="" onchange="osveziKalendar()">
-        <option value="">Mесец</option>
+  <!-- 2. Biranje meseca -->
+    <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
+        <option value="">Месец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
         <option value="2">Март</option>
@@ -394,7 +394,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         <option value="10">Новембар</option>
         <option value="11">Децембар</option>
     </select>
-</div>			
+</div>
 
   <!-- SKRIVENI MENI (Vidi se samo kad klikneš na crtice) -->
     <div class="header_right mobile" id="header_right">
