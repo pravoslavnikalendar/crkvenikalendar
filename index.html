@@ -85,27 +85,29 @@ margin-bottom: 15px;
 .gornja-traka {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: nowrap !important; /* Ne dozvoljava prelazak u novi red */
-    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
     align-items: center !important;
-    width: 96% !important;        /* Skoro pun krug, ali sa malo lufta */
+    gap: 3px !important;
+    width: 98% !important;
     margin: 5px auto !important;
-    gap: 3px !important;           /* Minimalan razmak između kutijica */
+    height: 30px !important; /* Fiksirana visina cele trake */
 }
 
 .meseci, .nav-kalendar {
-    flex: 1 !important;           /* Svaka kutija uzima po trećinu */
-    height: 32px !important;      /* Tanka visina da ne zauzima prostor */
-    font-size: 13px !important;   /* Malo manja slova da nazivi stanu */
+    flex: 1 !important;
+    height: 28px !important;      /* Veoma tanki prozori */
+    line-height: 28px !important; /* Centrira tekst po visini */
+    font-size: 13px !important;   /* Manja slova da stanu u tanak prozor */
     padding: 0 2px !important;
-    border-radius: 6px !important;
+    margin: 0 !important;
+    border-radius: 5px !important;
     border: 1px solid #8b6f47 !important;
     background: rgba(242, 230, 201, 0.9) !important;
     color: #4A3728 !important;
     text-align: center !important;
-    box-sizing: border-box !important;
+    text-align-last: center !important;
 }
-
 /* Ako želiš da ipak imaju strelicu, izbriši appearance: none */
 
 /* Stil za pismo da bude otmeno levo */
