@@ -447,60 +447,38 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
 async function prikaziSve() {
     const d = new Date();
     const danDanas = d.getDate();
-    const mesecIndex = d.getMonth();
-    const godinaDanas = d.getFullYear();
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
+    const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
-    // 1. Datumi (Stari i Novi) - Ovo bi trebalo odmah da se pojavi
+    // 1. Datumi (Stari, Novi i AM)
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-    const noviDatum = d.toLocaleDateString('sr-RS', opcije);
     const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
     const stariD = new Date(julijanskiMS);
-    const stariDatum = stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', { month: 'long' });
     const AM = stariD.getFullYear() + 5508;
-
-    if(document.getElementById('datum')) {
-        document.getElementById('datum').innerHTML = noviDatum + "<br><small>(по старом: " + stariDatum + " | Лето Господње " + AM + ".)</small>";
-    }
-
-    // 2. Traženje fajla
-    const nazivFajla = `${meseciImena[mesecIndex]}-${godinaDanas}.html`;
     
+    document.getElementById('datum').innerHTML = 
+        d.toLocaleDateString('sr-RS', opcije) + 
+        "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
+
+    // 2. Čupanje svetitelja iz tvog HTML fajla
     try {
         const res = await fetch(nazivFajla);
-        if (!res.ok) {
-            console.error("Fajl nije pronađen: " + nazivFajla);
-            return;
-        }
-        
-        const htmlTekst = await res.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlTekst, 'text/html');
-
-        // VAŽNO: Ovde proveravamo tvoje klase
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, 'text/html');
         const sviDani = doc.querySelectorAll('.dan');
-        let pronadjenSvetitelj = "";
 
         sviDani.forEach(blok => {
-            const elNoviDatum = blok.querySelector('.novi-datum');
-            if (elNoviDatum) {
-                // Čistimo broj od tačaka i razmaka
-                const brojIzFajla = parseInt(elNoviDatum.innerText.replace(/\./g, '').trim());
-                if (brojIzFajla === danDanas) {
-                    const elSadrzaj = blok.querySelector('.sadrzaj');
-                    if (elSadrzaj) {
-                        pronadjenSvetitelj = elSadrzaj.innerHTML;
-                    }
-                }
+            const br = parseInt(blok.querySelector('.novi-datum').innerText.replace('.', '').trim());
+            if (br === danDanas) {
+                // Uzimamo ceo HTML iz .sadrzaj da bi se prenele tvoje klase (crveno, praznik...)
+                const sadrzajHTML = blok.querySelector('.sadrzaj').innerHTML;
+                document.getElementById('svetitelj').innerHTML = 
+                    "<div style='margin-bottom:5px; font-size:14px; color:#5f0606;'>Данас славимо:</div>" + 
+                    "<div class='sadrzaj'>" + sadrzajHTML + "</div>";
             }
         });
-
-        if (pronadjenSvetitelj && document.getElementById('svetitelj')) {
-            document.getElementById('svetitelj').innerHTML = "<b style='color:#5f0606;'>Данас славимо:</b><br>" + pronadjenSvetitelj;
-        }
-
-    } catch (error) {
-        console.error("Došlo je do greške sa mrežom.");
+    } catch (e) {
+        console.log("Greška pri učitavanju svetitelja.");
     }
 }
 prikaziSve();
