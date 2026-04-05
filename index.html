@@ -561,15 +561,31 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
-<div class="player-okvir">
+<audio controls>
 
-  <audio controls>
+  <source src="psalam-117.mp3" type="audio/mpeg">
 
-    <source src="psalam-117.mp3" type="audio/mpeg">
-<source src="govori-gospode.mp3" type="audio/mpeg">
-  </audio>
+  Vaš browser ne podržava audio.
 
-</div>
+</audio>
+
+
+
+
+
+<button onclick="document.getElementById('muzika').play()" class="dugme">
+
+▶️ Пусти песму
+
+</button>
+
+
+
+<audio id="muzika">
+
+  <source src="pesma.mp3" type="audio/mpeg">
+
+</audio>
 
 		
 <script>
