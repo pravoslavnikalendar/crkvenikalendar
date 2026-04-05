@@ -133,7 +133,55 @@ margin-top: 20px;
 color: #4A3728;
 font-style: italic;
 }
-.zadusnice-2026-godina container {
+
+.lazni-plejer-box {
+    width: 85%;
+    margin: 20px auto;
+    background: rgba(74, 55, 40, 0.1); /* Blaga braon pozadina */
+    border: 1px solid #8b6f47;
+    border-radius: 50px; /* Zaobljeno kao pravi plejer */
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.plejer-vizuelno {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ikonica-play {
+    font-size: 24px;
+    color: #8b0000;
+    margin-right: 15px;
+}
+
+.tekst-plejer {
+    flex-grow: 1;
+    text-align: left;
+    font-family: "Times New Roman", serif;
+}
+
+.talasi span {
+    display: inline-block;
+    width: 3px;
+    height: 15px;
+    background: #8b6f47;
+    margin: 0 1px;
+    animation: mrdanje 1s infinite alternate;
+}
+
+@keyframes mrdanje {
+    from { height: 5px; }
+    to { height: 15px; }
+}	
+	
+	
+	
+	
+	
+	.zadusnice-2026-godina container {
 margin: 20px 0 20px 30px; 
  width: 98%;
 max-width: 600px;
@@ -561,50 +609,20 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
-const audio = document.getElementById('mojPlejer');
-const naslov = document.getElementById('naslovPesme');
-
-// LISTA TVOJIH PESAMA SA GITHUB-A
-const pesme = [
-    { fajl: "psalam-117.mp3", naslov: "Псалам-117" },
-    { fajl: "pesma2.mp3", naslov: "Песма друга" },
-    { fajl: "pesma3.mp3", naslov: "Песма трећа" }
-];
-
-let trenutnaIndex = 0;
-
-// Funkcija za učitavanje pesme
-function ucitajPesmu(index) {
-    audio.src = pesme[index].fajl;
-    naslov.innerText = "Слушате: " + pesme[index].naslov;
-}
-
-// Čim se jedna završi, pusti sledeću
-audio.onended = function() {
-    trenutnaIndex++;
-    if (trenutnaIndex < pesme.length) {
-        ucitajPesmu(trenutnaIndex);
-        audio.play();
-    } else {
-        trenutnaIndex = 0; // Vrati na prvu kad se sve završe
-        ucitajPesmu(trenutnaIndex);
-    }
-};
-
-// Pokreni prvu pesmu pri učitavanju (bez automatskog puštanja zbog pravila browsera)
-ucitajPesmu(trenutnaIndex);
-
-
-
-	
-<div class="audio-box" style="text-align:center; background:rgba(242,230,201,0.9); padding:15px; border-radius:15px; border:1px solid #8b6f47;">
-    <h3 style="color:#8b0000;">Духовна лира</h3>
-    <div id="status-pesme" style="margin-bottom:10px; font-weight:bold; color:#4A3728;">Притисните Плеј</div>
-    
-    <audio id="mojSvetiPlejer" controls style="width:100%;">
-        <source src="psalam-117.mp3" type="audio/mpeg">
-        Vaš telefon ne podržava audio.
-    </audio>
+<div class="lazni-plejer-box">
+    <a href="audio-molitve.html" style="text-decoration: none; color: inherit;">
+        <div class="plejer-vizuelno">
+            <span class="ikonica-play">▶</span>
+            <div class="tekst-plejer">
+                <strong>ДУХОВНА ЛИРА</strong><br>
+                <small>Слушајте аудио молитве и песме</small>
+            </div>
+            <div class="talasi">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </a>
+</div>
 
     <div style="margin-top:15px; text-align:left; font-size:15px;">
         <div onclick="pusti(0)" style="cursor:pointer; padding:5px; border-bottom:1px solid #ccc;">1. Псалам 117</div>
