@@ -83,37 +83,26 @@ margin-bottom: 15px;
 }
 
 .nav-kalendar {
-    position: absolute;
-	background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
-    color: #4A3728 !important;                      /* Tvoja braon boja slova */
-    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
-    padding: 3px 10px !important;
+    /* Brišemo position: absolute, top i left */
+    background: rgba(242, 230, 201, 0.9) !important;
+    color: #4A3728 !important;
+    border: 1px solid #8b6f47 !important;
+    padding: 8px 12px !important; /* Izjednačeno sa ostalima */
     font-family: "Times New Roman", serif !important;
-    font-size: 16px !important;
-    border-radius: 8px;    
-    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
-    top: 10px;           
-    left: 15px;
+    font-size: 15px !important;
+    border-radius: 8px;
+    cursor: pointer;
+    /* Brišemo box-shadow da ne odskače previše od ostalih, ili ga ostavi ako voliš */
 }
-	
 
 .gornja-traka {
     display: flex;
-    justify-content: center; /* Vraća menije u centar ekrana */
-    gap: 10px;               /* Pravi mali razmak između dva menija */
+    flex-wrap: nowrap;     /* Drži ih u jednom redu */
+    justify-content: center; 
+    align-items: center;   /* Poravnava ih po visini da budu "u libelu" */
+    gap: 8px;              /* Razmak između sva tri menija */
     margin: 10px auto;
     width: 100%;
-}
-
-.meseci {
-    padding: 8px 12px;
-    font-size: 15px;
-    border-radius: 8px;
-    border: 1px solid #8b6f47;
-    background: rgba(242, 230, 201, 0.9);
-    color: #4A3728;
-    /* Izbacili smo top i left jer oni kvare poziciju na mobilnom */
-    cursor: pointer;
 }
 
 /* Stil za pismo da bude otmeno levo */
@@ -350,7 +339,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 <div class="gornja-traka">	
 
  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
-       <select class="nav-kalendar" onchange="location.href=this.value;">
+         <select class="nav-kalendar" onchange="window.location.href=this.value">
             <option value="">📅Календар 2026</option>
             <option value="januar-2026.html">Јануар</option>
             <option value="februar-2026.html">Фебруар</option>
@@ -379,7 +368,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     </select>
 
   <!-- 2. Biranje meseca -->
-    <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
+     <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
         <option value="">Месец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
