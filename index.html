@@ -261,6 +261,37 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 		width: 95%;
     }
 
+.player-okvir{
+
+background: rgba(242,230,241,0.7);
+
+padding:10px;
+
+border-radius:10px;
+
+border:1px solid #8b6f47;
+
+
+
+box-shadow:
+
+inset 0 2px 6px rgba(255,255,255,0.25),
+
+inset 0 -2px 4px rgba(0,0,0,0.15),
+
+0 6px 12px rgba(0,0,0,0.25);
+
+}
+
+
+
+.player-okvir audio{
+
+width:100%;
+
+}
+
+	
 
 	@media (max-width: 480px) {
      .meseci {
@@ -530,46 +561,15 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
-<div class="audio-sekcija" style="text-align:center; margin: 20px auto; width: 90%;">
-    <h3 style="color:#8b0000; font-family: 'Times New Roman', serif;">Духовна музика</h3>
-    
-    <!-- Glavni plejer -->
-  <audio id="mojPlejer" controls style="width:100%; height:35px; border-radius:10px; filter: sepia(20%) hue-rotate(330deg) saturate(70%);">
-    <source src="" type="audio/mpeg">
-</audio>
-<div style="margin-top:8px; font-size:14px; color:#4A3728;">
-    <span id="naslovPesme">Учитавање...</span>
+<div class="player-okvir">
+
+  <audio controls>
+
+    <source src="psalam-117.mp3" type="audio/mpeg">
+<source src="govori-gospode.mp3" type="audio/mpeg">
+  </audio>
+
 </div>
-
-
-	
-
-const plejer = document.getElementById('glavni-plejer');
-const imePesmePrikaz = document.getElementById('ime-pesme');
-
-
-const pesme = [
-    { fajl: "psalam-117.mp3_1.mp3", naslov: "Псалам 117 манастир Ковиљ" },
-    { fajl: "telo-hristovo.mp3_2.mp3", naslov: "Тело Христово" },
-    { fajl: "govori-gospode.mp3_3.mp3", naslov: "Говори Господе" }
-];
-let trenutnaPesmaIndex = 0;
-
-// Funkcija koja menja pesmu
-plejer.onended = function() {
-    trenutnaPesmaIndex++;
-    
-    // Ako dođe do kraja liste, vrati se na prvu (ili stani)
-    if (trenutnaPesmaIndex < listaPesama.length) {
-        plejer.src = listaPesama[trenutnaPesmaIndex].url;
-        imePesmePrikaz.innerText = listaPesama[trenutnaPesmaIndex].naslov;
-        plejer.play();
-    } else {
-        console.log("Kraj liste pesama.");
-        trenutnaPesmaIndex = 0; // Opciono: vrati na početak
-    }
-};	
-
 
 		
 <script>
