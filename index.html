@@ -181,6 +181,25 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 #svetitelj { margin-top: 2px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
 #post-tip { margin-top: 1px !important; } /* Briše razmak iznad posta */
 
+/* SVE ŠTO JE LEVO I DESNO NA LAPTOPU */
+.column-left, .column-right {
+    display: none; /* Prvo ih sakrijemo svuda (za mobilni) */
+}
+
+/* SAMO ZA LAPTOP (široki ekrani) */
+@media screen and (min-width: 1024px) {
+    .glavni-kontejner {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .column-left, .column-right {
+        display: block; /* Ovde postaju vidljivi */
+        width: 200px;
+        margin-top: 50px;
+    }
+}	
 
 @media (max-width: 600px) {
        .container {
@@ -428,7 +447,24 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     </div>
   
        
- 
+ <div class="glavni-kontejner">
+    
+    <!-- LEVA STRANA (Laptop) -->
+    <div class="column-left">
+        <!-- Ovde stavi tvoj hamburger meni ili brze linkove -->
+    </div>
+
+    <!-- SREDINA (Mobilni i Laptop - TVOJ KALENDAR) -->
+    <div class="sredina">
+        <!-- Ovde ide gornja-traka, logo, datum, svetitelj i dugmići -->
+    </div>
+
+    <!-- DESNA STRANA (Laptop) -->
+    <div class="column-right">
+        <!-- Ovde stavi audio pečat sa golubom ili tu "riznicu" -->
+    </div>
+
+</div>
 
 
 
@@ -494,7 +530,55 @@ margin: -5px 0; 15max-width: 380px; border: 1px solid #dd1616; color: #dd1616; f
  <p class="potpis">ПРАВОСЛАВЉЕ КАЛЕНДАР - Љубав Православље</p>
     </div>
 
+<div class="audio-sekcija" style="text-align:center; margin: 20px auto; width: 90%;">
+    <h3 style="color:#8b0000; font-family: 'Times New Roman', serif;">Духовна музика</h3>
+    
+    <!-- Glavni plejer -->
+    <audio id="mojPlejer" controls style="width:100%; height:35px; border-radius:10px; filter: sepia(20%) hue-rotate(330deg) saturate(70%);">
+        <source id="audioIzvor" src="pesma1.mp3" type="audio/mpeg">
+    </audio>
 
+    <div style="margin-top:8px; font-size:14px; color:#4A3728;">
+        <span id="naslovPesme">Учитавање...</span>
+    </div>
+</div>
+
+
+	
+<script>
+const plejer = document.getElementById('glavni-plejer');
+const imePesmePrikaz = document.getElementById('ime-pesme');
+
+// Tvoja lista pesama sa Google Drive-a (mora biti direktan link!)
+const listaPesama = [
+    { naslov: "Molitvena pesma 1", url: "LINK_1" },
+    { naslov: "Psalam 50", url: "LINK_2" },
+    { naslov: "Gospode Isuse Hriste", url: "LINK_3" }
+];
+const pesme = [
+    { fajl: "psalam-117.mp3_1.mp3", naslov: "Псалам 117 манастир Ковиљ" },
+    { fajl: "telo-hristovo.mp3_2.mp3", naslov: "Тело Христово" },
+    { fajl: "govori-gospode.mp3_3.mp3", naslov: "Говори Господе" }
+];
+let trenutnaPesmaIndex = 0;
+
+// Funkcija koja menja pesmu
+plejer.onended = function() {
+    trenutnaPesmaIndex++;
+    
+    // Ako dođe do kraja liste, vrati se na prvu (ili stani)
+    if (trenutnaPesmaIndex < listaPesama.length) {
+        plejer.src = listaPesama[trenutnaPesmaIndex].url;
+        imePesmePrikaz.innerText = listaPesama[trenutnaPesmaIndex].naslov;
+        plejer.play();
+    } else {
+        console.log("Kraj liste pesama.");
+        trenutnaPesmaIndex = 0; // Opciono: vrati na početak
+    }
+};	
+</listaPesama.length>script>
+
+		
 <script>
 async function prikaziSve() {
     const d = new Date();
