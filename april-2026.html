@@ -874,25 +874,18 @@ background-color: rgba(139, 111, 71, 0.03); /* Skoro nevidljiva senka */
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var danasnjiDatum = new Date();
-    var trenutniMesec = danasnjiDatum.getMonth(); // 3 je April
-    var trenutniDan = danasnjiDatum.getDate(); 
-
-    // Proveravamo da li smo uopšte u Aprilu (mesec broj 3)
-    if (trenutniMesec === 3) { 
-        var daniUListi = document.querySelectorAll(".dan");
-
-        daniUListi.forEach(function(danBlok) {
-            var brojKolona = danBlok.querySelector(".novi-datum");
-            if (brojKolona) {
-                var brojTekst = brojKolona.innerText.replace(".", "").trim();
-                
-                // Ako se broj u HTML-u poklapa sa današnjim datumom
-                if (parseInt(brojTekst) === trenutniDan) {
-                    danBlok.classList.add("danasnji-dan");
-                    // Automatski skroluje do današnjeg dana da ga odmah vidiš
-                    danBlok.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+    var данас = new Date();
+    // Проверавамо да ли је Април (3) и да ли је година 2026
+    if (данас.getMonth() === 3 && данас.getFullYear() === 2026) {
+        var d = данас.getDate() + "."; // Прави од броја 5 текст "5."
+        
+        var свиДани = document.querySelectorAll(".dan");
+        свиДани.forEach(function(блок) {
+            var колонаБрој = блок.querySelector(".novi-datum");
+            if (колонаБрој && колонаБрој.innerText.trim() === d) {
+                блок.classList.add("danasnji-dan");
+                // Скролује до Цвети аутоматски
+                блок.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         });
     }
