@@ -82,28 +82,32 @@ font-weight: bold;
 margin-bottom: 15px;
 }
 
-.nav-kalendar {
-    /* Brišemo position: absolute, top i left */
-    background: rgba(242, 230, 201, 0.9) !important;
-    color: #4A3728 !important;
-    border: 1px solid #8b6f47 !important;
-    padding: 8px 12px !important; /* Izjednačeno sa ostalima */
-    font-family: "Times New Roman", serif !important;
-    font-size: 15px !important;
-    border-radius: 8px;
-    cursor: pointer;
-    /* Brišemo box-shadow da ne odskače previše od ostalih, ili ga ostavi ako voliš */
-}
-
 .gornja-traka {
     display: flex;
-    flex-wrap: nowrap;     /* Drži ih u jednom redu */
-    justify-content: center; 
-    align-items: center;   /* Poravnava ih po visini da budu "u libelu" */
-    gap: 8px;              /* Razmak između sva tri menija */
-    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;             /* Minimalan razmak između menija */
     width: 100%;
+    margin: 5px 0;        /* Minimalna margina gore-dole */
+    padding: 0 5px;
+    box-sizing: border-box;
 }
+
+.meseci, .nav-kalendar {
+    flex: 1;              /* Tera ih da dele prostor ravnopravno */
+    max-width: 30%;       /* Ograničava ih da ne budu predugački */
+    height: 30px;         /* Smanjena visina prozora */
+    padding: 2px 5px !important; /* Minimalan unutrašnji prostor */
+    font-size: 13px !important;  /* Manja slova da sve stane u red */
+    border-radius: 6px;
+    border: 1px solid #8b6f47;
+    background: rgba(242, 230, 201, 0.9);
+    color: #4A3728;
+    
+    text-align: center;
+}
+
+/* Ako želiš da ipak imaju strelicu, izbriši appearance: none */
 
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
