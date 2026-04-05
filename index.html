@@ -289,16 +289,25 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         display: block !important; /* Otvara se na klik */
     }
 
-/* HAMBURGER CRTICE (Dugme levo ispod kalendara) */
-.hamburger-zona {
-    display: block !important;
-    text-align: left; /* LEVO poravnanje */
-    margin-left: 30px; /* Odmiče ga od same ivice stakla */
-    margin-top: 20px;
-   margin-top: 10px !important;  /* Razmak ispod kalendara */
-    
-    width: fit-content;           /* Zauzima samo onoliko mesta koliko su crtice široke */
-}
+@media screen and (max-width: 768px) {
+    /* TELEFON: Crtice skaču gore levo */
+    .hamburger-zona {
+        display: block !important; 
+        position: absolute !important; /* OBAVEZNO: Da bi top i left radili */
+        top: 30px !important;         
+        left: 20px !important;
+        margin: 0 !important; /* Brisanje margina da ne kvare poziciju */
+        z-index: 9999;
+    }
+
+    /* Meni (vagončić) na mobilnom neka bude širi */
+    #header_right {
+        width: 85% !important;
+        left: 0 !important;
+        top: 0 !important;
+        height: 100vh !important;
+        border-radius: 0 15px 15px 0;
+    }
 }
 
 .zatvori-meni {
@@ -338,14 +347,6 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     }
 
 
-@media screen and (max-width: 768px) {
-    /* TELEFON: Ovde se pojavljuju tri crtice */
-    .hamburger-zona {
-        display: block !important; 
-        top: 30px;         
-        left: 20px;
-        margin: 15px 0;
-    }
 
  
 
