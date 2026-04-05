@@ -180,9 +180,19 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 
 
 
-#datum { margin-bottom: 2px !important; } /* Smanjuje razmak ispod datuma */
-#svetitelj { margin-top: 2px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
-#post-tip { margin-top: 1px !important; } /* Briše razmak iznad posta */
+#datum { 
+    margin-top: -5px !important; 
+    margin-bottom: 2px !important; 
+    line-height: 1.1 !important;
+}
+#svetitelj { 
+    margin-top: 0px !important; 
+    margin-bottom: 5px !important; 
+}
+#post-tip { 
+    margin-top: -2px !important; 
+    margin-bottom: 10px !important; 
+}
 
 
 @media (max-width: 600px) {
@@ -445,6 +455,16 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     margin: -15px auto 5px auto; 
     border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 
+	
+	<div style="display: flex; justify-content: flex-start; padding-left: 20px; margin-top: -10px; margin-bottom: 5px;">
+    <div style="cursor: pointer; display: flex; flex-direction: column; gap: 3px;">
+        <span style="width: 20px; height: 2px; background: #4A3728; border-radius: 1px;"></span>
+        <span style="width: 20px; height: 2px; background: #4A3728; border-radius: 1px;"></span>
+        <span style="width: 20px; height: 2px; background: #4A3728; border-radius: 1px;"></span>
+    </div>
+</div>
+
+	
 <div content="container">
 
 <div id="datum" style="text-align: center; margin-bottom: 20px;"></div>
