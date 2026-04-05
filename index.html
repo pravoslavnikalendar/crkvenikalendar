@@ -453,17 +453,19 @@ async function prikaziSve() {
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
-    // 1. Datumi (ostaje isto)
+    // 1. Датуми
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
     const stariD = new Date(julijanskiMS);
     const AM = stariD.getFullYear() + 5508;
     
-    document.getElementById('datum').innerHTML = 
-        d.toLocaleDateString('sr-RS', opcije) + 
-        "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
+    if(document.getElementById('datum')) {
+        document.getElementById('datum').innerHTML = 
+            d.toLocaleDateString('sr-RS', opcije) + 
+            "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
+    }
 
-    // 2. Čupanje podataka iz tvog HTML-a
+    // 2. Читање из твог календара
     try {
         const res = await fetch(nazivFajla);
         const html = await res.text();
@@ -475,35 +477,37 @@ async function prikaziSve() {
             if (brEl) {
                 const br = parseInt(brEl.innerText.replace('.', '').trim());
                 if (br === danDanas) {
-                    // SVETITELJ I PRAZNIK
-                    const praznik = blok.querySelector('.praznik') ? blok.querySelector('.praznik').innerHTML : "";
-                    const sadrzaj = blok.querySelector('.sadrzaj') ? blok.querySelector('.sadrzaj').innerHTML : "";
                     
-                    document.getElementById('svetitelj').innerHTML = 
-                        "<div style='font-size:14px; color:#5f0606;'>Данас славимо:</div>" + 
-                        "<div class='praznik'>" + praznik + "</div>" +
-                        "<div class='sadrzaj'>" + sadrzaj + "</div>";
-
-                    // POUKA (OPIS) - Ako ne postoji (npr. nedelja), ostaje prazno
-                    const opisEl = blok.querySelector('.opis');
-                    if (opisEl && opisEl.innerText.trim() !== "") {
-                        document.getElementById('pouka-dana').innerHTML = 
-                            "<hr style='width:30%; margin:15px auto; opacity:0.2;'>" + 
-                            "„" + opisEl.innerHTML + "“";
-                    } else {
-                        document.getElementById('pouka-dana').innerHTML = "";
+                    // --- Свети ---
+                    const sadrzajEl = blok.querySelector('.sadrzaj');
+                    if (sadrzajEl && document.getElementById('svetitelj')) {
+                        document.getElementById('svetitelj').innerHTML = 
+                            "<div style='font-size:14px; color:#5f0606; margin-bottom:5px;'>Данас славимо:</div>" + 
+                            "<div class='sadrzaj'>" + sadrzajEl.innerHTML + "</div>";
                     }
 
-                    // POST (ispod)
+                    // --- Поука (Опис) ---
+                    const opisEl = blok.querySelector('.opis');
+                    const poukaMesto = document.getElementById('pouka-dana');
+                    if (poukaMesto) {
+                        if (opisEl && opisEl.innerText.trim() !== "") {
+                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
+                        } else {
+                            poukaMesto.innerHTML = ""; // Празно за недељу
+                        }
+                    }
+
+                    // --- Пост ---
                     const postEl = blok.querySelector('.post-ispod');
-                    if (postEl) {
-                        document.getElementById('post-tip').innerHTML = "<span>Пост: </span>" + postEl.innerHTML;
+                    if (postEl && document.getElementById('post-tip')) {
+                        document.getElementById('post-tip').innerHTML = 
+                            "<div style='margin-top:10px; font-size:15px;'><b>Пост:</b> " + postEl.innerHTML + "</div>";
                     }
                 }
             }
         });
     } catch (e) {
-        console.log("Greška pri učitavanju podataka.");
+        console.log("Грешка: Провери да ли је фајл " + nazivFajla + " на свом месту.");
     }
 }
 prikaziSve();
