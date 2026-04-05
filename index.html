@@ -168,7 +168,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
     margin: 3px auto;   /* Centrira kutiju i odvaja je od dugmića */
     word-wrap: break-word; /* Ključno: prelama dugačke reči ako ne staju */
     overflow-wrap: break-word;
-    font-size: 19px;     /* Malo smanjen font za dugačke naslove */
+    font-size: 17px;     /* Malo smanjen font za dugačke naslove */
     line-height: 1.2;    /* Smanjuje razmak između redova da ne zauzme pola ekrana */
     text-align: center;
 }
@@ -179,7 +179,16 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 #svetitelj { margin-top: 2px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
 #post-tip { margin-top: 1px !important; } /* Briše razmak iznad posta */
 
-/* mobilni: Ovde boks živi i leti desno */
+
+@media (max-width: 600px) {
+        .container 
+            width: 90%;
+            max-width: 430px;
+            padding: 20px; /* Smanjen padding da stane na manje ekrane */
+            text-align: center;
+        }	
+	
+	/* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
  display: block; /* Vidljiv je */
@@ -232,7 +241,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 
 	@media (max-width: 480px) {
      .meseci {
-        width: 24%; /* Povećavamo sa 30% na 45% da budu komotni */
+        width: 20%; /* Povećavamo sa 30% na 45% da budu komotni */
         font-size: 15x; /* Krupnija slova da se lakše čita */
         padding: 10px -1px;
 		 right: 17px;
