@@ -83,27 +83,27 @@ margin-bottom: 15px;
 }
 
 .gornja-traka {
-    display: flex;
-    justify-content: center; /* Drži ih u centru */
-    align-items: center;
-    gap: 5px;               /* Razmak između njih */
-    width: 100%;
-    margin: 5px 0;
-    flex-wrap: nowrap;      /* STROGO: Ne dozvoljava prelazak u novi red */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important; /* Ne dozvoljava prelazak u novi red */
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 96% !important;        /* Skoro pun krug, ali sa malo lufta */
+    margin: 5px auto !important;
+    gap: 3px !important;           /* Minimalan razmak između kutijica */
 }
 
 .meseci, .nav-kalendar {
-    width: 30%;             /* Fiksna širina: tri selekta po 30% = 90% ekrana */
-    min-width: 80px;        /* Da ne postanu baš mrvice */
-    height: 32px;           /* Tanka visina */
-    padding: 0 2px !important; /* Brišemo prazan prostor levo i desno */
-    font-size: 14px !important;
-    border-radius: 6px;
-    border: 1px solid #8b6f47;
-    background: rgba(242, 230, 201, 0.9);
-    color: #4A3728;
-    text-align: center;
-    text-align-last: center; /* Centrira tekst unutar selekta na Androidu */
+    flex: 1 !important;           /* Svaka kutija uzima po trećinu */
+    height: 32px !important;      /* Tanka visina da ne zauzima prostor */
+    font-size: 13px !important;   /* Malo manja slova da nazivi stanu */
+    padding: 0 2px !important;
+    border-radius: 6px !important;
+    border: 1px solid #8b6f47 !important;
+    background: rgba(242, 230, 201, 0.9) !important;
+    color: #4A3728 !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
 }
 
 /* Ako želiš da ipak imaju strelicu, izbriši appearance: none */
@@ -342,7 +342,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 <div class="gornja-traka">	
 
  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
-     <select class="nav-kalendar" onchange="window.location.href=this.value">
+      <select class="nav-kalendar" onchange="window.location.href=this.value">
             <option value="">📅Календар 2026</option>
             <option value="januar-2026.html">Јануар</option>
             <option value="februar-2026.html">Фебруар</option>
@@ -371,7 +371,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     </select>
 
   <!-- 2. Biranje meseca -->
-    <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
+     <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
         <option value="">Месец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
