@@ -38,6 +38,7 @@ font-family: "Times New Roman", serif;
 margin-left: auto;
 margin-right: auto;
 display: block; /* ili table ako je u pitanju neki stariji kontejner */
+
 .dugme {
 display: block;
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
@@ -181,7 +182,7 @@ body {
 #datum small {
     font-size: 14px; /* Ovo smanjuje onaj deo "po starom" i "Leto Gospodnje" */
     display: block;
-    margin-top: 5px;
+    margin-top: 3px;
     font-weight: normal;
     color: #555;
 }
@@ -189,7 +190,7 @@ body {
 #svetitelj {
     display: block;
     width: 90%;          /* Ne dozvoljava širenje preko 90% ekrana */
-    margin: 10px auto;   /* Centrira kutiju i odvaja je od dugmića */
+    margin: 3px auto;   /* Centrira kutiju i odvaja je od dugmića */
     word-wrap: break-word; /* Ključno: prelama dugačke reči ako ne staju */
     overflow-wrap: break-word;
     font-size: 19px;     /* Malo smanjen font za dugačke naslove */
@@ -202,9 +203,9 @@ body {
     max-width: 100%;
 }
 
-#datum { margin-bottom: 5px !important; } /* Smanjuje razmak ispod datuma */
-#svetitelj { margin-top: 5px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
-#post-tip { margin-top: 0px !important; } /* Briše razmak iznad posta */
+#datum { margin-bottom: 2px !important; } /* Smanjuje razmak ispod datuma */
+#svetitelj { margin-top: 2px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
+#post-tip { margin-top: 1px !important; } /* Briše razmak iznad posta */
 	
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
