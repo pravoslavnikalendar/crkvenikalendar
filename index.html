@@ -200,10 +200,7 @@ padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
 }
           
-/* LAPTOP REŽIM: Sakrivamo ceo meni, on ne sme da se vidi na velikom ekranu */
-#header_right, .hamburger-zona {
-    display: none !important;
-}
+
      
 	
 	/* mobilni: Ovde boks živi i leti desno */
@@ -272,11 +269,6 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 }
 
 
-/* 2. PALI MENI SAMO NA KLIK (Magični Target) */
-#header_right:target {
-    display: block !important;
-}
-
 /* 3. STIL ZA TEKST U MENIJU (Da ne bude "plavo i nedovršeno") */
 .meni-sadrzaj a {
     text-decoration: none;
@@ -286,8 +278,6 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     margin: 15px 0;
     font-family: "Times New Roman", serif;
 }
-
-
 
  /* SKRIVENI MENI - Tvoj bež prozor (Laptop/Desktop) */
 #header_right {
@@ -357,16 +347,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         display: block;
         padding: 10px 0;
     }
-	@media (max-width: 768px) {
-    .hamburger-zona {
-       position: absolute;
-    top: 30px;         
-    left: 20px;
-    }
-@media (prefers-color-scheme: dark) {
-   body {
-padding: 0; /* Brišemo razmak oko celog tela */
-}
+
 
 @media screen and (max-width: 768px) {
     /* TELEFON: Ovde se pojavljuju tri crtice */
@@ -377,16 +358,14 @@ padding: 0; /* Brišemo razmak oko celog tela */
         margin: 15px 0;
     }
 
-    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
-    #header_right {
-        display: none; /* Inicijalno nevidljiv */
-    }
+ 
 
     /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
     #header_right:target {
         display: block !important;
     }
 }
+
  </style>
 
 </head>
