@@ -84,27 +84,26 @@ margin-bottom: 15px;
 
 .gornja-traka {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Drži ih u centru */
     align-items: center;
-    gap: 4px;             /* Minimalan razmak između menija */
+    gap: 5px;               /* Razmak između njih */
     width: 100%;
-    margin: 5px 0;        /* Minimalna margina gore-dole */
-    padding: 0 5px;
-    box-sizing: border-box;
+    margin: 5px 0;
+    flex-wrap: nowrap;      /* STROGO: Ne dozvoljava prelazak u novi red */
 }
 
 .meseci, .nav-kalendar {
-    flex: 1;              /* Tera ih da dele prostor ravnopravno */
-    max-width: 30%;       /* Ograničava ih da ne budu predugački */
-    height: 30px;         /* Smanjena visina prozora */
-    padding: 2px 5px !important; /* Minimalan unutrašnji prostor */
-    font-size: 13px !important;  /* Manja slova da sve stane u red */
+    width: 30%;             /* Fiksna širina: tri selekta po 30% = 90% ekrana */
+    min-width: 80px;        /* Da ne postanu baš mrvice */
+    height: 32px;           /* Tanka visina */
+    padding: 0 2px !important; /* Brišemo prazan prostor levo i desno */
+    font-size: 14px !important;
     border-radius: 6px;
     border: 1px solid #8b6f47;
     background: rgba(242, 230, 201, 0.9);
     color: #4A3728;
-    
     text-align: center;
+    text-align-last: center; /* Centrira tekst unutar selekta na Androidu */
 }
 
 /* Ako želiš da ipak imaju strelicu, izbriši appearance: none */
