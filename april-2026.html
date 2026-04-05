@@ -874,21 +874,29 @@ background-color: rgba(139, 111, 71, 0.03); /* Skoro nevidljiva senka */
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var данас = new Date();
-    // Проверавамо да ли је Април (3) и да ли је година 2026
-    if (данас.getMonth() === 3 && данас.getFullYear() === 2026) {
-        var d = данас.getDate() + "."; // Прави од броја 5 текст "5."
-        
-        var свиДани = document.querySelectorAll(".dan");
-        свиДани.forEach(function(блок) {
-            var колонаБрој = блок.querySelector(".novi-datum");
-            if (колонаБрој && колонаБрој.innerText.trim() === d) {
-                блок.classList.add("danasnji-dan");
-                // Скролује до Цвети аутоматски
-                блок.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    var danas = new Date();
+    // Данас је 5. април, тражимо текст "5."
+    var trazeniBroj = danas.getDate() + "."; 
+    
+    // Пролазимо кроз све твоје мале вагоне са новим датумом
+    var sveKolone = document.querySelectorAll(".novi-datum");
+    
+    sveKolone.forEach(function(kolona) {
+        if (kolona.innerText.trim() === trazeniBroj) {
+            // Ово каже: Нађи главни вагон "dan" који држи овај број
+            var glavniVagon = kolona.closest(".dan");
+            if (glavniVagon) {
+                // Фарбамо га директно у злато!
+                glavniVagon.style.background = "rgba(139, 111, 71, 0.25)";
+                glavniVagon.style.border = "2px solid #8b6f47";
+                glavniVagon.style.borderRadius = "12px";
+                glavniVagon.style.boxShadow = "0 4px 12px rgba(139, 111, 71, 0.3)";
+                
+                // Аутоматски скок на данашњи празник (Цвети)
+                glavniVagon.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-        });
-    }
+        }
+    });
 });
 </script>
 
@@ -898,8 +906,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     
-</body>
 
-</html>
 
 
