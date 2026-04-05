@@ -453,7 +453,7 @@ async function prikaziSve() {
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
-    // 1. Datumi (Stari, Novi i AM)
+    // 1. Datumi (ostaje isto)
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
     const stariD = new Date(julijanskiMS);
@@ -463,7 +463,7 @@ async function prikaziSve() {
         d.toLocaleDateString('sr-RS', opcije) + 
         "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
 
-    // 2. Čupanje svetitelja iz tvog HTML fajla
+    // 2. Čupanje podataka iz tvog HTML-a
     try {
         const res = await fetch(nazivFajla);
         const html = await res.text();
@@ -471,17 +471,39 @@ async function prikaziSve() {
         const sviDani = doc.querySelectorAll('.dan');
 
         sviDani.forEach(blok => {
-            const br = parseInt(blok.querySelector('.novi-datum').innerText.replace('.', '').trim());
-            if (br === danDanas) {
-                // Uzimamo ceo HTML iz .sadrzaj da bi se prenele tvoje klase (crveno, praznik...)
-                const sadrzajHTML = blok.querySelector('.sadrzaj').innerHTML;
-                document.getElementById('svetitelj').innerHTML = 
-                    "<div style='margin-bottom:5px; font-size:14px; color:#5f0606;'>Данас славимо:</div>" + 
-                    "<div class='sadrzaj'>" + sadrzajHTML + "</div>";
+            const brEl = blok.querySelector('.novi-datum');
+            if (brEl) {
+                const br = parseInt(brEl.innerText.replace('.', '').trim());
+                if (br === danDanas) {
+                    // SVETITELJ I PRAZNIK
+                    const praznik = blok.querySelector('.praznik') ? blok.querySelector('.praznik').innerHTML : "";
+                    const sadrzaj = blok.querySelector('.sadrzaj') ? blok.querySelector('.sadrzaj').innerHTML : "";
+                    
+                    document.getElementById('svetitelj').innerHTML = 
+                        "<div style='font-size:14px; color:#5f0606;'>Данас славимо:</div>" + 
+                        "<div class='praznik'>" + praznik + "</div>" +
+                        "<div class='sadrzaj'>" + sadrzaj + "</div>";
+
+                    // POUKA (OPIS) - Ako ne postoji (npr. nedelja), ostaje prazno
+                    const opisEl = blok.querySelector('.opis');
+                    if (opisEl && opisEl.innerText.trim() !== "") {
+                        document.getElementById('pouka-dana').innerHTML = 
+                            "<hr style='width:30%; margin:15px auto; opacity:0.2;'>" + 
+                            "„" + opisEl.innerHTML + "“";
+                    } else {
+                        document.getElementById('pouka-dana').innerHTML = "";
+                    }
+
+                    // POST (ispod)
+                    const postEl = blok.querySelector('.post-ispod');
+                    if (postEl) {
+                        document.getElementById('post-tip').innerHTML = "<span>Пост: </span>" + postEl.innerHTML;
+                    }
+                }
             }
         });
     } catch (e) {
-        console.log("Greška pri učitavanju svetitelja.");
+        console.log("Greška pri učitavanju podataka.");
     }
 }
 prikaziSve();
