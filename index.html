@@ -82,31 +82,38 @@ font-weight: bold;
 margin-bottom: 15px;
 }
 
-.gornja-traka {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 3px !important;
-    width: 98% !important;
-    margin: 5px auto !important;
-    height: 30px !important; /* Fiksirana visina cele trake */
+.nav-kalendar {
+    position: absolute;
+	background: rgba(242, 230, 201, 0.9) !important; /* Tvoja bež boja */
+    color: #4A3728 !important;                      /* Tvoja braon boja slova */
+    border: 1px solid #8b6f47 !important;           /* Zlatno-braon okvir */
+    padding: 3px 10px !important;
+    font-family: "Times New Roman", serif !important;
+    font-size: 16px !important;
+    border-radius: 8px;    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    top: 10px;           
+    left: 15px;
+}
+	
+
+.gornja-traka{
+display:flex;
+justify-content:flex-end;
+margin-bottom:10px;
+top: 3px;           
+    	
 }
 
-.meseci, .nav-kalendar {
-    flex: 1 !important;
-    height: 28px !important;      /* Veoma tanki prozori */
-    line-height: 28px !important; /* Centrira tekst po visini */
-    font-size: 13px !important;   /* Manja slova da stanu u tanak prozor */
-    padding: 0 2px !important;
-    margin: 0 !important;
-    border-radius: 5px !important;
-    border: 1px solid #8b6f47 !important;
-    background: rgba(242, 230, 201, 0.9) !important;
-    color: #4A3728 !important;
-    text-align: center !important;
-    text-align-last: center !important;
+.meseci{
+ padding: 5px 9px;
+font-size:15px;
+border-radius:8px;
+border:1px solid #8b6f47;
+background: rgba(242, 230, 201, 0.9);
+color:#4A3728;
+top: 3px;           
+left:30px;
 }
 /* Ako želiš da ipak imaju strelicu, izbriši appearance: none */
 
@@ -344,7 +351,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 <div class="gornja-traka">	
 
  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
-      <select class="nav-kalendar" onchange="window.location.href=this.value">
+    <select class="nav-kalendar" onchange="location.href=this.value;">
             <option value="">📅Календар 2026</option>
             <option value="januar-2026.html">Јануар</option>
             <option value="februar-2026.html">Фебруар</option>
@@ -363,7 +370,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 
 <div class="gornja-traka">
     <!-- 1. Бирање године -->
-    <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
+     <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
         <option value="2025">2025</option>
         <option value="2026" selected="">2026</option>
         <option value="2027">2027</option>
@@ -373,7 +380,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     </select>
 
   <!-- 2. Biranje meseca -->
-     <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
+     <select id="mesecBirac" class="meseci" top:="" 3px;="" left:="" 30px;="" onchange="osveziKalendar()">
         <option value="">Месец</option>
         <option value="0">Јануар</option>
         <option value="1">Фебруар</option>
