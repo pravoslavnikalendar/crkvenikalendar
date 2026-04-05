@@ -273,30 +273,31 @@ margin: 0;
      
 	
 .header-mobile-box {
-    background: rgba(242, 230, 201, 0.88) !important;
-    display: block !important; /* Da se vidi svuda */
-    padding: 25px;
-    border-radius: 20px;
-    border: 1px solid #8b6f47 !important;
-    font-size: 18px;
-    line-height: 1.5;
-    text-align: justify;
-    width: 85% !important;
-    max-width: 430px; /* Da ne bude preširok na laptopu */
-    margin: 30px auto !important; /* Ovo ga centrira */
-    position: relative;
-    box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
-                inset 0 -2px 4px rgba(0,0,0,0.15),
-                0 6px 12px rgba(0,0,0,0.25);
-}
+background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
+display: block; /* Vidljiv je */
+position: center;	
+padding: 30px;
+border-radius: 20px;
+border: 1px solid #8b6f47;
+font-size: 20px;
+position: relative !important; /* OVO JE KLJUČ: Da stoji ISPOD svega, ne PREKO svega */
+width: 85% !important;
+margin: 30px auto !important; /* Razmak od potpisa i centar */
+line-height: 1.5;
+position: center;
+line-height: 1.5;
+text-align: justify;
+/* NOVO: unutrašnja i spoljašnja senka za “reljef” efekt */
+box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+inset 0 -2px 4px rgba(0,0,0,0.15),
+0 6px 12px rgba(0,0,0,0.25);
+transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
 
-.naslov-header-mobile {	
-    color: #8b0000 !important; /* Bordo boja MORA da radi */
-    text-align: center;
-    font-size: 21px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    display: block;
+    .naslov-header-mobile {	
+ color: #8b0000;      /* Твоја бордо боја */
+text-align: center;  /* Ово га центрира УНУТАР кутије */
+font-size: 21px; 	
 }
 
 @media (max-width: 600px) {
@@ -891,8 +892,8 @@ font-weight: 700; ">Задушнице 2026 годинa</span></th>
         
     </thead></table>
 </div>
-</div> 
 
+<br>
 	
 	<div class="header-mobile-box">
 <div class="naslov-header-mobile">ПОУКЕ СТАРЦА ЈЕФРЕМА АРИЗОНСКОГ
