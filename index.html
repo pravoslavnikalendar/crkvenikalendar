@@ -269,6 +269,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 }
 
 
+
 /* 3. STIL ZA TEKST U MENIJU (Da ne bude "plavo i nedovršeno") */
 .meni-sadrzaj a {
     text-decoration: none;
@@ -279,11 +280,16 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     font-family: "Times New Roman", serif;
 }
 
+  #header_right:target {
+        display: block !important; /* Otvara se na klik */
+    }
+
+
  /* SKRIVENI MENI - Tvoj bež prozor (Laptop/Desktop) */
 #header_right {
     display: none; 
     position: fixed;
-    top: 35px;  /* DODATO px - Odmaknuto od vrha */
+    top: 40px;  /* DODATO px - Odmaknuto od vrha */
     left: 20px !important; /* DODATO px - Odmaknuto od leve ivice */
     width: 350px;          /* Na laptopu ne mora preko celog ekrana, lepše je kao uska traka */
     height: 90vh;          /* Skoro do dna ekrana */
@@ -296,9 +302,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 }
 
-    #header_right:target {
-        display: block !important; /* Otvara se na klik */
-    }
+  
 
 /* HAMBURGER CRTICE (Dugme levo ispod kalendara) */
 .hamburger-zona {
@@ -358,7 +362,10 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
         margin: 15px 0;
     }
 
- 
+    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
+    #header_right {
+        display: none; /* Inicijalno nevidljiv */
+    }
 
     /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
     #header_right:target {
@@ -366,7 +373,62 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     }
 }
 
- </style>
+.zatvori-meni {
+    float: right;
+    font-size: 24px;
+    text-decoration: none;
+    color: #8b0000; /* Bordo za zatvaranje */
+    font-weight: bold;
+    padding: 10px;
+}
+  .line {
+        width: 35px;
+        height: 3px;
+        background-color: #8b6f47; /* Tvoja braon-zlatna */
+        margin: 6px auto;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+	
+    .lista-molitvi {
+        list-style: none;
+        padding: 0;
+        margin-top: 40px;
+    }
+
+    .lista-molitvi li {
+        margin: 15px 0;
+        border-bottom: 1px solid rgba(139, 111, 71, 0.2);
+    }
+
+    .lista-molitvi a {
+        text-decoration: none;
+        color: #4A3728;
+        font-size: 22px;
+        display: block;
+        padding: 10px 0;
+    }
+
+
+@media screen and (max-width: 768px) {
+    /* TELEFON: Ovde se pojavljuju tri crtice */
+    .hamburger-zona {
+        display: block !important; 
+        top: 30px;         
+        left: 20px;
+        margin: 15px 0;
+    }
+
+    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
+    #header_right {
+        display: none; /* Inicijalno nevidljiv */
+    }
+
+    /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
+    #header_right:target {
+        display: block !important;
+    }
+}
 
 </head>
 
