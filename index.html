@@ -268,22 +268,7 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
     display: none !important;
 }
 
- /* SKRIVENI MENI - Tvoj bež prozor (Laptop/Desktop) */
-#header_right {
-    display: none; 
-    position: fixed;
-    top: 35px;  /* DODATO px - Odmaknuto od vrha */
-    left: 20px !important; /* DODATO px - Odmaknuto od leve ivice */
-    width: 350px;          /* Na laptopu ne mora preko celog ekrana, lepše je kao uska traka */
-    height: 90vh;          /* Skoro do dna ekrana */
-    background: rgba(242, 230, 201, 0.98); /* Tvoj topli papir */
-    z-index: 10000;
-    overflow-y: auto;
-    padding: 40px 20px;
-    border: 2px solid #8b6f47; /* Da se vidi ivica "vagončića" */
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
-}
+
 
 /* 3. STIL ZA TEKST U MENIJU (Da ne bude "plavo i nedovršeno") */
 .meni-sadrzaj a {
@@ -304,17 +289,13 @@ padding: 2px -5px;  /* Tanji boks, da ne bude "debeo" */
 
   
 
-/* HAMBURGER CRTICE (Dugme levo ispod kalendara) */
-.hamburger-zona {
-    display: block !important;
-    text-align: left; /* LEVO poravnanje */
-    margin-left: 30px; /* Odmiče ga od same ivice stakla */
-    margin-top: 20px;
-   margin-top: 10px !important;  /* Razmak ispod kalendara */
-    
-    width: fit-content;           /* Zauzima samo onoliko mesta koliko su crtice široke */
-}
 
+	@media (max-width: 768px) {
+    .hamburger-zona {
+       position: absolute;
+    top: 30px;         
+    left: 20px;
+    }
 
 .zatvori-meni {
     float: right;
