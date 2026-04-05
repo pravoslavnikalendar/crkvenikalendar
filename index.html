@@ -149,7 +149,16 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 .opis { font-style: italic; color: #444; margin-top: 10px; font-size: 16px; }
 .post-ispod { font-weight: bold; margin-top: 5px; color: #5f0606; }
 
-	
+#datum, #svetitelj, #pouka-dana, #post-tip {
+    max-width: 90%; 
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden; /* Sprečava mrdanje levo-desno */
+    word-wrap: break-word; /* Prebacuje dugačke reči u novi red */
+}
+body {
+    overflow-x: hidden; /* Dodatna sigurnost za mobilni */
+}	
 /* mobilni: Ovde boks živi i leti desno */
 .header-mobile-box {
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
