@@ -297,16 +297,31 @@ background: rgba(242,230,241,0.7);
     display: none !important;
 }
 
-
-/* 3. STIL ZA TEKST U MENIJU (Da ne bude "plavo i nedovršeno") */
-.meni-sadrzaj a {
-    text-decoration: none;
-    color: #8b0000; /* Tvoja bordo boja */
-    font-size: 22px;
-    display: block;
-    margin: 15px 0;
-    font-family: "Times New Roman", serif;
+/* HAMBURGER CRTICE (Dugme levo ispod kalendara) */
+.hamburger-zona {
+    display: block !important;
+    text-align: left; /* LEVO poravnanje */
+    margin-left: 30px; /* Odmiče ga od same ivice stakla */
+    margin-top: 20px;
+   margin-top: 10px !important;  /* Razmak ispod kalendara */
+    
+    width: fit-content;           /* Zauzima samo onoliko mesta koliko su crtice široke */
 }
+}
+
+		
+/* HAMBURGER CRTICE (Dugme levo ispod kalendara) */
+.hamburger-zona {
+    display: block !important;
+    text-align: left; /* LEVO poravnanje */
+    margin-left: 30px; /* Odmiče ga od same ivice stakla */
+    margin-top: 20px;
+   margin-top: 10px !important;  /* Razmak ispod kalendara */
+    
+    width: fit-content;           /* Zauzima samo onoliko mesta koliko su crtice široke */
+}
+}
+
 
  /* SKRIVENI MENI - Tvoj bež prozor (Laptop/Desktop) */
 #header_right {
@@ -386,6 +401,31 @@ background: rgba(242,230,241,0.7);
         padding: 10px 0;
     }
 
+	@media (max-width: 768px) {
+    .hamburger-zona {
+       position: absolute;
+    top: 30px;         
+    left: 20px;
+    }
+@media screen and (max-width: 768px) {
+    /* TELEFON: Ovde se pojavljuju tri crtice */
+    .hamburger-zona {
+        display: block !important; 
+        top: 30px;         
+        left: 20px;
+        margin: 15px 0;
+    }
+
+    /* MENI: On ostaje sakriven dok se ne klikne na crtice */
+    #header_right {
+        display: none; /* Inicijalno nevidljiv */
+    }
+
+    /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
+    #header_right:target {
+        display: block !important;
+    }
+}
 
 .header-mobile-box {
 background: rgba(242, 230, 201, 0.88); /*  sa providnošću */
@@ -415,12 +455,6 @@ text-align: center;  /* Ово га центрира УНУТАР кутије *
 font-size: 21px; 	
 }
  
-
-    /* KLIK: Kada se klikne, meni "uskače" preko celog ekrana */
-    #header_right:target {
-        display: block !important;
-    }
-}
 
  </style>
 
