@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
@@ -143,8 +144,8 @@ margin-bottom: 15px;
     padding: 15px;
     margin: 15px auto;
     width: 90%;
-    max-width: 420px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Nežna senka */
+    max-width: 360px;
+    
     text-align: center;
 }
 
@@ -414,11 +415,13 @@ font-size: 21px;
 
 
 	
+@media (max-width: 768px) {
 .container {
  width: 100%; /* Širi se na ceo ekran telefona */
 max-width: 100%;
 padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
 margin: 0;
+}
 }
 
 /* Prva kočnica: Briše laptop box sa telefona */
@@ -559,14 +562,6 @@ padding: 0; /* Brišemo razmak oko celog tela */
    body {
 padding: 0; /* Brišemo razmak oko celog tela */
 }
-   
-.container {
- width: 100%; /* Širi se na ceo ekran telefona */
-max-width: 100%;
-padding: 5px 5px; /* Minimalni razmak tek da slova ne udaraju u ivicu stakla */
-margin: 0;
-}
-	
 
 
 
@@ -599,78 +594,58 @@ margin: 0;
         </select>
     </div> 
 
-
-     <!-- SKRIVENI MENI (Vidi se samo kad klikneš na crtice) -->
-    <div class="header_right mobile" id="header_right">
-        <div class="meni-sadrzaj">
-            <a href="#" class="zatvori-meni">✕ Затвори</a>
-            <h3 style="color: #8b0000; margin-top: 30px;">ДУХОВНА РИЗНИЦА</h3>
-            <nav>
-                <ul class="lista-molitvi">
-                    <li><a href="post-i-trapave-sedmice.html">📖Пост и трапаве седмице</a></li>
-                    <li><a href="kalendar.html">📖 Васкрс календар</a></li>
-                    <li><a href="praznici.html">📅 Значајни празници у 2026.</a></li>
-                    <li><a href="duhovne-poucne-price.html">📜 Духовне поучне приче</a></li>
-                </ul>
-            </nav>
+  <!-- 2. Hamburger zona (Tri crtice) -->
+        <div class="hamburger-zona">
+            <a href="#header_right">
+                <div class="line"></div><div class="line"></div><div class="line"></div>
+            </a>
         </div>
-    </div>
 
+        <!-- 3. Logo -->
+        <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; display: block; margin: 15px auto; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 
-    <!-- GORNJI DEO (Samo jednom Logo i Datum) -->
-  
- 
-        <img src="ikona.png" alt="Logo" style="width: 80px; height: 80px; display: block; margin: 0 auto 15px auto; 
-			border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-
-		<div class="kalendar-okvir"><div class="kalendar-okvir" style="background: transparent; border: 1px solid rgba(139, 111, 71, 0.4);
-									  border-radius: 20px; padding: 15px; margin: 15px auto; width: 90%; max-width: 400px; text-align: center;">
-    <div id="datum"></div>
-    <div id="svetitelj"></div>
-    <div id="pouka-dana"></div>
-    <div id="post-tip"></div>
-</div>
-   
-
-  
-
-    <!-- GLAVNI VAGON (Levo - Sredina - Desno) -->
-  
-
-        <!-- LEVA SOBA (Hamburger, Kalendar i Translate) -->
-        <div class="column-left">
-            <!-- 1. Kalendar -->
-          
-                 <select class="nav-kalendar" onchange="location.href=this.value;">
-                    <option value="">📅Календар 2026</option>
-					
-					 <div class="column-right">
-					<div class="gornja-traka">
-					 <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
-                
-           
-            </div>
-
-            <!-- 2. Hamburger (Tri crtice) -->
-            <div class="hamburger-zona">
-                <a href="#header_right">
-                    <div class="line"></div><div class="line"></div><div class="line"></div>
-                </a>
-            </div>
+        <!-- 4. Kalendar OKVIR (Sada je zatvoren i ne "guta" ostalo) -->
+        <div class="kalendar-okvir">
+            
+<div id="datum"></div>
+            <div id="svetitelj"></div>
+            <div id="pouka-dana"></div>
+            <div id="post-tip"></div>
+        </div>
+    </div> <!-- KRAJ GORNJEG PAPIRA -->
        
 
-<div class="glavni-vagon-desktop">
-<div class="glavni-vagon-mobile">   
-        <!-- SREDNJA SOBA (Tvojih 6 Dugmića i Zadušnice) -->
-        <div class="column-center">
+    <!-- GLAVNA DUGMAD (Izvan papira da ne leluja ekran) -->
+    <div class="column-center" style="margin-top: 20px;">
             <a href="januar-2026.html" class="dugme">ПРАВОСЛАВНИ КАЛЕНДАР</a>
             <a href="psaltir.html" class="dugme">ПСАЛТИР</a>
             <a href="molitvenik.html" class="dugme">МОЛИТВЕНИК</a>
             <a href="novi-zavet.html" class="dugme">НОВИ ЗАВЕТ</a>
             <a href="duhovne-pouke.html" class="dugme">ДУХОВНЕ ПОУКЕ</a>
-            
-			    </div>
-			<div class="column-center">
+     </div>
+
+   <!-- Skriveni meni (Vagončić) -->
+    <div class="header_right mobile" id="header_right">
+        <div class="meni-sadrzaj">
+            <a href="#" class="zatvori-meni">✕ Затвори</a>
+            <h3 style="color: #8b0000; margin-top: 30px;">ДУХОВНА РИЗНИЦА</h3>
+            <ul class="lista-molitvi">
+               <li><a href="post-i-trapave-sedmice.html">📖Пост и трапаве седмице</a></li>
+                    <li><a href="kalendar.html">📅 Васкрс календар</a></li>
+                    <li><a href="praznici.html">📅 Значајни празници у 2026.</a></li>
+                    <li><a href="duhovne-poucne-price.html">📜 Духовне поучне приче</a></li>
+            </ul>
+        </div>
+    </div>
+</div> <!-- KRAJ KONTEJNERA -->
+
+
+
+
+<div class="container">
+<div class="gornji-papir">
+
+
             <!-- 3. Prevod i Pečati -->
            
            <div id="google_translate_element"></div>
