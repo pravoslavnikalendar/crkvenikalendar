@@ -849,48 +849,37 @@ async function prikaziSve() {
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const sviDani = doc.querySelectorAll('.dan');
 
-        sviDani.forEach(blok => {
-            const brEl = blok.querySelector('.novi-datum');
-            if (brEl) {
-                const br = parseInt(brEl.innerText.replace('.', '').trim());
-                if (br === danDanas) {
-                    
-                    // --- Свети ---
-                    const sadrzajEl = blok.querySelector('.sadrzaj');
-                    if (sadrzajEl && document.getElementById('svetitelj')) {
-                      document.getElementById('svetitelj').innerHTML = 
-    "<div class='sadrzaj'>" + sadrzajEl.innerHTML + "</div>";
-                    }
+       sviDani.forEach(blok => {
+    const brEl = blok.querySelector('.novi-datum');
+    if (brEl && parseInt(brEl.innerText.replace('.', '').trim()) === danDanas) {
+        
+        // 1. PRAZNIK (Tražimo bilo šta crveno ili podebljano unutar bloka)
+        const svetacEl = blok.querySelector('.crveno, .praznik, .sadrzaj');
+        if (svetacEl) {
+            document.getElementById('svetitelj').innerHTML = svetacEl.outerHTML;
+        }
 
-                    // --- Поука (Опис) ---
-                    const opisEl = blok.querySelector('.opis');
-                    const poukaMesto = document.getElementById('pouka-dana');
-                    if (poukaMesto) {
-                        if (opisEl && opisEl.innerText.trim() !== "") {
-                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
-                        } else {
-                            poukaMesto.innerHTML = ""; // Празно за недељу
-                        }
-                    }
+        // 2. OPIS (Sada tražimo .opis bilo gde unutar dana)
+        const opisEl = blok.querySelector('.opis');
+        if (opisEl) {
+            document.getElementById('pouka-dana').innerHTML = 
+                "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
+        } else {
+            document.getElementById('pouka-dana').innerHTML = ""; 
+        }
 
-                    // --- Пост ---
-                    const postEl = blok.querySelector('.post-ispod');
-                    if (postEl && document.getElementById('post-tip')) {
-                        document.getElementById('post-tip').innerHTML = 
-                            "<div style='margin-top:10px; font-size:15px;'><b>Пост:</b> " + postEl.innerHTML + "</div>";
-                    }
-                }
-            }
-        });
-    } catch (e) {
-        console.log("Грешка: Провери да ли је фајл " + nazivFajla + " на свом месту.");
+        // 3. POST (Tražimo .post-ispod bilo gde unutar dana)
+        const postEl = blok.querySelector('.post-ispod');
+        if (postEl) {
+            document.getElementById('post-tip').innerHTML = 
+                "<div style='margin-top:10px; font-weight:bold;'>Пост: " + postEl.innerHTML + "</div>";
+        } else {
+            document.getElementById('post-tip').innerHTML = "";
+        }
     }
-}
-prikaziSve();
-	
-</script>
+});
 
-
+</script>  
 					 
 
 <!-- Yandex.Metrika counter -->
