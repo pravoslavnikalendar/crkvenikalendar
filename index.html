@@ -802,26 +802,7 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
 
 	
 
-	
-	
-	
-	
-	
-	
-	
-	<script>
-function osveziKalendar() {
-    // 1. "Хватамо" шта је плавуша изабрала у менију на насловној
-    var g = document.getElementById("godinaBirac").value;
-    var m = document.getElementById("mesecBirac").value;
-
-    // 2. Ако је изабран месец, ова линија те "испаљује" на страницу календара
-    if (m !== "") {
-        window.location.href = "kalendar.html?mesec=" + m + "&godina=" + g;
-    }
-}
-</script>       
-   
+	 <script>     
 
 async function prikaziSve() {
     const d = new Date();
@@ -877,7 +858,26 @@ async function prikaziSve() {
     } catch (e) { console.log("Проблем при читању календара."); }
 }
 prikaziSve();
-					 
+</script> 		
+	
+	
+	
+	
+	
+	
+	<script>
+function osveziKalendar() {
+    // 1. "Хватамо" шта је плавуша изабрала у менију на насловној
+    var g = document.getElementById("godinaBirac").value;
+    var m = document.getElementById("mesecBirac").value;
+
+    // 2. Ако је изабран месец, ова линија те "испаљује" на страницу календара
+    if (m !== "") {
+        window.location.href = "kalendar.html?mesec=" + m + "&godina=" + g;
+    }
+}
+</script>       
+			 
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
