@@ -242,7 +242,22 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.7);">
 #svetitelj { margin-top: 2px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
 #post-tip { margin-top: 1px !important; } /* Briše razmak iznad posta */
 
-/* SVE ŠTO JE LEVO I DESNO NA LAPTOPU */
+.kalendar-okvir {
+    background: transparent;
+    border: 1px solid rgba(139, 111, 71, 0.5); /* Suptilna braon ivica */
+    border-radius: 20px;
+    padding: 15px;
+    margin: 15px auto;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Nežna senka */
+    text-align: center;
+}
+
+	
+	
+	
+	/* SVE ŠTO JE LEVO I DESNO NA LAPTOPU */
 .column-left, .column-right {
     display: none; /* Prvo ih sakrijemo svuda (za mobilni) */
 }
@@ -271,14 +286,6 @@ margin: 0;
 }
           
      
-	
-
-
-
-
-.player-okvir{
-
-background: rgba(242,230,241,0.7);
 
 
 	
@@ -545,7 +552,12 @@ border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
 <div id="svetitelj" style="text-align: center;"></div>
 <div id="pouka-dana" style="text-align: center; max-width: 80%; margin: 0 auto;"></div>
 <div id="post-tip" style="text-align: center;"></div>
-
+<div class="kalendar-okvir">
+    <div id="datum"></div>
+    <div id="svetitelj"></div>
+    <div id="pouka-dana"></div>
+    <div id="post-tip"></div>
+</div>
  <!-- 2. Hamburger (Tri crtice) -->
             <div class="hamburger-zona">
                 <a href="#header_right">
