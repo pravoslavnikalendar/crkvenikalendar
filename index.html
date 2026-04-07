@@ -802,14 +802,26 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
 
 	
 
-	 <script>     
-
+	<script>
 async function prikaziSve() {
     const d = new Date();
     const danDanas = d.getDate();
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
+    // 1. Датуми
+    const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
+    const stariD = new Date(julijanskiMS);
+    const AM = stariD.getFullYear() + 5508;
+    
+    if(document.getElementById('datum')) {
+        document.getElementById('datum').innerHTML = 
+            d.toLocaleDateString('sr-RS', opcije) + 
+            "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
+    }
+
+    // 2. Читање из твог календара
     try {
         const res = await fetch(nazivFajla);
         const html = await res.text();
@@ -818,47 +830,44 @@ async function prikaziSve() {
 
         sviDani.forEach(blok => {
             const brEl = blok.querySelector('.novi-datum');
-            if (brEl && parseInt(brEl.innerText.replace('.', '').trim()) === danDanas) {
-                
-                // 1. СВЕТИТЕЉ / ПРАЗНИК
-                // Тражимо било шта што си ставила као наслов (црвено, празник или садржај)
-                const naslovEl = blok.querySelector('.crveno, .praznik, .sadrzaj, .svetitelji');
-                if (naslovEl) {
-                    document.getElementById('svetitelj').innerHTML = naslovEl.outerHTML;
-                }
-
-                // 2. ОПИС (ПОУКА)
-                // Тражимо .opis било где унутар тог дана
-                const opisEl = blok.querySelector('.opis');
-                const poukaMesto = document.getElementById('pouka-dana');
-                if (poukaMesto) {
-                    if (opisEl && opisEl.innerText.trim() !== "") {
-                        poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
-                    } else {
-                        poukaMesto.innerHTML = ""; 
+            if (brEl) {
+                const br = parseInt(brEl.innerText.replace('.', '').trim());
+                if (br === danDanas) {
+                    
+                    // --- Свети ---
+                    const sadrzajEl = blok.querySelector('.sadrzaj');
+                    if (sadrzajEl && document.getElementById('svetitelj')) {
+                      document.getElementById('svetitelj').innerHTML = 
+    "<div class='sadrzaj'>" + sadrzajEl.innerHTML + "</div>";
                     }
-                }
 
-                // 3. ПОСТ
-                // Тражимо .post-ispod било где унутар тог дана
-                const postEl = blok.querySelector('.post-ispod');
-                if (postEl && document.getElementById('post-tip')) {
-                    document.getElementById('post-tip').innerHTML = 
-                        "<div style='margin-top:10px; font-weight:bold;'>Пост: " + postEl.innerHTML + "</div>";
+                    // --- Поука (Опис) ---
+                    const opisEl = blok.querySelector('.opis');
+                    const poukaMesto = document.getElementById('pouka-dana');
+                    if (poukaMesto) {
+                        if (opisEl && opisEl.innerText.trim() !== "") {
+                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
+                        } else {
+                            poukaMesto.innerHTML = ""; // Празно за недељу
+                        }
+                    }
+
+                    // --- Пост ---
+                    const postEl = blok.querySelector('.post-ispod');
+                    if (postEl && document.getElementById('post-tip')) {
+                        document.getElementById('post-tip').innerHTML = 
+                            "<div style='margin-top:10px; font-size:15px;'><b>Пост:</b> " + postEl.innerHTML + "</div>";
+                    }
                 }
             }
         });
-
-        // ДАТУМ (Стандардно подешавање)
-        const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-        const stariD = new Date(d.getTime() - (13 * 24 * 60 * 60 * 1000));
-        document.getElementById('datum').innerHTML = d.toLocaleDateString('sr-RS', opcije) + 
-            "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Л.Г. " + (stariD.getFullYear() + 5508) + ".)</small>";
-
-    } catch (e) { console.log("Проблем при читању календара."); }
+    } catch (e) {
+        console.log("Грешка: Провери да ли је фајл " + nazivFajla + " на свом месту.");
+    }
 }
 prikaziSve();
-</script> 		
+	
+</script>
 	
 	
 	
@@ -877,7 +886,8 @@ function osveziKalendar() {
     }
 }
 </script>       
-			 
+   
+
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -957,12 +967,12 @@ function preslovi(pismo) {
 
 
 	
-<div class='column-right-outer'>
-<div class='column-right-inner'>
+<div class="column-right-outer">
+<div class="column-right-inner">
 <aside>
-<div class='sidebar section' id='sidebar-right-1'><div class='widget Translate' data-version='1' id='Translate1'>
-<h2 class='title'></h2>
-<div id='google_translate_element'></div>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget Translate" data-version="1" id="Translate1">
+<h2 class="title"></h2>
+<div id="google_translate_element"></div>
 <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -974,18 +984,9 @@ function preslovi(pismo) {
 
 
   
-  </script>
-<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
-<div class='clear'></div>
-<!-- ОВДЕ ЈЕ МАГИЈА: Додао сам https: и сад ће ГитХуб да га пусти! -->
 
 
-	
-
-
-
-</body>
-</html>
+</aside></div></div></div></div></body></html>
 
 
 
