@@ -141,8 +141,8 @@ margin-bottom: 15px;
     background: transparent;
     border: 1px solid rgba(139, 111, 71, 0.5); /* Suptilna braon ivica */
     border-radius: 15px;
-    padding: padding: 15px;
-	 margin: 5px auto 0px auto !important;
+    padding: 12px;
+	 margin: 10px;
     width: 90%;
     max-width: 360px;
     
@@ -150,13 +150,30 @@ margin-bottom: 15px;
 }
 
 /* 3. Sabijanje teksta unutar kutije */
-#datum, #svetitelj, #pouka-dana, #post-tip {
-    margin: 2px 0 !important; /* Minimalan razmak između redova */
-    padding: 0 !important;
+#datum, #svetitelj, #pouka-dana, #post-tip #praznik, #obicno, #sadrzaj, #crveno, {
+   
+    line-height: 1.1;
+    margin-bottom: 5px !important;
+    display: block;
 }
 
-#pouka-dana hr {
-    margin: 5px auto !important; /* Smanjuje razmak kod linije za pouku */
+
+#pouka-dana {
+    font-size: 17px;
+    color: #5f0606;
+    line-height: 1.2;
+    margin-top: 8px !important;
+    font-family: "Times New Roman", serif; /* Citkije od italika */
+}
+
+/* Post pored datuma (kao što si tražila) */
+.gornji-red-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(139, 111, 71, 0.2);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 
@@ -615,12 +632,20 @@ padding: 0; /* Brišemo razmak oko celog tela */
         <!-- 4. Kalendar OKVIR (Sada je zatvoren i ne "guta" ostalo) -->
         <div class="kalendar-okvir">
             
-<div id="datum"></div>
-            <div id="svetitelj"></div>
-            <div id="pouka-dana"></div>
-            <div id="post-tip"></div>
-        </div>
-    </div> <!-- KRAJ GORNJEG PAPIRA -->
+<div class="kalendar-okvir" style="background: rgba(242, 230, 201, 0.4); border: 1px solid #8b6f47; border-radius: 15px; padding: 10px;">
+    
+    <!-- GORNJI RED: Datum i Post -->
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(139, 111, 71, 0.2); padding-bottom: 5px;">
+        <div id="datum" style="font-size: 13px; text-align: left;"></div>
+        <div id="post-tip" style="font-size: 14px; font-weight: bold; color: #5c4630;"></div>
+    </div>
+
+    <!-- SREDINA: Svetitelj -->
+    <div id="svetitelj" style="margin: 10px 0; font-size: 18px;"></div>
+
+    <!-- DOLE: Tvoja tanka bordo pouka -->
+    <div id="pouka-dana"></div>
+</div> <!-- KRAJ GORNJEG PAPIRA -->
    
 
   
