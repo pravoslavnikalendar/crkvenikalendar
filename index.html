@@ -657,7 +657,11 @@ padding: 0; /* Brišemo razmak oko celog tela */
         </select>
     </div>
 
-
+ <!-- Дугме које све покреће -->
+    <button onclick="posaljiNaKalendar()" style="background: #8b0000; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+        ПРИКАЖИ КАЛЕНДАР
+    </button>
+</div>
 	
   <!-- 2. Hamburger zona (Tri crtice) -->
         <div class="hamburger-zona">
@@ -978,9 +982,15 @@ function osveziKalendar() {
     }
 }
 </script>       
-   
-
-
+<script>      
+function posaljiNaKalendar() {
+    const mesec = document.getElementById('vagonMesec').value;
+    const godina = document.getElementById('vagonGodina').value;
+    
+    // Шаље на kalendar.html са тачним месецом и годином
+    window.location.href = `kalendar.html?mesec=${mesec}&godina=${godina}`;
+}
+</script>   
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
