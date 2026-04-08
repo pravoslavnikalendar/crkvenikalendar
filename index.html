@@ -835,27 +835,13 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
             </div>
         </div>
 	
-	
-<script>
+<script>	
 async function prikaziSve() {
     const d = new Date();
     const danDanas = d.getDate();
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
-    // 1. Датуми
-    const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-    const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
-    const stariD = new Date(julijanskiMS);
-    const AM = stariD.getFullYear() + 5508;
-    
-    if(document.getElementById('datum')) {
-        document.getElementById('datum').innerHTML = 
-            d.toLocaleDateString('sr-RS', opcije) + 
-            "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
-    }
-
-    // 2. Читање из твог календара
     try {
         const res = await fetch(nazivFajla);
         const html = await res.text();
@@ -864,46 +850,39 @@ async function prikaziSve() {
 
         sviDani.forEach(blok => {
             const brEl = blok.querySelector('.novi-datum');
-            if (brEl) {
-                const br = parseInt(brEl.innerText.replace('.', '').trim());
-                if (br === danDanas) {
-                    
-                    // --- Свети ---
-                    const sadrzajEl = blok.querySelector('.sadrzaj');
-                    if (sadrzajEl && document.getElementById('svetitelj')) {
-                      document.getElementById('svetitelj').innerHTML = 
-    "<div class='sadrzaj'>" + sadrzajEl.innerHTML + "</div>";
-                    }
+            if (brEl && parseInt(brEl.innerText.replace('.', '').trim()) === danDanas) {
+                
+                // 1. СВЕТИТЕЉ (тражи твоје класе: црвено, празник, садржај, обично)
+                const svetacEl = blok.querySelector('.crveno, .praznik, .sadrzaj, .svetitelji, .obicno');
+                if (svetacEl) {
+                    document.getElementById('svetitelj').innerHTML = svetacEl.outerHTML;
+                }
 
-                    // --- Поука (Опис) ---
-                    const opisEl = blok.querySelector('.opis');
-                    const poukaMesto = document.getElementById('pouka-dana');
-                    if (poukaMesto) {
-                        if (opisEl && opisEl.innerText.trim() !== "") {
-                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
-                        } else {
-                            poukaMesto.innerHTML = ""; // Празно за недељу
-                        }
-                    }
+                // 2. ОПИС (твоја танка бордо слова)
+                const opisEl = blok.querySelector('.opis');
+                if (opisEl && document.getElementById('opis-dana')) {
+                    document.getElementById('opis-dana').innerHTML = "„" + opisEl.innerHTML + "“";
+                }
 
-                    // --- Пост ---
-                    const postEl = blok.querySelector('.post-ispod');
-                    if (postEl && document.getElementById('post-tip')) {
-                        document.getElementById('post-tip').innerHTML = 
-                            "<div style='margin-top:10px; font-size:15px;'><b>Пост:</b> " + postEl.innerHTML + "</div>";
-                    }
+                // 3. ПОСТ (који сада иде горе десно поред датума)
+                const postEl = blok.querySelector('.post-ispod');
+                if (postEl && document.getElementById('post-tip')) {
+                    document.getElementById('post-tip').innerHTML = postEl.innerHTML;
                 }
             }
         });
-    } catch (e) {
-        console.log("Грешка: Провери да ли је фајл " + nazivFajla + " на свом месту.");
-    }
+
+        // ДАТУМ (сада саweekday и старим календаром)
+        const opcije = { weekday: 'long', day: 'numeric', month: 'long' };
+        const stariD = new Date(d.getTime() - (13 * 24 * 60 * 60 * 1000));
+        document.getElementById('datum').innerHTML = d.toLocaleDateString('sr-RS', opcije) + 
+            "<br><small>ст: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + "</small>";
+
+    } catch (e) { console.log("Проблем при читању."); }
 }
 prikaziSve();
 	
-</script>
-	
-	
+</script>	
 	
 	
 	
