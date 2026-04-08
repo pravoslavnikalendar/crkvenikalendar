@@ -157,23 +157,32 @@ margin-bottom: 15px;
     display: block;
 }
 
-
+/* 1. Smanjuje prostor oko linije (hr) */
+#pouka-dana hr {
+    margin: 5px auto !important; /* Minimalan razmak: 5px gore/dole */
+    opacity: 0.2;
+}
 #pouka-dana {
     font-size: 17px;
     color: #5f0606;
     line-height: 1.2;
-    margin-top: 8px !important;
+    margin-top: 5px !important;
     font-family: "Times New Roman", serif; /* Citkije od italika */
 }
-
+#pouka-dana i {
+    display: block; /* Omogućava kontrolu margina */
+    margin-top: 0px !important;
+    line-height: 1.2;
+    padding: 0 !important;
+}
 /* Post pored datuma (kao što si tražila) */
 .gornji-red-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(139, 111, 71, 0.2);
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 
