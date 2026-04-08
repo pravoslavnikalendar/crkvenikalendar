@@ -132,31 +132,6 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</butto
 </div>
 
 	
-	<script>
-	
-	function osveziKalendar() {
-    // 1. Узимамо вредности које је корисник изабрао у прозорчићима
-    const g = document.getElementById('godinaBirac').value;
-    const m = document.getElementById('mesecBirac').value;
-
-    // 2. Ако је изабран и месец, цртамо табелу за тај месец и годину
-    if (m !== "") {
-        generisiKalendar(parseInt(m), parseInt(g));
-        // Склањамо приказ Васкрса док корисник опет не кликне на дугме
-        document.getElementById('dodatakPrikaz').style.display = "none";
-    }
-}
-
-// Ова функција ће израчунати Васкрс за годину која је ТРЕНУТНО изабрана у селектору
-function prikaziVaskrs() {
-    const g = document.getElementById('godinaBirac').value;
-    const datum = izracunajVaskrs(parseInt(g));
-    
-    const prikaz = document.getElementById('dodatakPrikaz');
-    prikaz.style.display = "block";
-    prikaz.innerHTML = "<b>Васкрс " + g + ". године пада:</b><br><span style='color:#8b0000; font-size:24px;'>" + datum + "</span>";
-}
-	</script>
 <script>
     // POPRAVLJENA MAGIJA: Sada čita i mesec i godinu iz linka
     const params = new URLSearchParams(window.location.search);
