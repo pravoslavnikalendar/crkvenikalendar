@@ -137,18 +137,17 @@ margin-bottom: 15px;
 #svetitelj { margin-top: 2px !important; margin-bottom: 5px !important; } /* Približava svetitelja i datumu i postu */
 #post-tip { margin-top: 1px !important; } /* Briše razmak iznad posta */
 
-
 .kalendar-okvir {
-    box-sizing: border-box !important; /* ОВО ЈЕ КЉУЧ: приморава оквир да урачуна ивицу у ширину */
-    
-    margin: 10px auto !important;      /* 'auto' лево и десно га држи у математичком центру */
-    display: block !important;
-    overflow: hidden;
-	width: 360px !important; 
-    text-align: justify;/* Да ништа изнутра не „гура“ зидове кутије */
+    display: block;
 	background: transparent;
     border: 1px solid rgba(139, 111, 71, 0.5); /* Suptilna braon ivica */
+    border-radius: 10px;
+    padding: 18px;
+	margin: 6px 0;
+    width: 360px !important; 
+    text-align: justify;
 }
+
 	
 /* 3. Sabijanje teksta unutar kutije */
 #datum, #svetitelj, #pouka-dana, #post-tip #praznik, #obicno, #sadrzaj, #crveno, {
