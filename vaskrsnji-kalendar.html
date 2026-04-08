@@ -159,6 +159,61 @@
 
     // Иницијално цртање за април 2026.
     generisiKalendar(3, 2026);
+
 </script>
+
+<script>
+function generisiKalendar(mesec, godina) {
+    const imena = ["Јануар", "Фебруар", "Март", "Април", "Mај", "Jун", "Jул", "Aвгуст", "Септембар", "Октобар", "Новембар", "Децембар"];
+    document.getElementById('naslovMeseca').innerText = imena[mesec] + " " + godina + ".";
+
+    let danas = new Date();
+    let prviDan = new Date(godina, mesec, 1).getDay();
+    if (prviDan === 0) prviDan = 7; 
+
+    let brojDana = new Date(godina, mesec + 1, 0).getDate();
+    
+    // ОВО ЈЕ НОВО: Рачунамо Васкрс за ту годину да бисмо га обојили у табели
+    let vaskrsDatum = izracunajVaskrsObjekat(godina);
+
+    let html = "<table><tr><th>П</th><th>У</th><th>С</th><th>Ч</th><th>П</th><th>С</th><th class='nedelja'>Н</th></tr><tr>";
+
+    for (let i = 1; i < prviDan; i++) {
+        html += "<td></td>";
+    }
+
+    for (let dan = 1; dan <= brojDana; dan++) {
+        let trenutniDatum = new Date(godina, mesec, dan);
+        let klasa = "";
+        
+        // 1. Ако је недеља
+        if (trenutniDatum.getDay() === 0) klasa = "class='nedelja'";
+        
+        // 2. Ако је ДАНАС (8. април 2026)
+        if (trenutniDatum.toDateString() === danas.toDateString()) klasa = "class='danasnji'";
+
+        // 3. НОВО: Ако је ВАСКРС (Бојимо га посебно)
+        if (trenutniDatum.toDateString() === vaskrsDatum.toDateString()) {
+            klasa = "style='background: #8b0000; color: white; border-radius: 50%; font-weight: bold;'";
+        }
+
+        html += "<td " + klasa + ">" + dan + "</td>";
+        if (trenutniDatum.getDay() === 0) html += "</tr><tr>";
+    }
+    html += "</table>";
+    document.getElementById('kalendarTabela').innerHTML = html;
+}
+
+// Помоћна функција која претвара Васкрс у датум који скрипта разуме
+function izracunajVaskrsObjekat(godina) {
+    const a = godina % 19, d = (19 * (godina % 19) + 15) % 30, e = (2 * (godina % 4) + 4 * (godina % 7) + 6 * d + 6) % 7;
+    const f = d + e;
+    let vD, vM;
+    if (f <= 9) { vD = 22 + f; vM = 2; } else { vD = f - 9; vM = 3; }
+    let v = new Date(godina, vM, vD);
+    v.setDate(v.getDate() + 13);
+    return v;
+}
+</script>    
 </body>
 </html>
