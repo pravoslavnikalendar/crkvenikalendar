@@ -114,7 +114,7 @@ color:#4A3728;
 </div>
     
 <div class="container">
-    <h2 id="naslovMeseca">Учитавам...</h2>
+    <h2 id="naslovMeseca"></h2>
     <div id="kalendarTabela"></div>
 <div id="dodatakPrikaz" style="display:none; margin: 20px auto; padding: 15px; 
 background: rgba(242, 230, 201, 0.9); border: 1px solid #8b6f47; 
@@ -243,18 +243,7 @@ function prikaziVaskrs() {
 }
       
 </script>
-	<script>
-function osveziKalendar() {
-    // 1. "Хватамо" шта је плавуша изабрала у менију на насловној
-    var g = document.getElementById("godinaBirac").value;
-    var m = document.getElementById("mesecBirac").value;
 
-    // 2. Ако је изабран месец, ова линија те "испаљује" на страницу календара
-    if (m !== "") {
-        window.location.href = "kalendar.html?mesec=" + m + "&godina=" + g;
-    }
-}
-</script>       
 
 	
 </body>
