@@ -159,15 +159,23 @@
         document.getElementById('dodatakPrikaz').style.display = "none";
     }
 
-    function prikaziVaskrs() {
-        const g = document.getElementById('godinaBirac').value;
-        const v = izracunajVaskrsObjekat(parseInt(g));
-        const datum = v.toLocaleDateString('sr-RS', { day: 'numeric', month: 'long' });
-        const prikaz = document.getElementById('dodatakPrikaz');
-        prikaz.style.display = "block";
-        prikaz.innerHTML = "<b>Васкрс " + g + ". године пада:</b><br><span style='color:#8b0000; font-size:24px;'>" + datum + "</span>";
-    }
+   function prikaziVaskrs() {
+    const g = document.getElementById('godinaBirac').value;
+    const v = izracunajVaskrsObjekat(parseInt(g));
+    
+    // OVO JE MAGIJA: Uzima mesec u kom je Vaskrs (0 za januar, 1 za februar...)
+    const mesecVaskrsa = v.getMonth(); 
+    
+    // 1. Force: Kaže prozorčiću da se prebaci na taj mesec
+    document.getElementById('mesecBirac').value = mesecVaskrsa;
+    
+    // 2. Refresh: Odmah nacrta novu tabelu za taj mesec
+    generisiKalendar(mesecVaskrsa, parseInt(g));
 
-    generisiKalendar(3, 2026); // Старт за април 2026.
+    const datum = v.toLocaleDateString('sr-RS', { day: 'numeric', month: 'long' });
+    const prikaz = document.getElementById('dodatakPrikaz');
+    prikaz.style.display = "block";
+    prikaz.innerHTML = "<b>Васкрс " + g + ". године пада:</b><br><span style='color:#8b0000; font-size:24px;'>" + datum + "</span>";
+}
 </script>
 </body>
