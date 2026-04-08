@@ -66,6 +66,36 @@
 
 <a href="index.html" class="home-dugme">🏠</a>
 
+
+<div class="gornja-traka">
+    <!-- 1. Бирање године -->
+    <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
+        <option value="2025">2025</option>
+        <option value="2026" selected>2026</option>
+        <option value="2027">2027</option>
+        <option value="2028">2028</option>
+        <option value="2029">2029</option>
+        <option value="2030">2030</option>
+    </select>
+
+    <!-- 2. Бирање месеца (Паметни мени који иде на Кalendar.html) -->
+    <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
+        <option value="">Mесец</option>
+        <option value="0">Јануар</option>
+        <option value="1">Фебруар</option>
+        <option value="2">Март</option>
+        <option value="3">Април</option>
+        <option value="4">Мај</option>
+        <option value="5">Јун</option>
+        <option value="6">Јул</option>
+        <option value="7">Август</option>
+        <option value="8">Септембар</option>
+        <option value="9">Октобар</option>
+        <option value="10">Новембар</option>
+        <option value="11">Децембар</option>
+    </select>
+</div>
+    
 <div class="container">
     <h2 id="naslovMeseca">Учитавам...</h2>
     <div id="kalendarTabela"></div>
