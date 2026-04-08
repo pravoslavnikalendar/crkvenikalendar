@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Црквени Календар 2025-2030</title>
+    <title>Васкршњи Календар 2025-2030</title>
     <style>
         body {
             margin: 0;
@@ -56,6 +56,13 @@
             border: 2px solid #8b0000 !important;
             font-weight: bold;
         }
+        /* ОВО ЈЕ ЗА ВАСКРС У ТАБЕЛИ */
+        .vaskrs-u-tabeli {
+            background: #8b0000 !important;
+            color: white !important;
+            font-weight: bold !important;
+            border-radius: 50%;
+        }
         .home-dugme {
             position: fixed; top: 15px; left: 15px;
             background: rgba(242, 230, 201, 0.9);
@@ -93,21 +100,31 @@
     <h2 id="naslovMeseca">Април 2026.</h2>
     <div id="kalendarTabela"></div>
 
-    <div id="dodatakPrikaz" style="display:none; margin: 20px auto; padding: 15px; background: rgba(242, 230, 201, 0.9); border: 1px solid #8b6f47; border-radius: 10px; font-style: italic; width: 85%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);"></div>
+    <div id="dodatakPrikaz" style="display:none; margin: 20px auto; padding: 15px; background: rgba(242, 230, 201, 0.9); border: 1px solid #8b6f47; border-radius: 10px; font-style: italic; width: 85%;"></div>
 
     <br>
     <button onclick="prikaziVaskrs()" style="background: #8b0000; color: white; padding: 15px 25px; border-radius: 10px; border: none; font-size: 18px; font-weight: bold; cursor: pointer;">🥚 Када је Васкрс?</button>   
-
-    <br><br>
-    <a href="index.html" style="text-decoration:none; font-size: 20px; color:#8b6f47; font-weight:bold;">⬅ Назад на почетну</a>
 </div>
 
 <script>
+    function izracunajVaskrsObjekat(godina) {
+        const a = godina % 19, b = godina % 4, c = godina % 7;
+        const d = (19 * a + 15) % 30, e = (2 * b + 4 * c + 6 * d + 6) % 7;
+        const f = d + e;
+        let vD, vM;
+        if (f <= 9) { vD = 22 + f; vM = 2; } else { vD = f - 9; vM = 3; }
+        let vaskrsNovi = new Date(godina, vM, vD);
+        vaskrsNovi.setDate(vaskrsNovi.getDate() + 13);
+        return vaskrsNovi;
+    }
+
     function generisiKalendar(mesec, godina) {
         const imena = ["Јануар", "Фебруар", "Март", "Април", "Mај", "Jун", "Jул", "Aвгуст", "Септембар", "Октобар", "Новембар", "Децембар"];
         document.getElementById('naslovMeseca').innerText = imena[mesec] + " " + godina + ".";
 
         let danas = new Date();
+        let vaskrsDatum = izracunajVaskrsObjekat(godina);
+
         let prviDan = new Date(godina, mesec, 1).getDay();
         if (prviDan === 0) prviDan = 7; 
 
@@ -120,11 +137,15 @@
 
         for (let dan = 1; dan <= brojDana; dan++) {
             let trenutniDatum = new Date(godina, mesec, dan);
-            let klasa = "";
-            if (trenutniDatum.getDay() === 0) klasa = "class='nedelja'";
-            if (trenutniDatum.toDateString() === danas.toDateString()) klasa = "class='danasnji'";
+            let klase = [];
+            
+            if (trenutniDatum.getDay() === 0) klase.push("nedelja");
+            if (trenutniDatum.toDateString() === danas.toDateString()) klase.push("danasnji");
+            if (trenutniDatum.toDateString() === vaskrsDatum.toDateString()) klase.push("vaskrs-u-tabeli");
 
-            html += "<td " + klasa + ">" + dan + "</td>";
+            let klasaTekst = klase.length > 0 ? "class='" + klase.join(" ") + "'" : "";
+
+            html += "<td " + klasaTekst + ">" + dan + "</td>";
             if (trenutniDatum.getDay() === 0) html += "</tr><tr>";
         }
         html += "</table>";
@@ -138,82 +159,15 @@
         document.getElementById('dodatakPrikaz').style.display = "none";
     }
 
-    function izracunajVaskrs(godina) {
-        const a = godina % 19, b = godina % 4, c = godina % 7;
-        const d = (19 * a + 15) % 30, e = (2 * b + 4 * c + 6 * d + 6) % 7;
-        const f = d + e;
-        let vD, vM;
-        if (f <= 9) { vD = 22 + f; vM = 2; } else { vD = f - 9; vM = 3; }
-        let vaskrsNovi = new Date(godina, vM, vD);
-        vaskrsNovi.setDate(vaskrsNovi.getDate() + 13);
-        return vaskrsNovi.toLocaleDateString('sr-RS', { day: 'numeric', month: 'long' });
-    }
-
     function prikaziVaskrs() {
         const g = document.getElementById('godinaBirac').value;
-        const datum = izracunajVaskrs(parseInt(g));
+        const v = izracunajVaskrsObjekat(parseInt(g));
+        const datum = v.toLocaleDateString('sr-RS', { day: 'numeric', month: 'long' });
         const prikaz = document.getElementById('dodatakPrikaz');
         prikaz.style.display = "block";
         prikaz.innerHTML = "<b>Васкрс " + g + ". године пада:</b><br><span style='color:#8b0000; font-size:24px;'>" + datum + "</span>";
     }
 
-    // Иницијално цртање за април 2026.
-    generisiKalendar(3, 2026);
-
+    generisiKalendar(3, 2026); // Старт за април 2026.
 </script>
-
-<script>
-function generisiKalendar(mesec, godina) {
-    const imena = ["Јануар", "Фебруар", "Март", "Април", "Mај", "Jун", "Jул", "Aвгуст", "Септембар", "Октобар", "Новембар", "Децембар"];
-    document.getElementById('naslovMeseca').innerText = imena[mesec] + " " + godina + ".";
-
-    let danas = new Date();
-    let prviDan = new Date(godina, mesec, 1).getDay();
-    if (prviDan === 0) prviDan = 7; 
-
-    let brojDana = new Date(godina, mesec + 1, 0).getDate();
-    
-    // ОВО ЈЕ НОВО: Рачунамо Васкрс за ту годину да бисмо га обојили у табели
-    let vaskrsDatum = izracunajVaskrsObjekat(godina);
-
-    let html = "<table><tr><th>П</th><th>У</th><th>С</th><th>Ч</th><th>П</th><th>С</th><th class='nedelja'>Н</th></tr><tr>";
-
-    for (let i = 1; i < prviDan; i++) {
-        html += "<td></td>";
-    }
-
-    for (let dan = 1; dan <= brojDana; dan++) {
-        let trenutniDatum = new Date(godina, mesec, dan);
-        let klasa = "";
-        
-        // 1. Ако је недеља
-        if (trenutniDatum.getDay() === 0) klasa = "class='nedelja'";
-        
-        // 2. Ако је ДАНАС (8. април 2026)
-        if (trenutniDatum.toDateString() === danas.toDateString()) klasa = "class='danasnji'";
-
-        // 3. НОВО: Ако је ВАСКРС (Бојимо га посебно)
-        if (trenutniDatum.toDateString() === vaskrsDatum.toDateString()) {
-            klasa = "style='background: #8b0000; color: white; border-radius: 50%; font-weight: bold;'";
-        }
-
-        html += "<td " + klasa + ">" + dan + "</td>";
-        if (trenutniDatum.getDay() === 0) html += "</tr><tr>";
-    }
-    html += "</table>";
-    document.getElementById('kalendarTabela').innerHTML = html;
-}
-
-// Помоћна функција која претвара Васкрс у датум који скрипта разуме
-function izracunajVaskrsObjekat(godina) {
-    const a = godina % 19, d = (19 * (godina % 19) + 15) % 30, e = (2 * (godina % 4) + 4 * (godina % 7) + 6 * d + 6) % 7;
-    const f = d + e;
-    let vD, vM;
-    if (f <= 9) { vD = 22 + f; vM = 2; } else { vD = f - 9; vM = 3; }
-    let v = new Date(godina, vM, vD);
-    v.setDate(v.getDate() + 13);
-    return v;
-}
-</script>    
 </body>
-</html>
