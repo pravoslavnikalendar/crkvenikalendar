@@ -218,7 +218,20 @@ function prikaziVaskrs() {
 }
       
 </script>
+	<script>
+function osveziKalendar() {
+    // 1. "Хватамо" шта је плавуша изабрала у менију на насловној
+    var g = document.getElementById("godinaBirac").value;
+    var m = document.getElementById("mesecBirac").value;
 
+    // 2. Ако је изабран месец, ова линија те "испаљује" на страницу календара
+    if (m !== "") {
+        window.location.href = "kalendar.html?mesec=" + m + "&godina=" + g;
+    }
+}
+</script>       
+
+	
 </body>
 </html>
 
