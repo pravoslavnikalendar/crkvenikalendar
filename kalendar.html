@@ -8,7 +8,7 @@
         body {
             margin: 0;
             /* Čuvamo tvoju magičnu grešku "backroung" */
-            
+
             background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
             background-image: url("papir.jpg");
             background-size: cover;
@@ -44,30 +44,13 @@
 
         th { background: rgba(139, 111, 71, 0.2); }
         .nedelja { color: #8b0000; font-weight: bold; }
-        
+
         .danasnji { 
             background: rgba(139, 111, 71, 0.4); 
             border: 2px solid #8b0000 !important;
             font-weight: bold;
         }
 
-.gornja-traka{
-display:flex;
-justify-content:flex-end;
-margin-bottom:10px;
-}
-
-.meseci{
- padding: 5px 9px;;
-font-size:15px;
-border-radius:8px;
-border:1px solid #8b6f47;
-background: rgba(242, 230, 201, 0.9);
-color:#4A3728;
-	right:19px;
-}
-
-        
         .home-dugme {
             position: fixed; top: 15px; left: 15px;
             background: rgba(242, 230, 201, 0.9);
@@ -83,38 +66,8 @@ color:#4A3728;
 
 <a href="index.html" class="home-dugme">🏠</a>
 
-
-<div class="gornja-traka">
-    <!-- 1. Бирање године -->
-    <select id="godinaBirac" class="meseci" onchange="osveziKalendar()">
-        <option value="2025">2025</option>
-        <option value="2026" selected>2026</option>
-        <option value="2027">2027</option>
-        <option value="2028">2028</option>
-        <option value="2029">2029</option>
-        <option value="2030">2030</option>
-    </select>
-
-    <!-- 2. Бирање месеца (Паметни мени који иде на Кalendar.html) -->
-    <select id="mesecBirac" class="meseci" onchange="osveziKalendar()">
-        <option value="">Mесец</option>
-        <option value="0">Јануар</option>
-        <option value="1">Фебруар</option>
-        <option value="2">Март</option>
-        <option value="3">Април</option>
-        <option value="4">Мај</option>
-        <option value="5">Јун</option>
-        <option value="6">Јул</option>
-        <option value="7">Август</option>
-        <option value="8">Септембар</option>
-        <option value="9">Октобар</option>
-        <option value="10">Новембар</option>
-        <option value="11">Децембар</option>
-    </select>
-</div>
-    
 <div class="container">
-    <h2 id="naslovMeseca"></h2>
+    <h2 id="naslovMeseca">Учитавам...</h2>
     <div id="kalendarTabela"></div>
 <div id="dodatakPrikaz" style="display:none; margin: 20px auto; padding: 15px; 
 background: rgba(242, 230, 201, 0.9); border: 1px solid #8b6f47; 
@@ -131,7 +84,7 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</butto
  color:#8b6f47; padding: 15px 30px; font-weight:bold;">⬅ Назад на почетну</a>
 </div>
 
-	
+
 <script>
     // POPRAVLJENA MAGIJA: Sada čita i mesec i godinu iz linka
     const params = new URLSearchParams(window.location.search);
@@ -139,7 +92,7 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</butto
     let izabranaGodina = params.get('godina'); // OVO JE NOVO!
 
     let danas = new Date();
-    
+
     // Ako nema ništa u linku, uzmi današnji mesec i godinu
     let m = (izabraniMesec !== null) ? parseInt(izabraniMesec) : danas.getMonth();
     let g = (izabranaGodina !== null) ? parseInt(izabranaGodina) : danas.getFullYear();
@@ -161,7 +114,7 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🥚 Када је Васкрс?</butto
         for (let dan = 1; dan <= brojDana; dan++) {
             let trenutniDatum = new Date(godina, mesec, dan);
             let klasa = "";
-            
+
             if (trenutniDatum.getDay() === 0) klasa = "class='nedelja'";
             if (trenutniDatum.toDateString() === danas.toDateString()) klasa = "class='danasnji'";
 
@@ -186,7 +139,7 @@ function izracunajVaskrs(godina) {
     const d = (19 * a + 15) % 30;
     const e = (2 * b + 4 * c + 6 * d + 6) % 7;
     const f = d + e;
-    
+
     // Васкрс по старом календару (Јулијанском)
     let dan, mesec;
     if (f <= 9) {
@@ -196,11 +149,11 @@ function izracunajVaskrs(godina) {
         dan = f - 9;
         mesec = "Април";
     }
-    
+
     // Додајемо 13 дана за нови календар
     let vaskrsNovi = new Date(godina, (mesec === "Март" ? 2 : 3), dan);
     vaskrsNovi.setDate(vaskrsNovi.getDate() + 13);
-    
+
     const opcije = { day: 'numeric', month: 'long' };
     return vaskrsNovi.toLocaleDateString('sr-RS', opcije);
 }
@@ -210,19 +163,19 @@ function prikaziVaskrs() {
     const params = new URLSearchParams(window.location.search);
     const g = parseInt(params.get('godina')) || 2026;
     const datum = izracunajVaskrs(g);
-    
+
     // Ово исписује одговор на онај твој папир:
     const prikaz = document.getElementById('dodatakPrikaz');
     prikaz.style.display = "block";
     prikaz.innerHTML = "<b>Васкрс " + g + ". године пада:</b><br><span style='color:#8b0000; font-size:24px;'>" + datum + "</span>";
 }
-      
+
 </script>
 
-
-	
 </body>
 </html>
+
+
 
 
 
