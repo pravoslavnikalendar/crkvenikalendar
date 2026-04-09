@@ -68,7 +68,7 @@ width: 360px !important;
 }
 
 
-	
+
 .dugme:hover {
 transform: translateY(-2px) scale(1.05);
 box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
@@ -76,7 +76,7 @@ inset 0 -3px 6px rgba(0,0,0,0.2),
 0 10px 20px rgba(0,0,0,0.35);
 background: rgba(242, 230, 201, 0.95);
 }
-	
+
 .gornji-papir {
 width: 95%;
 max-width: 430px;
@@ -85,7 +85,7 @@ text-align: center;
 margin: 0;
 }
 
-	
+
 .donji-papir {
 width: 95%;
 max-width: 430px;
@@ -93,7 +93,7 @@ padding: 20px; /* Smanjen padding da stane na manje ekrane */
 text-align: center;
 margin: 0;
 }
-	
+
 /* Datum gore */
 #datum {
 font-size: 14px;
@@ -109,7 +109,7 @@ margin-bottom: 15px;
 .opis { font-style: italic; color: #444; margin-top: 10px; font-size: 16px; }
 .post-ispod { font-weight: bold; margin-top: 5px; color: #5f0606; }
 
-	
+
 
 
 #datum small {
@@ -119,7 +119,7 @@ margin-bottom: 15px;
     font-weight: normal;
     color: #555;
 }
-	
+
 #svetitelj {
     display: block;
     width: 90%;          /* Ne dozvoljava širenje preko 90% ekrana */
@@ -148,10 +148,10 @@ margin-bottom: 15px;
     text-align: justify;
 }
 
-	
+
 /* 3. Sabijanje teksta unutar kutije */
 #datum, #svetitelj, #pouka-dana, #post-tip #praznik, #obicno, #sadrzaj, #crveno, {
-   
+
     line-height: 1.1;
     margin-bottom: 5px !important;
     display: block;
@@ -214,10 +214,10 @@ margin-bottom: 15px;
     top: 5px;           
     left: 15px;
 }
-	
 
 
-	
+
+
 /* Stil za pismo da bude otmeno levo */
 .pismo-prekidac {
     font-family: "Times New Roman", serif;
@@ -225,9 +225,9 @@ margin-bottom: 15px;
     font-weight: bold;
     color: #4A3728;
 }
-	
 
-	
+
+
 .potpis {
 font-size: 14px;
 margin-top: 20px;
@@ -273,8 +273,8 @@ font-style: italic;
     animation: mrdanje 1s infinite alternate;
 }
 
-	
-	
+
+
 .audio-precica {
     background: linear-gradient(145deg, #f2e6c9, #d9cdb0);
     border: 1px solid #8b6f47;
@@ -290,7 +290,7 @@ font-style: italic;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-	
+
 /* LAPTOP: Ovde boks živi i leti desno */
 .header-desktop-right-box {
     display: block; /* Vidljiv je */
@@ -344,7 +344,7 @@ font-size: 21px;
 
 
 
-	
+
 
 
 
@@ -393,7 +393,7 @@ font-size: 21px;
     margin-left: 30px; /* Odmiče ga od same ivice stakla */
     margin-top: 20px;
    margin-top: 10px !important;  /* Razmak ispod kalendara */
-    
+
     width: fit-content;           /* Zauzima samo onoliko mesta koliko su crtice široke */
 }
 }
@@ -414,7 +414,7 @@ font-size: 21px;
         border-radius: 2px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
-	
+
     .lista-molitvi {
         list-style: none;
         padding: 0;
@@ -448,7 +448,7 @@ font-size: 21px;
 
 
 
-	
+
 @media (max-width: 768px) {
 .container {
  width: 100%; /* Širi se na ceo ekran telefona */
@@ -511,7 +511,7 @@ margin: 0;
     width: 100% !important;
     margin: 20px 0;
 }
-		
+
 /* MOBILNI: Ovde ih "lecimo" da ne idu levo-desno nego centar */
 @media screen and (max-width: 768px) {
     .center {
@@ -531,7 +531,7 @@ margin: 0;
 }
 
 
-	
+
 @media (max-width: 430px) {
 .container { padding: 20px; width: 100%; }
 .header-mobile-box, .header-desktop-box {
@@ -545,7 +545,7 @@ grid-template-columns: 20px 20px 20px 1fr;
 } /* <--- OVA ZAGRADA MORA DA BUDE TU */
 
 
-	
+
 @media (prefers-color-scheme: dark) {
    body {
 padding: 0; /* Brišemo razmak oko celog tela */
@@ -571,9 +571,9 @@ padding: 0; /* Brišemo razmak oko celog tela */
     }
 }
 
-	
 
-	
+
+
 
 
 .nav-kalendar {
@@ -588,7 +588,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
     top: 7px;           
     left: 17px;
 }	
-	
+
 
 
 
@@ -608,7 +608,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
 
 <div class="container">
 <div class="gornji-papir">	
-    
+
 <div class="column-center">		
  <!-- NOVO DUGME ZA TVOJE KALENDARE -->
        <select class="nav-kalendar" onchange="location.href=this.value;">
@@ -630,7 +630,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
 
 
 
-	
+
   <!-- 2. Hamburger zona (Tri crtice) -->
         <div class="hamburger-zona">
             <a href="#header_right">
@@ -641,10 +641,10 @@ padding: 0; /* Brišemo razmak oko celog tela */
         <!-- 3. Logo -->
            <img src="ikona.png" alt="Logo" style="width: 80px; height: 70px; display: absolute; top: -2px; position: center;
 			border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-    
-	
+
+
 	<div class="kalendar-okvir" style="background: transparent; border: 1px solid rgba(139, 111, 71, 0.5); border-radius: 15px; padding: 10px; width: 95%; max-width: 360px; margin: 15px auto;">
-    
+
     <!-- GORNJI RED: Datum i Post -->
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(139, 111, 71, 0.2); padding-bottom: 5px;">
         <div id="datum" style="font-size: 13px; text-align: left; line-height: 1.2;"></div>
@@ -692,7 +692,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
     </marquee>
 </div>	
 
-	
+
    <!-- Skriveni meni (Vagončić) -->
     <div class="header_right mobile" id="header_right">
         <div class="meni-sadrzaj">
@@ -716,20 +716,20 @@ padding: 0; /* Brišemo razmak oko celog tela */
 
 
             <!-- 3. Prevod i Pečati -->
-           
+
            <div id="google_translate_element"></div>
-    
-    
+
+
 <div class="container">
 
-    
+
 <div class="column-center">	
 
 
         <p class="potpis">ПРАВОСЛАВЉЕ РИЗНИЦА - Љубав Православље</p>
-			
+
         </div>
-     
+
 
 
 <!-- Прва песма -->
@@ -766,12 +766,12 @@ padding: 0; /* Brišemo razmak oko celog tela */
 
 
 
-             
-	
- 
-	
-							 
- 
+
+
+
+
+
+
 			<div class="zadusnice-tabela" style="width: 100%; max-width: 400px; margin: 20px auto; text-align: center;">	
  </div>
 
@@ -865,7 +865,7 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
 
             </div>
         </div>
-	
+
 <script>	
 
 async function prikaziSve() {
@@ -879,7 +879,7 @@ async function prikaziSve() {
     const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
     const stariD = new Date(julijanskiMS);
     const AM = stariD.getFullYear() + 5508;
-    
+
     if(document.getElementById('datum')) {
         document.getElementById('datum').innerHTML = 
             d.toLocaleDateString('sr-RS', opcije) + 
@@ -898,7 +898,7 @@ async function prikaziSve() {
             if (brEl) {
                 const br = parseInt(brEl.innerText.replace('.', '').trim());
                 if (br === danDanas) {
-                    
+
                     // --- Свети (DOPUNJENO: Dodate tvoje klase za praznike i crveno slovo) ---
                     const sadrzajEl = blok.querySelector('.crveno, .praznik, .sadrzaj, .svetitelji, .obicno');
                     if (sadrzajEl && document.getElementById('svetitelj')) {
@@ -932,10 +932,10 @@ async function prikaziSve() {
 }
 prikaziSve();
 </script>
-	
-	
-	
-	
+
+
+
+
 	<script>
 function osveziKalendar() {
     // 1. "Хватамо" шта је плавуша изабрала у менију на насловној
@@ -948,7 +948,7 @@ function osveziKalendar() {
     }
 }
 </script>       
- 
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -985,7 +985,7 @@ function preslovi(pismo) {
 
     // Ova lista obuhvata sve tvoje krupne tekstove od 35px i tabelu
     let tekstovi = document.querySelectorAll('h1, h2, h3, p, span, b, td, th, .pouka-box');
-    
+
     tekstovi.forEach(el => {
         let sadrzaj = el.innerHTML;
         for (let kljuc in mapa) {
@@ -997,7 +997,7 @@ function preslovi(pismo) {
 </script>
 
 
-	
+
 <script>
     fetch('svetitelji.json')
     .then(response => response.json())
@@ -1008,7 +1008,7 @@ function preslovi(pismo) {
         for (let kljuc in data) {
             let p = data[kljuc];
             let klasa = (p.boja === "red") ? "crveno" : "";
-            
+
             kontejner.innerHTML += `
                 <div class="pouka-box" style="text-align: left;">
                     <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
@@ -1026,7 +1026,7 @@ function preslovi(pismo) {
 </script>
 
 
-	
+
 <div class="column-right-outer">
 <div class="column-right-inner">
 <aside>
@@ -1042,8 +1042,12 @@ function preslovi(pismo) {
       }, 'google_translate_element');
     }
 </script>
-
-
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div class="clear"></div>
+<!-- ОВДЕ ЈЕ МАГИЈА: Додао сам https: и сад ће ГитХуб да га пусти! -->
+<div id="google_translate_element"></div>
+  <p class="potpis"></p>
+</div>
 
 
 
