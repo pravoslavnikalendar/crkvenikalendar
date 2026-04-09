@@ -1059,36 +1059,7 @@ function preslovi(pismo) {
 
 
 
-<!-- Iskačući prozor za uputstvo -->
-<div id="pwa-uputstvo" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); width:25%; max-width:350px; background: #EED69F; color: #333; padding: 15px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; text-align: center; font-family: sans-serif;">
-  <p style="margin: 0 0 10px 0; font-weight: bold;">Instaliraj Kalendar na telefon:</p>
-  <p style="font-size: 14px; margin: 5px 0;">
-    Klikni na ikonicu <strong>deli (share)</strong> 
-    <img src="ikona.png" style="width:20px; height:20px; vertical-align:middle; border-radius:5px;"> 
-    pa na <strong>"Add to Home Screen"</strong>.
-  </p>
-  <button onclick="zatvoriUputstvo()" style="margin-top: 10px; background: #333; color: white; border: none; padding: 5px 15px; border-radius: 10px; cursor: pointer;">Razumem</button>
-</div>
 
-<script>
-  function proveriUputstvo() {
-    // Provera da li je sajt otvoren kao aplikacija (standalone)
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-
-    // Ako NIJE instaliran, prikaži poruku nakon 3 sekunde
-    if (!isStandalone) {
-      setTimeout(() => {
-        document.getElementById('pwa-uputstvo').style.display = 'block';
-      }, 3000);
-    }
-  }
-
-  function zatvoriUputstvo() {
-    document.getElementById('pwa-uputstvo').style.display = 'none';
-  }
-
-  window.onload = proveriUputstvo;
-</script>
 
 
 
