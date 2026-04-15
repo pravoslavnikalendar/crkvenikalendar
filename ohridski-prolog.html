@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ПСАЛТИР</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url("papir.png");
+            background-size: cover;
+            background-attachment: fixed; /* Pozadina se ne pomera dok skroluješ tekst */
+            font-family: "Times New Roman", serif;
+            color: #4A3728;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            padding-top: 60px; /* Razmak da naslov ne udara u vrh ekrana */
+            background: rgba(252, 245, 229, 0.6); /* Blaga providnost da se tekst bolje vidi preko papira */
+            min-height: 100vh;
+        }
+        
+        /* SADRŽAJ (Katizme) */
+        .sadrzaj {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Dve kolone dugmića */
+            gap: 10px;
+            margin-bottom: 40px;
+            padding: 10px;
+        }
+
+        .katizma-link {
+            padding: 10px;
+            background: rgba(242, 230, 201, 0.9);
+            border: 1px solid #8b6f47;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #4A3728;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+       /* STIL ZA TEKST PSALAMA */
+.tekst-sekcija {
+    text-align: left;
+    line-height: 1.6;
+    font-size: 22px; /* Malo krupnija slova za lakše čitanje */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Blaga podloga */
+    border-radius: 10px;
+    border-bottom: 3px solid #8b6f47; /* Deblja linija na dnu katizme */
+    margin-bottom: 50px;
+ text-align: justify;
+}
+
+        .katizma-naslov {
+            text-align: center;
+            color: #8b0000; /* Crvena boja za naslove katizmi */
+            font-variant: small-caps;
+            border-top: 1px solid #8b6f47;
+            padding-top: 20px;
+        }
+
+        .home-dugme {
+            position: fixed; top: 15px; left: 15px;
+            background: rgba(242, 230, 201, 0.9);
+            padding: 10px 15px; border-radius: 8px;
+            border: 1px solid #8b6f47; text-decoration: none; color: #4A3728;
+            font-size: 20px; z-index: 100;
+        }
+
+.nazad-dugme {
+    font-size: 26px; /* Veća strelica na dnu */
+    padding: 15px 30px;
+}
+
+ h1 { 
+    margin-top: 20px; 
+    font-size: 32px; 
+    color: #4A3728; 
+    margin-bottom: 20px;
+}
+b { color: #8b0000; } /* Crveni brojevi psalama */
+        /* Da se lepše skroluje kad klikneš na link */
+        html { scroll-behavior: smooth; }
+
+.fiksni-vrh {
+    position: fixed;
+    bottom: 25px; /* Malo iznad dna da je palac lakše dohvati */
+    right: 20px;
+    background: rgba(242, 230, 201, 0.95); /* Tvoja bež, skoro neprovidna */
+    border: 1px solid #8b6f47;            /* Tvoj zlatno-braon okvir */
+    border-radius: 50%;                   /* Savršen krug */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #8b6f47;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Malo jača senka da "lebdi" iznad papira */
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.fiksni-vrh:hover {
+    transform: scale(1.1); /* Blago se poveća kad se klikne */
+}
+
+
+
+
+/* Ovo važi za sve uređaje */
+.vrh-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 10px;
+    color: #8b6f47;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Ovo se aktivira SAMO na telefonima */
+@media (max-width: 480px) {
+    .vrh-link {
+        font-size: 32px; /* Još veća strelica za palac */
+        padding: 20px;   /* Veći prostor za klik */
+        display: block;  /* Da bude na sredini ekrana */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<div class='column-right-outer'>
+<div class='column-right-inner'>
+<aside>
+<div class='sidebar section' id='sidebar-right-1'><div class='widget Translate' data-version='1' id='Translate1'>
+<h2 class='title'>Translate</h2>
+<div id='google_translate_element'></div>
+<script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'sr',
+        autoDisplay: 'true',
+        layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+      }, 'google_translate_element');
+    }
+
+
+  
+  </script>
+<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
+<div class='clear'></div>
+    <a href="index.html" class="home-dugme">🏠</a>
+
+      <div class="container">
+        <h1>ПСАЛТИР</h1>
+        <p><i></i></p>        
+         <!-- za tekst -->
+        <!-- SADRŽAJ -->
+               <div class="sadrzaj" style="grid-template-columns: repeat(3, 1fr);"> <!-- Tri kolone za dane -->
+<a href="#april1" class="katizma-link">1. april</a>
+<a href="#april2" class="katizma-link">2. april</a>
+<a href="#april3" class="katizma-link">3. april</a>
+<a href="#april4" class="katizma-link">4. april</a>
+<a href="#april5" class="katizma-link">5. april</a>
+<a href="#april6" class="katizma-link">6. april</a>
+<a href="#april7" class="katizma-link">7. april</a>
+<a href="#april8" class="katizma-link">8. april</a>
+<a href="#april9" class="katizma-link">9. april</a>
+<a href="#april10" class="katizma-link">10. april</a>
+<a href="#april11" class="katizma-link">11. april</a>
+<a href="#april12" class="katizma-link">12. april</a>
+<a href="#april13" class="katizma-link">13. april</a>
+<a href="#april14" class="katizma-link">14. april</a>
+<a href="#april15" class="katizma-link">15. april</a>
+<a href="#april16" class="katizma-link">16. april</a>
+<a href="#april17" class="katizma-link">17. april</a>
+<a href="#april18" class="katizma-link">18. april</a>
+<a href="#april20" class="katizma-link">19. april</a>
+<a href="#april21" class="katizma-link">20. april</a>
+<a href="#april22" class="katizma-link">21. april</a>
+<a href="#april23" class="katizma-link">22. april</a>
+<a href="#april24" class="katizma-link">23. april</a>
+<a href="#april25" class="katizma-link">24. april</a>
+<a href="#april26" class="katizma-link">25. april</a>
+<a href="#april16" class="katizma-link">26. april</a>
+<a href="#april27" class="katizma-link">27. april</a>
+<a href="#april28" class="katizma-link">28. april</a>
+<a href="#april29" class="katizma-link">29. april</a>
+<a href="#april30" class="katizma-link">30. april</a>
+            <!-- Ovde dodaš linkove do 20. katizme -->
+        </div>
+<h1 style="color: #8b0000; font-size: 38px; margin-top: 40px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+    ОХРИДСКИ ПРОЛОГ
+</h1>
+<div style="height: 2px; background: #8b6f47; width: 100px; margin: 0 auto 30px auto;"></div>
+<div id="april1" class="tekst-sekcija">
+<div style="text-align: center; color: #8b6f47; font-size: 20px; margin-bottom: -10px;">🌿</div>    
+<h2 class="katizma-naslov">1. април</h2>
+<p>1. Преп. Тит Чудотворац. Од младих година возљуби Христа Господа и омрзе 
+свет сујетни. Тога ради остави свет, оде у манастир и прими ангелски образ. 
+Не жалећи себе, он се предаде прискорбном и тесном путу иноческом. 
+Кроз велико стрпљење стече две основне добродетељи: смерност и послушност 
+и у овим добродетељима он превазиђе „не само братију него и све људе“. 
+Чистоту душе и тела беше сачувао од младости своје. У време иконоборске 
+јереси показа се као непоколебљиви столп Цркве Божје. Због његове велике 
+смерности и чистоте дарова му се од Бога дар чудотворства и за живота и 
+по смрти. А кад се пресели ка Господу, остави многобројне ученике своје. 
+Упокоји се мирно у IX веку.
+
+2. Св. муч. Амфијан и Едесије. Два младића, два брата рођена. 
+Из града Патаре, од родитеља знаменитих но незнабожних. Када учаху 
+светске науке у граду Вириту, просветише се некако Духом Божјим, 
+те познавши лаж незнабоштва назреше истину Хришћанства. Па кад се 
+вратише дома, не могоше живети више са незнабожним родитељима и 
+сродницима него тајно одбегоше у Кесарију Палестинску к презвитеру 
+Памфилу, познатом по светости и духовној учености. Код Памфила се 
+поучаваху закону Божјем дан и ноћ и упражњаваху у подвизима хришћанским. 
+За Амфијана се каже да телом беше 20 година стар, а разумом и 
+великодушношћу столетан. Када наста гоњење, у време Максимина, 
+многи хришћани побегоше из града и сакрише се, док се други драговољно и 
+радосно предадоше у руке мучитеља, да би пострадали за име Онога који је 
+прво за њих пострадао. Амфијан буде међу овим последњим. Он дође небојажљиво 
+у храм незнабожачки, где кнез Урбан приношаше жртве идолима, па ухвати 
+кнеза за руку, којом држаше жртву, и викну му да одустане од служења и 
+жртвоприношења мртвим идолима, и да позна Бога истинога. Неки који чуше 
+ове речи и видеше оволику храброст Амфијанову, покајаше се и примише 
+веру Христову. Но кнез, ражљућен, баци Амфијана на муке. Између осталих 
+мука завише му ноге памуком па запалише. Но кад оста жив, бацише га у 
+море са каменом о врату; а море се узбурка и избаци тело мучениково 
+у град. Едесије би најпре послан у бакарне руднике у Палестину, по 
+том одведен у Мисир. У Александрији испуни се светом ревношћу против 
+некога кнеза Јероклеа, који на тргу беше прикупио хришћанске монахиње, 
+девојке и часне жене, и раздаваше их најбестиднијим развратницима на 
+поругање – испуни се Едесије светом ревношћу и удари шамар бесчесном 
+кнезу. Због тога би мучен и у море утопљен, као и брат му Амфијан. 
+Као два невина јагњета жртвоваше се за Христа, око 306. Год., 
+и преселише се у дивне дворе Господње.</p>
+
+<p>
+Два се брата предадоше Богу на жртву,
+Презирући свет трулежни, лешину мртву,
+Амфијан и Едесије, браћа утробна,
+У мукама дивна браћа, Христу подобна.
+Ко у Бога веру има, тај свет не цени,
+Мртвој души може Бога свет да замени.
+Ко ка Христу љубав има, смрти с’ не боји,
+У бесмртне и пре смрти тај се већ броји.
+Ко смрт сматра крајем мрачним, крајем беславним,
+Тај и себе сматрат’ мора робом очајним.
+Мученици смрт сматраху завесом неба,
+Пример даше да се смрти страшит не треба.
+Не страши се, о човече, да неба нема
+Но се страши Суда страшног што небо спрема.
+Било б’ лакше за грешника да неба није,
+Зато грешник с’ гневом пита: та небо гди је?
+О грешниче, небо није тамо где и ти,
+Ти и небо никад скупа нећете бити.</p>
+<center><b>Расуђивање</b></center>
+<p>
+„Боље бити незналицом, а љубављу се приближавати Богу, 
+него бити многозналицом и уједно непријатељ Богу“. 
+То су речи св. Иринеја, Лионског свештеномученика. 
+Истинитост ових речи потврђивала се у свима временима, 
+па се потврђује и у наше време. Само се овоме мора једно 
+додати, на име, да љубитељи Бога нису незналице, пошто 
+они знају за Бога толико, да Га могу љубити. 
+Од свих знања људских, ово је знање најважније и највеће. 
+И још се мора додати, да непријатељи Божји не могу бити 
+многозналице – мада они себе за такве сматрају – пошто 
+је њихово знање неминовно хаотично, јер нема главе и 
+нема реда. Јер глава и ред свакоме знању јесте Бог. 
+Неки од светитеља – као Павле Прости – нису знали ни 
+читати ни писати, али су силом духа свога и божанственом 
+љубављу превазилазили сав свет. Ко се љубављу приближује 
+Богу, тај није способан за злочин. А ученост без љубави 
+к Богу задахнута је духом злочина и рата. Св. Јевтимије 
+Велики учаше: „имајте љубав, јер што је со јелу, то је 
+љубав свакој врлини.“ Безукусна је и хладна свака 
+врлина ако није посољена и загрејана божанском љубављу.
+</p>
+<center><b>Созерцање</b></center>
+<p>
+
+Да созерцавам Господа Исуса у аду, и то:
+1. како је Његов план спасења свеобиман, обухвата сва 
+колена и сва времена од почетка до краја; <br>
+2. како је Он дошао на земљу у телу, не само ради 
+оних који су тада живели на земљи него и ради оних 
+који ће живети, као и за оне који су живели; <br>
+3. како Он, док Му мртво тело лежи у гробу, душом 
+силази у ад да објави спасење и ослобођење окованих.
+</p>
+<center><b>Беседа</b></center>
+<p>
+о живоме Богу и о живој деци Његовој
+Ако, дакле, живимо ако умремо Господњи смо. (Рим. 14, 8)
+Чији смо кад живимо? Господњи. Чији смо кад умиремо? Господњи. 
+Чији су праведници? Господњи? Чији су грешници? Господњи. 
+Господ обухвата све, и живе и мртве, и садашње, и прошле, 
+и будуће. Нико није тако свеобухватљив као Господ Исус. 
+Који од такозваних добротвора човечанства, од учитеља, вођа, 
+просветитеља, икада покуша да учини неко добро умрлим? 
+Ту се може одлучно одговорити: никада и нико! И сама помисао 
+била би смешна у очима васцелога света – учинити неко добро 
+мртвима! То је смешно свима онима који мисле, да је смрт 
+моћнија од Бога, и да оно што она прогута, уништава за свагда. 
+Но бринути за мртве, и чинити добро мртвима, престало је 
+бити смешним од откровења Господа Исуса, који откри да је 
+Бог – Бог живих, и који то и на делу показа сишавши у ад, 
+да ослободи и спасе душе помрлих праведника све од Адама 
+па до Његове смрти на крсту. Свеобухватљив је Господ наш 
+преславни како Својом видовитом мишљу, јер мисли о свима 
+и види све од жене рођене, и над гробовима и у гробовима; 
+тако и Својом љубављу, јер грли све душе праведничке, 
+без обзира које их место или време скрива; тако најзад и 
+Својим трудом, јер се труди за све њих, да их све ослободи, 
+спасе, уведе у царство и прослави пред лицем Оца Свог 
+небесног, Духа Светог Животворног и безбројних светих Ангела. 
+Господе, Теби слава и хвала вавек. Амин.
+</p>
+
+
+
+
+<a href="#" class="fiksni-vrh">⬆</a>
+
+
+</body>
+</html>
+        
