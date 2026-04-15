@@ -941,6 +941,13 @@ async function prikaziSve() {
                       document.getElementById('svetitelj').innerHTML = sadrzajEl.outerHTML;
                     }
 
+					// Ово „гађа“ баш све твоје класе из Априла:
+const sadrzajEl = blok.querySelector('.crveno, .praznik, .svetitelji, .sadrzaj, .obicno');
+
+if (sadrzajEl && document.getElementById('svetitelj')) {
+    // Убацујемо садржај, а твој CSS у index.html ће се побринути за боју
+    document.getElementById('svetitelj').innerHTML = sadrzajEl.innerHTML;
+}
                     // --- Поука (Опис) ---
                     const opisEl = blok.querySelector('.opis');
                     const poukaMesto = document.getElementById('pouka-dana');
