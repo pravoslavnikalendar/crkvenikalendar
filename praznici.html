@@ -140,6 +140,24 @@ media (max-width: 600px) {
 </script>
 
 <script>
+    // 1. FUNKCIJA ZA DUGME "PROČITAJ VIŠE"
+    function prikaziVise(dugme) {
+        let pTag = dugme.parentElement;
+        let skraceno = pTag.querySelector('.skraceni-tekst');
+        let celo = pTag.querySelector('.ceo-tekst');
+        
+        if (celo.style.display === "none") {
+            celo.style.display = "inline";
+            skraceno.style.display = "none";
+            dugme.innerText = " Скрати";
+        } else {
+            celo.style.display = "none";
+            skraceno.style.display = "inline";
+            dugme.innerText = " Прочитај више";
+        }
+    }
+
+    // 2. ČITANJE PODATAKA IZ JSON FAJLA
     fetch('svetitelji.json')
     .then(response => response.json())
     .then(data => {
@@ -150,18 +168,18 @@ media (max-width: 600px) {
             let p = data[kljuc];
             let klasa = (p.boja === "red") ? "crveno" : "obicno";
             
-            // Ovde spremamo tekst: ako je duži od 100 slova, pravimo "Pročitaj više"
-            let tekstPouke = "";
-            if (p.pouka) {
-                if (p.pouka.length > 100) {
-                    tekstPouke = `
+            // Logika za skraćivanje teksta (Žitija)
+            let tekstPrikaz = "";
+            if (p.pouka && p.pouka.trim() !== "") {
+                if (p.pouka.length > 120) {
+                    tekstPrikaz = `
                         <p style="margin-top: 10px; font-style: italic;">
-                            <span class="skraceni-tekst">${p.pouka.substring(0, 100)}...</span>
+                            <span class="skraceni-tekst">${p.pouka.substring(0, 120)}...</span>
                             <span class="ceo-tekst" style="display: none;">${p.pouka}</span>
-                            <button onclick="prikaziVise(this)" style="background: none; border: none; color: #8b6f47; font-weight: bold; cursor: pointer; font-size: 17px; padding: 0;"> Прочитај више</button>
+                            <button onclick="prikaziVise(this)" style="background: none; border: none; color: #8b6f47; font-weight: bold; cursor: pointer; font-size: 17px; padding: 0; font-family: 'Times New Roman', serif;"> Прочитај више</button>
                         </p>`;
                 } else {
-                    tekstPouke = `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>`;
+                    tekstPrikaz = `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>`;
                 }
             }
 
@@ -169,30 +187,16 @@ media (max-width: 600px) {
                 <div class="pouka-box">
                     <span class="${klasa}">${kljuc}</span> - 
                     <span class="${klasa}">${p.praznik}</span>
-                    ${tekstPouke}
+                    ${tekstPrikaz}
                     ${p.slika ? `<img src="${p.slika}" style="width: 150px; height: auto; display: block; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">` : ""}
                 </div>
             `;
         }
     })
     .catch(err => {
-        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem.";
+        console.error("Greska:", err);
+        document.getElementById('lista-praznika').innerHTML = "Проблем са учитавањем празника.";
     });
-
-// Funkcija za dugme mora ostati dostupna
-function prikaziVise(dugme) {
-    let pTag = dugme.parentElement;
-    let skraceno = pTag.querySelector('.skraceni-tekst');
-    let celo = pTag.querySelector('.ceo-tekst');
-    
-    if (celo.style.display === "none") {
-        celo.style.display = "inline";
-        skraceno.style.display = "none";
-        dugme.innerText = " Скрати";
-    } else {
-        celo.style.display = "none";
-        skraceno.style.display = "inline";
-        dugme.innerText = " Прочитај више";
-    }
-}
 </script>
+</body>
+</html>
