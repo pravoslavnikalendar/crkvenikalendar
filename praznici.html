@@ -139,27 +139,28 @@ media (max-width: 600px) {
 
 </script>
 
-<script>
-    // 1. FUNKCIJA ZA DUGME "PROČITAJ VIŠE"
-    function prikaziVise(dugme) {
-        let pTag = dugme.parentElement;
-        let skraceno = pTag.querySelector('.skraceni-tekst');
-        let celo = pTag.querySelector('.ceo-tekst');
-        
-        if (celo.style.display === "none") {
-            celo.style.display = "inline";
-            skraceno.style.display = "none";
-            dugme.innerText = " Скрати";
-        } else {
-            celo.style.display = "none";
-            skraceno.style.display = "inline";
-            dugme.innerText = " Прочитај више";
-        }
-    }
+ <div id="lista-praznika">Учитавам празнике...</div>
+</div>
 
-    // 2. ČITANJE PODATAKA IZ JSON FAJLA
-    fetch('svetitelji.json')
-    .then(response => response.json())
+<script>
+function prikaziVise(dugme) {
+    let pTag = dugme.parentElement;
+    let skraceno = pTag.querySelector('.skraceni-tekst');
+    let celo = pTag.querySelector('.ceo-tekst');
+    
+    if (celo.style.display === "none") {
+        celo.style.display = "inline";
+        skraceno.style.display = "none";
+        dugme.innerText = " Скрати";
+    } else {
+        celo.style.display = "none";
+        skraceno.style.display = "inline";
+        dugme.innerText = " Прочитај више";
+    }
+}
+
+fetch('svetitelji.json')
+    .then(res => res.json())
     .then(data => {
         let kontejner = document.getElementById('lista-praznika');
         kontejner.innerHTML = ""; 
@@ -167,35 +168,30 @@ media (max-width: 600px) {
         for (let kljuc in data) {
             let p = data[kljuc];
             let klasa = (p.boja === "red") ? "crveno" : "obicno";
-            
-            // Logika za skraćivanje teksta (Žitija)
             let tekstPrikaz = "";
+
             if (p.pouka && p.pouka.trim() !== "") {
                 if (p.pouka.length > 120) {
-                    tekstPrikaz = `
-                        <p style="margin-top: 10px; font-style: italic;">
-                            <span class="skraceni-tekst">${p.pouka.substring(0, 120)}...</span>
-                            <span class="ceo-tekst" style="display: none;">${p.pouka}</span>
-                            <button onclick="prikaziVise(this)" style="background: none; border: none; color: #8b6f47; font-weight: bold; cursor: pointer; font-size: 17px; padding: 0; font-family: 'Times New Roman', serif;"> Прочитај више</button>
-                        </p>`;
+                    tekstPrikaz = `<p style="margin-top:10px; font-style:italic;">
+                        <span class="skraceni-tekst">${p.pouka.substring(0, 120)}...</span>
+                        <span class="ceo-tekst" style="display:none;">${p.pouka}</span>
+                        <button onclick="prikaziVise(this)" style="background:none; border:none; color:#8b6f47; font-weight:bold; cursor:pointer; font-size:17px; padding:0;"> Прочитај више</button>
+                    </p>`;
                 } else {
-                    tekstPrikaz = `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>`;
+                    tekstPrikaz = `<p style="margin-top:10px; font-style:italic;">${p.pouka}</p>`;
                 }
             }
 
             kontejner.innerHTML += `
                 <div class="pouka-box">
-                    <span class="${klasa}">${kljuc}</span> - 
-                    <span class="${klasa}">${p.praznik}</span>
+                    <span class="${klasa}">${kljuc}</span> - <span class="${klasa}">${p.praznik}</span>
                     ${tekstPrikaz}
-                    ${p.slika ? `<img src="${p.slika}" style="width: 150px; height: auto; display: block; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">` : ""}
-                </div>
-            `;
+                    ${p.slika ? `<img src="${p.slika}" style="width:150px; display:block; margin:15px auto; border-radius:10px;">` : ""}
+                </div>`;
         }
     })
     .catch(err => {
-        console.error("Greska:", err);
-        document.getElementById('lista-praznika').innerHTML = "Проблем са учитавањем празника.";
+        document.getElementById('lista-praznika').innerHTML = "Грешка у JSON фајлу. Провери запете!";
     });
 </script>
 </body>
