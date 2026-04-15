@@ -139,14 +139,11 @@ media (max-width: 600px) {
 
 </script>
 
- <div id="lista-praznika">Учитавам празнике...</div>
-</div>
-
 <script>
 function prikaziVise(dugme) {
-    let pTag = dugme.parentElement;
-    let skraceno = pTag.querySelector('.skraceni-tekst');
-    let celo = pTag.querySelector('.ceo-tekst');
+    let boks = dugme.parentElement;
+    let skraceno = boks.querySelector('.skraceni-tekst');
+    let celo = boks.querySelector('.ceo-tekst');
     
     if (celo.style.display === "none") {
         celo.style.display = "inline";
@@ -158,41 +155,58 @@ function prikaziVise(dugme) {
         dugme.innerText = " Прочитај више";
     }
 }
-
-fetch('svetitelji.json')
-    .then(res => res.json())
+</script>
+    
+<script>
+    fetch('svetitelji.json')
+    .then(response => response.json())
     .then(data => {
         let kontejner = document.getElementById('lista-praznika');
-        kontejner.innerHTML = ""; 
+        kontejner.innerHTML = ""; // Briše poruku o učitavanju
 
         for (let kljuc in data) {
             let p = data[kljuc];
-            let klasa = (p.boja === "red") ? "crveno" : "obicno";
-            let tekstPrikaz = "";
-
-            if (p.pouka && p.pouka.trim() !== "") {
-                if (p.pouka.length > 120) {
-                    tekstPrikaz = `<p style="margin-top:10px; font-style:italic;">
-                        <span class="skraceni-tekst">${p.pouka.substring(0, 120)}...</span>
-                        <span class="ceo-tekst" style="display:none;">${p.pouka}</span>
-                        <button onclick="prikaziVise(this)" style="background:none; border:none; color:#8b6f47; font-weight:bold; cursor:pointer; font-size:17px; padding:0;"> Прочитај више</button>
-                    </p>`;
-                } else {
-                    tekstPrikaz = `<p style="margin-top:10px; font-style:italic;">${p.pouka}</p>`;
-                }
-            }
-
+            let klasa = (p.boja === "red") ? "crveno" : "";
+            
             kontejner.innerHTML += `
-                <div class="pouka-box">
-                    <span class="${klasa}">${kljuc}</span> - <span class="${klasa}">${p.praznik}</span>
-                    ${tekstPrikaz}
-                    ${p.slika ? `<img src="${p.slika}" style="width:150px; display:block; margin:15px auto; border-radius:10px;">` : ""}
-                </div>`;
+                <div class="pouka-box" style="text-align: left;">
+                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
+                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
+                    ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
+                   
+                    ${p.slika ? `<img src="${p.slika}" style="width: 130px; height: auto; display: block; margin: 15px auto; 
+                    border-radius: 10px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.8); border: 1px solid rgba(212, 175, 55, 0.4);">` : ""}
+                </div>
+            `;
         }
     })
     .catch(err => {
-        document.getElementById('lista-praznika').innerHTML = "Грешка у JSON фајлу. Провери запете!";
+        console.error("Greska:", err);
+        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
     });
 </script>
+
+    
+    kontejner.innerHTML += `
+                <div class="pouka-box" style="text-align: center; margin-bottom: 30px;">
+                    <div style="margin-bottom: 10px;">
+                        <span class="${klasa}" style="font-size: 22px;">${kljuc}</span> - 
+                        <span class="${klasa}" style="font-size: 22px; font-weight: bold;">${p.praznik}</span>
+                    </div>
+
+                    ${p.slika ? `
+                        <a href="${p.link ? p.link : '#'}">
+                            <img src="${p.slika}" style="width: 180px; height: auto; display: block; margin: 15px auto; 
+                            border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); border: 2px solid #8b6f47; cursor: pointer;" 
+                            title="Кликни за житије">
+                        </a>` : ""}
+                    
+                    ${p.link ? `
+                        <a href="${p.link}" style="display: inline-block; margin-top: 10px; color: #8b0000; 
+                        text-decoration: none; font-weight: bold; font-size: 18px; border-bottom: 1px solid #8b0000;">
+                           📖 Прочитај житије
+                        </a>` : ""}
+                </div>
+            `;
 </body>
 </html>
