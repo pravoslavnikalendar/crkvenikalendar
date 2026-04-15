@@ -2,11 +2,11 @@
 <html lang="sr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Значајни празници 2026</title>
     <style>
         body {
             margin: 0;
-            background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
             background-image: url("papir.png");
             background-size: cover;
             background-attachment: fixed;
@@ -14,66 +14,23 @@
             text-align: center;
             color: #4A3728;
         }
-        .container { padding-top: 60px; width: 90%; max-width: 500px; margin: auto; }
-
-/* 1. OVO JE KOMANDA KOJA "OTKLJUČAVA" VELIČINU SLOVA NA TELEFONU */
-html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-}
-
-        
-#lista-praznika .pouka-box {
-    width: 100% !important; 
-    margin: 20px auto !important;
-    padding: 15px !important;
-    display: block !important;
-    box-sizing: border-box !important;
-}
-
-#lista-praznika .pouka-box span, 
-#lista-praznika .pouka-box b {
-    font-size: 40px !important; /* KRUPNI SVETITELJI */
-    color: #dd1616 !important; /* TVOJA CRVENA BOJA */
-    text-decoration: none !important; /* BRIŠE PLAVU LINIJU */
-}
-
-#lista-praznika .pouka-box p {
-    font-size: 19px !important; /* KRUPNA ŽITIJA */
-    color: #4A3728 !important; /* TVOJA BRAON BOJA */
-    text-decoration: none !important;
-}
-#danas-kutija {
-    background: rgba(255, 255, 255, 0.2); /* Prozirno bela kao magla */
-    backdrop-filter: blur(10px);         /* Zamućuje papir ispod - pravi efekat stakla */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Tanki prozirni "stakleni" rub */
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Blaga senka za dubinu */
-    margin: 20px auto;
-    width: 90%;
-    max-width: 400px;
-}
-
-#danasnja-slika {
-    border-radius: 50%; /* Pravi savršen krug od slike */
-    border: 3px solid rgba(128, 128, 128, 0.3); /* Prozirno sivi okvir oko ikone */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
+        .container { padding-top: 60px; width: 95%; max-width: 550px; margin: auto; }
         
         .pouka-box {
             background: rgba(242, 230, 201, 0.85);
-            padding: 50px;
+            padding: 15px;
             border-radius: 15px;
             border: 2px solid #8b6f47;
             margin-bottom: 20px;
+            display: flex; /* Слика лево, текст десно */
+            align-items: center;
+            gap: 15px;
             text-align: left;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        .crveno { color: #dd1616; font-weight: bold; font-size: 22px; }
-        .obicno { color: #4A3728; font-weight: bold; font-size: 20px; }
+        .crveno { color: #dd1616; font-weight: bold; font-size: 20px; }
+        .obicno { color: #4A3728; font-weight: bold; font-size: 18px; }
 
         .home-dugme {
             position: fixed; top: 15px; left: 15px;
@@ -83,135 +40,65 @@ html {
             font-size: 20px; z-index: 1000;
         }
 
-.pouka-box p {
-    max-height: 150px; /* Ograničava visinu teksta */
-    overflow-y: auto;  /* Dodaje mali klizač ako je tekst predugačak */
-    padding-right: 5px;
-}
+        img.praznik-slika {
+            width: 110px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #8b6f47;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
 
-media (max-width: 600px) {
-    .pouka-box {
-        width: 100% !important; 
-        padding: 20px 10px !important;
-    }
-
-    
-   /* 2. TVOJ MEDIA DEO GDE SI STAVILA 40px ILI 60px */
-@media (max-width: 600px) {
-    .pouka-box span, .pouka-box b {
-        font-size: 35px !important; /* Probaj prvo 35px, to je već ogromno */
-    }
-    .pouka-box p {
-        font-size: 22px !important;
-    }
-}
+        .desna-strana { flex-grow: 1; }
     </style>
 </head>
 <body>
 
 <a href="index.html" class="home-dugme">🏠</a>
 
-    
-   
-
 <div class="container">
     <h1 style="letter-spacing: 2px;">☦️ ПРАЗНИЦИ 2026.</h1>
-  
-    <div id="lista-praznika">
-        <!-- Ovde skripta sama ubacuje podatke -->
-    </div>
-</div>
-    
-<p style="margin-top: 10px; font-style: Times new roman; font-size: 22px;">
-    ${p.pouka ? `
-        <span class="skraceni-tekst">${p.pouka.substring(0, 100)}...</span>
-        <span class="ceo-tekst" style="display: none;">${p.pouka}</span>
-        <button onclick="prikaziVise(this)" style="background: none; border: none; color: #8b6f47; font-weight: bold; cursor: pointer; font-size: 17px; padding: 0;"> Прочитај више</button>
-    ` : ""}
-</p>
-
-
-    <div id="danas-kutija">
-    <h3 id="svetitelj-tekst"></h3>
-    <img id="danasnja-slika" src="" style="display:none; width:150px; margin:auto;">
-    <p id="danasnja-pouka" style="font-style:italic;"></p>
+    <div id="lista-praznika">Учитавам празнике...</div>
 </div>
 
-</script>
-
-<script>
-function prikaziVise(dugme) {
-    let boks = dugme.parentElement;
-    let skraceno = boks.querySelector('.skraceni-tekst');
-    let celo = boks.querySelector('.ceo-tekst');
-    
-    if (celo.style.display === "none") {
-        celo.style.display = "inline";
-        skraceno.style.display = "none";
-        dugme.innerText = " Скрати";
-    } else {
-        celo.style.display = "none";
-        skraceno.style.display = "inline";
-        dugme.innerText = " Прочитај више";
-    }
-}
-</script>
-    
 <script>
     fetch('svetitelji.json')
     .then(response => response.json())
     .then(data => {
         let kontejner = document.getElementById('lista-praznika');
-        kontejner.innerHTML = ""; // Briše poruku o učitavanju
+        kontejner.innerHTML = ""; 
 
         for (let kljuc in data) {
             let p = data[kljuc];
-            let klasa = (p.boja === "red") ? "crveno" : "";
+            let klasa = (p.boja === "red") ? "crveno" : "obicno";
             
             kontejner.innerHTML += `
-                <div class="pouka-box" style="text-align: left;">
-                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
-                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
-                    ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
-                   
-                    ${p.slika ? `<img src="${p.slika}" style="width: 130px; height: auto; display: block; margin: 15px auto; 
-                    border-radius: 10px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.8); border: 1px solid rgba(212, 175, 55, 0.4);">` : ""}
+                <div class="pouka-box">
+                    <!-- ЛЕВО: СЛИКА -->
+                    ${p.slika ? `
+                        <a href="${p.link ? p.link : '#'}">
+                            <img src="${p.slika}" class="praznik-slika">
+                        </a>` : ""}
+
+                    <!-- ДЕСНО: ТЕКСТ -->
+                    <div class="desna-strana">
+                        <span class="${klasa}" style="font-size: 16px;">${kljuc}</span><br>
+                        <span class="${klasa}">${p.praznik}</span>
+                        
+                        ${p.link ? `
+                            <br><a href="${p.link}" style="color: #8b0000; text-decoration: none; font-weight: bold; font-size: 16px; display: inline-block; margin-top: 10px;">
+                               📖 Прочитај житије &rarr;
+                            </a>` : ""}
+                    </div>
                 </div>
             `;
         }
     })
     .catch(err => {
         console.error("Greska:", err);
-        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
+        document.getElementById('lista-praznika').innerHTML = "Проблем са учитавањем.";
     });
 </script>
 
-    
-   kontejner.innerHTML += `
-    <div class="pouka-box" style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px; text-align: left; padding: 15px;">
-        
-        <!-- ЛЕВА СТРАНА: Слика која води на житије -->
-        <div style="flex-shrink: 0;">
-            ${p.slika ? `
-                <a href="${p.link ? p.link : '#'}">
-                    <img src="${p.slika}" style="width: 130px; height: auto; display: block; 
-                    border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); border: 1px solid #8b6f47; cursor: pointer;">
-                </a>` : ""}
-        </div>
-
-        <!-- ДЕСНА СТРАНА: Текст и линк -->
-        <div style="flex-grow: 1;">
-            <div style="margin-bottom: 8px;">
-                <span class="${klasa}" style="font-size: 18px;">${kljuc}</span><br>
-                <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
-            </div>
-            
-            ${p.link ? `
-                <a href="${p.link}" style="color: #8b0000; text-decoration: none; font-weight: bold; font-size: 16px;">
-                   📖 Прочитај житије &rarr;
-                </a>` : ""}
-        </div>
-    </div>
-`;
 </body>
 </html>
