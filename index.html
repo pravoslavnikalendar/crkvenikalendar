@@ -901,6 +901,7 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
             </div>
         </div>
 
+
 <script>	
 async function prikaziSve() {
     const d = new Date();
@@ -908,6 +909,7 @@ async function prikaziSve() {
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
+    // 1. ДАТУМИ
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
     const stariD = new Date(julijanskiMS);
@@ -919,6 +921,7 @@ async function prikaziSve() {
             "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
     }
 
+    // 2. ЧИТАЊЕ ИЗ КАЛЕНДАРА
     try {
         const res = await fetch(nazivFajla);
         const html = await res.text();
@@ -931,43 +934,40 @@ async function prikaziSve() {
                 const br = parseInt(brEl.innerText.replace('.', '').trim());
                 if (br === danDanas) {
 
-                    // --- СВЕТИТЕЉ (Паметно тражење за Април) ---
-                    // Прво тражимо дубоко унутар .svetitelji .sadrzaj, па све остало
-                    let svetacEl = blok.querySelector('.svetitelji .sadrzaj, .crveno, .praznik, .sadrzaj, .svetitelji, .obicno');
-                    
-                    if (svetacEl && document.getElementById('svetitelj')) {
-                        // Ако је елемент празан, пробај да извучеш текст из његове деце
-                        let sadrzaj = svetacEl.innerHTML.trim() === "" ? svetacEl.innerText : svetacEl.innerHTML;
-                        document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj'>" + sadrzaj + "</div>";
+                    // --- СВЕТИТЕЉ (Паметно "извлачење" из Априла) ---
+                    // Гледамо цео "текст-контејнер" и извлачимо све што није Опис
+                    let svetiteljBox = blok.querySelector('.svetitelji, .praznik, .crveno, .sadrzaj');
+                    let imeSveca = "";
+
+                    if (svetiteljBox) {
+                        // Узимамо чист текст из целог тог дела
+                        imeSveca = svetiteljBox.innerText.trim();
+                    }
+
+                    if (document.getElementById('svetitelj')) {
+                        document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj'>" + (imeSveca ? imeSveca : "Нема података") + "</div>";
                     }
 
                     // --- ПОУКА (ОПИС) ---
                     const opisEl = blok.querySelector('.opis');
-                    const poukaMesto = document.getElementById('pouka-dana');
-                    if (poukaMesto) {
-                        if (opisEl && opisEl.innerText.trim() !== "") {
-                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'>„" + opisEl.innerHTML + "“";
-                        } else {
-                            poukaMesto.innerHTML = ""; 
-                        }
+                    if (opisEl && document.getElementById('pouka-dana')) {
+                        document.getElementById('pouka-dana').innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'>„" + opisEl.innerText + "“";
                     }
 
                     // --- ПОСТ ---
                     const postEl = blok.querySelector('.post-ispod');
                     if (postEl && document.getElementById('post-tip')) {
-                        document.getElementById('post-tip').innerHTML = 
-                            "<div style='margin-top:5px; font-size:15px;'><b>Пост:</b> " + postEl.innerHTML + "</div>";
+                        document.getElementById('post-tip').innerHTML = "<b>Пост:</b> " + postEl.innerText;
                     }
                 }
             }
         });
     } catch (e) {
-        console.log("Грешка при читању фајла.");
+        console.log("Грешка при читању фајла: " + nazivFajla);
     }
 }
 prikaziSve();
 </script>
-
 
 
 	<script>
