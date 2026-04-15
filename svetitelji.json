@@ -1,6 +1,6 @@
 {
   "01-07": { "praznik": "Рождество Христово – Божић", "boja": "red", "slika": "bozic.jpg", "link": "zitije-bozic.html" }, 
-  "01-08": { "praznik": "Сабор Пресвете Богородице", "boja": "red", "slika": "sabor.jpg" },
+  "01-08": { "praznik": "Сабор Пресвете Богородице", "boja": "red", "slika": "sabor.jpg" "zitije-sabor.html" },
   "01-09": { "praznik": "Свети првомученик и архиђакон Стефан", "boja": "red", "slika": "sveti-prvomucenik-stefan.jpg" },
   "01-14": { "praznik": "Нова година – Обрезање Господње; Свети Василије Велики", "boja": "red", "slika": "sveti-vasilije-veliki.jpg" },
   "01-19": { "praznik": "Богојављење", "boja": "red", "slika": "bogojavljenje.jpg" },
