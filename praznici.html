@@ -140,10 +140,50 @@ media (max-width: 600px) {
 </script>
 
 <script>
+    fetch('svetitelji.json')
+    .then(response => response.json())
+    .then(data => {
+        let kontejner = document.getElementById('lista-praznika');
+        kontejner.innerHTML = ""; 
+
+        for (let kljuc in data) {
+            let p = data[kljuc];
+            let klasa = (p.boja === "red") ? "crveno" : "obicno";
+            
+            // Ovde spremamo tekst: ako je duži od 100 slova, pravimo "Pročitaj više"
+            let tekstPouke = "";
+            if (p.pouka) {
+                if (p.pouka.length > 100) {
+                    tekstPouke = `
+                        <p style="margin-top: 10px; font-style: italic;">
+                            <span class="skraceni-tekst">${p.pouka.substring(0, 100)}...</span>
+                            <span class="ceo-tekst" style="display: none;">${p.pouka}</span>
+                            <button onclick="prikaziVise(this)" style="background: none; border: none; color: #8b6f47; font-weight: bold; cursor: pointer; font-size: 17px; padding: 0;"> Прочитај више</button>
+                        </p>`;
+                } else {
+                    tekstPouke = `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>`;
+                }
+            }
+
+            kontejner.innerHTML += `
+                <div class="pouka-box">
+                    <span class="${klasa}">${kljuc}</span> - 
+                    <span class="${klasa}">${p.praznik}</span>
+                    ${tekstPouke}
+                    ${p.slika ? `<img src="${p.slika}" style="width: 150px; height: auto; display: block; margin: 15px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">` : ""}
+                </div>
+            `;
+        }
+    })
+    .catch(err => {
+        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem.";
+    });
+
+// Funkcija za dugme mora ostati dostupna
 function prikaziVise(dugme) {
-    let boks = dugme.parentElement;
-    let skraceno = boks.querySelector('.skraceni-tekst');
-    let celo = boks.querySelector('.ceo-tekst');
+    let pTag = dugme.parentElement;
+    let skraceno = pTag.querySelector('.skraceni-tekst');
+    let celo = pTag.querySelector('.ceo-tekst');
     
     if (celo.style.display === "none") {
         celo.style.display = "inline";
@@ -156,42 +196,3 @@ function prikaziVise(dugme) {
     }
 }
 </script>
-    
-<script>
-    fetch('svetitelji.json')
-    .then(response => response.json())
-    .then(data => {
-        let kontejner = document.getElementById('lista-praznika');
-        kontejner.innerHTML = ""; // Briše poruku o učitavanju
-
-        for (let kljuc in data) {
-            let p = data[kljuc];
-            let klasa = (p.boja === "red") ? "crveno" : "";
-            
-            kontejner.innerHTML += `
-                <div class="pouka-box" style="text-align: left;">
-                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
-                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
-                    ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
-                   
-                    ${p.slika ? `<img src="${p.slika}" style="width: 130px; height: auto; display: block; margin: 15px auto; 
-                    border-radius: 10px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.8); border: 1px solid rgba(212, 175, 55, 0.4);">` : ""}
-                </div>
-            `;
-        }
-    })
-    .catch(err => {
-        console.error("Greska:", err);
-        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
-    });
-</script>
-
-    
-    kontejner.innerHTML += `
-    <div class="veliki-praznik" style="width: 95vw !important; margin: 20px auto !important; padding: 20px !important; box-sizing: border-box !important;">
-        <span class="${klasa}" style="font-size: 35px !important; display: block;">${datum} - ${p.praznik}</span>
-        <p style="font-size: 22px !important; margin-top: 15px;">${p.pouka || ""}</p>
-    </div>
-`;   
-</body>
-</html>
