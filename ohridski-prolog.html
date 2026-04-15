@@ -48,16 +48,28 @@
         }
 
        /* STIL ZA TEKST PSALAMA */
-.tekst-sekcija {
-    text-align: left;
+/* Sve sekcije imaju tanju liniju od 2px */
+.tekst-sekcija, .sadrzaj, .rasudjivanje, .sozercanje {
+    text-align: justify;
     line-height: 1.6;
-    font-size: 22px; /* Malo krupnija slova za lakše čitanje */
+    font-size: 22px;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.2); /* Blaga podloga */
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    border-bottom: 3px solid #8b6f47; /* Deblja linija na dnu katizme */
+    border-bottom: 2px solid #8b6f47; /* Tvoja tanja linija */
+    margin-bottom: 30px;
+}
+
+/* Beseda dobija jači završetak od 3px */
+.beseda {
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 22px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    border-bottom: 3px solid #8b6f47; /* Jača linija za kraj dana */
     margin-bottom: 50px;
- text-align: justify;
 }
 
         .katizma-naslov {
@@ -164,7 +176,7 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
     <a href="index.html" class="home-dugme">🏠</a>
 
       <div class="container">
-        <h1>ПСАЛТИР</h1>
+        <h1>ОХРИДСКИ ПРОЛОГ</h1>
         <p><i></i></p>        
          <!-- za tekst -->
         <!-- SADRŽAJ -->
@@ -201,13 +213,11 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 <a href="#april30" class="katizma-link">30. april</a>
             <!-- Ovde dodaš linkove do 20. katizme -->
         </div>
-<h1 style="color: #8b0000; font-size: 38px; margin-top: 40px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-    ОХРИДСКИ ПРОЛОГ
-</h1>
-<div style="height: 2px; background: #8b6f47; width: 100px; margin: 0 auto 30px auto;"></div>
+
+
 <div id="april1" class="tekst-sekcija">
 <div style="text-align: center; color: #8b6f47; font-size: 20px; margin-bottom: -10px;">🌿</div>    
-<h2 class="katizma-naslov">1. април</h2>
+<h2 class="katizma-naslov">Преподобни Тит чудотворац</h2>
 <p>1. Преп. Тит Чудотворац. Од младих година возљуби Христа Господа и омрзе 
 свет сујетни. Тога ради остави свет, оде у манастир и прими ангелски образ. 
 Не жалећи себе, он се предаде прискорбном и тесном путу иноческом. 
@@ -330,6 +340,7 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 небесног, Духа Светог Животворног и безбројних светих Ангела. 
 Господе, Теби слава и хвала вавек. Амин.
 </p>
+
 <div id="april16" class="tekst-sekcija">
     <h2 class="katizma-naslov">Св. Никита Исповедник</h2>
     
@@ -401,8 +412,7 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 И његова помоћ на земљу силази.
 </p>
 
-    <!-- Suptilna linija koja razдваја -->
-    <div style="height: 1px; background: linear-gradient(to right, transparent, #8b6f47, transparent); margin: 25px auto; width: 60%;"></div>
+ 
 
     <center><b>Расуђивање</b></center>
     <p>„Очекујем себи хиљаду смрти," овако је писао св. 
@@ -420,8 +430,7 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 најтешњи пут је довољно простран, и највеће муке — лако 
 иго, и најљућа смрт — радост свадбена.</p>
 
-     <!-- Suptilna linija koja razдваја -->
-    <div style="height: 1px; background: linear-gradient(to right, transparent, #8b6f47, transparent); margin: 25px auto; width: 60%;"></div>
+
 
     <center><b>Созерцање</b></center>
     <p>Да созерцавам Господа Исуса у Аду, н то:
@@ -430,7 +439,7 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 3. како се неописано радују Његовом доласку душе праведних праотаца и пророка.<br>
 </p>
 
-    <div style="height: 1px; background: linear-gradient(to right, transparent, #8b6f47, transparent); margin: 25px auto; width: 60%;"></div>
+  
 
     <center><b>Беседа</b></center>
     <p>о великој жељи Божјој
@@ -454,8 +463,7 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 У Тебе се Јединога надамо и Теби се Јединоме клањамо, 
 Теби и Оцу и Духу Светоме, сада и вавек. Амин.</p>
 
-    <!-- TVOJA LEPA SAVIJENA CRTA (kao u Psaltiru) na samom kraju dana -->
-    <div style="border-bottom: 3px solid #8b6f47; border-radius: 50%; width: 80%; margin: 40px auto 10px auto;"></div>
+
 </div>
 
 
