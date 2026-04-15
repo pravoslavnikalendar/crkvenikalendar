@@ -473,14 +473,17 @@ margin: 0;
 
 
 
-	@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .hamburger-zona {
-       position: absolute;
-    top: 60px;         
-    left: 20px;
+        display: block !important; 
+        position: absolute !important; /* Dodajemo !important da "pregazi" sve ostalo */
+        top: 60px !important;         /* Spuštamo ga ispod kalendara */
+        left: 20px !important;
+        margin: 0 !important;          /* Brišemo marginu jer nam position:absolute radi posao */
+        z-index: 9999;                 /* Da bude sigurno iznad svega */
     }
 
-
+}
 
 /* LEVA SOBA (Pečati, Translate, Hamburger) */
 .column-left-mobile {
@@ -556,15 +559,7 @@ grid-template-columns: 20px 20px 20px 1fr;
 padding: 0; /* Brišemo razmak oko celog tela */
 }
 
-@media screen and (max-width: 768px) {
-    .hamburger-zona {
-        display: block !important; 
-        position: absolute !important; /* Dodajemo !important da "pregazi" sve ostalo */
-        top: 65px !important;         /* Spuštamo ga ispod kalendara */
-        left: 20px !important;
-        margin: 0 !important;          /* Brišemo marginu jer nam position:absolute radi posao */
-        z-index: 9999;                 /* Da bude sigurno iznad svega */
-    }
+
 
 
     /* MENI: On ostaje sakriven dok se ne klikne na crtice */
