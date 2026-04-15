@@ -226,23 +226,22 @@ margin-bottom: 15px;
     color: #4A3728;
 }
 
+.pismo-prekidac {
+    position: absolute; /* Sada će slušati top i right/left */
+    top: 5px;           /* Isti top kao kod kalendara da budu u ravni */
+    right: 15px;        /* Drži ga uz desnu ivicu, simetrično kalendaru */
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4A3728;
+    z-index: 100;       /* Da bude iznad svega */
+}
+
 .pismo-prekidac span {
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 5px 5px;   /* Malo manji padding da ne beži na mobilnom */
     transition: 0.3s;
-    margin-bottom:10px;
-	top: 5px;           
-    left: 170px;
 }
-
-.potpis {
-font-size: 14px;
-margin-top: 20px;
-color: #4A3728;
-font-style: italic;
-}
-
 .lazni-plejer-box {
     width: 85%;
     margin: 20px auto;
