@@ -557,13 +557,15 @@ padding: 0; /* Brišemo razmak oko celog tela */
 }
 
 @media screen and (max-width: 768px) {
-    /* TELEFON: Ovde se pojavljuju tri crtice */
     .hamburger-zona {
         display: block !important; 
-        top: 50px;         
-        left: 20px;
-        margin: 15px 0;
+        position: absolute !important; /* Dodajemo !important da "pregazi" sve ostalo */
+        top: 65px !important;         /* Spuštamo ga ispod kalendara */
+        left: 20px !important;
+        margin: 0 !important;          /* Brišemo marginu jer nam position:absolute radi posao */
+        z-index: 9999;                 /* Da bude sigurno iznad svega */
     }
+
 
     /* MENI: On ostaje sakriven dok se ne klikne na crtice */
     #header_right {
