@@ -1,9 +1,9 @@
 {
   "01-07": { "praznik": "Рождество Христово – Божић", "boja": "red", "slika": "bozic.jpg", "link": "zitije-bozic.html" }, 
   "01-08": { "praznik": "Сабор Пресвете Богородице", "boja": "red", "slika": "sabor.jpg", "link": "zitije-sabor.html" },
-  "01-09": { "praznik": "Свети првомученик и архиђакон Стефан", "boja": "red", "slika": "sveti-prvomucenik-stefan.jpg" },
-  "01-14": { "praznik": "Нова година – Обрезање Господње; Свети Василије Велики", "boja": "red", "slika": "sveti-vasilije-veliki.jpg" },
-  "01-19": { "praznik": "Богојављење", "boja": "red", "slika": "bogojavljenje.jpg" },
+  "01-09": { "praznik": "Свети првомученик и архиђакон Стефан", "boja": "red", "slika": "sveti-prvomucenik-stefan.jpg", "link": "zitije-sveti-prvomucenik-stefan.html" },
+  "01-14": { "praznik": "Нова година – Обрезање Господње; Свети Василије Велики", "boja": "red", "slika": "sveti-vasilije-veliki.jpg", "link": "zitije-sveti-vasilije-veliki.html" },
+  "01-19": { "praznik": "Богојављење", "boja": "red", "slika": "bogojavljenje.jpg", "link": "zitije-bogojavljenje.html" },
   "01-20": { "praznik": "Сабор светог Јована Крститеља – Јовањдан", "boja": "red", "slika": "jovankrstitelj.jpg" },
   "01-27": { "praznik": "Свети Сава, први архиепископ српски – Савиндан", "boja": "red", "slika": "sv-sava.jpg" },
   "02-12": { "praznik": "Света Три Јерарха", "boja": "red", "slika": "sveta-tri-jerarha.jpg" },
