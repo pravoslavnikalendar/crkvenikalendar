@@ -902,78 +902,64 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
         </div>
 
 
-<script>	
+<script>
 async function prikaziSve() {
     const d = new Date();
-    const danDanas = d.getDate();
-    const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
-    const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
-
-    // 1. ДАТУМИ
+    // 1. Враћамо суботу на екран
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-    const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
-    const stariD = new Date(julijanskiMS);
-    const AM = stariD.getFullYear() + 5508;
+    document.getElementById('datum').innerText = d.toLocaleDateString('sr-RS', opcije);
 
-    if(document.getElementById('datum')) {
-        document.getElementById('datum').innerHTML = 
-            d.toLocaleDateString('sr-RS', opcije) + 
-            "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
-    }
-
-    // 2. ЧИТАЊЕ ИЗ КАЛЕНДАРА
+    // 2. Тражимо свеца у твом фајлу
     try {
-        const res = await fetch(nazivFajla);
-        const html = await res.text();
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        const sviDani = doc.querySelectorAll('.dan');
-
-        sviDani.forEach(blok => {
-            const brEl = blok.querySelector('.novi-datum');
-            if (brEl) {
-                const br = parseInt(brEl.innerText.replace('.', '').trim());
-                if (br === danDanas) {
-
-                  // --- СВЕТИТЕЉ (Априлска поправка - дефинитивна) ---
-// Тражимо било шта што има везе са свецима у твом априлском блоку
-let svetacBox = blok.querySelector('.svetitelji, .sadrzaj, .praznik, .crveno');
-
-if (svetacBox && document.getElementById('svetitelj')) {
-    // Користимо innerText да извучемо Тита из свих под-кутија
-    let ime = svetacBox.innerText.trim();
-    
-    // Ако је и даље "празно" (само размаци), пробајмо да нађемо sadrzaj унутра
-    if (ime === "") {
-        let unutrasnji = svetacBox.querySelector('.sadrzaj, .praznik');
-        if (unutrasnji) ime = unutrasnji.innerText.trim();
-    }
-
-    document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj' style='color: #5f0606; font-weight: bold;'>" + (ime ? ime : "Учитавам свеца...") + "</div>";
-}
-
-                    if (document.getElementById('svetitelj')) {
-                        document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj'>" + (imeSveca ? imeSveca : "Нема података") + "</div>";
-                    }
-
-                    // --- ПОУКА (ОПИС) ---
-                    const opisEl = blok.querySelector('.opis');
-                    if (opisEl && document.getElementById('pouka-dana')) {
-                        document.getElementById('pouka-dana').innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'>„" + opisEl.innerText + "“";
-                    }
-
-                    // --- ПОСТ ---
-                    const postEl = blok.querySelector('.post-ispod');
-                    if (postEl && document.getElementById('post-tip')) {
-                        document.getElementById('post-tip').innerHTML = "<b>Пост:</b> " + postEl.innerText;
-                    }
-                }
-            }
-        });
+        const res = await fetch('svetitelji.json');
+        const svetitelji = await res.json();
+        const kljuc = `${d.getDate()}-${d.getMonth() + 1}`;
+        
+        if (svetitelji[kljuc]) {
+            document.getElementById('svetitelj').innerHTML = "<b>Данас славимо:</b><br>" + svetitelji[kljuc];
+        } else {
+            document.getElementById('svetitelj').innerText = "";
+        }
     } catch (e) {
-        console.log("Грешка при читању фајла: " + nazivFajla);
+        document.getElementById('svetitelj').innerText = "";
     }
 }
 prikaziSve();
+
+async function prikaziSve() {
+    const d = new Date();
+    const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    
+    // 1. Novi kalendar (Glavni datum)
+    const noviDatum = d.toLocaleDateString('sr-RS', opcije);
+
+    // 2. Matematika za STARI kalendar (-13 dana)
+    const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
+    const stariD = new Date(julijanskiMS);
+    const stariDatum = stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', { month: 'long' });
+    
+    // 3. Godina od postanja sveta (Anno Mundi)
+    const AM = stariD.getFullYear() + 5508;
+
+    // ISPIS NA PAPIRU
+    document.getElementById('datum').innerHTML = 
+        noviDatum + "<br><small>(по старом: " + stariDatum + " | Лето Господње " + AM + ".)</small>";
+
+    // 4. Traženje svetitelja u tvom JSON fajlu
+    try {
+        const res = await fetch('svetitelji.json?v=' + Date.now());
+        const svetitelji = await res.json();
+        const kljuc = `${d.getDate()}-${d.getMonth() + 1}`;
+        
+        if (svetitelji[kljuc]) {
+            document.getElementById('svetitelj').innerHTML = "<b style='color:#5f0606;'>Данас славимо:</b><br>" + svetitelji[kljuc];
+        }
+    } catch (e) { console.log("Nema JSON-a"); }
+}
+prikaziSve();
+
+
+	
 </script>
 
 
