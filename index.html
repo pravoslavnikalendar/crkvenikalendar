@@ -928,7 +928,18 @@ async function prikaziSve() {
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const sviDani = doc.querySelectorAll('.dan');
 
-        
+     sviDani.forEach(blok => {
+            const brEl = blok.querySelector('.novi-datum');
+            if (brEl) {
+                const br = parseInt(brEl.innerText.replace('.', '').trim());
+                if (br === danDanas) {
+
+                    // --- Свети (DOPUNJENO: Dodate tvoje klase za praznike i crveno slovo) ---
+                    const sadrzajEl = blok.querySelector('.crveno, .praznik, .sadrzaj, .svetitelji, .obicno');
+                    if (sadrzajEl && document.getElementById('svetitelj')) {
+                      // Koristimo outerHTML da bi zadržao tvoje boje (bordo) i debljinu slova
+                      document.getElementById('svetitelj').innerHTML = sadrzajEl.outerHTML;
+                    }   
 
 					// Ово „гађа“ баш све твоје класе из Априла:
 const sadrzajEl = blok.querySelector('.crveno, .praznik, .svetitelji, .sadrzaj, .obicno');
