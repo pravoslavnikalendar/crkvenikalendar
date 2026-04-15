@@ -902,14 +902,12 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
         </div>
 
 <script>	
-
 async function prikaziSve() {
     const d = new Date();
     const danDanas = d.getDate();
     const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const nazivFajla = `${meseciImena[d.getMonth()]}-${d.getFullYear()}.html`;
 
-    // 1. Датуми
     const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
     const stariD = new Date(julijanskiMS);
@@ -921,45 +919,40 @@ async function prikaziSve() {
             "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
     }
 
-    // 2. Читање из твог календара
     try {
         const res = await fetch(nazivFajla);
         const html = await res.text();
         const doc = new DOMParser().parseFromString(html, 'text/html');
         const sviDani = doc.querySelectorAll('.dan');
 
-     sviDani.forEach(blok => {
+        sviDani.forEach(blok => {
             const brEl = blok.querySelector('.novi-datum');
             if (brEl) {
                 const br = parseInt(brEl.innerText.replace('.', '').trim());
                 if (br === danDanas) {
 
-                    // --- Свети (DOPUNJENO: Dodate tvoje klase za praznike i crveno slovo) ---
-                    const sadrzajEl = blok.querySelector('.crveno, .praznik, .sadrzaj, .svetitelji, .obicno');
-                    if (sadrzajEl && document.getElementById('svetitelj')) {
-                      // Koristimo outerHTML da bi zadržao tvoje boje (bordo) i debljinu slova
-                      document.getElementById('svetitelj').innerHTML = sadrzajEl.outerHTML;
-                    }   
+                    // --- СВЕТИТЕЉ (Паметно тражење за Април) ---
+                    // Прво тражимо дубоко унутар .svetitelji .sadrzaj, па све остало
+                    let svetacEl = blok.querySelector('.svetitelji .sadrzaj, .crveno, .praznik, .sadrzaj, .svetitelji, .obicno');
+                    
+                    if (svetacEl && document.getElementById('svetitelj')) {
+                        // Ако је елемент празан, пробај да извучеш текст из његове деце
+                        let sadrzaj = svetacEl.innerHTML.trim() === "" ? svetacEl.innerText : svetacEl.innerHTML;
+                        document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj'>" + sadrzaj + "</div>";
+                    }
 
-					// Ово „гађа“ баш све твоје класе из Априла:
-const sadrzajEl = blok.querySelector('.crveno, .praznik, .svetitelji, .sadrzaj, .obicno');
-
-if (sadrzajEl && document.getElementById('svetitelj')) {
-    // Убацујемо садржај, а твој CSS у index.html ће се побринути за боју
-    document.getElementById('svetitelj').innerHTML = sadrzajEl.innerHTML;
-}
-                    // --- Поука (Опис) ---
+                    // --- ПОУКА (ОПИС) ---
                     const opisEl = blok.querySelector('.opis');
                     const poukaMesto = document.getElementById('pouka-dana');
                     if (poukaMesto) {
                         if (opisEl && opisEl.innerText.trim() !== "") {
-                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'>„" + opisEl.innerHTML + "“</i>";
+                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'>„" + opisEl.innerHTML + "“";
                         } else {
                             poukaMesto.innerHTML = ""; 
                         }
                     }
 
-                    // --- Пост ---
+                    // --- ПОСТ ---
                     const postEl = blok.querySelector('.post-ispod');
                     if (postEl && document.getElementById('post-tip')) {
                         document.getElementById('post-tip').innerHTML = 
@@ -969,12 +962,11 @@ if (sadrzajEl && document.getElementById('svetitelj')) {
             }
         });
     } catch (e) {
-        console.log("Грешка: Провери фајл " + nazivFajla);
+        console.log("Грешка при читању фајла.");
     }
 }
 prikaziSve();
 </script>
-
 
 
 
