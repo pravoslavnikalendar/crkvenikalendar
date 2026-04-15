@@ -946,7 +946,7 @@ async function prikaziSve() {
                     const poukaMesto = document.getElementById('pouka-dana');
                     if (poukaMesto) {
                         if (opisEl && opisEl.innerText.trim() !== "") {
-                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'><i>„" + opisEl.innerHTML + "“</i>";
+                            poukaMesto.innerHTML = "<hr style='width:30%; margin:15px auto; opacity:0.2;'>„" + opisEl.innerHTML + "“</i>";
                         } else {
                             poukaMesto.innerHTML = ""; // Празно за недељу
                         }
