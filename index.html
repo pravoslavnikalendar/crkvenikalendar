@@ -227,16 +227,15 @@ margin-bottom: 15px;
 }
 
 .pismo-prekidac {
-    position: absolute; /* Sada će slušati top i right/left */
-    top: 5px;           /* Isti top kao kod kalendara da budu u ravni */
-    right: 15px;        /* Drži ga uz desnu ivicu, simetrično kalendaru */
+    position: absolute;
+    top: 7px;           /* Spušteno za 2px da se vizuelno poravna */
+    right: 15px;
+    font-size: 17px;    /* Povećano za 1px kao što si htela */
     font-family: "Times New Roman", serif;
-    font-size: 16px;
     font-weight: bold;
     color: #4A3728;
-    z-index: 100;       /* Da bude iznad svega */
+    z-index: 100;
 }
-
 .pismo-prekidac span {
     cursor: pointer;
     padding: 5px 5px;   /* Malo manji padding da ne beži na mobilnom */
