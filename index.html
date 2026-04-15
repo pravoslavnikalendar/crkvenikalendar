@@ -934,15 +934,22 @@ async function prikaziSve() {
                 const br = parseInt(brEl.innerText.replace('.', '').trim());
                 if (br === danDanas) {
 
-                    // --- СВЕТИТЕЉ (Паметно "извлачење" из Априла) ---
-                    // Гледамо цео "текст-контејнер" и извлачимо све што није Опис
-                    let svetiteljBox = blok.querySelector('.svetitelji, .praznik, .crveno, .sadrzaj');
-                    let imeSveca = "";
+                  // --- СВЕТИТЕЉ (Априлска поправка - дефинитивна) ---
+// Тражимо било шта што има везе са свецима у твом априлском блоку
+let svetacBox = blok.querySelector('.svetitelji, .sadrzaj, .praznik, .crveno');
 
-                    if (svetiteljBox) {
-                        // Узимамо чист текст из целог тог дела
-                        imeSveca = svetiteljBox.innerText.trim();
-                    }
+if (svetacBox && document.getElementById('svetitelj')) {
+    // Користимо innerText да извучемо Тита из свих под-кутија
+    let ime = svetacBox.innerText.trim();
+    
+    // Ако је и даље "празно" (само размаци), пробајмо да нађемо sadrzaj унутра
+    if (ime === "") {
+        let unutrasnji = svetacBox.querySelector('.sadrzaj, .praznik');
+        if (unutrasnji) ime = unutrasnji.innerText.trim();
+    }
+
+    document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj' style='color: #5f0606; font-weight: bold;'>" + (ime ? ime : "Учитавам свеца...") + "</div>";
+}
 
                     if (document.getElementById('svetitelj')) {
                         document.getElementById('svetitelj').innerHTML = "<div class='sadrzaj'>" + (imeSveca ? imeSveca : "Нема података") + "</div>";
