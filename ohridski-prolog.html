@@ -126,7 +126,22 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
     transform: scale(1.1); /* Blago se poveća kad se klikne */
 }
 
+.stiker-vladika {
+    width: 160px; /* Ili veličina koja ti odgovara */
+    border-radius: 15px; /* Blago zaobljene ivice, kao nalepnica */
+    padding: 8px;
+    background: white; /* Bela ivica stikera */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Senka koja daje dubinu */
+    border: 1px solid #ddd; /* Tanki sivi okvir da se bela ivica ne stopi sa pozadinom */
+    display: block;
+    margin: 20px auto;
+    transform: rotate(-3deg); /* Blago je "nakriviš" da izgleda kao da je zalepljena rukom */
+    transition: 0.3s;
+}
 
+.stiker-vladika:hover {
+    transform: rotate(0deg) scale(1.05); /* Ispravi se i poveća kad prođeš mišem */
+}
 
 
 /* Ovo važi za sve uređaje */
