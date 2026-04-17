@@ -3,129 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ПСАЛТИР</title>
-
+    <title>ОХРИДСКИ ПРОЛОГ - Почетна</title>
     <style>
         body {
             margin: 0;
-            background-image: url("papir.png");
+            background: linear-gradient(135deg, #d3d3d3 0%, #e6e6fa 100%);
+            background-image: url("papir.png"); /* Tvoj papir */
             background-size: cover;
-            background-attachment: fixed; /* Pozadina se ne pomera dok skroluješ tekst */
+            background-attachment: fixed;
             font-family: "Times New Roman", serif;
             color: #4A3728;
             text-align: center;
         }
-
-        .container {
-            max-width: 700px;
-            margin: auto;
-            padding: 20px;
-            padding-top: 60px; /* Razmak da naslov ne udara u vrh ekrana */
-            background: rgba(252, 245, 229, 0.6); /* Blaga providnost da se tekst bolje vidi preko papira */
-            min-height: 100vh;
-        }
+        .container { padding-top: 50px; width: 95%; max-width: 500px; margin: auto; }
         
-        /* SADRŽAJ (Katizme) */
+        .uvod-box {
+            background: rgba(242, 230, 201, 0.4); /* Tvoja bež sa providnošću */
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(139, 111, 71, 0.5);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+    
+  /* SADRŽAJ (Katizme) */
         .sadrzaj {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Dve kolone dugmića */
+            grid-template-columns: repeat(3, 1fr); /* Dve kolone dugmića */
             gap: 10px;
             margin-bottom: 40px;
             padding: 10px;
         }
 
-        .katizma-link {
-            padding: 10px;
-            background: rgba(242, 230, 201, 0.9);
-            border: 1px solid #8b6f47;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #4A3728;
-            font-weight: bold;
-            font-size: 14px;
-        }
 
-       /* STIL ZA TEKST PSALAMA */
-/* Sve sekcije imaju tanju liniju od 2px */
-.tekst-sekcija, .rasudjivanje, .sozercanje {
-    text-align: justify;
-    line-height: 1.6;
-    font-size: 22px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    border-bottom: 2px solid #8b6f47; /* Tvoja tanja linija */
-    margin-bottom: 30px;
-}
+        h1 { color: #8b0000; letter-spacing: 2px; text-transform: uppercase; }
 
-/* Beseda dobija jači završetak od 3px */
-.beseda {
-    text-align: left;
-    line-height: 1.6;
-    font-size: 21px; /* Malo krupnija slova za lakše čitanje */
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2); /* Blaga podloga */
-    border-radius: 10px;
-    border-bottom: 3px solid #8b6f47; /* Deblja linija na dnu katizme */
-    margin-bottom: 50px;
- text-align: justify;
-}
 
-        .katizma-naslov {
-            text-align: center;
-            color: #8b0000; /* Crvena boja za naslove katizmi */
-            font-variant: small-caps;
-            border-top: 1px solid #8b6f47;
-            padding-top: 20px;
-        }
-
-        .home-dugme {
-            position: fixed; top: 15px; left: 15px;
-            background: rgba(242, 230, 201, 0.9);
-            padding: 10px 15px; border-radius: 8px;
-            border: 1px solid #8b6f47; text-decoration: none; color: #4A3728;
-            font-size: 20px; z-index: 100;
-        }
-
-.nazad-dugme {
-    font-size: 26px; /* Veća strelica na dnu */
-    padding: 15px 30px;
-}
-
- h1 { 
-    margin-top: 20px; 
-    font-size: 32px; 
-    color: #4A3728; 
-    margin-bottom: 20px;
-}
-b { color: #8b0000; } /* Crveni brojevi psalama */
-        /* Da se lepše skroluje kad klikneš na link */
-        html { scroll-behavior: smooth; }
-
-.fiksni-vrh {
-    position: fixed;
-    bottom: 25px; /* Malo iznad dna da je palac lakše dohvati */
-    right: 20px;
-    background: rgba(242, 230, 201, 0.95); /* Tvoja bež, skoro neprovidna */
-    border: 1px solid #8b6f47;            /* Tvoj zlatno-braon okvir */
-    border-radius: 50%;                   /* Savršen krug */
-    width: 50px;
-    height: 50px;
+/* Ово је невидљиви рам који држи дугмиће да лебде у колонама */
+.meseci-mreza {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;       /* Ово дозвољава да пређу у нови ред */
     justify-content: center;
-    text-decoration: none;
-    color: #8b6f47;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Malo jača senka da "lebdi" iznad papira */
-    z-index: 9999;
-    transition: 0.3s;
+    gap: 15px;             /* Размак између лебдећих дугмића */
+    max-width: 450px;      /* Таман за три колоне по 90-100px */
+    margin: 20px auto;
+    padding: 10px;
 }
 
-.fiksni-vrh:hover {
-    transform: scale(1.1); /* Blago se poveća kad se klikne */
+/* Мала исправка за само дугме (избаци 'margin: auto' и 'display: block') */
+.mesec-dugme {
+    display: inline-block; /* Да би могли да стоје један поред другог */
+    background: rgba(242, 230, 201, 0.85);
+    padding: 15px;
+    width: 95px;           /* Мало смо их проширили да текст лепо стане */
+    text-decoration: none;
+    color: #8b0000;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid #8b6f47;
+    box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+                inset 0 -2px 4px rgba(0,0,0,0.15),
+                0 6px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
+
+
+
+
+
+
+
+        /* TVOJI BEŽ DUGMIĆI */
+        .mesec-dugme {
+            display: block;
+            background: rgba(242, 230, 201, 0.85); /* Tvoja boja */
+            padding: 15px;
+            margin: 10px auto;
+            width: 85%;
+            text-decoration: none;
+            color: #8b0000; /* Bordo slova na bež podlozi */
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 1px solid #8b6f47;
+            box-shadow: inset 0 2px 6px rgba(255,255,255,0.25),
+            inset 0 -2px 4px rgba(0,0,0,0.15),
+            0 6px 12px rgba(0,0,0,0.25);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            width: 90px; 
+        }
+
+
+        .mesec-dugme:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: inset 0 3px 8px rgba(255,255,255,0.4),
+            inset 0 -3px 6px rgba(0,0,0,0.2),
+            0 10px 20px rgba(0,0,0,0.35);
+            background: rgba(242, 230, 201, 0.95);
+        }
+
 
 .stiker-vladika {
     width: 160px; /* Ili veličina koja ti odgovara */
@@ -145,353 +122,47 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 }
 
 
-/* Ovo važi za sve uređaje */
-.vrh-link {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 24px;
-    padding: 10px;
-    color: #8b6f47;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-/* Ovo se aktivira SAMO na telefonima */
-@media (max-width: 480px) {
-    .vrh-link {
-        font-size: 32px; /* Još veća strelica za palac */
-        padding: 20px;   /* Veći prostor za klik */
-        display: block;  /* Da bude na sredini ekrana */
-    }
-}
-
-
+        .home-dugme {
+            position: fixed; top: 15px; left: 15px;
+            background: rgba(242, 230, 201, 0.9);
+            padding: 10px 15px; border-radius: 8px;
+            border: 1px solid #2E1B08; text-decoration: none; color: #2E1B08;
+            font-size: 20px; z-index: 1000;
+        }
     </style>
 </head>
 <body>
-<div class='column-right-outer'>
-<div class='column-right-inner'>
-<aside>
-<div class='sidebar section' id='sidebar-right-1'><div class='widget Translate' data-version='1' id='Translate1'>
-<h2 class='title'>Translate</h2>
-<div id='google_translate_element'></div>
-<script>
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'sr',
-        autoDisplay: 'true',
-        layout: google.translate.TranslateElement.InlineLayout.VERTICAL
-      }, 'google_translate_element');
-    }
 
+<a href="index.html" class="home-dugme">🏠</a>
 
-  
-  </script>
-<script src='//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'></script>
-<div class='clear'></div>
-    <a href="index.html" class="home-dugme">🏠</a>
-
-      <div class="container">
-        <h1>АПРИЛ</h1>
-        <p><i></i></p>        
-         <!-- za tekst -->
-        <!-- SADRŽAJ --><div class="sadrzaj" style="grid-template-columns: repeat(3, 1fr);"> <!-- Tri kolone za dane -->
-<a href="#april1" class="katizma-link">1. april</a>
-<a href="#april2" class="katizma-link">2. april</a>
-<a href="#april3" class="katizma-link">3. april</a>
-<a href="#april4" class="katizma-link">4. april</a>
-<a href="#april5" class="katizma-link">5. april</a>
-<a href="#april6" class="katizma-link">6. april</a>
-<a href="#april7" class="katizma-link">7. april</a>
-<a href="#april8" class="katizma-link">8. april</a>
-<a href="#april9" class="katizma-link">9. april</a>
-<a href="#april10" class="katizma-link">10. april</a>
-<a href="#april11" class="katizma-link">11. april</a>
-<a href="#april12" class="katizma-link">12. april</a>
-<a href="#april13" class="katizma-link">13. april</a>
-<a href="#april14" class="katizma-link">14. april</a>
-<a href="#april15" class="katizma-link">15. april</a>
-<a href="#april16" class="katizma-link">16. april</a>
-<a href="#april17" class="katizma-link">17. april</a>
-<a href="#april18" class="katizma-link">18. april</a>
-<a href="#april20" class="katizma-link">19. april</a>
-<a href="#april21" class="katizma-link">20. april</a>
-<a href="#april22" class="katizma-link">21. april</a>
-<a href="#april23" class="katizma-link">22. april</a>
-<a href="#april24" class="katizma-link">23. april</a>
-<a href="#april25" class="katizma-link">24. april</a>
-<a href="#april26" class="katizma-link">25. april</a>
-<a href="#april16" class="katizma-link">26. april</a>
-<a href="#april27" class="katizma-link">27. april</a>
-<a href="#april28" class="katizma-link">28. april</a>
-<a href="#april29" class="katizma-link">29. april</a>
-<a href="#april30" class="katizma-link">30. april</a>
-          
-        </div>
-
+<div class="container">
+    <h1>Охридски Пролог</h1>
+    <div class="uvod-box">
+        „Сваки дан је једна степеница ка небу. Читајте житија светих, јер су она жива Јеванђеља.“ <br>
+        <small>— Свети Николај Велимировић</small>
+    </div>
 
 <img src="nikolaj.jpg" alt="Свети Николај" 
      style="width: 150px; border: 1px solid #8b6f47; padding: 5px; background: #fff; margin-bottom: 10px; border-radius: 5px;">
-          
 
-<div id="april1" class="tekst-sekcija">
-<div style="text-align: center; color: #8b6f47; font-size: 20px; margin-bottom: -10px;">🌿</div>    
-<h2 class="katizma-naslov">Преподобни Тит чудотворац</h2>
-</p> 1. Преп. Тит Чудотворац. Од младих година возљуби Христа Господа и омрзе 
-свет сујетни. Тога ради остави свет, оде у манастир и прими ангелски образ. 
-Не жалећи себе, он се предаде прискорбном и тесном путу иноческом. 
-Кроз велико стрпљење стече две основне добродетељи: смерност и послушност 
-и у овим добродетељима он превазиђе „не само братију него и све људе“. 
-Чистоту душе и тела беше сачувао од младости своје. У време иконоборске 
-јереси показа се као непоколебљиви столп Цркве Божје. Због његове велике 
-смерности и чистоте дарова му се од Бога дар чудотворства и за живота и 
-по смрти. А кад се пресели ка Господу, остави многобројне ученике своје. 
-Упокоји се мирно у IX веку.
+<img src="justin.jpg" alt="Свети Николај" 
+     style="width: 150px; border: 1px solid #8b6f47; padding: 5px; background: #fff; margin-bottom: 10px; border-radius: 5px;">
 
-2. Св. муч. Амфијан и Едесије. Два младића, два брата рођена. 
-Из града Патаре, од родитеља знаменитих но незнабожних. Када учаху 
-светске науке у граду Вириту, просветише се некако Духом Божјим, 
-те познавши лаж незнабоштва назреше истину Хришћанства. Па кад се 
-вратише дома, не могоше живети више са незнабожним родитељима и 
-сродницима него тајно одбегоше у Кесарију Палестинску к презвитеру 
-Памфилу, познатом по светости и духовној учености. Код Памфила се 
-поучаваху закону Божјем дан и ноћ и упражњаваху у подвизима хришћанским. 
-За Амфијана се каже да телом беше 20 година стар, а разумом и 
-великодушношћу столетан. Када наста гоњење, у време Максимина, 
-многи хришћани побегоше из града и сакрише се, док се други драговољно и 
-радосно предадоше у руке мучитеља, да би пострадали за име Онога који је 
-прво за њих пострадао. Амфијан буде међу овим последњим. Он дође небојажљиво 
-у храм незнабожачки, где кнез Урбан приношаше жртве идолима, па ухвати 
-кнеза за руку, којом држаше жртву, и викну му да одустане од служења и 
-жртвоприношења мртвим идолима, и да позна Бога истинога. Неки који чуше 
-ове речи и видеше оволику храброст Амфијанову, покајаше се и примише 
-веру Христову. Но кнез, ражљућен, баци Амфијана на муке. Између осталих 
-мука завише му ноге памуком па запалише. Но кад оста жив, бацише га у 
-море са каменом о врату; а море се узбурка и избаци тело мучениково 
-у град. Едесије би најпре послан у бакарне руднике у Палестину, по 
-том одведен у Мисир. У Александрији испуни се светом ревношћу против 
-некога кнеза Јероклеа, који на тргу беше прикупио хришћанске монахиње, 
-девојке и часне жене, и раздаваше их најбестиднијим развратницима на 
-поругање – испуни се Едесије светом ревношћу и удари шамар бесчесном 
-кнезу. Због тога би мучен и у море утопљен, као и брат му Амфијан. 
-Као два невина јагњета жртвоваше се за Христа, око 306. Год., 
-и преселише се у дивне дворе Господње.</p> 
-
-<br><br>
-Два се брата предадоше Богу на жртву,<br>
-Презирући свет трулежни, лешину мртву,<br>
-Амфијан и Едесије, браћа утробна,<br>
-У мукама дивна браћа, Христу подобна.<br>
-Ко у Бога веру има, тај свет не цени,<br>
-Мртвој души може Бога свет да замени.<br>
-Ко ка Христу љубав има, смрти с’ не боји,<br>
-У бесмртне и пре смрти тај се већ броји.<br>
-Ко смрт сматра крајем мрачним, крајем беславним,<br>
-Тај и себе сматрат’ мора робом очајним.<br>
-Мученици смрт сматраху завесом неба,<br>
-Пример даше да се смрти страшит не треба.<br>
-Не страши се, о човече, да неба нема.<br>
-Но се страши Суда страшног што небо спрема.<br>
-Било б’ лакше за грешника да неба није,<br>
-Зато грешник с’ гневом пита: та небо гди је?<br>
-О грешниче, небо није тамо где и ти,<br>
-Ти и небо никад скупа нећете бити.
-<center><b>Расуђивање</b></center>
-
-„Боље бити незналицом, а љубављу се приближавати Богу, 
-него бити многозналицом и уједно непријатељ Богу“. 
-То су речи св. Иринеја, Лионског свештеномученика. 
-Истинитост ових речи потврђивала се у свима временима, 
-па се потврђује и у наше време. Само се овоме мора једно 
-додати, на име, да љубитељи Бога нису незналице, пошто 
-они знају за Бога толико, да Га могу љубити. 
-Од свих знања људских, ово је знање најважније и највеће. 
-И још се мора додати, да непријатељи Божји не могу бити 
-многозналице – мада они себе за такве сматрају – пошто 
-је њихово знање неминовно хаотично, јер нема главе и 
-нема реда. Јер глава и ред свакоме знању јесте Бог. 
-Неки од светитеља – као Павле Прости – нису знали ни 
-читати ни писати, али су силом духа свога и божанственом 
-љубављу превазилазили сав свет. Ко се љубављу приближује 
-Богу, тај није способан за злочин. А ученост без љубави 
-к Богу задахнута је духом злочина и рата. Св. Јевтимије 
-Велики учаше: „имајте љубав, јер што је со јелу, то је 
-љубав свакој врлини.“ Безукусна је и хладна свака 
-врлина ако није посољена и загрејана божанском љубављу.
-<br><br>
-<center><b>Созерцање</b></center>
-
-
-Да созерцавам Господа Исуса у аду, и то:
-1. како је Његов план спасења свеобиман, обухвата сва 
-колена и сва времена од почетка до краја; <br>
-2. како је Он дошао на земљу у телу, не само ради 
-оних који су тада живели на земљи него и ради оних 
-који ће живети, као и за оне који су живели; <br>
-3. како Он, док Му мртво тело лежи у гробу, душом 
-силази у ад да објави спасење и ослобођење окованих.
-<br><br>
-<center><b>Беседа</b></center>
-
-о живоме Богу и о живој деци Његовој
-Ако, дакле, живимо ако умремо Господњи смо. (Рим. 14, 8)
-Чији смо кад живимо? Господњи. Чији смо кад умиремо? Господњи. 
-Чији су праведници? Господњи? Чији су грешници? Господњи. 
-Господ обухвата све, и живе и мртве, и садашње, и прошле, 
-и будуће. Нико није тако свеобухватљив као Господ Исус. 
-Који од такозваних добротвора човечанства, од учитеља, вођа, 
-просветитеља, икада покуша да учини неко добро умрлим? 
-Ту се може одлучно одговорити: никада и нико! И сама помисао 
-била би смешна у очима васцелога света – учинити неко добро 
-мртвима! То је смешно свима онима који мисле, да је смрт 
-моћнија од Бога, и да оно што она прогута, уништава за свагда. 
-Но бринути за мртве, и чинити добро мртвима, престало је 
-бити смешним од откровења Господа Исуса, који откри да је 
-Бог – Бог живих, и који то и на делу показа сишавши у ад, 
-да ослободи и спасе душе помрлих праведника све од Адама 
-па до Његове смрти на крсту. Свеобухватљив је Господ наш 
-преславни како Својом видовитом мишљу, јер мисли о свима 
-и види све од жене рођене, и над гробовима и у гробовима; 
-тако и Својом љубављу, јер грли све душе праведничке, 
-без обзира које их место или време скрива; тако најзад и 
-Својим трудом, јер се труди за све њих, да их све ослободи, 
-спасе, уведе у царство и прослави пред лицем Оца Свог 
-небесног, Духа Светог Животворног и безбројних светих Ангела. 
-Господе, Теби слава и хвала вавек. Амин.
-
+<div class="sadrzaj" style="grid-template-columns: repeat(3, 1fr);"> <!-- Tri kolone za dane -->
+    <!-- LISTA MESECI -->
+    <a href="prolog-januar.html" class="mesec-dugme">Јануар</a>
+    <a href="prolog-februar.html" class="mesec-dugme">Фебруар</a>
+    <a href="prolog-mart.html" class="mesec-dugme">Март</a>
+    <a href="prolog-april.html" class="mesec-dugme">Април</a>
+    <a href="prolog-maj.html" class="mesec-dugme">Мај</a>
+    <a href="prolog-jun.html" class="mesec-dugme">Јун</a>
+    <a href="prolog-jul.html" class="mesec-dugme">Јул</a>
+    <a href="prolog-avgust.html" class="mesec-dugme">Август</a>
+    <a href="prolog-septembar.html" class="mesec-dugme">Септембар</a>
+    <a href="prolog-oktobar.html" class="mesec-dugme">Октобар</a>
+    <a href="prolog-novembar.html" class="mesec-dugme">Новембар</a>
+    <a href="prolog-decembar.html" class="mesec-dugme">Децембар</a>
 </div>
-<div id="april16" class="tekst-sekcija">
-    <h2 class="katizma-naslov">Св. Никита Исповедник</h2>
-    
-Рођен у Витинији, у граду Кесарији. Отац његов 
-Филарет, лишивши се своје супруге, замонаши се, те Никита 
-оста код своје бабе, очеве мајке. Пошто одрасте и заврши 
-све науке оде у манастир Мидикијски, где га игуман Никифор 
-постриже за монаха, а после седам година труда и подвига 
-рукоположи га патријарх Тарасије за јеромонаха. По смрти 
-Никифора и Никитиног верног друга Атанасија, братство 
-изабра Никиту, и преко воље овога, за игумана. Беше св. 
-Никита светао пример живота и подвига братији својој кроз 
-дуг низ година. Али кад се зацари Лав V Јерменин, после 
-благочестиве Ирине и правоверних царева Никифора и Михаила, 
-распали се опет иконоборска јерес. Цар збаци патријарха 
-Никифора и посла га на заточење, а на његово место уздиже 
-некаквога јеретика Теодота Каситера, човека нечиста живота. 
-И Никита би затворен и мучен, но не поколеба се у 
-Православљу. Превођен би из тамнице у тамницу, и мучен глађу
- и жеђу, мразом и знојем и поругањем. Али он се не даде 
-поколебати. Нарочито му досађиваше неки Никола с подсмехом 
-и поругом. Но једне ноћи јави се Николи његов умрли отац на 
-сну и прекорно му рече: „одступи од слуге Божјега!" И од 
-тога часа Никола се покаја те не само не досађиваше више 
-светитељу него и друге одвраћаше да му не досађују. Када 
-злом смрћу погибе Лав Јерменин, царство преузе правоверни 
-цар Михаил Валвос, који ослободи све православне страдалнике. 
-Никита се повуче у једно усамљено место близу Цариграда, 
-где у молитви и благодарењу Богу на свему проведе своје 
-последње дане земнога живота. Сотвори многа чудеса молитвом 
-за време живота. А када умре, пренеше му тело у његов манастир. 
-И при том спроводу многи болесници дотакоше се тела његова и 
-бише исцељени. Мошти му бише положене до гробнице његовог 
-духовног оца Никифора и друга му Атанасија. Упокоји се овај 
-велики јерарх 824. год.
-
-Тропар (глас 8):
-Наставниче Православља, учитељу побожности и чистоте, свећњаче 
-васељене, богонадахнути украсу архијереја, Никита премудри, 
-учењем твојим све си просветио, свирало духовна, 
-моли Христа Бога, да спасе душе наше.
-<center><b>Свети Павле Невољник</b></center>
-
-Рус по рођењу. У младости заробљен од Турака. Не хотећи издати 
-веру Христову и потурчити се, би мучен и посечен у Цариграду 1683 год.
-
-<center><b>Свети мученик Улпијан</b></center>
-
-Младић из града Тира. Мучен за Христа од началника Урбана, 
-мучитеља св. Амфијана (2 април). Најзад завезан у врећу, 
-заједно са једним псом и змијом, и бачен у море. 
-Пострада и прослави се 306 год.
-„Ја ране Господа на свом телу носим
-И само се Крстом Господњим поносим!"
-Тако рече Павле, апостол избрани,
-Њему следоваху чете покајани',
-Чете покајаних што примише ране
-И у муци многе проведоше дане,
-Ради Живог Христа, Спаса и Господа,
-К'о и свети Павле, апостол народa.
-И Никита дивни крст тежак понесе,
-Муке и поругу за Христа поднесе.
-У трошноме телу дух ка' од челика
-У Никите светог, храброг мученика.
-Он цара победи и царства надживе,
-За то му се земља и небеса диве.
-Сада славом венчан међу ангелима
-Он помаже свима за Крст гоњенима.
-Његова молитва пред Бога узлази,
-И његова помоћ на земљу силази.
-
-
- 
-
-    <center><b>Расуђивање</b></center>
-   „Очекујем себи хиљаду смрти," овако је писао св. 
-Атанасије Велики својој пастви у Мисиру за време страшне 
-аријанске јереси. Овако може рећи о себи сваки духован 
-човек, који је духом прогледао и видео мрежу, у којој 
-се свака душа људска налази у овоме свету. Што год је 
-један човек духовнији, то је та мрежа гушћа. Тако је 
-воља Божја: да се најдуховнији спасавају најтешњим путем. 
-И сам Псалмопевац вели: многы скорбы праведнику. 
-Но на крају крајева победа и слава припада праведнику. 
-Само се треба наоружати вером и стрпљењем. Ко верује, 
-тај и разуме своје страдање. Ко се оклопи стрпљењем, 
-тај ће видети победу и славу. Ономе ко љуби Господа и 
-најтешњи пут је довољно простран, и највеће муке — лако 
-иго, и најљућа смрт — радост свадбена.
-
-
-
-    <center><b>Созерцање</b></center>
-   Да созерцавам Господа Исуса у Аду, н то:
-1. како Он силази у Ад са силом великом, од које се Ад потреса;<br>
-2. како испред Његовог лица беже зли дуси, дотадањи господари Ада;<br>
-3. како се неописано радују Његовом доласку душе праведних праотаца и пророка.<br>
-
-
-  
-
-    <center><b>Беседа</b></center>
- о великој жељи Божјој
-Бог хоће да се сви људи спасу (I Тим. 2, 4).
-Бог хоће да се сви људи спасу — зато Господ Исус сиђе у Ад, 
-да спасе и оне који живеше на земљи пре Његовог доласка. 
-Јер да Он не сиђе у Ад, огроман број праведних душа пропао 
-би за навек. И још: да Он не сиђе у Ад, главни стан злобе 
-против Бога и човечјег рода остао би неразорен. Та два разлога, 
-дакле, побудише Христа Жизнодавца да се душом спусти у Ад — прво: 
-да разори гнездо адских сила, и друго: да изведе из Ада у Рај 
-душе праотаца, пророка, праведника и праведница, који испунише 
-стари закон Божји и тиме угодише Богу. Пре него што се сатана 
-довољно зарадова гледајући Христа понижена и на крсту умртвљена, 
-Христос се појави, жив и свемоћан, усред Ада, главног стана сатанина. 
-Каква неочекивана и ужасна новост за сатану! Три године он је 
-плео замке против Христа на земљи, а Христос за три дана ево 
-разорава царство његово и односи пребогати плен у виду роја 
-праведничких душа. Ти хоћеш да се сви људи спасу, о Господе. 
-Спаси и нас молимо Ти се. Јер нема спасења ни спаситеља ван Тебе. 
-У Тебе се Јединога надамо и Теби се Јединоме клањамо, 
-Теби и Оцу и Духу Светоме, сада и вавек. Амин.
-
-</div>
-<div id="katizma3" class="tekst-sekcija">
-<h2 class="katizma-naslov">Катизма трећа</h2>
-<center><b>Псалам 17.</b></center>
-
-
-
-<a href="#" class="fiksni-vrh">⬆</a>
-
 
 </body>
 </html>
