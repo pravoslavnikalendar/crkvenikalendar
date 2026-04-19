@@ -819,7 +819,10 @@ overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.3); margin: 20px 0 20px 30
  </div>
   </div>
 
-	
+<div id="dnevni-prolog-kontejner">
+    <!-- Овде ће скрипта аутоматски убацити данашњи дан -->
+    <p style="text-align:center;">Учитавам житије дана...</p>
+</div>	
 
 
 <div class="header-desktop-right-box">
@@ -969,6 +972,38 @@ prikaziSve();
 	
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const datum = new Date();
+    const dan = datum.getDate();
+    const meseci = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
+    const mesecIme = meseci[datum.getMonth()];
+    
+    // Путања до фајла (нпр. prolog-april.html)
+    const fajlPutanja = `prolog-${mesecIme}.html`;
+    const targetId = `${mesecIme}${dan}`; // Прави нпр. "april20"
+
+    fetch(fajlPutanja)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const sadrzajDana = doc.getElementById(targetId);
+
+            if (sadrzajDana) {
+                document.getElementById('dnevni-prolog-kontejner').innerHTML = sadrzajDana.outerHTML;
+            } else {
+                document.getElementById('dnevni-prolog-kontejner').innerHTML = "<p>Житије за данашњи дан ће бити ускоро додато.</p>";
+            }
+        })
+        .catch(err => {
+            console.error("Грешка при учитавању пролога:", err);
+            document.getElementById('dnevni-prolog-kontejner').innerHTML = "";
+        });
+});
+</script>
+
+	
 
 	<script>
 function osveziKalendar() {
