@@ -102,11 +102,18 @@ background: rgba(242, 230, 201, 0.95);
 /* Ово осигурава да на мобилном дугмићи поново заузму своју ширину */
 @media (max-width: 600px) {
     .lista-molitvi {
-        flex-direction: column; /* На мобилном иду једно испод другог */
-        align-items: center;
-        margin: 8px auto;
+        display: flex !important;
+        flex-direction: column !important; /* Да иду један испод другог */
+        gap: 0px !important;              /* Поништавамо размак између колона */
+        padding: 5px !important;
     }
-}  
+
+    .dugme {
+        width: 85% !important;
+        margin: 6px auto !important;      /* Ово ће „залепити” дугмиће на праву раздаљину */
+        display: block !important;        /* Враћамо их у блок режим на мобилном */
+    }
+}
      
  </style>
 </head>
