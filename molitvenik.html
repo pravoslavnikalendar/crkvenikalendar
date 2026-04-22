@@ -23,12 +23,12 @@ body {
 
 
 .dugme {
-     display: inline-block;
+    display: block;
     background: rgba(242, 230, 201, 0.88);
     padding: 10px 20px; /* Мало већи пединг да слова буду уљуљкана */
     width: 85%;
     max-width: 350px;
-    margin: 8px auto; /* ОВО ПРАВИ ТАЈ ЛЕПИ МАЛИ РАЗМАК */
+    margin: 12px auto; /* ОВО ПРАВИ ТАЈ ЛЕПИ МАЛИ РАЗМАК */
     text-decoration: none;
     color: #4A3728;
     font-size: 21px; /* Мало смо смањили да дужи наслови стану у један ред */
@@ -91,29 +91,7 @@ background: rgba(242, 230, 201, 0.95);
     }
     .procitaj-vise:hover { color: #2E1B08; transform: translateX(5px); }
 
-   .lista-molitvi {
-    display: flex;
-    flex-wrap: wrap;       /* Ово дозвољава прелазак у нови ред */
-    justify-content: center; /* Центрира дугмиће на средини */
-    gap: 10px;             /* Размак између дугмића лево-десно */
-    padding: 10px;
-}
-
-/* Ово осигурава да на мобилном дугмићи поново заузму своју ширину */
-@media (max-width: 600px) {
-    .lista-molitvi {
-        display: flex !important;
-        flex-direction: column !important; /* Да иду један испод другог */
-        gap: 0px !important;              /* Поништавамо размак између колона */
-        padding: 5px !important;
-    }
-
-    .dugme {
-        width: 85% !important;
-        margin: 6px auto !important;      /* Ово ће „залепити” дугмиће на праву раздаљину */
-        display: block !important;        /* Враћамо их у блок режим на мобилном */
-    }
-}
+ 
      
  </style>
 </head>
@@ -128,7 +106,7 @@ background: rgba(242, 230, 201, 0.95);
 <div class="container">
     <img src="serafimi.png" class="stiker-vrh" alt="">   
 
- <div class="lista-molitvi"> <!-- ОВО ОТВОРИШ -->
+
     
     <a href="jutarnje-molitve.html" class="dugme">☀️ Јутарње молитве &rarr;</a>
     <a href="molitveno-pravilo-serafima-sarovskog.html" class="dugme">Правило Св. Серафима &rarr;</a>
@@ -155,7 +133,7 @@ background: rgba(242, 230, 201, 0.95);
 <a href="molitve-pre-spavanja.html" class="dugme">🕯️ Молитве пре спавања &rarr;</a>
 <a href="molitva-pre-uzimanja-nafore-i-svete-vode.html" class="dugme">Молитва пре узимања нафоре и свете воде &rarr;</a>
   </div>
-</div>
+
 <p class="potpis"></p>
 
 
