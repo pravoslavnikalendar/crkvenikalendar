@@ -1111,11 +1111,7 @@ function osveziKalendar() {
 <noscript><div><img src="https://mc.yandex.ru/watch/107224917" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-   <script>
-  if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
-  }
-</script>  
+
 
 
 <!-- OVDE POČINJE MAGIJA ZA PRESLOVLJAVANJE -->
@@ -1282,7 +1278,13 @@ function preslovi(pismo) {
 </div>
 
 
-
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('Service worker registrovan!', reg))
+      .catch(err => console.error('Greška pri registraciji:', err));
+  }
+</script>
 	
 
 </body>
