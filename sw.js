@@ -5,6 +5,8 @@ const assets = [
   './index.html',
   './manifest.json',
   './ikona.png',
+  './ikona192.png',
+  './ikona512.png',
   './papir.png'
 ];
 
@@ -12,7 +14,8 @@ const assets = [
 self.addEventListener('install', evt => {
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      cache.addAll(assets);
+      console.log('Skladištenje fajlova u keš...');
+      return cache.addAll(assets);
     })
   );
 });
