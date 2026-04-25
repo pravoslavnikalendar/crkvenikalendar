@@ -92,7 +92,38 @@
         </div>
 </div>
 
+<script>
+    const audio = document.getElementById('glavni-plejer');
+    const naslov = document.getElementById('naslov-pesme');
+    
+    // Lista pesama (ID-jevi sa tvog Drive-a)
+    const pesme = [
+        { naslov: "Пресвета Богородице Спаси Нас", id: "127bSaYz8fA9XSLJVWi5l8xTaOgbqwHYl" },
+        { naslov: "Душо моја свет се нагло мења", id: "1MpuIH1wNvBOJKgYnTb7JN9p96_xZYQBi" },
+        { naslov: "Господи помилуй, Господи прости", id: "1MTwPYMeqwaErs3rdgP67OnmZ6wrZppHN" },
+        { naslov: "Устани, Боже, устани", id: "1jyM7jHNp9ODHeqZDLsuizQHll7SUaQ7q" },
+        { naslov: "Два анђела шеташе", id: "1rbQ7llI34qDa1SWKbsUoogSaOVnE1pi2" }
+    ];
 
+    let trenutnaPesma = 0;
+
+    function pustiPesmu(index, naziv, driveId) {
+        trenutnaPesma = index;
+        naslov.innerText = naziv;
+        audio.src = "https://drive.google.com/uc?export=download&id=" + driveId;
+        audio.play();
+    }
+
+    // GLAVNA CAKA: Kad se završi, pusti sledeću
+    audio.onended = function() {
+        trenutnaPesma++;
+        if (trenutnaPesma < pesme.length) {
+            pustiPesmu(trenutnaPesma, pesme[trenutnaPesma].naslov, pesme[trenutnaPesma].id);
+        } else {
+            console.log("Kraj liste.");
+        }
+    };
+</script>
     
 
 <p><strong>Юлия Славянская. Древневенгерский плач Марии</strong></p> 
