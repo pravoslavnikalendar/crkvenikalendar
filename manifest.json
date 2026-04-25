@@ -4,16 +4,25 @@
   "short_name": "Ljubav Pravoslavlje",
   "description": "Православни црквени календар, духовне поуке, псалтир, молитвеник, духовне поучне приче, аудио молитве, православна музика, свето писмо.",
   "start_url": "index.html",
-"background_color": "#808080",
+  "background_color": "#808080",
   "theme_color": "#808080",
   "display": "standalone",
   "icons": [
-   {
+    {
       "src": "ikona.png",
       "sizes": "70x70",
+      "type": "image/png"
+    },
+    {
+      "src": "ikona192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "ikona512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
 }
-
 
