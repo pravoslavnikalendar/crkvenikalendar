@@ -1271,9 +1271,14 @@ function preslovi(pismo) {
 
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service worker registrovan!', reg))
-      .catch(err => console.error('Greška pri registraciji:', err));
+    // Dodajemo ?v=3 da "nateramo" browser da shvati da je ovo nova verzija
+    navigator.serviceWorker.register('./sw.js?v=3')
+      .then(reg => {
+        console.log('SW registrovan!');
+        // Ovo tera Service Worker da odmah preuzme kontrolu, bez čekanja
+        reg.update(); 
+      })
+      .catch(err => console.error('Greška:', err));
   }
 </script>
 	
