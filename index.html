@@ -1153,6 +1153,15 @@ function preslovi(pismo) {
 </script>
 
 <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js');
+    });
+  }
+</script>
+
+	
+<script>
     fetch('svetitelji.json')
     .then(response => response.json())
     .then(data => {
