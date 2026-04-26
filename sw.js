@@ -77,8 +77,9 @@ self.addEventListener('fetch', evt => {
           cache.put(evt.request.url, fetchRes.clone());
           return fetchRes;
         });
-      });
+  });
     }).catch(() => {
+      // Ako baš nema ni interneta ni tog fajla u memoriji, prikaži početnu
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
