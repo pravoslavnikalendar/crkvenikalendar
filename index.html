@@ -1043,72 +1043,80 @@ prikaziSve();
 	
 </script>
 
-<script>
-const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-document.getElementById('datum').innerHTML = datum.toLocaleDateString('sr-RS', opcije);	
-document.addEventListener("DOMContentLoaded", function() {
-    const datum = new Date();
-    const dan = datum.getDate();
-    const meseci = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
-    const mesecIme = meseci[datum.getMonth()];
-    
-    // 1. UCITAVANJE KALENDARA (Datum, Svetitelj, Pouka, Post)
-    const nazivFajla = `${mesecIme}-${datum.getFullYear()}.html`;
 
-    fetch(nazivFajla)
+	
+	
+	
+	
+	<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const d = new Date();
+    const danDanas = d.getDate();
+    const meseciImena = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
+    const mesecIme = meseciImena[d.getMonth()];
+    const danasnjiKljucJSON = `${danDanas}. ${mesecIme}`; // npr. "26. april"
+
+    // 1. ISPRAVAN ISPIS DATUMA (Sa "po starom" i "Leto Gospodnje")
+    const julijanskiMS = d.getTime() - (13 * 24 * 60 * 60 * 1000);
+    const stariD = new Date(julijanskiMS);
+    const AM = stariD.getFullYear() + 5508;
+    const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    
+    let datumBox = document.getElementById('datum');
+    if(datumBox) {
+        datumBox.innerHTML = 
+            d.toLocaleDateString('sr-RS', opcije) + 
+            "<br><small>(по старом: " + stariD.getDate() + ". " + stariD.toLocaleDateString('sr-RS', {month:'long'}) + " | Лето Господње " + AM + ".)</small>";
+    }
+
+    // 2. KALENDAR (Svetitelj, Pouka, Post) - Uzimamo iz tvog april-2026.html
+    fetch(`${mesecIme}-${d.getFullYear()}.html`)
         .then(res => res.text())
         .then(html => {
             const doc = new DOMParser().parseFromString(html, 'text/html');
             const sviDani = doc.querySelectorAll('.dan');
             sviDani.forEach(blok => {
                 const brEl = blok.querySelector('.novi-datum');
-                if (brEl && parseInt(brEl.innerText) === dan) {
-                    // Svetitelj
-                    const sadrzajEl = blok.querySelector('.sadrzaj');
-                    if (sadrzajEl) document.getElementById('svetitelj').innerHTML = sadrzajEl.innerHTML;
-                    
-                    // Pouka dana (Tvoj opis)
-                    const opisEl = blok.querySelector('.opis');
-                    if (opisEl) document.getElementById('pouka-dana').innerHTML = "<hr style='width:30%; opacity:0.2;'>„" + opisEl.innerHTML + "“";
-                    
-                    // Post
-                    const postEl = blok.querySelector('.post-ispod');
-                    if (postEl) document.getElementById('post-tip').innerHTML = "Пост: " + postEl.innerHTML;
+                if (brEl && parseInt(brEl.innerText.replace('.', '').trim()) === danDanas) {
+                    if (document.getElementById('svetitelj')) document.getElementById('svetitelj').innerHTML = blok.querySelector('.sadrzaj').innerHTML;
+                    if (document.getElementById('pouka-dana')) document.getElementById('pouka-dana').innerHTML = "<hr style='width:30%; margin:10px auto; opacity:0.2;'>„" + blok.querySelector('.opis').innerHTML + "“";
+                    if (document.getElementById('post-tip')) document.getElementById('post-tip').innerHTML = "Пост: " + blok.querySelector('.post-ispod').innerHTML;
                 }
             });
-        }).catch(err => console.log("Kalendar trenutno nije dostupan offline."));
+        }).catch(err => console.log("Greska sa kalendarom"));
 
-    // 2. UCITAVANJE SVETITELJA (Crvena slova iz svetitelji.json)
+    // 3. DANASNJI SPECIJALNI PRAZNIK (Samo ako postoji u svetitelji.json za danas)
     fetch('svetitelji.json')
         .then(res => res.json())
         .then(data => {
-            let kontejner = document.getElementById('lista-praznika');
-            if (kontejner) {
-                kontejner.innerHTML = "";
-                for (let kljuc in data) {
-                    let p = data[kljuc];
-                    let klasa = (p.boja === "red") ? "crveno" : "";
-                    kontejner.innerHTML += `
-                        <div class="pouka-box" style="text-align: left; margin-top:10px;">
-                            <span class="${klasa}">${kljuc}</span> - <b>${p.praznik}</b>
-                            ${p.pouka ? `<p style="font-style: italic; font-size:14px;">${p.pouka}</p>` : ""}
-                        </div>`;
-                }
+            let kontejner = document.getElementById('danasnji-praznik-json');
+            // Ako u JSON-u imamo npr. "26. april", ispiši ga kratko
+            if (kontejner && data[danasnjiKljucJSON]) {
+                let p = data[danasnjiKljucJSON];
+                let klasa = (p.boja === "red") ? "crveno" : "";
+                kontejner.innerHTML = `
+                    <div style="margin-top:10px; border-top: 1px dashed rgba(0,0,0,0.1); padding-top:5px;">
+                        <span class="${klasa}" style="font-weight:bold;">${p.praznik}</span>
+                        ${p.pouka ? `<p style="font-style:italic; font-size:14px; color:#5f0606;">${p.pouka}</p>` : ""}
+                    </div>`;
             }
-        });
+        }).catch(err => console.log("JSON nije pronadjen"));
 
-    // 3. UCITAVANJE PROLOGA
-    const fajlProlog = `prolog-${mesecIme}.html`;
-    const targetId = `${mesecIme}${dan}`;
-    fetch(fajlProlog)
+    // 4. PROLOG (Dole gde mu je mesto)
+    fetch(`prolog-${mesecIme}.html`)
         .then(res => res.text())
         .then(html => {
             const doc = new DOMParser().parseFromString(html, 'text/html');
-            const sadrzaj = doc.getElementById(targetId);
-            if (sadrzaj) document.getElementById('dnevni-prolog-kontejner').innerHTML = sadrzaj.outerHTML;
-        });
+            const sadrzaj = doc.getElementById(`${mesecIme}${danDanas}`);
+            if (sadrzaj && document.getElementById('dnevni-prolog-kontejner')) {
+                document.getElementById('dnevni-prolog-kontejner').innerHTML = sadrzaj.outerHTML;
+            }
+        }).catch(err => console.log("Prolog nije pronadjen"));
 });
 </script>
+
+
+	
 	
 
 	<script>
