@@ -1145,33 +1145,64 @@ function preslovi(pismo) {
   }
 </script>
 
-	
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const datum = new Date();
+    const dan = datum.getDate();
+    const meseci = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
+    const mesecIme = meseci[datum.getMonth()];
+    
+    // 1. UCITAVANJE PROLOGA (TVOJ KOD - SPOJEN)
+    const fajlPutanja = `prolog-${mesecIme}.html`;
+    const targetId = `${mesecIme}${dan}`;
+
+    fetch(fajlPutanja)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const sadrzajDana = doc.getElementById(targetId);
+            let kontejnerProlog = document.getElementById('dnevni-prolog-kontejner');
+            
+            if (kontejnerProlog) {
+                if (sadrzajDana) {
+                    kontejnerProlog.innerHTML = sadrzajDana.outerHTML;
+                } else {
+                    kontejnerProlog.innerHTML = "<p>Житије за данашњи дан ће бити ускоро додато.</p>";
+                }
+            }
+        })
+        .catch(err => console.error("Грешка при учитавању пролога:", err));
+
+    // 2. UCITAVANJE SVETITELJA IZ JSON-a (TVOJ KOD - SPOJEN)
     fetch('svetitelji.json')
-    .then(response => response.json())
-    .then(data => {
-        let kontejner = document.getElementById('lista-praznika');
-        kontejner.innerHTML = ""; // Briše poruku o učitavanju
+        .then(response => response.json())
+        .then(data => {
+            let kontejnerSvetitelji = document.getElementById('lista-praznika');
+            if (kontejnerSvetitelji) {
+                kontejnerSvetitelji.innerHTML = ""; 
+                for (let kljuc in data) {
+                    let p = data[kljuc];
+                    let klasa = (p.boja === "red") ? "crveno" : "";
+                    kontejnerSvetitelji.innerHTML += `
+                        <div class="pouka-box" style="text-align: left;">
+                            <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
+                            <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
+                            ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
+                            ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 5px;">` : ""}
+                        </div>
+                    `;
+                }
+            }
+        })
+        .catch(err => {
+            console.error("Greska kod svetitelja:", err);
+            let kontejnerSvetitelji = document.getElementById('lista-praznika');
+            if (kontejnerSvetitelji) kontejnerSvetitelji.innerHTML = "Problem sa učitavanjem praznika.";
+        });
+});
+</script>	
 
-        for (let kljuc in data) {
-            let p = data[kljuc];
-            let klasa = (p.boja === "red") ? "crveno" : "";
-
-            kontejner.innerHTML += `
-                <div class="pouka-box" style="text-align: left;">
-                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
-                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
-                    ${p.pouka ? `<p style="margin-top: 10px; font-style: italic;">${p.pouka}</p>` : ""}
-                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 5px;">` : ""}
-                </div>
-            `;
-        }
-    })
-    .catch(err => {
-        console.error("Greska:", err);
-        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
-    });
-</script>
 
 
 
