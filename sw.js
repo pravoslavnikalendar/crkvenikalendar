@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavlje-v7'; // Povećaj na v5 da telefon osveži memoriju
+const cacheName = 'pravoslavlje-v8'; // Povećaj na v5 da telefon osveži memoriju
 const assets = [
   './',
   './index.html',
