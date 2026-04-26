@@ -735,7 +735,10 @@ padding: 0; /* Brišemo razmak oko celog tela */
 
     <!-- DOLE: Opis -->
     <div id="pouka-dana" style="text-align: center;"></div>
+
+<div id="lista-praznika"></div> 
 </div>
+		
 
     <!-- GLAVNA DUGMAD (Izvan papira da ne leluja ekran) -->
     <div class="column-center" style="margin-top: 20px;">
@@ -1047,30 +1050,63 @@ document.addEventListener("DOMContentLoaded", function() {
     const meseci = ["januar", "februar", "mart", "april", "maj", "jun", "jul", "avgust", "septembar", "oktobar", "novembar", "decembar"];
     const mesecIme = meseci[datum.getMonth()];
     
-    // Путања до фајла (нпр. prolog-april.html)
-    const fajlPutanja = `prolog-${mesecIme}.html`;
-    const targetId = `${mesecIme}${dan}`; // Прави нпр. "april20"
+    // 1. UCITAVANJE KALENDARA (Datum, Svetitelj, Pouka, Post)
+    const nazivFajla = `${mesecIme}-${datum.getFullYear()}.html`;
 
-    fetch(fajlPutanja)
-        .then(response => response.text())
+    fetch(nazivFajla)
+        .then(res => res.text())
         .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const sadrzajDana = doc.getElementById(targetId);
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const sviDani = doc.querySelectorAll('.dan');
+            sviDani.forEach(blok => {
+                const brEl = blok.querySelector('.novi-datum');
+                if (brEl && parseInt(brEl.innerText) === dan) {
+                    // Svetitelj
+                    const sadrzajEl = blok.querySelector('.sadrzaj');
+                    if (sadrzajEl) document.getElementById('svetitelj').innerHTML = sadrzajEl.innerHTML;
+                    
+                    // Pouka dana (Tvoj opis)
+                    const opisEl = blok.querySelector('.opis');
+                    if (opisEl) document.getElementById('pouka-dana').innerHTML = "<hr style='width:30%; opacity:0.2;'>„" + opisEl.innerHTML + "“";
+                    
+                    // Post
+                    const postEl = blok.querySelector('.post-ispod');
+                    if (postEl) document.getElementById('post-tip').innerHTML = "Пост: " + postEl.innerHTML;
+                }
+            });
+        }).catch(err => console.log("Kalendar trenutno nije dostupan offline."));
 
-            if (sadrzajDana) {
-                document.getElementById('dnevni-prolog-kontejner').innerHTML = sadrzajDana.outerHTML;
-            } else {
-                document.getElementById('dnevni-prolog-kontejner').innerHTML = "<p>Житије за данашњи дан ће бити ускоро додато.</p>";
+    // 2. UCITAVANJE SVETITELJA (Crvena slova iz svetitelji.json)
+    fetch('svetitelji.json')
+        .then(res => res.json())
+        .then(data => {
+            let kontejner = document.getElementById('lista-praznika');
+            if (kontejner) {
+                kontejner.innerHTML = "";
+                for (let kljuc in data) {
+                    let p = data[kljuc];
+                    let klasa = (p.boja === "red") ? "crveno" : "";
+                    kontejner.innerHTML += `
+                        <div class="pouka-box" style="text-align: left; margin-top:10px;">
+                            <span class="${klasa}">${kljuc}</span> - <b>${p.praznik}</b>
+                            ${p.pouka ? `<p style="font-style: italic; font-size:14px;">${p.pouka}</p>` : ""}
+                        </div>`;
+                }
             }
-        })
-        .catch(err => {
-            console.error("Грешка при учитавању пролога:", err);
-            document.getElementById('dnevni-prolog-kontejner').innerHTML = "";
+        });
+
+    // 3. UCITAVANJE PROLOGA
+    const fajlProlog = `prolog-${mesecIme}.html`;
+    const targetId = `${mesecIme}${dan}`;
+    fetch(fajlProlog)
+        .then(res => res.text())
+        .then(html => {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const sadrzaj = doc.getElementById(targetId);
+            if (sadrzaj) document.getElementById('dnevni-prolog-kontejner').innerHTML = sadrzaj.outerHTML;
         });
 });
 </script>
-
 	
 
 	<script>
