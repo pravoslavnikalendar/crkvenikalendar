@@ -3347,7 +3347,14 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
            <a href="#" class="fiksni-vrh">▲</a>
     </div>
 
- 
+ window.onscroll = function() {
+    let dugme = document.querySelector(".fiksni-vrh");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        dugme.style.display = "flex";
+    } else {
+        dugme.style.display = "none";
+    }
+};
 
 </body>
 </html>
