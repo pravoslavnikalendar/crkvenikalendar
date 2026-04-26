@@ -125,7 +125,10 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 .fiksni-vrh:hover {
     transform: scale(1.1);
 }
-
+.fiksni-vrh {
+    display: none; /* Ovo je važno, JS će je posle promeniti u 'flex' */
+    /* ... ostatak tvog koda ... */
+}
 /* Ovo se aktivira SAMO na telefonima */
 @media (max-width: 480px) {
     .fiksni-vrh-link {
