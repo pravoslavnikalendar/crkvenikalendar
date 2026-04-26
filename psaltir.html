@@ -17,7 +17,10 @@
             color: #4A3728;
             text-align: center;
         }
-
+ html {
+    scroll-behavior: smooth; /* Ово омогућава оно нежно, "клизеће" скроловање */
+}  
+        
         .container {
             max-width: 700px;
             margin: auto;
@@ -98,20 +101,34 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
         /* Da se lepše skroluje kad klikneš na link */
         html { scroll-behavior: smooth; }
 
-/* Ovo važi za sve uređaje */
-.vrh-link {
-    display: inline-block;
+.fiksni-vrh {
+    position: fixed;
+    bottom: 25px;
+    right: 20px;
+    background: rgba(242, 230, 201, 0.95); /* Твоја беж */
+    border: 1px solid #8b6f47;            /* Златни оквир */
+    border-radius: 50%;                   /* Круг */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-size: 24px;
-    padding: 10px;
     color: #8b6f47;
+    font-size: 24px;
     font-weight: bold;
-    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.fiksni-vrh:hover {
+    transform: scale(1.1);
 }
 
 /* Ovo se aktivira SAMO na telefonima */
 @media (max-width: 480px) {
-    .vrh-link {
+    .fiksni-vrh-link {
         font-size: 32px; /* Još veća strelica za palac */
         padding: 20px;   /* Veći prostor za klik */
         display: block;  /* Da bude na sredini ekrana */
@@ -3321,20 +3338,16 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 <center><b>Слава Оцу и Сину и Свјатому духу, и ниње и присно и во вјек и вјеков. Амин.</b></center>
 
 </div>
+   </div>
 
 
 
 
 
-
-         <br><br>
-
-        <a href="#" style="text-decoration:none; 
-font-size: 26px; 
-padding: 15px 30px;
-color:#8b6f47;">⬆ Врх странице</a>
-        <br><br>
+           <a href="#" class="fiksni-vrh">▲</a>
     </div>
+
+ 
 
 </body>
 </html>
