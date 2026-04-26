@@ -1044,6 +1044,8 @@ prikaziSve();
 </script>
 
 <script>
+const opcije = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+document.getElementById('datum').innerHTML = datum.toLocaleDateString('sr-RS', opcije);	
 document.addEventListener("DOMContentLoaded", function() {
     const datum = new Date();
     const dan = datum.getDate();
