@@ -237,15 +237,18 @@ const assets = [
 // Ostatak skripte (install, activate, fetch) je dobar i ne moraš ga menjati, 
 // samo neka ostane onako kako si mi poslala ispod ovog spiska!
 
+// Instalacija service workera
 self.addEventListener('install', evt => {
-  self.skipWaiting(); 
+  self.skipWaiting(); // Tera telefon da odmah prihvati novu verziju (v9)
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
+      console.log('Skladištim tvoju riznicu u keš...');
       return cache.addAll(assets);
     })
   );
 });
 
+// Aktivacija i brisanje starog keša
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     caches.keys().then(keys => {
@@ -257,17 +260,21 @@ self.addEventListener('activate', evt => {
   );
 });
 
+// Fetch događaj - uzimanje iz keša + pametno dopunjavanje
 self.addEventListener('fetch', evt => {
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
+      // Ako je fajl već u kešu (papir, ikone, psaltir), uzmi ga odatle
       return cacheRes || fetch(evt.request).then(fetchRes => {
+        // Ako nije u kešu, ali imamo internet, skini ga i usput ga spakuj u keš
         return caches.open(cacheName).then(cache => {
           cache.put(evt.request.url, fetchRes.clone());
           return fetchRes;
         });
       });
     }).catch(() => {
-    if (evt.request.url.indexOf('.html') > -1) {
+      // Ako nema interneta, a traži se nešto što nismo spakovali, vrati početnu stranu
+      if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
     })
