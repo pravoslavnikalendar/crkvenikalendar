@@ -110,7 +110,7 @@ const assets = [
   './prolog-oktobar.html',
   './prolog-novembar.html',
   './prolog-decembar.html',
-  './zitije-bozic.html",
+  './zitije-bozic.html',
   './zitije-arandjelovdan.html',
 './zitije-blagovesti.html',
 './zitije-bogojavljenje.html',
