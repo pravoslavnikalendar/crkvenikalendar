@@ -1141,7 +1141,9 @@ function preslovi(pismo) {
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js');
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log("Ризница је спремна за offline рад!"))
+        .catch(err => console.log("Грешка:", err));
     });
   }
 </script>
