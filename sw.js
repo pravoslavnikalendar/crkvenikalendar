@@ -230,8 +230,7 @@ const assets = [
   './molitve-pre-spavanja.html',
   './molitva-pre-uzimanja-nafore-i-svete-vode.html',
   './hrabrost-za-molitvu.html',
-  './ucenje-starca-vasilija-o-isusovoj-molitvi.html'
- 
+'./ucenje-starca-vasilija-o-isusovoj-molitvi.html' 
 ];
 
 // Ostatak skripte (install, activate, fetch) je dobar i ne moraš ga menjati, 
