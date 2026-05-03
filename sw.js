@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavlje-v9'; // Povećaj na v5 da telefon osveži memoriju
+const cacheName = 'pravoslavlje-v10'; // Повећали смо на v10 због теста са музиком
 const assets = [
   './',
   './index.html',
@@ -233,21 +233,18 @@ const assets = [
 './ucenje-starca-vasilija-o-isusovoj-molitvi.html' 
 ];
 
-// Ostatak skripte (install, activate, fetch) je dobar i ne moraš ga menjati, 
-// samo neka ostane onako kako si mi poslala ispod ovog spiska!
-
-// Instalacija service workera
+// Инсталација - Складиштење основних ствари
 self.addEventListener('install', evt => {
-  self.skipWaiting(); // Tera telefon da odmah prihvati novu verziju (v9)
+  self.skipWaiting(); 
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Skladištim tvoju riznicu u keš...');
+      console.log('Складиштим Ризницу за offline рад...');
       return cache.addAll(assets);
     })
   );
 });
 
-// Aktivacija i brisanje starog keša
+// Активација - Брисање старих верзија
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     caches.keys().then(keys => {
@@ -259,20 +256,20 @@ self.addEventListener('activate', evt => {
   );
 });
 
-// Fetch događaj - uzimanje iz keša + pametno dopunjavanje
+// ГЛАВНИ ДЕО ЗА МУЗИКУ И OFFLINE:
 self.addEventListener('fetch', evt => {
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
-      // Ako je fajl već u kešu (papir, ikone, psaltir), uzmi ga odatle
+      // 1. Ако је већ у меморији (папир, иконе), узми одмах
       return cacheRes || fetch(evt.request).then(fetchRes => {
-        // Ako nije u kešu, ali imamo internet, skini ga i usput ga spakuj u keš
+        // 2. Ако није у меморији (као твоја нова МУЗИКА), скини је и СНИМИ У КЕШ за следећи пут
         return caches.open(cacheName).then(cache => {
           cache.put(evt.request.url, fetchRes.clone());
           return fetchRes;
         });
       });
     }).catch(() => {
-      // Ako nema interneta, a traži se nešto što nismo spakovali, vrati početnu stranu
+      // 3. Ако си потпуно offline, а тражиш страницу коју немамо, врати почетну
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
