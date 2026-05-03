@@ -75,7 +75,9 @@ const assets = [
   './vaznesenje.jpg',
   './veliki-petak.jpg',
   './vidovdan.jpg',
-  
+
+
+  './ oce-nas-aramejski.mp3', 
   
   './psaltir.html',
   './molitvenik.html',
