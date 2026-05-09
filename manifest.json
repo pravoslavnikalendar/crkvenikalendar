@@ -5,62 +5,62 @@
   "description": "Православна духовна ризница: житија светих, охридски пролог, молитвеник и календар.",
   "icons": [
     {
-      "src": "./ikona.png",
+      "src": "ikona.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./ikona192.png",
+      "src": "ikona.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "ikona.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "./ikona512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "./screen1.png",
+      "src": "screen1.png",
       "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Почетна страна"
     },
     {
-      "src": "./screen2.png",
+      "src": "screen2.png",
       "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Хамбургер мени"
     },
     {
-      "src": "./screen3.png",
+      "src": "screen3.png",
       "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Месечни календар"
     },
     {
-      "src": "./screen4.png",
+      "src": "screen4.png",
       "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Охридски пролог"
     },
     {
-      "src": "./screen5.png",
+      "src": "screen5.png",
       "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Псалтир"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "background_color": "#F2E6C9",
   "display": "standalone",
   "scope": "./",
