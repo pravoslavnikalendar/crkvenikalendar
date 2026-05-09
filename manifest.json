@@ -16,6 +16,29 @@
       "purpose": "any"
     }
   ],
+  "screenshots": [
+    {
+      "src": "./screen1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Почетна страна"
+    },
+    {
+      "src": "./screen2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Хамбургер мени"
+    },
+    {
+      "src": "./screen3.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Месечни календар"
+    }
+  ],
   "start_url": "./index.html",
   "background_color": "#F2E6C9",
   "display": "standalone",
