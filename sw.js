@@ -258,11 +258,13 @@ self.addEventListener('activate', evt => {
   );
 });
 
-// ГЛАВНИ ДЕО: Прво гледа интернет (за Свеца), ако нема нета - даје из меморије
+// ГЛАВНИ ДЕО: Прво гледа у меморију (брзина и offline), ако нема - иде на нет
 self.addEventListener('fetch', evt => {
   evt.respondWith(
-    fetch(evt.request).catch(() => {
-      return caches.match(evt.request);
+    caches.match(evt.request).then(cacheRes => {
+      // Ако је фајл у меморији (cache), врати га одмах. 
+      // Ако није, покушај да га преузмеш са интернета.
+      return cacheRes || fetch(evt.request);
     })
   );
 });
