@@ -266,3 +266,14 @@ self.addEventListener('fetch', evt => {
     })
   );
 });
+
+
+let swRegistration = null;
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("./pwa-examples/js13kpwa/sw.js")
+    .then((reg) => {
+      swRegistration = reg;
+    });
+}
