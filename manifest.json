@@ -5,7 +5,7 @@
   "icons": [
     {
       "src": "./ikona.png",
-      "sizes": "192x192",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     },
@@ -21,6 +21,10 @@
   "display": "standalone",
   "scope": "./",
   "theme_color": "#8b6f47",
-  "categories": ["education", "lifestyle", "books"],
+  "categories": [
+    "education",
+    "lifestyle",
+    "books"
+  ],
   "orientation": "portrait"
 }
