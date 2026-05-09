@@ -9,46 +9,40 @@
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "./ikona.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any"
     }
   ],
   "screenshots": [
     {
       "src": "./screen1.png",
-      "sizes": "1080x1920",
+      "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Почетна страна"
     },
     {
       "src": "./screen2.png",
-      "sizes": "1080x1920",
+      "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Хамбургер мени"
     },
     {
       "src": "./screen3.png",
-      "sizes": "1080x1920",
+      "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Месечни календар"
     },
     {
       "src": "./screen4.png",
-      "sizes": "1080x1920",
+      "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Охридски пролог"
     },
     {
       "src": "./screen5.png",
-      "sizes": "1080x1920",
+      "sizes": "1290x2796",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Псалтир"
