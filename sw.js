@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavlje-v10'; // Повећали смо на v10 због теста са музиком
+const cacheName = 'pravoslavlje-v12'; // Повећали смо на v10 због теста са музиком
 const assets = [
   './',
   './index.html',
