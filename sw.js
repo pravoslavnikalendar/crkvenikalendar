@@ -1,4 +1,4 @@
-const cacheName = 'riznica-final-v2';
+const cacheName = 'riznica-final-v40';
 const assets = [
   './',
   './index.html',
@@ -246,28 +246,27 @@ self.addEventListener('install', evt => {
   );
 });
 
-// Активација - Бришемо старе верзије (v11, v10...)
-self.addEventListener('activate', evt => {
-  evt.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(keys
-        .filter(key => key !== cacheName)
-        .map(key => caches.delete(key))
-      );
-    })
-  );
-});
-
-// ГЛАВНИ ДЕО: Прво гледа у меморију (брзина и offline), ако нема - иде на нет
 self.addEventListener('fetch', evt => {
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
-      // Ако је фајл у меморији (cache), врати га одмах. 
-      // Ако није, покушај да га преузмеш са интернета.
-      return cacheRes || fetch(evt.request);
+      // 1. Ako je fajl već u memoriji, daj ga odmah (to je ono što radi offline)
+      if (cacheRes) {
+        return cacheRes;
+      }
+
+      // 2. Ako NIJE u memoriji, probaj da ga skineš sa neta
+      return fetch(evt.request).then(fetchRes => {
+        // Ako je skidanje uspelo, odmah ga "sakrij" u memoriju za sledeći put
+        return caches.open(cacheName).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone());
+          return fetchRes;
+        });
+      });
+    }).catch(() => {
+      // 3. Ako si skroz offline i nema fajla, baci ga na početnu (da ne vidi grešku)
+      if (evt.request.url.indexOf('.html') > -1) {
+        return caches.match('./index.html');
+      }
     })
   );
 });
-
-
-
