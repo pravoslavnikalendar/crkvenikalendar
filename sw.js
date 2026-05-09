@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavlje-v12'; // Повећали смо на v10 због теста са музиком
+const cacheName = 'pravoslavlje-v13'; // Повећали смо на v10 због теста са музиком
 const assets = [
   './',
   './index.html',
@@ -235,18 +235,18 @@ const assets = [
 './ucenje-starca-vasilija-o-isusovoj-molitvi.html' 
 ];
 
-// Инсталација - Складиштење основних ствари
+// Инсталација - Складиштимо све са списка у телефон
 self.addEventListener('install', evt => {
-  self.skipWaiting(); 
+  self.skipWaiting();
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Складиштим Ризницу за offline рад...');
+      console.log('Ризница се спрема за рад без интернета...');
       return cache.addAll(assets);
     })
   );
 });
 
-// Активација - Брисање старих верзија
+// Активација - Бришемо старе верзије (v11, v10...)
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     caches.keys().then(keys => {
@@ -258,23 +258,11 @@ self.addEventListener('activate', evt => {
   );
 });
 
-// ГЛАВНИ ДЕО ЗА МУЗИКУ И OFFLINE:
+// ГЛАВНИ ДЕО: Прво гледа интернет (за Свеца), ако нема нета - даје из меморије
 self.addEventListener('fetch', evt => {
   evt.respondWith(
-    caches.match(evt.request).then(cacheRes => {
-      // 1. Ако је већ у меморији (папир, иконе), узми одмах
-      return cacheRes || fetch(evt.request).then(fetchRes => {
-        // 2. Ако није у меморији (као твоја нова МУЗИКА), скини је и СНИМИ У КЕШ за следећи пут
-        return caches.open(cacheName).then(cache => {
-          cache.put(evt.request.url, fetchRes.clone());
-          return fetchRes;
-        });
-      });
-    }).catch(() => {
-      // 3. Ако си потпуно offline, а тражиш страницу коју немамо, врати почетну
-      if (evt.request.url.indexOf('.html') > -1) {
-        return caches.match('./index.html');
-      }
+    fetch(evt.request).catch(() => {
+      return caches.match(evt.request);
     })
   );
 });
