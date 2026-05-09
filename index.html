@@ -1289,7 +1289,8 @@ function preslovi(pismo) {
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
+      // Dodali smo ?v=100 da nateramo GitHub da odmah osveži fajl
+      navigator.serviceWorker.register('./sw.js?v=100')
         .then(reg => {
           console.log('Riznica spremna!');
           reg.update(); 
@@ -1298,7 +1299,6 @@ function preslovi(pismo) {
     });
   }
 </script>
-
 	
 </body>
 </html>
