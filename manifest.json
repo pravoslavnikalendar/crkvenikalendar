@@ -3,7 +3,7 @@
   "short_name": "Ризница",
   "name": "Љубав Православље - Духовна Ризница",
   "description": "Православна духовна ризница са житијима светих, охридским пролог, молитвама и календаром.",
-  "icons": [
+ "icons": [
     {
       "src": "./web-app-manifest-192x192.png",
       "sizes": "192x192",
@@ -14,7 +14,7 @@
       "src": "./web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "screenshots": [
