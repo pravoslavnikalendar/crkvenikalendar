@@ -1288,34 +1288,16 @@ function preslovi(pismo) {
 
 <script>
   if ('serviceWorker' in navigator) {
-    // Dodajemo ?v=3 da "nateramo" browser da shvati da je ovo nova verzija
-    navigator.serviceWorker.register('./sw.js?v=3')
-      .then(reg => {
-        console.log('SW registrovan!');
-        // Ovo tera Service Worker da odmah preuzme kontrolu, bez čekanja
-        reg.update(); 
-      })
-      .catch(err => console.error('Greška:', err));
-  }
-</script>
-	
-
-
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("./sw.js")
-        .then((reg) => {
-          console.log("Riznica spremna!", reg);
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => {
+          console.log('Riznica spremna!');
+          reg.update(); 
         })
-        .catch((err) => {
-          console.log("Greška:", err);
-        });
+        .catch(err => console.error('Greška pri registraciji:', err));
     });
   }
 </script>
-
 
 	
 </body>
