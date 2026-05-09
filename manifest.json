@@ -6,15 +6,15 @@
   "icons": [
     {
       "src": "./ikona.png",
-      "sizes": "192x192",
+      "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
     },
     {
       "src": "./ikona.png",
-      "sizes": "512x512",
+      "sizes": "180x180",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "maskable"
     }
   ],
   "screenshots": [
