@@ -268,16 +268,4 @@ self.addEventListener('fetch', evt => {
 });
 
 
-// Provera i registracija Service Worker-a na pravoj adresi
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./sw.js") // Ovako mu kažemo da je fajl u glavnom folderu
-      .then((reg) => {
-        console.log("Ризница је успешно регистрована!", reg);
-      })
-      .catch((err) => {
-        console.log("Грешка при регистрацији:", err);
-      });
-  });
-}
+
