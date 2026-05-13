@@ -1289,8 +1289,8 @@ function preslovi(pismo) {
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      // Dodali smo ?v=100 da nateramo GitHub da odmah osveži fajl
-      navigator.serviceWorker.register('./sw.js?v=100')
+      // Promenili smo verziju u v=41 da se poklopi sa riznica-final-v41 iz sw.js
+      navigator.serviceWorker.register('./sw.js?v=41')
         .then(reg => {
           console.log('Riznica spremna!');
           reg.update(); 
@@ -1302,9 +1302,6 @@ function preslovi(pismo) {
 	
 </body>
 </html>
-
-
-
 
 
 
