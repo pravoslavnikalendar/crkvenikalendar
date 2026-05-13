@@ -1,4 +1,4 @@
-const cacheName = 'riznica-final-v40';
+const cacheName = 'riznica-final-v41';
 const assets = [
   './',
   './index.html',
@@ -7,11 +7,11 @@ const assets = [
   './ikona.png',
   './papir.jpg', 
   './papir.png', 
-   './matej.html',
+  './matej.html',
   './marko.html',
   './luka.html',
   './jovan.html',
-   './serafimi.png',
+  './serafimi.png',
   './sabor.png', 
   './krst.png',
   './snaga.png',
@@ -20,7 +20,7 @@ const assets = [
   './andjeo.png',
   './bog-cuti.png',
   './bogorodica-hrist.png',
- './bozija-volja.png',
+  './bozija-volja.png',
   './hram.png',
   './isceliteljka.png',
   './krst-ornament-veliki.png',
@@ -28,7 +28,7 @@ const assets = [
   './oprostaj.png',
   './pokajnik.png',
   './prastaj-i-ljubi.png',
- './ljubi-i-prastaj.png',
+  './ljubi-i-prastaj.png',
   './stiker-bog.png',
   './sve-primi-mirno.png',
   './svako-dobro.png',
@@ -43,10 +43,9 @@ const assets = [
   './djurdjevdan.jpg',
   './duhovski-ponedeljak.jpg',
   './duhovski-utorak.jpg',
-  './blagovesti.jpg',
   './ivanjdan.jpg',
   './jovankrstitelj.jpg',
- './kirilo-metodije.jpg',
+  './kirilo-metodije.jpg',
   './justin.jpg',
   './konstantin-jelena.jpg',
   './krstovdan.jpg',
@@ -67,7 +66,7 @@ const assets = [
   './sveti-vasilije-veliki.jpg',
   './usekovanje.jpg',
   './uspenije.jpg',
- './vasilije-ostroski.jpg',
+  './vasilije-ostroski.jpg',
   './vaskrs.jpg',
   './vaskrsni-ponedeljak.jpg',
   './vaskrsni-utorak.jpg',
@@ -75,10 +74,7 @@ const assets = [
   './vaznesenje.jpg',
   './veliki-petak.jpg',
   './vidovdan.jpg',
-
-
-  './oce-nas-aramejski.mp3', 
-  
+  './oce-nas-aramejski.mp3',
   './psaltir.html',
   './molitvenik.html',
   './novi-zavet.html',
@@ -114,30 +110,30 @@ const assets = [
   './prolog-decembar.html',
   './zitije-bozic.html',
   './zitije-arandjelovdan.html',
-'./zitije-blagovesti.html',
-'./zitije-bogojavljenje.html',
-'./zitije-cveti.html',
+  './zitije-blagovesti.html',
+  './zitije-bogojavljenje.html',
+  './zitije-cveti.html',
   './zitije-djurdjevdan.html',
   './zitije-duhovski-ponedeljak.html',
- './zitije-duhovski-utorak.html',
+  './zitije-duhovski-utorak.html',
   './zitije-ivanjdan.html',
   './zitije-jovankrstitelj.html',
   './zitije-kirilo-metodije.html',
- './zitije-konstantin-jelena.html', 
+  './zitije-konstantin-jelena.html', 
   './zitije-krstovdan.html',
- './zitije-mala-gospojina.html',
+  './zitije-mala-gospojina.html',
   './zitije-mitrovdan.html',
- './zitije-nikoljdan.html',
- './zitije-petar-cetinjski.html',
-'./zitije-petrovdan.html',
+  './zitije-nikoljdan.html',
+  './zitije-petar-cetinjski.html',
+  './zitije-petrovdan.html',
   './zitije-preobrazenje.html',
   './zitije-prorok-ilija.html',
   './zitije-sabor.html',
-'./zitije-silazak-duha-svetoga.html',
+  './zitije-silazak-duha-svetoga.html',
   './zitije-sretenje-gospodnje.html',
   './zitije-sv-sava.html',
   './zitije-sveta-petka.html',
- './zitije-sveta-tri-jerarha.html',
+  './zitije-sveta-tri-jerarha.html',
   './zitije-sveti-prvomucenik-stefan.html',
   './zitije-sveti-vasilije-veliki.html',
   './zitije-usekovanje.html',
@@ -149,48 +145,27 @@ const assets = [
   './zitije-vavedenje.html',
   './zitije-vaznesenje.html',
   './zitije-veliki-petak.html',
-  './zitije-vidovdan.html',
-  './jovan.html',
-  './jovan-1.html',
-  './jovan-2.html',
-  './jovan-3.html',
-  './jovan-4.html',
-  './jovan-5.html',
-  './jovan-6.html',
-  './jovan-7.html',
-  './jovan-8.html',
-  './jovan-9.html',
-  './jovan-10.html',
-  './jovan-11.html',
-  './jovan-12.html',
-  './jovan-13.html',
-  './jovan-14.html',
-  './jovan-15.html',
-  './jovan-16.html',
-  './jovan-17.html',
-  './jovan-18.html',
-  './jovan-19.html',
-  './jovan-20.html',
+  './vidovdan.html',
+  './jovan-1.html', './jovan-2.html', './jovan-3.html', './jovan-4.html', './jovan-5.html',
+  './jovan-6.html', './jovan-7.html', './jovan-8.html', './jovan-9.html', './jovan-10.html',
+  './jovan-11.html', './jovan-12.html', './jovan-13.html', './jovan-14.html', './jovan-15.html',
+  './jovan-16.html', './jovan-17.html', './jovan-18.html', './jovan-19.html', './jovan-20.html',
   './jovan-21.html',
-  './matej.html',
   './matej-1.html', './matej-2.html', './matej-3.html', './matej-4.html', './matej-5.html',
   './matej-6.html', './matej-7.html', './matej-8.html', './matej-9.html', './matej-10.html',
   './matej-11.html', './matej-12.html', './matej-13.html', './matej-14.html', './matej-15.html',
   './matej-16.html', './matej-17.html', './matej-18.html', './matej-19.html', './matej-20.html',
   './matej-21.html', './matej-22.html', './matej-23.html', './matej-24.html', './matej-25.html',
   './matej-26.html', './matej-27.html', './matej-28.html',
- './marko.html',
   './marko-1.html', './marko-2.html', './marko-3.html', './marko-4.html', './marko-5.html',
   './marko-6.html', './marko-7.html', './marko-8.html', './marko-9.html', './marko-10.html',
   './marko-11.html', './marko-12.html', './marko-13.html', './marko-14.html', './marko-15.html', 
   './marko-16.html',
-  './luka.html',
   './luka-1.html', './luka-2.html', './luka-3.html', './luka-4.html', './luka-5.html',
   './luka-6.html', './luka-7.html', './luka-8.html', './luka-9.html', './luka-10.html',
   './luka-11.html', './luka-12.html', './luka-13.html', './luka-14.html', './luka-15.html',
   './luka-16.html', './luka-17.html', './luka-18.html', './luka-19.html', './luka-20.html',
   './luka-21.html', './luka-22.html', './luka-23.html', './luka-24.html',
-  // MOLITVE IZ MOLITVENIKA:
   './o-molitvi-sv-jovan-krostantski.html',
   './jutarnje-molitve.html',
   './molitveno-pravilo-serafima-sarovskog.html',
@@ -232,10 +207,10 @@ const assets = [
   './molitve-pre-spavanja.html',
   './molitva-pre-uzimanja-nafore-i-svete-vode.html',
   './hrabrost-za-molitvu.html',
-'./ucenje-starca-vasilija-o-isusovoj-molitvi.html' 
+  './ucenje-starca-vasilija-o-isusovoj-molitvi.html'
 ];
 
-// Инсталација - Складиштимо све са списка у телефон
+// 1. ИНСТАЛАЦИЈА - Спремање за рад без интернета
 self.addEventListener('install', evt => {
   self.skipWaiting();
   evt.waitUntil(
@@ -246,24 +221,47 @@ self.addEventListener('install', evt => {
   );
 });
 
+// 2. АКТИВАЦИЈА - Брише старе верзије кеша (ово форсира телефон да узме нове измене)
+self.addEventListener('activate', evt => {
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(key => key !== cacheName).map(key => caches.delete(key))
+      );
+    })
+  );
+});
+
+// 3. СЛУШАЧ ЗАХТЕВА (FETCH) - Паметна логика за Офлајн и за Охридски Пролог
 self.addEventListener('fetch', evt => {
+  // Посебна стратегија за Охридски пролог или календар (увек тражи свеже, ако нема нета дај из кеша)
+  if (evt.request.url.includes('ohridski-prolog') || evt.request.url.includes('kalendar') || evt.request.url.includes('svetitelji.json')) {
+    evt.respondWith(
+      fetch(evt.request).then(fetchRes => {
+        return caches.open(cacheName).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone());
+          return fetchRes;
+        });
+      }).catch(() => {
+        return caches.match(evt.request);
+      })
+    );
+    return;
+  }
+
+  // Стандардна стратегија за све остале унапред учитане молитве и јеванђеља
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
-      // 1. Ako je fajl već u memoriji, daj ga odmah (to je ono što radi offline)
       if (cacheRes) {
         return cacheRes;
       }
-
-      // 2. Ako NIJE u memoriji, probaj da ga skineš sa neta
       return fetch(evt.request).then(fetchRes => {
-        // Ako je skidanje uspelo, odmah ga "sakrij" u memoriju za sledeći put
         return caches.open(cacheName).then(cache => {
           cache.put(evt.request.url, fetchRes.clone());
           return fetchRes;
         });
       });
     }).catch(() => {
-      // 3. Ako si skroz offline i nema fajla, baci ga na početnu (da ne vidi grešku)
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
