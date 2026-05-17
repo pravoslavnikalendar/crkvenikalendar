@@ -1,4 +1,4 @@
-const cacheName = 'riznica-final-v43';
+const cacheName = 'riznica-final-v44';
 const assets = [
   '/',
   '/index.html',
@@ -134,7 +134,7 @@ self.addEventListener('fetch', evt => {
       });
     }).catch(() => {
       if (evt.request.url.indexOf('.html') > -1) {
-        return caches.match('./index.html');
+        return caches.match('/index.html');
       }
     })
   );
