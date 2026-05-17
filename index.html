@@ -1152,15 +1152,7 @@ function preslovi(pismo) {
 }
 </script>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(() => console.log("Ризница је спремна за offline рад!"))
-        .catch(err => console.log("Грешка:", err));
-    });
-  }
-</script>
+
 
 <script>
     fetch('svetitelji.json')
@@ -1288,16 +1280,17 @@ function preslovi(pismo) {
 
 <script>
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      // Promenili smo verziju u v=41 da se poklopi sa riznica-final-v41 iz sw.js
-      navigator.serviceWorker.register('./sw.js?v=41')
-        .then(reg => {
-          console.log('Riznica spremna!');
-          reg.update(); 
-        })
-        .catch(err => console.error('Greška pri registraciji:', err));
-    });
-  }
+window.addEventListener('load', () => {
+navigator.serviceWorker.register('/sw.js?v=42')
+.then(reg => {
+console.log('Riznica spremna!');
+reg.update();
+})
+.catch(err =>
+console.error('Greška pri registraciji:', err)
+);
+});
+}
 </script>
 	
 </body>
