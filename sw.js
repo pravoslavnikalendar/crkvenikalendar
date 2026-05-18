@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v56';
+const cacheName = 'pravoslavna-riznica-final-v57';
 const assets = [
   './',
   './index.html',
@@ -7,6 +7,11 @@ const assets = [
   './kalendar.html',
   './prolog.html',
   './novizavet.html',
+  './duhovne-pouke.html',
+  './duhovne-poucne-price.html',
+  './praznici.html',
+  './post-i-trapave-sedmice.html',
+  './vaskrsnji-kalendar.html',
   './stil.css',
   './skripta.js',
   './manifest.json',
@@ -15,12 +20,12 @@ const assets = [
   './web-app-manifest-512x512.png'
 ];
 
-// 1. Instalacija - sada uspešno zaključava svih 13 fajlova jer su nazivi 100% tačni!
+// 1. Instalacija - sada zaključava CELU Riznicu sa svim glavnim stranicama odjednom!
 self.addEventListener('install', evt => {
   self.skipWaiting(); 
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Skladištim kostur Riznice u keš...');
+      console.log('Skladištim kompletan kostur Riznice u keš...');
       return cache.addAll(assets);
     })
   );
@@ -64,6 +69,13 @@ self.addEventListener('fetch', evt => {
           return fetchRes;
         });
       });
+    }).catch(() => {
+      if (evt.request.url.indexOf('.html') > -1) {
+        return caches.match('./index.html');
+      }
+    })
+  );
+});
     }).catch(() => {
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
