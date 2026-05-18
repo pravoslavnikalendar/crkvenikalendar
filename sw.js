@@ -1,6 +1,6 @@
 const cacheName = 'pravoslavna-riznica-final-v53';
 const assets = [
-  '/',
+  './',
   './index.html',
   './psaltir.html',
   './molitvenik.html',
