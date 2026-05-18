@@ -1,4 +1,4 @@
-const cacheName = 'riznica-final-v46';
+const cacheName = 'riznica-final-v47';
 const assets = [
   '/',
   './index.html',
