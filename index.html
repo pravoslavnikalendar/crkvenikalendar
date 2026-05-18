@@ -1279,19 +1279,17 @@ function preslovi(pismo) {
 	
 
 <script>
-// Provera i registracija Service Worker-a na pravoj adresi
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./sw.js") // Ovako mu kažemo da je fajl u glavnom folderu
-      .then((reg) => {
-        console.log("Ризница је успешно регистрована!", reg);
-      })
-      .catch((err) => {
-        console.log("Грешка при регистрацији:", err);
-      });
-  });
-}
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then(reg => {
+          console.log('Riznica spremna!');
+          reg.update(); 
+        })
+        .catch(err => console.error('Greška pri registraciji:', err));
+    });
+  }
+</script>
 	
 </body>
 </html>
