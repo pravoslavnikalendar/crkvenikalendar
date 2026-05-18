@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v55';
+const cacheName = 'pravoslavna-riznica-final-v56';
 const assets = [
   './',
   './index.html',
@@ -10,10 +10,12 @@ const assets = [
   './stil.css',
   './skripta.js',
   './manifest.json',
-  './ikona192.png'
+  './ikona.png',
+  './web-app-manifest-192x192.png',
+  './web-app-manifest-512x512.png'
 ];
 
-// 1. Instalacija - sada je munjevita jer ima samo 11 fajlova Kostura
+// 1. Instalacija - sada uspešno zaključava svih 13 fajlova jer su nazivi 100% tačni!
 self.addEventListener('install', evt => {
   self.skipWaiting(); 
   evt.waitUntil(
@@ -24,11 +26,11 @@ self.addEventListener('install', evt => {
   );
 });
 
-// 2. Aktivacija i čišćenje starih verzija (da otkočimo "Loading...")
+// 2. Aktivacija i čišćenje starih verzija
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     Promise.all([
-      self.clients.claim(), // Prisiljava telefon da odmah sluša ovaj novi kod
+      self.clients.claim(),
       caches.keys().then(keys => {
         return Promise.all(keys
           .filter(key => key !== cacheName)
@@ -41,37 +43,28 @@ self.addEventListener('activate', evt => {
 
 // 3. Fetch - Pametni imuni usisivač koji ignoriše Google Drive i čuva tvoj sajt
 self.addEventListener('fetch', evt => {
-  // Ignorišemo zahteve koji nisu HTTP/HTTPS (npr. chrome-extension ili apple protokoli koji baguju iOS)
   if (!evt.request.url.startsWith('http')) return;
 
-  // SPAS ZA GOOGLE DRIVE: Ako zahtev ide ka Google-u ili Drive-u, pusti ga direktno na net, NE POKUŠAVAJ DA GA USISAŠ!
+  // Spas za Google Drive audio fajlove
   if (evt.request.url.includes('google.com') || evt.request.url.includes('googleusercontent.com')) {
-    return; // Service Worker se sklanja s puta, muzika svira onlajn, nema pucanja koda!
+    return; 
   }
 
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
-      
-      // Ako je već u memoriji, daj ga odmah (brzina za offline!)
       if (cacheRes) return cacheRes;
 
-      // Ako nije u memoriji, skini ga sa neta
       return fetch(evt.request).then(fetchRes => {
-        
-        // Ako server vrati grešku (npr. 404), nemoj to da stavljaš u keš
         if (!fetchRes || fetchRes.status !== 200 || fetchRes.type !== 'basic') {
           return fetchRes;
         }
 
-        // Ako je sve u redu i fajl je naš (sa GitHub-a), zapamti ga za offline
         return caches.open(cacheName).then(cache => {
-          // Ovde se dešava magija: tvoj klik na Mateja ili Januar se ovde tiho snima
           cache.put(evt.request.url, fetchRes.clone());
           return fetchRes;
         });
       });
     }).catch(() => {
-      // Ako nema neta, a traži se HTML stranica koja nije snimljena, baci na početnu
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
