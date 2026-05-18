@@ -103,39 +103,20 @@ self.addEventListener('activate', evt => {
   );
 });
 
-// 3. СЛУШАЧ ЗАХТЕВА (FETCH) - Паметна логика за Офлајн и за Охридски Пролог
 self.addEventListener('fetch', evt => {
-  // Посебна стратегија за Охридски пролог или календар (увек тражи свеже, ако нема нета дај из кеша)
-  if (evt.request.url.includes('ohridski-prolog') || evt.request.url.includes('kalendar') || evt.request.url.includes('svetitelji.json')) {
-    evt.respondWith(
-      fetch(evt.request).then(fetchRes => {
-        return caches.open(cacheName).then(cache => {
-          cache.put(evt.request.url, fetchRes.clone());
-          return fetchRes;
-        });
-      }).catch(() => {
-        return caches.match(evt.request);
-      })
-    );
-    return;
-  }
-
-  // Стандардна стратегија за све остале унапред учитане молитве и јеванђеља
-  evt.respondWith(
-    caches.match(evt.request).then(cacheRes => {
-      if (cacheRes) {
-        return cacheRes;
-      }
-      return fetch(evt.request).then(fetchRes => {
-        return caches.open(cacheName).then(cache => {
-          cache.put(evt.request, fetchRes.clone());
-          return fetchRes;
-        });
-      });
-    }).catch(() => {
-      if (evt.request.url.indexOf('.html') > -1) {
-        return caches.match('./index.html');
-      }
-    })
-  );
+evt.respondWith(
+caches.match(evt.request).then(cacheRes => {
+return cacheRes || fetch(evt.request).then(fetchRes => {
+return caches.open(cacheName).then(cache => {
+cache.put(evt.request, fetchRes.clone());
+return fetchRes;
+});
+}).catch(() => {
+// Ako je HTML stranica offline
+if (evt.request.mode === 'navigate') {
+return caches.match('./index.html');
+}
+});
+})
+);
 });
