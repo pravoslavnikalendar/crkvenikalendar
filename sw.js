@@ -1,4 +1,4 @@
-const cacheName = 'riznica-final-v48';
+const cacheName = 'riznica-final-v49';
 const assets = [
   '/',
   './index.html',
@@ -26,68 +26,37 @@ self.addEventListener('activate', evt => {
       return Promise.all(
         keys.filter(key => key !== cacheName).map(key => caches.delete(key))
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
-self.addEventListener('fetch', evt => {
 
 
-
-evt.respondWith(
-
-
-
-caches.match(evt.request).then(response => {
-
-
-
-return response || fetch(evt.request).then(fetchRes => {
-
-
-
-return caches.open(cacheName).then(cache => {
-
-
-
-cache.put(evt.request, fetchRes.clone());
-
-
-
-return fetchRes;
-
-
-
-});
-
-
-
-}).catch(() => {
-
-
-
-if (evt.request.mode === 'navigate') {
-
-
-
-return caches.match('./index.html');
-
-
-
-}
-
-
-
-});
-
-
-
+self.addEventListener('install', evt => {
+self.skipWaiting();
+evt.waitUntil(
+caches.open(cacheName).then(cache => {
+return cache.addAll([
+'./',
+'./index.html',
+'./psaltir.html',
+'./molitvenik.html'
+]);
 })
-
-
-
 );
+});
 
 
-
+self.addEventListener('install', evt => {
+self.skipWaiting();
+evt.waitUntil(
+caches.open(cacheName).then(cache => {
+return cache.addAll([
+'./',
+'./index.html',
+'./psaltir.html',
+'./molitvenik.html'
+]);
+})
+);
 });
