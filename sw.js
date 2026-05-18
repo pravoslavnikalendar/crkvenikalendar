@@ -1,4 +1,4 @@
-const cacheName = 'riznica-final-v47';
+const cacheName = 'riznica-final-v48';
 const assets = [
   '/',
   './index.html',
@@ -104,19 +104,67 @@ self.addEventListener('activate', evt => {
 });
 
 self.addEventListener('fetch', evt => {
+
+
+
 evt.respondWith(
-caches.match(evt.request).then(cacheRes => {
-return cacheRes || fetch(evt.request).then(fetchRes => {
+
+
+
+caches.match(evt.request).then(response => {
+
+
+
+return response || fetch(evt.request).then(fetchRes => {
+
+
+
 return caches.open(cacheName).then(cache => {
+
+
+
 cache.put(evt.request, fetchRes.clone());
+
+
+
 return fetchRes;
+
+
+
 });
+
+
+
 }).catch(() => {
-// Ako je HTML stranica offline
-if (evt.request.mode === 'navigate') {
+
+
+
+// Offline fallback za HTML stranice
+
+
+
+if (evt.request.headers.get('accept').includes('text/html')) {
+
+
+
 return caches.match('./index.html');
+
+
+
 }
+
+
+
 });
+
+
+
 })
+
+
+
 );
+
+
+
 });
