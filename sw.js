@@ -1,3 +1,4 @@
+const cacheName = 'pravoslavna-riznica-final-v54';
 // Ovde ostavljamo SAMO glavne ulaze i kostur aplikacije
 const assets = [
   './',
