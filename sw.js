@@ -2,7 +2,6 @@ const cacheName = 'riznica-final-v48';
 const assets = [
   '/',
   './index.html',
- 
   './psaltir.html',
   './molitvenik.html',
 
