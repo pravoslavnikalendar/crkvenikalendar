@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v52';
+const cacheName = 'pravoslavna-riznica-final-v53';
 const assets = [
   '/',
   './index.html',
@@ -140,40 +140,46 @@ const assets = [
 
 ];
 
-// 1. ИНСТАЛАЦИЈА - Спремање за рад без интернета
+// Instalacija service workera
 self.addEventListener('install', evt => {
-  self.skipWaiting();
+  self.skipWaiting(); // Tera telefon da odmah prihvati novu verziju (v9)
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Ризница се спрема за рад без интернета...');
+      console.log('Skladištim tvoju riznicu u keš...');
       return cache.addAll(assets);
     })
   );
 });
 
-// 2. АКТИВАЦИЈА - Брише старе верзије кеша (ово форсира телефон да узме нове измене)
+// Aktivacija i brisanje starog keša
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     caches.keys().then(keys => {
-      return Promise.all(
-        keys.filter(key => key !== cacheName).map(key => caches.delete(key))
+      return Promise.all(keys
+        .filter(key => key !== cacheName)
+        .map(key => caches.delete(key))
       );
-    }).then(() => self.clients.claim())
+    })
   );
 });
 
-
-
-// Provera i registracija Service Worker-a na pravoj adresi
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("./sw.js") // Ovako mu kažemo da je fajl u glavnom folderu
-      .then((reg) => {
-        console.log("Ризница је успешно регистрована!", reg);
-      })
-      .catch((err) => {
-        console.log("Грешка при регистрацији:", err);
+// Fetch događaj - uzimanje iz keša + pametno dopunjavanje
+self.addEventListener('fetch', evt => {
+  evt.respondWith(
+    caches.match(evt.request).then(cacheRes => {
+      // Ako je fajl već u kešu (papir, ikone, psaltir), uzmi ga odatle
+      return cacheRes || fetch(evt.request).then(fetchRes => {
+        // Ako nije u kešu, ali imamo internet, skini ga i usput ga spakuj u keš
+        return caches.open(cacheName).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone());
+          return fetchRes;
+        });
       });
-  });
-}
+    }).catch(() => {
+      // Ako nema interneta, a traži se nešto što nismo spakovali, vrati početnu stranu
+      if (evt.request.url.indexOf('.html') > -1) {
+        return caches.match('./index.html');
+      }
+    })
+  );
+});
