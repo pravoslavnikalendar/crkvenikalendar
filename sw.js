@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavni kalendar-final-v50';
+const cacheName = 'pravoslavna-riznica-final-v50';
 const assets = [
   '/',
   './index.html',
