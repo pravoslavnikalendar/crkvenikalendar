@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v53';
+// Ovde ostavljamo SAMO glavne ulaze i kostur aplikacije
 const assets = [
   './',
   './index.html',
@@ -10,173 +10,57 @@ const assets = [
   './duhovne-poucne-price.html',
   './praznici.html',
   './post-i-trapave-sedmice.html',
-  './vaskrsnji-kalendar.html',
-  './januar-2026.html',
-  './februar-2026.html',
-  './mart-2026.html',
-  './april-2026.html',
-  './maj-2026.html',
-  './jun-2026.html',
-  './jul-2026.html',
-  './avgust-2026.html',
-  './septembar-2026.html',
-  './oktobar-2026.html',
-  './novembar-2026.html',
-  './decembar-2026.html',
-  './prolog-januar.html',
-  './prolog-februar.html',
-  './prolog-mart.html',
-  './prolog-april.html',
-  './prolog-maj.html',
-  './prolog-jun.html',
-  './prolog-jul.html',
-  './prolog-avgust.html',
-  './prolog-septembar.html',
-  './prolog-oktobar.html',
-  './prolog-novembar.html',
-  './prolog-decembar.html',
-  './zitije-bozic.html',
-  './zitije-arandjelovdan.html',
-  './zitije-blagovesti.html',
-  './zitije-bogojavljenje.html',
-  './zitije-cveti.html',
-  './zitije-djurdjevdan.html',
-  './zitije-duhovski-ponedeljak.html',
-  './zitije-duhovski-utorak.html',
-  './zitije-ivanjdan.html',
-  './zitije-jovankrstitelj.html',
-  './zitije-kirilo-metodije.html',
-  './zitije-konstantin-jelena.html', 
-  './zitije-krstovdan.html',
-  './zitije-mala-gospojina.html',
-  './zitije-mitrovdan.html',
-  './zitije-nikoljdan.html',
-  './zitije-petar-cetinjski.html',
-  './zitije-petrovdan.html',
-  './zitije-preobrazenje.html',
-  './zitije-prorok-ilija.html',
-  './zitije-sabor.html',
-
- './zitije-silazak-duha-svetoga.html',
-  './zitije-sretenje-gospodnje.html',
-  './zitije-sv-sava.html',
-  './zitije-sveta-petka.html',
-  './zitije-sveta-tri-jerarha.html',
-  './zitije-sveti-prvomucenik-stefan.html',
-  './zitije-sveti-vasilije-veliki.html',
-  './zitije-usekovanje.html',
-  './zitije-uspenije.html',
-  './zitije-vasilije-ostroski.html',
-  './zitije-vaskrs.html',
-  './zitije-vaskrsni-ponedeljak.html',
-  './zitije-vaskrsni-utorak.html',
-  './zitije-vavedenje.html',
-  './zitije-vaznesenje.html',
-  './zitije-veliki-petak.html',
-  './vidovdan.html',
-  './jovan-1.html', './jovan-2.html', './jovan-3.html', './jovan-4.html', './jovan-5.html',
-  './jovan-6.html', './jovan-7.html', './jovan-8.html', './jovan-9.html', './jovan-10.html',
-  './jovan-11.html', './jovan-12.html', './jovan-13.html', './jovan-14.html', './jovan-15.html',
-  './jovan-16.html', './jovan-17.html', './jovan-18.html', './jovan-19.html', './jovan-20.html',
-  './jovan-21.html',
-  './matej-1.html', './matej-2.html', './matej-3.html', './matej-4.html', './matej-5.html',
-  './matej-6.html', './matej-7.html', './matej-8.html', './matej-9.html', './matej-10.html',
-  './matej-11.html', './matej-12.html', './matej-13.html', './matej-14.html', './matej-15.html',
-  './matej-16.html', './matej-17.html', './matej-18.html', './matej-19.html', './matej-20.html',
-  './matej-21.html', './matej-22.html', './matej-23.html', './matej-24.html', './matej-25.html',
-  './matej-26.html', './matej-27.html', './matej-28.html',
-  './marko-1.html', './marko-2.html', './marko-3.html', './marko-4.html', './marko-5.html',
-  './marko-6.html', './marko-7.html', './marko-8.html', './marko-9.html', './marko-10.html',
-  './marko-11.html', './marko-12.html', './marko-13.html', './marko-14.html', './marko-15.html', 
-  './marko-16.html',
-  './luka-1.html', './luka-2.html', './luka-3.html', './luka-4.html', './luka-5.html',
-  './luka-6.html', './luka-7.html', './luka-8.html', './luka-9.html', './luka-10.html',
-  './luka-11.html', './luka-12.html', './luka-13.html', './luka-14.html', './luka-15.html',
-  './luka-16.html', './luka-17.html', './luka-18.html', './luka-19.html', './luka-20.html',
-  './luka-21.html', './luka-22.html', './luka-23.html', './luka-24.html',
-  './o-molitvi-sv-jovan-krostantski.html',
-  './jutarnje-molitve.html',
-  './molitveno-pravilo-serafima-sarovskog.html',
-  './bogorodice-djevo.html',
-  './simbol-vere.html',
-  './molitva-za-decu.html',
-  './molitva-za-roditelje.html',
-  './molitva-za-otvorenje-uma.html',
-  './molitva-svetog-filareta.html',
-  './velikoposna-molitva-svetog-jefrema-sirina.html',
-  './molitva-pokajnika.html',
-  './molitve-andjelu-cuvaru.html',
-  './molitva-isusu-hristu.html',
-  './molitve-svetim-arhangelima-za-svaki-dan-u-nedelji.html',
-  './molitve-presvetoj-bogorodici-za-svaki-dan-u-nedelji.html',
-  './molitva-za-spasenje-od-rasejanosti-uma.html',
-  './molitva-bogorodici.html',
-  './molitva-u-tuzi-dusevnoj.html',
-  './molitva-za-upokojene.html',
-  './molitva-za-upokojene-prestavljenih.html',
-  './molitva-za-zastitu-od-necistih-sila.html',
-  './pokajna-molitva.html',
-  './molitva-za-oprostaj-greha.html',
-  './molitva-presvetoj-bogorodici-brzopomocnici.html',
-  './molitve-za-svetu-tajnu-braku.html',
-  './molitva-presvetoj-bogorodici-u-nevolji-i-potistenosti.html',
-  './molitvе-svetom-vasiliju-ostroskom.html',
-  './molitva-protiv-hulnih-pomisli.html',
-  './zahvalna-molitva.html',
-  './molitva-za-umnozenje-ljubavi.html',
-  './molitva-za-one-koji-putuju.html',
-  './molitva-svetom-naumu-ohridskom-cudotvorcu.html',
-  './molitva-za-bolesnika.html',
-  './molitva-pred-ispovest.html',
-  './podsetnik-za-ispovest.html',
-  './molitva-pred-sveto-pricesce.html',
-  './molitva-posle-svetog-pricesca.html',
-  './molitve-pre-i-posle-ucenja.html',
-  './molitve-pre-spavanja.html',
-  './molitva-pre-uzimanja-nafore-i-svete-vode.html',
-  './hrabrost-za-molitvu.html',
-  './ucenje-starca-vasilija-o-isusovoj-molitvi.html'
-
-
+  './vaskrsnji-kalendar.html'
+  // SVA JEVANĐELJA, MESECE I ŽITIJA SMO SKLONILI ODAVDE. 
+  // Oni ostaju na GitHubu, a aplikacija će ih sama naučiti u hodu!
 ];
 
-// Instalacija service workera
+// Instalacija - sada je munjevita jer ima samo 11 fajlova
 self.addEventListener('install', evt => {
-  self.skipWaiting(); // Tera telefon da odmah prihvati novu verziju (v9)
+  self.skipWaiting(); 
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Skladištim tvoju riznicu u keš...');
+      console.log('Skladištim kostur Riznice u keš...');
       return cache.addAll(assets);
     })
   );
 });
 
-// Aktivacija i brisanje starog keša
+// Aktivacija i čišćenje starih verzija (da otkočimo "Loading...")
 self.addEventListener('activate', evt => {
   evt.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(keys
-        .filter(key => key !== cacheName)
-        .map(key => caches.delete(key))
-      );
-    })
+    Promise.all([
+      self.clients.claim(), // Prisiljava telefon da odmah sluša ovaj novi kod
+      caches.keys().then(keys => {
+        return Promise.all(keys
+          .filter(key => key !== cacheName)
+          .map(key => caches.delete(key))
+        );
+      })
+    ])
   );
 });
 
-// Fetch događaj - uzimanje iz keša + pametno dopunjavanje
+// Fetch - Tvoj pametni kod koji sada radi bez opterećenja
 self.addEventListener('fetch', evt => {
+  // Ignorišemo zahteve koji nisu HTTP/HTTPS (npr. chrome-extension ili apple protokoli koji baguju iOS)
+  if (!evt.request.url.startsWith('http')) return;
+
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
-      // Ako je fajl već u kešu (papir, ikone, psaltir), uzmi ga odatle
+      
+      // Ako je već u memoriji, daj ga odmah (brzina za offline!)
       return cacheRes || fetch(evt.request).then(fetchRes => {
-        // Ako nije u kešu, ali imamo internet, skini ga i usput ga spakuj u keš
+        
+        // Ako nije u memoriji, skini ga sa neta i ODMAH zapamti za offline
         return caches.open(cacheName).then(cache => {
+          // Ovde se dešava magija: tvoj klik na Mateja ili Januar se ovde tiho snima
           cache.put(evt.request.url, fetchRes.clone());
           return fetchRes;
         });
       });
     }).catch(() => {
-      // Ako nema interneta, a traži se nešto što nismo spakovali, vrati početnu stranu
+      // Ako nema neta, a traži se HTML stranica koja nije snimljena, baci na početnu
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
