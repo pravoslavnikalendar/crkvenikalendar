@@ -66,11 +66,7 @@ return fetchRes;
 
 
 
-// Offline fallback za HTML stranice
-
-
-
-if (evt.request.headers.get('accept').includes('text/html')) {
+if (evt.request.mode === 'navigate') {
 
 
 
