@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v51';
+const cacheName = 'pravoslavna-riznica-final-v52';
 const assets = [
   '/',
   './index.html',
@@ -164,31 +164,16 @@ self.addEventListener('activate', evt => {
 
 
 
-self.addEventListener('install', evt => {
-self.skipWaiting();
-evt.waitUntil(
-caches.open(cacheName).then(cache => {
-return cache.addAll([
-'./',
-'./index.html',
-'./psaltir.html',
-'./molitvenik.html'
-]);
-})
-);
-});
-
-
-self.addEventListener('install', evt => {
-self.skipWaiting();
-evt.waitUntil(
-caches.open(cacheName).then(cache => {
-return cache.addAll([
-'./',
-'./index.html',
-'./psaltir.html',
-'./molitvenik.html'
-]);
-})
-);
-});
+// Provera i registracija Service Worker-a na pravoj adresi
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./sw.js") // Ovako mu kažemo da je fajl u glavnom folderu
+      .then((reg) => {
+        console.log("Ризница је успешно регистрована!", reg);
+      })
+      .catch((err) => {
+        console.log("Грешка при регистрацији:", err);
+      });
+  });
+}
