@@ -1284,7 +1284,16 @@ function preslovi(pismo) {
       navigator.serviceWorker.register('./sw.js')
         .then(reg => {
           console.log('Riznica spremna!');
-          reg.update(); 
+          
+          // Ako ima novog koda, telefon će ga tiho skinuti u pozadini
+          reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('Nova verzija Riznice je spremna. Biće aktivna pri sledećem otvaranju!');
+              }
+            });
+          });
         })
         .catch(err => console.error('Greška pri registraciji:', err));
     });
