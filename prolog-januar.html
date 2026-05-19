@@ -84,12 +84,25 @@
         }
 
         .home-dugme {
-            position: fixed; top: 15px; left: 15px;
-            background: rgba(242, 230, 201, 0.9);
-            padding: 10px 15px; border-radius: 8px;
-            border: 1px solid #8b6f47; text-decoration: none; color: #4A3728;
-            font-size: 20px; z-index: 100;
-        }
+    position: fixed; 
+    top: 20px;                 /* Spustio sam na 20px da bude u ravni sa strelicom */
+    left: 50%;                 /* Pomeri dugme na tačnu polovinu ekrana... */
+    transform: translateX(-50%); /* ...i vrati ga za pola njegove širine nazad da bude idealno u centru! */
+    background: rgba(242, 230, 201, 0.9);
+    padding: 10px 15px; 
+    border-radius: 8px;
+    border: 1px solid #8b6f47; 
+    text-decoration: none; 
+    color: #4A3728;
+    font-size: 20px; 
+    z-index: 10000;            /* Povećao sam z-index da uvek bude iznad teksta dok skroluješ */
+    transition: 0.3s;
+}
+
+.home-dugme:hover {
+    transform: translateX(-50%) scale(1.1); /* Efekat blagog povećanja, čuvajući centar */
+}
+
 
 .nazad-dugme {
     font-size: 26px; /* Veća strelica na dnu */
