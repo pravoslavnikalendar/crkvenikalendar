@@ -179,7 +179,27 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
 }
 
 
+.fiksni-nazad {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(242, 230, 201, 0.95); /* Tvoja bež */
+    border: 1px solid #8b6f47;            /* Zlatni okvir */
+    border-radius: 50%;                   /* Krug */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: 0.3s;
+}
 
+.fiksni-nazad:hover {
+    transform: scale(1.1);
+}
 
 
 
@@ -208,6 +228,14 @@ b { color: #8b0000; } /* Crveni brojevi psalama */
     </style>
 </head>
 <body>
+
+<a href="./ohridski-prolog.html" class="fiksni-nazad" aria-label="Назад на Пролог">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8b6f47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
+  </svg>
+</a>
+    
 <div class='column-right-outer'>
 <div class='column-right-inner'>
 <aside>
