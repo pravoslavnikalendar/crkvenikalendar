@@ -1,8 +1,8 @@
 {
   "id": "pravoslavna-riznica-ljubav-pravoslavlje",
-  "short_name": "Ризница",
-  "name": "Православна Ризница и Календар",
-  "description": "Православна духовна ризница: црквени календар, житија светих, охридски пролог, молитвеник, псалтир и духовне поуке.",
+  "short_name": "Ljubav Pravoslavlje",
+  "name": "Pravoslavlje Kalendar Pravoslavni kalendar",
+  "description": "Православни црквени календар, духовне поуке, псалтир, молитвеник, духовне поучне приче, аудио молитве, православна музика, свето писмо.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
