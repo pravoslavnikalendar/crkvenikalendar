@@ -14,7 +14,7 @@
     "lifestyle",
     "books"
   ],
-"icons": [
+  "icons": [
     {
       "src": "web-app-manifest-192x192.png",
       "sizes": "192x192",
@@ -39,7 +39,7 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
   "screenshots": [
     {
       "src": "screen1.png",
