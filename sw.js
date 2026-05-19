@@ -1,6 +1,6 @@
-const cacheName = 'pravoslavna-riznica-final-v50';
+const cacheName = 'pravoslavna-riznica-final-v51';
 const assets = [
-  '/',
+  './',
   './index.html',
   './psaltir.html',
   './molitvenik.html',
@@ -129,6 +129,7 @@ const assets = [
   './molitva-pred-ispovest.html',
   './podsetnik-za-ispovest.html',
   './molitva-pred-sveto-pricesce.html',
+  './molitva-posle-svetog-predictions.html', // zadržano ime iz tvog koda
   './molitva-posle-svetog-pricesca.html',
   './molitve-pre-i-posle-ucenja.html',
   './molitve-pre-spavanja.html',
@@ -139,17 +140,24 @@ const assets = [
   './svetitelji.json'
 ];
 
-// Instalacija i keširanje
+// 1. Instalacija: Snimanje fajlova JEDAN PO JEDAN bez rušenja skripte
 self.addEventListener('install', evt => {
+  self.skipWaiting(); 
   evt.waitUntil(
     caches.open(cacheName).then(cache => {
-      console.log('Усисивач је спаковао све моливе и јеванђеља!');
-      return cache.addAll(assets);
+      console.log('Усисивач пакује фајлове један по један...');
+      return Promise.all(
+        assets.map(url => {
+          return cache.add(url).catch(err => {
+            console.error('Недостаје фајл на серверу, али идемо даље:', url);
+          });
+        })
+      );
     })
   );
 });
 
-// Aktivacija i čišćenje starih keševa
+// 2. Aktivacija i čišćenje starih keševa
 self.addEventListener('activate', evt => {
   evt.waitUntil(
     caches.keys().then(keys => {
@@ -160,13 +168,12 @@ self.addEventListener('activate', evt => {
   );
 });
 
-// Fetch event - služi sve iz keša kad nema neta
+// 3. Fetch event - servira fajlove offline i dinamički dopunjava keš
 self.addEventListener('fetch', evt => {
   evt.respondWith(
     caches.match(evt.request).then(cacheRes => {
       return cacheRes || fetch(evt.request).then(fetchRes => {
         return caches.open(cacheName).then(cache => {
-          // Dinamički usisava ako se pojavi neki novi fajl
           if (evt.request.url.startsWith(self.location.origin)) {
             cache.put(evt.request.url, fetchRes.clone());
           }
@@ -174,7 +181,6 @@ self.addEventListener('fetch', evt => {
         });
       });
     }).catch(() => {
-      // Ako ne nađe u kešu, a nema neta, otvara index.html
       if (evt.request.url.indexOf('.html') > -1) {
         return caches.match('./index.html');
       }
