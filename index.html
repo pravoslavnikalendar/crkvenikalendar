@@ -1141,23 +1141,7 @@ function preslovi(pismo) {
 
 
 
-<script>
 
-
-            kontejner.innerHTML += `
-                <div class="pouka-box" style="text-align: left;">
-                    <span class="${klasa}" style="font-size: 20px;">${kljuc}</span> - 
-                    <span class="${klasa}" style="font-size: 20px; font-weight: bold;">${p.praznik}</span>
-                    ${p.pouka ? `<p style="margin-top: 10px; font-style: times new roman;">${p.pouka}</p>` : ""}
-                    ${p.slika ? `<br><img src="${p.slika}" style="width: 120px; margin-top: 10px; border-radius: 5px;">` : ""}
-                </div>
-            `;
-    })
-    .catch(err => {
-        console.error("Greska:", err);
-        document.getElementById('lista-praznika').innerHTML = "Problem sa učitavanjem praznika.";
-    });
-</script>
 
 
 
