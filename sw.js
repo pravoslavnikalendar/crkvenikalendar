@@ -130,7 +130,6 @@ const assets = [
   './molitva-pred-ispovest.html',
   './podsetnik-za-ispovest.html',
   './molitva-pred-sveto-pricesce.html',
-  './molitva-posle-svetog-predictions.html', // zadržano ime iz tvog koda
   './molitva-posle-svetog-pricesca.html',
   './molitve-pre-i-posle-ucenja.html',
   './molitve-pre-spavanja.html',
