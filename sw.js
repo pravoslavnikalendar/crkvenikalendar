@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v51';
+const cacheName = 'pravoslavna-riznica-final-v52';
 const assets = [
   './',
   './index.html',
@@ -46,7 +46,8 @@ const assets = [
   './zitije-ivanjdan.html',
   './zitije-jovankrstitelj.html',
   './zitije-kirilo-metodije.html',
-  './zitije-konstantin-jelena.html', 
+  './zitije-konstantin-jelena.html',
+  './zitije-vidovdan.html',
   './zitije-krstovdan.html',
   './zitije-mala-gospojina.html',
   './zitije-mitrovdan.html',
