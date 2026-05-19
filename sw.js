@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v55';
+const cacheName = 'pravoslavna-riznica-final-v56';
 const assets = [
   './',
   './index.html',
@@ -73,7 +73,13 @@ const assets = [
   './zitije-vavedenje.html',
   './zitije-vaznesenje.html',
   './zitije-veliki-petak.html',
-  './vidovdan.html',
+  './screen1.png',
+  './screen2.png',
+  './screen3.png',
+  './screen4.png',
+  './screen5.png',
+  './screen6.png',
+  './screen7.png',
   './jovan-1.html', './jovan-2.html', './jovan-3.html', './jovan-4.html', './jovan-5.html',
   './jovan-6.html', './jovan-7.html', './jovan-8.html', './jovan-9.html', './jovan-10.html',
   './jovan-11.html', './jovan-12.html', './jovan-13.html', './jovan-14.html', './jovan-15.html',
