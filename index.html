@@ -774,7 +774,7 @@ padding: 0; /* Brišemo razmak oko celog tela */
 
 
    <!-- Skriveni meni (Vagončić) -->
-    <div class="header_right mobile" id="header_right">
+    <div class="header_right mobile" id="header_right">kao 
         <div class="meni-sadrzaj">
             <a href="#" class="zatvori-meni">✕ Затвори</a>
             <h3 style="color: #8b0000; margin-top: 30px;">ДУХОВНА РИЗНИЦА</h3>
@@ -1142,15 +1142,7 @@ function preslovi(pismo) {
 
 
 <script>
-    fetch('svetitelji.json')
-    .then(response => response.json())
-    .then(data => {
-        let kontejner = document.getElementById('lista-praznika');
-        kontejner.innerHTML = ""; // Briše poruku o učitavanju
 
-        for (let kljuc in data) {
-            let p = data[kljuc];
-            let klasa = (p.boja === "red") ? "crveno" : "";
 
             kontejner.innerHTML += `
                 <div class="pouka-box" style="text-align: left;">
