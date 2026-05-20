@@ -193,7 +193,7 @@ const assets = [
   './molitva-presvetoj-bogorodici-brzopomocnici.html',
   './molitve-za-svetu-tajnu-braku.html',
   './molitva-presvetoj-bogorodici-u-nevolji-i-potistenosti.html',
-  './molitvе-svetom-vasiliju-ostroskom.html',
+  './molitve-svetom-vasiliju-ostroskom.html',
   './molitva-protiv-hulnih-pomisli.html',
   './zahvalna-molitva.html',
   './molitva-za-umnozenje-ljubavi.html',
