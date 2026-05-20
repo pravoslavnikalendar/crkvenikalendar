@@ -1,4 +1,4 @@
-const cacheName = 'pravoslavna-riznica-final-v59';
+const cacheName = 'pravoslavna-riznica-final-v60';
 const assets = [
   './',
   './index.html',
@@ -97,7 +97,6 @@ const assets = [
   './sveta-tri-jerarha.jpg',
   './sveta-petka.jpg',
   './sve-primi-mirno.png',
-  './svako-dobro.png',
   './sv-sava.jpg',
   './stiker-bog.png',
   './svako-dobro.png',
